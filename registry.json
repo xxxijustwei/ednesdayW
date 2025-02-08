@@ -1,17 +1,17 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
-  "homepage": "https://acme.com",
+  "name": "shadcn-motion",
+  "homepage": "https://shadcn-motion.vercel.app",
   "items": [
     {
-      "name": "hello-world",
+      "name": "input",
       "type": "registry:component",
-      "title": "Hello World",
-      "description": "A simple hello world component",
+      "title": "Input",
+      "description": "A input component",
       "registryDependencies": ["button"],
       "files": [
         {
-          "path": "registry/hello-world/hello-world.tsx",
+          "path": "registry/input/input.tsx",
           "type": "registry:component"
         }
       ]
