@@ -15,6 +15,27 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:component",
+      "title": "Code Block",
+      "description": "A code block component",
+      "registryDependencies": ["scroll-area"],
+      "dependencies": [
+        "@rehype-pretty/transformers",
+        "rehype-pretty-code",
+        "rehype-stringify",
+        "remark-parse",
+        "remark-rehype",
+        "shiki"
+      ],
+      "files": [
+        {
+          "path": "registry/code-block/code-block.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
