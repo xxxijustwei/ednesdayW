@@ -1,5 +1,6 @@
 {
-  "name": "registry-template",
+  "name": "shadcn-tocelo",
+  "displayName": "Shadcn-Tocelo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
