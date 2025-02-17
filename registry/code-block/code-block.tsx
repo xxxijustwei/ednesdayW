@@ -19,15 +19,15 @@ export const CodeBlock = async (
 
     const highlightedCode = await highlightCode(content);
     return (
-        <div className='w-full bg-[#22272d] p-1 rounded-xl'>
+        <div className='w-full bg-[#22272d] p-4 pr-2 rounded-xl'>
             <ScrollArea
-                className='flex flex-col overflow-y-auto w-full p-4'
+                className='flex flex-col overflow-y-auto w-full'
                 style={{
                     maxHeight: maxHeight,
                 }}
             >
-
                 <section
+                    className="[&_pre]:!static"
                     dangerouslySetInnerHTML={{
                         __html: highlightedCode,
                     }}
