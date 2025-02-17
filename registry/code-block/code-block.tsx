@@ -7,8 +7,8 @@ import { transformerCopyButton } from '@rehype-pretty/transformers';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 
 interface Props {
-    lang: string;
-    code: string;
+    lang?: string;
+    code?: string;
     maxHeight?: string;
 }
 
