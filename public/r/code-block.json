@@ -10,7 +10,7 @@
     "rehype-stringify",
     "remark-parse",
     "remark-rehype",
-    "shiki"
+    "shiki@^1.29.2"
   ],
   "registryDependencies": [
     "scroll-area"
