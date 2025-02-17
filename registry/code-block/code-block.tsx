@@ -21,7 +21,7 @@ export const CodeBlock = async (
     return (
         <div className='w-full bg-[#22272d] p-4 pr-2 rounded-xl'>
             <ScrollArea
-                className='flex flex-col overflow-y-auto w-full'
+                className='flex flex-col items-center justify-center min-h-[28px] overflow-y-auto w-full'
                 style={{
                     maxHeight: maxHeight,
                 }}
