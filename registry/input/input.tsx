@@ -56,7 +56,7 @@ export interface InputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    ({ className, type, label, value, variant, size, isInvalid, disabled, onFocus, onBlur, onChange, ...props }, ref) => {
+    ({ className, type, label = "Label", value, variant, size, isInvalid, disabled, onFocus, onBlur, onChange, ...props }, ref) => {
         const containerRef = React.useRef<HTMLDivElement>(null);
         const inputRef = React.useRef<HTMLInputElement>(null);
 

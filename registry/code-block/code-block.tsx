@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const CodeBlock = async (
-    { lang, code, maxHeight = '460px' }: Props
+    { lang = "typescript", code = "console.log('Hello, world!');", maxHeight = '460px' }: Props
 ) => {
     const content = `\`\`\`${lang}\n${code}\n\`\`\``;
 
