@@ -11,7 +11,7 @@
       "registryDependencies": ["button"],
       "files": [
         {
-          "path": "registry/input/input.tsx",
+          "path": "src/registry/input/input.tsx",
           "type": "registry:component"
         }
       ]
@@ -32,7 +32,7 @@
       ],
       "files": [
         {
-          "path": "registry/code-block/code-block.tsx",
+          "path": "src/registry/code-block/code-block.tsx",
           "type": "registry:component"
         }
       ]
