@@ -11,7 +11,7 @@ const containerVariants = cva(
         variants: {
             variant: {
                 default: "bg-input border-2 border-input",
-                bordered: "bg-white border-2 border-input",
+                bordered: "border-2 border-input",
             },
             size: {
                 sm: "h-12 min-h-8 px-3 py-1.5",

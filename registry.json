@@ -11,28 +11,7 @@
       "registryDependencies": ["button"],
       "files": [
         {
-          "path": "src/registry/input/input.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "code-block",
-      "type": "registry:component",
-      "title": "Code Block",
-      "description": "A code block component",
-      "registryDependencies": ["scroll-area"],
-      "dependencies": [
-        "@rehype-pretty/transformers",
-        "rehype-pretty-code",
-        "rehype-stringify",
-        "remark-parse",
-        "remark-rehype",
-        "shiki@^1.29.2"
-      ],
-      "files": [
-        {
-          "path": "src/registry/code-block/code-block.tsx",
+          "path": "src/registry/input/index.tsx",
           "type": "registry:component"
         }
       ]
