@@ -19,6 +19,6 @@ export interface ERC721Attribute {
 
 export interface ERC721Metadata {
     name: string;
-    image: `ipfs://${string}`;
+    image: `ipfs://${string}` | `https://${string}`;
     attributes: ERC721Attribute[];
 }
