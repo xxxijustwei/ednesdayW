@@ -27,7 +27,7 @@ export const Gallery = ({ items, initCount = 72, itemLoadCount = 32 }: GalleryPr
         <>
             {
                 items.slice(0, visibleScope).map((item, index) => {
-                    const { name, image, attributes } = item;
+                    const { name, image } = item;
                     const imageUrl = image.replace("ipfs://", "https://ipfs.io/ipfs/");
                     return (
                         <div
