@@ -6,12 +6,13 @@ import { cva, VariantProps } from "class-variance-authority"
 
 
 const containerVariants = cva(
-    "flex w-full rounded-md text-base relative cursor-text focus-within:border-ring data-[is-invalid=true]:border-destructive transition-all duration-200",
+    "flex w-full rounded-md text-base relative cursor-text data-[is-invalid=true]:border-destructive transition-all duration-200",
     {
         variants: {
             variant: {
                 default: "bg-input border-2 border-input",
-                bordered: "border-2 border-input",
+                bordered: "border-2 border-input focus-within:border-ring",
+                underline: "border-b-2 border-input rounded-none focus-within:border-ring",
             },
             size: {
                 sm: "h-12 min-h-8 px-3 py-1.5",
@@ -19,6 +20,12 @@ const containerVariants = cva(
                 lg: "h-16 min-h-12 px-3 py-2.5",
             },
         },
+        compoundVariants: [
+            {
+                variant: "underline",
+                className: "px-0"
+            }
+        ],
         defaultVariants: {
             variant: "default",
             size: "md",

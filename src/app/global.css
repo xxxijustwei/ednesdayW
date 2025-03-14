@@ -44,7 +44,7 @@
 
   --border: oklch(0.922 0 0);
 
-  --input: oklch(0.922 0 0);
+  --input: oklch(0.961 0 0);
 
   --ring: oklch(0.87 0 0);
 
@@ -113,7 +113,7 @@
 
   --border: oklch(0.269 0 0);
 
-  --input: oklch(0.269 0 0);
+  --input: oklch(0.269 0.002 283.395);
 
   --ring: oklch(0.439 0 0);
 
