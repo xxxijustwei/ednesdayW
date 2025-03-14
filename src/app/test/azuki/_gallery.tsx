@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export interface GalleryProps {
     initCount?: number;
     itemLoadCount?: number;
-    items: ERC721Metadata[];
+    items: ERC721Metadata[] | undefined;
 }
 
 export const Gallery = ({ items, initCount = 72, itemLoadCount = 32 }: GalleryProps) => {
@@ -26,7 +26,7 @@ export const Gallery = ({ items, initCount = 72, itemLoadCount = 32 }: GalleryPr
     return (
         <>
             {
-                items.slice(0, visibleScope).map((item, index) => {
+                items?.slice(0, visibleScope).map((item, index) => {
                     const { name, image } = item;
                     const imageUrl = image.replace("ipfs://", "https://ipfs.io/ipfs/");
                     return (

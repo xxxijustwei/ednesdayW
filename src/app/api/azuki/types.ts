@@ -18,6 +18,7 @@ export interface ERC721Attribute {
 }
 
 export interface ERC721Metadata {
+    serial_number: number;
     name: string;
     image: `ipfs://${string}` | `https://${string}`;
     attributes: ERC721Attribute[];

@@ -11,6 +11,7 @@ export const GET = async () => {
         const ipfsHash = imageUrl.replace("https://ipfs.io/ipfs/", "");
 
         return {
+            serial_number: Number(token.name.split('#')[1]),
             name: token.name,
             image: `ipfs://${ipfsHash}`,
             attributes: Object.entries(token.attributes).map(([key, value]) => ({

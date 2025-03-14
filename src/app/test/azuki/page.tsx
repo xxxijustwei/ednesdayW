@@ -3,6 +3,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { axiosInstance } from '../../axios';
 import { Gallery } from './_gallery';
+import { ERC721Metadata } from '@/app/api/azuki/types';
 
 const Page = () => {
     const { isFetched, data } = useQuery({
@@ -11,7 +12,7 @@ const Page = () => {
     });
 
     const fetchData = async () => {
-        const response = await axiosInstance.get('/api/azuki');
+        const response = await axiosInstance.get<ERC721Metadata[]>('/api/azuki');
         if (response.status !== 200) return [];
 
         return response.data;
