@@ -4,18 +4,69 @@ description: Input
 ---
 
 import { Input } from "@/registry/input";
+import { SearchIcon } from 'lucide-react';
 
 ## Code Block
 
-## Examples
+### Size
+<Input size="sm" placeholder="Small" className="mb-2" />
+<Input size="md" placeholder="Medium" className="mb-2" />
+<Input size="lg" placeholder="Large" className="mb-2" />
 
-<Input label="Default Input" className="mb-4" />
+### Variant
+<Input variant="default" placeholder="Default" className="mb-2" />
+<Input variant="bordered" placeholder="Bordered" className="mb-2" />
+<Input variant="underline" placeholder="Underline" className="mb-2" />
 
-<Input label="Bordered Input" variant="bordered" className="mb-4" />
+### Start Content
+<Input
+    className="mb-2"
+    placeholder="Enter your contents"
+    startContent={
+        <SearchIcon size={20} />
+    }
+/>
+<Input
+    variant="bordered" 
+    className="mb-2"
+    placeholder="Enter your contents"
+    startContent={
+        <SearchIcon size={20} />
+    }
+/>
+<Input
+    variant="underline" 
+    className="mb-2"
+    placeholder="Enter your contents"
+    startContent={
+        <SearchIcon size={20} />
+    }
+/>
 
-<Input label="Underline Input" variant="underline" className="mb-4" />
-
-<Input label="Invalid Input" isInvalid={true} className="mb-4" />
+### End Content
+<Input
+    className="mb-2"
+    placeholder="Enter your contents"
+    endContent={
+        <SearchIcon size={20} />
+    }
+/>
+<Input
+    variant="bordered" 
+    className="mb-2"
+    placeholder="Enter your contents"
+    endContent={
+        <SearchIcon size={20} />
+    }
+/>
+<Input
+    variant="underline" 
+    className="mb-2"
+    placeholder="Enter your contents"
+    endContent={
+        <SearchIcon size={20} />
+    }
+/>
 
 ## Cards
 
