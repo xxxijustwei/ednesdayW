@@ -1,26 +1,34 @@
-# test
+# ednesdayW
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+> Just fucking headless ui components
 
-Run development server:
+## Getting Started
+
+### Installation
+
+1. Clone the repository
 
 ```bash
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
+git clone https://github.com/xxxijustwei/ednesdayW.git
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+2. Install dependencies
 
-## Learn More
+```bash
+bun install # plz use fucking bun!!!
+```
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
+3. Run the development server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
+```bash
+bun run dev
+```
+
+4. Open http://localhost:3000 in your browser
+
+## Acknowledgements
+
+- [Next.js](https://nextjs.org)
+- [Fumadocs](https://fumadocs.vercel.app)
+- [Shadcn](https://ui.shadcn.com)
+- [Tailwind CSS](https://tailwindcss.com)
