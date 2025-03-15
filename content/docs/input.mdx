@@ -1,72 +1,28 @@
 ---
 title: Input
-description: Input
+description: I dont want to write fucking docs, just need to read the fucking source code :P
 ---
 
-import { Input } from "@/registry/input";
-import { SearchIcon } from 'lucide-react';
-
-## Code Block
+import { InputSizeExample } from "@/registry/_example/input/size";
+import { InputVariantExample } from "@/registry/_example/input/variant";
+import { InputStartEndContentExample } from "@/registry/_example/input/start-end-content";
+import { InputPasswordExample } from "@/registry/_example/input/password";
+import { PhoneInputExample } from "@/registry/_example/input/phone-input";
 
 ### Size
-<Input size="sm" placeholder="Small" className="mb-2" />
-<Input size="md" placeholder="Medium" className="mb-2" />
-<Input size="lg" placeholder="Large" className="mb-2" />
+<InputSizeExample />
 
 ### Variant
-<Input variant="default" placeholder="Default" className="mb-2" />
-<Input variant="bordered" placeholder="Bordered" className="mb-2" />
-<Input variant="underline" placeholder="Underline" className="mb-2" />
+<InputVariantExample />
 
-### Start Content
-<Input
-    className="mb-2"
-    placeholder="Enter your contents"
-    startContent={
-        <SearchIcon size={20} />
-    }
-/>
-<Input
-    variant="bordered" 
-    className="mb-2"
-    placeholder="Enter your contents"
-    startContent={
-        <SearchIcon size={20} />
-    }
-/>
-<Input
-    variant="underline" 
-    className="mb-2"
-    placeholder="Enter your contents"
-    startContent={
-        <SearchIcon size={20} />
-    }
-/>
+### Start&End Content
+<InputStartEndContentExample />
 
-### End Content
-<Input
-    className="mb-2"
-    placeholder="Enter your contents"
-    endContent={
-        <SearchIcon size={20} />
-    }
-/>
-<Input
-    variant="bordered" 
-    className="mb-2"
-    placeholder="Enter your contents"
-    endContent={
-        <SearchIcon size={20} />
-    }
-/>
-<Input
-    variant="underline" 
-    className="mb-2"
-    placeholder="Enter your contents"
-    endContent={
-        <SearchIcon size={20} />
-    }
-/>
+### Password (type="password")
+<InputPasswordExample />
+
+### Phone Input
+<PhoneInputExample />
 
 ## Cards
 

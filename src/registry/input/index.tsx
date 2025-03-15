@@ -3,6 +3,7 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 import { cva, VariantProps } from "class-variance-authority"
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 
 const containerVariants = cva(
@@ -52,6 +53,7 @@ const inputVariants = cva(
 interface InputProps
     extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
     VariantProps<typeof containerVariants> {
+    inputClassName?: string;
     size?: "sm" | "md" | "lg";
     isInvalid?: boolean;
     startContent?: React.ReactNode;
@@ -59,9 +61,11 @@ interface InputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    ({ className, type, placeholder, value, variant, size, isInvalid, disabled, onFocus, onBlur, onChange, startContent, endContent, ...props }, ref) => {
+    ({ className, inputClassName, type, placeholder, value, variant, size, isInvalid, disabled, onFocus, onBlur, onChange, startContent, endContent, ...props }, ref) => {
         const containerRef = React.useRef<HTMLDivElement>(null);
         const inputRef = React.useRef<HTMLInputElement>(null);
+
+        const [showPassword, setShowPassword] = React.useState(false);
         
         const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
             containerRef.current?.setAttribute('data-focus', 'true');
@@ -77,6 +81,31 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             containerRef.current?.setAttribute('data-is-fill', (!!e.target.value).toString());
             onChange?.(e);
         };
+
+        const endContentRender = () => {
+            if (endContent) {
+                return endContent;
+            }
+
+            if (type === "password") {
+                return (
+                    <button
+                        aria-label="Change password visibility"
+                        type="button"
+                        className="cursor-pointer"
+                        onClick={() => setShowPassword(!showPassword)}
+                    >
+                        {!showPassword ? (
+                            <EyeOffIcon size={20} />
+                        ) : (
+                            <EyeIcon size={20} />
+                        )}
+                    </button>
+                );
+            }
+
+            return null;
+        }
 
         React.useEffect(() => {
             if (containerRef.current && inputRef.current) {
@@ -112,7 +141,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     )
                 }>
                     <input
-                        type={type}
+                        type={type === "password" && endContent === undefined && showPassword ? "text" : type}
                         ref={(node) => {
                             inputRef.current = node;
                             if (typeof ref === 'function') {
@@ -121,7 +150,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                 ref.current = node;
                             }
                         }}
-                        className={inputVariants({ size })}
+                        className={cn(inputVariants({ size }), inputClassName)}
                         value={value}
                         disabled={disabled}
                         placeholder={placeholder}
@@ -131,9 +160,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                         {...props}
                     />
                 </div>
-                {endContent && (
-                    endContent
-                )}
+                {endContentRender()}
             </div>
         )
     }
