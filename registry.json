@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "ednesday-ui",
-  "homepage": "https://ednesdayui.vercel.app",
+  "homepage": "https://ui.ednesdayw.com",
   "items": [
     {
       "name": "input",
