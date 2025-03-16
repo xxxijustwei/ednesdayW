@@ -21,12 +21,12 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     registryDependencies: undefined,
     files: [{
-      path: "src/registry/ui/input.tsx",
+      path: "registry/ui/input.tsx",
       type: "registry:ui",
       target: "components/ednesdayw/input.tsx"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/src/registry/ui/input.tsx")
+      const mod = await import("@/registry/ui/input.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -38,12 +38,12 @@ export const Index: Record<string, any> = {
     type: "registry:example",
     registryDependencies: undefined,
     files: [{
-      path: "src/registry/example/input/size.tsx",
+      path: "registry/example/input/size.tsx",
       type: "registry:example",
       target: "components/ednesdayw/input-size-demo.tsx"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/src/registry/example/input/size.tsx")
+      const mod = await import("@/registry/example/input/size.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -55,12 +55,12 @@ export const Index: Record<string, any> = {
     type: "registry:example",
     registryDependencies: undefined,
     files: [{
-      path: "src/registry/example/input/variant.tsx",
+      path: "registry/example/input/variant.tsx",
       type: "registry:example",
       target: "components/ednesdayw/input-variant-demo.tsx"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/src/registry/example/input/variant.tsx")
+      const mod = await import("@/registry/example/input/variant.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -72,12 +72,12 @@ export const Index: Record<string, any> = {
     type: "registry:example",
     registryDependencies: undefined,
     files: [{
-      path: "src/registry/example/input/start-end-content.tsx",
+      path: "registry/example/input/start-end-content.tsx",
       type: "registry:example",
       target: "components/ednesdayw/input-start-end-content-demo.tsx"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/src/registry/example/input/start-end-content.tsx")
+      const mod = await import("@/registry/example/input/start-end-content.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -89,12 +89,12 @@ export const Index: Record<string, any> = {
     type: "registry:example",
     registryDependencies: undefined,
     files: [{
-      path: "src/registry/example/input/password.tsx",
+      path: "registry/example/input/password.tsx",
       type: "registry:example",
       target: "components/ednesdayw/input-password-demo.tsx"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/src/registry/example/input/password.tsx")
+      const mod = await import("@/registry/example/input/password.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -106,12 +106,12 @@ export const Index: Record<string, any> = {
     type: "registry:example",
     registryDependencies: undefined,
     files: [{
-      path: "src/registry/example/input/phone-input.tsx",
+      path: "registry/example/input/phone-input.tsx",
       type: "registry:example",
       target: "components/ednesdayw/input-phone-input-demo.tsx"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/src/registry/example/input/phone-input.tsx")
+      const mod = await import("@/registry/example/input/phone-input.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -123,12 +123,12 @@ export const Index: Record<string, any> = {
     type: "registry:lib",
     registryDependencies: undefined,
     files: [{
-      path: "src/registry/lib/utils.ts",
+      path: "registry/lib/utils.ts",
       type: "registry:lib",
       target: ""
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/src/registry/lib/utils.ts")
+      const mod = await import("@/registry/lib/utils.ts")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

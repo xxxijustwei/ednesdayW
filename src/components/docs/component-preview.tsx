@@ -11,14 +11,14 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
     preview?: boolean;
 }
 
-export function ComponentPreview({
+export const ComponentPreview = ({
     name,
     children,
     className,
     align = "center",
     preview = false,
     ...props
-}: ComponentPreviewProps) {
+}: ComponentPreviewProps) => {
     const Codes = React.Children.toArray(children) as React.ReactElement[];
     const Code = Codes[0];
 

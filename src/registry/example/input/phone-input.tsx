@@ -56,7 +56,6 @@ const PhoneInput = ({ value, onChange }: PhoneInputProps) => {
 
     useEffect(() => {
         if (value) {
-            // match +1 12535235
             const match = value.match(/^\+\d{1,3}\s\d{7,14}$/);
             if (match) {
                 const [dialCode, phoneNumber] = match[0].split(" ");
@@ -137,7 +136,6 @@ const BorderedPhoneInput = ({ value, onChange }: PhoneInputProps) => {
 
     useEffect(() => {
         if (value) {
-            // match +1 12535235
             const match = value.match(/^\+\d{1,3}\s\d{7,14}$/);
             if (match) {
                 const [dialCode, phoneNumber] = match[0].split(" ");
@@ -219,7 +217,6 @@ const UnderlinePhoneInput = ({ value, onChange }: PhoneInputProps) => {
 
     useEffect(() => {
         if (value) {
-            // match +1 12535235
             const match = value.match(/^\+\d{1,3}\s\d{7,14}$/);
             if (match) {
                 const [dialCode, phoneNumber] = match[0].split(" ");

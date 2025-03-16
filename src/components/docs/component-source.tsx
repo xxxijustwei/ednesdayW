@@ -9,11 +9,11 @@ interface ComponentSourceProps extends React.HTMLAttributes<HTMLDivElement> {
     src: string;
 }
 
-export function ComponentSource({
+export const ComponentSource = ({
     children,
     className,
     ...props
-}: ComponentSourceProps) {
+}: ComponentSourceProps) => {
     return (
         <CodeBlockWrapper
             expandButtonTitle="Expand"

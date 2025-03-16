@@ -14,12 +14,12 @@ interface CodeBlockProps extends React.HTMLAttributes<HTMLDivElement> {
     expandButtonTitle?: string;
 }
 
-export function CodeBlockWrapper({
+export const CodeBlockWrapper = ({
     expandButtonTitle = "View Code",
     className,
     children,
     ...props
-}: CodeBlockProps) {
+}: CodeBlockProps) => {
     const [isOpened, setIsOpened] = React.useState(false);
 
     return (
