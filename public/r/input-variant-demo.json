@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-variant-demo",
+  "type": "registry:example",
+  "title": "Input Variant Demo",
+  "description": "A demo of the input variant",
+  "files": [
+    {
+      "path": "src/registry/example/input/variant.tsx",
+      "content": "import { Input } from \"@/registry/ui/input\"\n\nexport const InputVariantExample = () => {\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            <Input variant=\"default\" placeholder=\"Default\" />\n            <Input variant=\"bordered\" placeholder=\"Bordered\" />\n            <Input variant=\"underline\" placeholder=\"Underline\" />\n        </div>\n    )\n}",
+      "type": "registry:example",
+      "target": "components/ednesdayw/input-variant-demo.tsx"
+    }
+  ]
+}

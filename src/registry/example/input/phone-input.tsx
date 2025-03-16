@@ -1,6 +1,6 @@
 'use client'
 
-import { Input } from "@/registry/input";
+import { Input } from "@/registry/ui/input";
 import { Check, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"

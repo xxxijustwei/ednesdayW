@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-size-demo",
+  "type": "registry:example",
+  "title": "Input Size Demo",
+  "description": "A demo of the input size",
+  "files": [
+    {
+      "path": "src/registry/example/input/size.tsx",
+      "content": "import { Input } from \"@/registry/ui/input\"\n\nexport const InputSizeExample = () => {\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            <Input size=\"sm\" placeholder=\"Small\" />\n            <Input size=\"md\" placeholder=\"Medium\" />\n            <Input size=\"lg\" placeholder=\"Large\" />\n        </div>\n    )\n}",
+      "type": "registry:example",
+      "target": "components/ednesdayw/input-size-demo.tsx"
+    }
+  ]
+}

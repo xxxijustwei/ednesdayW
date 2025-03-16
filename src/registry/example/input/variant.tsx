@@ -1,4 +1,4 @@
-import { Input } from "@/registry/input"
+import { Input } from "@/registry/ui/input"
 
 export const InputVariantExample = () => {
     return (

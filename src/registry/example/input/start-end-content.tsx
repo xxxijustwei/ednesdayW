@@ -1,4 +1,4 @@
-import { Input } from "@/registry/input"
+import { Input } from "@/registry/ui/input"
 import { CheckCheck, SearchIcon } from "lucide-react"
 
 export const InputStartEndContentExample = () => {
