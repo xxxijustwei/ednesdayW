@@ -20,11 +20,11 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/.source": [
-        "./.source/index.ts"
-      ],
       "@/*": [
         "./src/*"
+      ],
+      "content-collections": [
+        "./.content-collections/generated"
       ]
     },
     "plugins": [

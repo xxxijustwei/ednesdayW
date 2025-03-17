@@ -60,7 +60,7 @@ export const Index: Record<string, any> = {`;
         }
 
         const componentPath = item.files?.[0]?.path
-            ? `@/${item.files[0].path}`
+            ? `@/${item.files[0].path.replace("src", "")}`
             : "";
 
         index += `
