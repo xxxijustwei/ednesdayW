@@ -1,3 +1,5 @@
+// source: https://github.com/magicuidesign/magicui/blob/main/scripts/build-registry.mts
+
 import { exec } from "child_process";
 import { promises as fs } from "fs";
 import path from "path";
@@ -141,7 +143,7 @@ async function buildRegistry() {
         });
     });
 
-    // 2. Replace `@/registry/magicui/` with `@/components/magicui/` in all files
+    // 2. Replace `@/registry/ednesdayw/` with `@/components/ednesdayw/` in all files
     const files = await fs.readdir(path.join(process.cwd(), "public/r"));
 
     await Promise.all(
@@ -153,12 +155,12 @@ async function buildRegistry() {
 
             const registryItem = JSON.parse(content);
 
-            // Replace `@/registry/magicui/` in files
+            // Replace `@/registry/ednesdayw/` in files
             registryItem.files = registryItem.files?.map((file) => {
-                if (file.content?.includes("@/registry/magicui")) {
+                if (file.content?.includes("@/registry/ednesdayw")) {
                     file.content = file.content?.replaceAll(
-                        "@/registry/magicui",
-                        "@/components/magicui",
+                        "@/registry/ednesdayw",
+                        "@/components/ednesdayw",
                     );
                 }
                 return file;

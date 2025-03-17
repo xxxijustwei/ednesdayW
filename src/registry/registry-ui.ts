@@ -8,7 +8,7 @@ export const ui: Registry["items"] = [
         description: "A input component",
         files: [
             {
-                path: "registry/ui/input.tsx",
+                path: "src/registry/ui/input.tsx",
                 type: "registry:ui",
                 target: "components/ednesdayw/input.tsx"
             }
