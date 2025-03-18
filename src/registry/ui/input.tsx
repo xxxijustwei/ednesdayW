@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils"
 import { cva, VariantProps } from "class-variance-authority"
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 
-
 const containerVariants = cva(
     "flex w-full rounded-md text-base relative cursor-text data-[is-invalid=true]:border-destructive transition-all duration-200",
     {

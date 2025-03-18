@@ -11,6 +11,7 @@ import { rehypeComponent } from '@/lib/rehype-component';
 import { visit } from "unist-util-visit";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
 import { createHighlighter } from 'shiki';
+import { rehypeNpmCommand } from '@/lib/rehype-npm-command';
 
 const prettyCodeOptions: Options = {
     theme: "github-dark",
@@ -73,6 +74,7 @@ const docs = defineCollection({
                         }
                     });
                 },
+                rehypeNpmCommand,
                 [rehypePrettyCode, prettyCodeOptions],
                 () => (tree) => {
                     visit(tree, (node) => {

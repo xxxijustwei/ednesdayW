@@ -5,7 +5,7 @@ export interface UnistNode extends Node {
     tagName?: string;
     value?: string;
     properties?: {
-        __rawString__?: string;
+        __rawstring__?: string;
         __className__?: string;
         __event__?: string;
         [key: string]: unknown;
@@ -23,8 +23,8 @@ export interface UnistTree extends UnistNode {
 }
 
 export interface NpmCommands {
-    __npmCommand__?: string;
-    __yarnCommand__?: string;
-    __pnpmCommand__?: string;
-    __bunCommand__?: string;
+    __npmcommand__?: string;
+    __yarncommand__?: string;
+    __pnpmcommand__?: string;
+    __buncommand__?: string;
 }

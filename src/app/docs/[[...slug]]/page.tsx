@@ -8,7 +8,7 @@ import {
 import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { MDXContent } from '@content-collections/mdx/react';
-import { ComponentPreview } from '@/components/docs/component-preview';
+import { MdxComponents } from '@/components/mdx-components';
 
 export default async function Page(props: {
     params: Promise<{ slug?: string[] }>;
@@ -24,7 +24,10 @@ export default async function Page(props: {
             <DocsBody>
                 <MDXContent
                     code={page.data.body}
-                    components={{ ...defaultMdxComponents, ComponentPreview }}
+                    components={{ 
+                        ...defaultMdxComponents, 
+                        ...MdxComponents,
+                    }}
                 />
             </DocsBody>
         </DocsPage>
