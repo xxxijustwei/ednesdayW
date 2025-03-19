@@ -2,6 +2,7 @@ import { rehypeComponent } from '@/lib/rehype-component';
 import { defineDocs, defineConfig } from 'fumadocs-mdx/config';
 import prettyCode, { Options } from 'rehype-pretty-code';
 import { createHighlighter } from 'shiki';
+import { remarkInstall } from 'fumadocs-docgen';
 
 const prettyCodeOptions: Options = {
     theme: "github-dark",
@@ -37,6 +38,9 @@ export const docs = defineDocs({
 
 export default defineConfig({
   mdxOptions: {
+    remarkPlugins: [
+        remarkInstall,
+    ],
     rehypePlugins: [
         rehypeComponent,
         [prettyCode, prettyCodeOptions]
