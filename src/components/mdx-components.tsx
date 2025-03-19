@@ -1,14 +1,18 @@
 import { cn } from "@/lib/utils";
-import { Event } from "@/lib/events";
 import { ComponentPreview } from "./docs/component-preview";
 import { ComponentSource } from "./docs/component-source";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CodeBlockCommand } from "./docs/code-block-command";
-import { CopyButton } from "./docs/copy-button";
+import { HTMLAttributes } from "react";
+import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock';
 
 export const MdxComponents = {
     ComponentPreview,
     ComponentSource,
+    pre: (props: HTMLAttributes<HTMLPreElement>) => (
+        <CodeBlock {...props} className="my-0">
+            <Pre>{props.children}</Pre>
+        </CodeBlock>
+    ),
     Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
         <h3
             className={cn(
@@ -63,61 +67,4 @@ export const MdxComponents = {
             {...props}
         />
     ),
-    pre: ({
-        className,
-        __rawstring__,
-        __npmcommand__,
-        __pnpmcommand__,
-        __yarncommand__,
-        __buncommand__,
-        __withmeta__,
-        __src__,
-        __event__,
-        __name__,
-        ...props
-    }: React.HTMLAttributes<HTMLPreElement> & {
-        __rawstring__?: string;
-        __npmcommand__?: string;
-        __pnpmcommand__?: string;
-        __yarncommand__?: string;
-        __buncommand__?: string;
-        __withmeta__?: boolean;
-        __src__?: string;
-        __event__?: Event["name"];
-        __name__?: string;
-    }) => {
-        const isNpmCommand =
-            __npmcommand__ && __yarncommand__ && __pnpmcommand__ && __buncommand__;
-
-        if (isNpmCommand) {
-            return (
-                <CodeBlockCommand
-                    __npmcommand__={__npmcommand__}
-                    __yarncommand__={__yarncommand__}
-                    __pnpmcommand__={__pnpmcommand__}
-                    __buncommand__={__buncommand__}
-                />
-            );
-        }
-
-        return (
-            <>
-                <pre
-                    className={cn(
-                        "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900",
-                        className,
-                    )}
-                    {...props}
-                />
-                {__rawstring__ && __src__ && __event__ && (
-                    <CopyButton
-                        value={__rawstring__}
-                        src={__src__}
-                        event={__event__}
-                        className={cn("absolute right-4 top-4", __withmeta__ && "top-16")}
-                    />
-                )}
-            </>
-        );
-    },
 }

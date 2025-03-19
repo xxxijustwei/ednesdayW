@@ -1,4 +1,6 @@
-import { withContentCollections } from '@content-collections/next';
+import { createMDX } from 'fumadocs-mdx/next';
+
+const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -6,10 +8,10 @@ const config = {
   images: {
     remotePatterns: [
       {
-        hostname: 'ipfs.io',
+        hostname: "ipfs.io",
       },
     ],
   },
 };
 
-export default withContentCollections(config);
+export default withMDX(config);

@@ -83,7 +83,7 @@ export const ComponentPreview = ({
                     </ComponentWrapper>
                 </TabsContent>
                 <TabsContent value="code">
-                    <div className="flex flex-col space-y-4">
+                    <div className="flex flex-col">
                         <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[480px] [&_pre]:overflow-auto">
                             {Code}
                         </div>

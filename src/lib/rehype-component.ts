@@ -1,5 +1,3 @@
-// source: https://github.com/magicuidesign/magicui/blob/main/lib/rehype-component.ts
-
 import fs from "fs";
 import path from "path";
 import { u } from "unist-builder";
