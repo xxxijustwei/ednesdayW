@@ -1,21 +1,25 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
-import { axiosInstance } from '../../axios';
 import { Gallery } from './_gallery';
+import { axiosInstance } from '@/axios';
 import { ERC721Metadata } from '@/app/api/azuki/types';
 
 const Page = () => {
     const { isFetched, data } = useQuery({
-        queryKey: ['test'],
+        queryKey: ['azuki-test'],
         queryFn: () => fetchData(),
+        initialData: [],
     });
 
-    const fetchData = async () => {
-        const response = await axiosInstance.get<ERC721Metadata[]>('/api/azuki');
-        if (response.status !== 200) return [];
-
-        return response.data;
+    const fetchData = async (): Promise<ERC721Metadata[]> => {
+        try {
+            const response = await axiosInstance.get<ERC721Metadata[]>('/api/azuki');
+            return response.data || [];
+        } catch (error) {
+            console.error('Failed to fetch Azuki data:', error);
+            return [];
+        }
     }
 
     return (

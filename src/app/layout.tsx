@@ -1,27 +1,52 @@
 'use client'
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import './global.css';
-import { RootProvider } from 'fumadocs-ui/provider';
-import { Inter } from 'next/font/google';
-import type { ReactNode } from 'react';
+import { ThemeProvider } from "next-themes"
 
-const inter = Inter({
-    subsets: ['latin'],
-});
+import { THEMES } from "@/config/colors"
+import { fontMono, fontSans } from "@/lib/fonts"
+import { cn } from "@/lib/utils"
+import { TooltipProvider } from "@/components/ui/tooltip"
+
+import "@/styles/globals.css"
+import "@/styles/themes.css"
+
+import { Toaster } from "@/components/ui/sonner"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
+interface RootLayoutProps {
+    children: React.ReactNode
+}
 
 const queryClient = new QueryClient();
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: RootLayoutProps) {
     return (
-        <html lang="en" className={inter.className} suppressHydrationWarning>
-            <body className="flex flex-col min-h-screen">
-                <RootProvider>
-                    <QueryClientProvider client={queryClient}>
-                        {children}
-                    </QueryClientProvider>
-                </RootProvider>
+        <html lang="en" suppressHydrationWarning>
+            <body
+                className={cn(
+                    "min-h-svh overflow-x-hidden bg-background font-sans antialiased",
+                    fontSans.variable,
+                    fontMono.variable
+                )}
+            >
+                <QueryClientProvider client={queryClient}>
+                    <ThemeProvider
+                        themes={THEMES}
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
+                        enableColorScheme
+                    >
+                        <TooltipProvider>
+                            <div className="relative flex min-h-svh flex-col bg-background">
+                                {children}
+                            </div>
+                        </TooltipProvider>
+                        <Toaster />
+                    </ThemeProvider>
+                </QueryClientProvider>
             </body>
         </html>
-    );
+    )
 }

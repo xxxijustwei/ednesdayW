@@ -1,3 +1,5 @@
+'use client'
+
 import React, { HTMLAttributes, useState } from "react";
 import { ERC721Metadata } from "../../api/azuki/types";
 import { Skeleton } from "@/components/ui/skeleton";

@@ -28,5 +28,6 @@ yarn-error.log*
 !.env.example
 .vercel
 next-env.d.ts
+.contentlayer
 
 .cursor

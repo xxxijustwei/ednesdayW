@@ -4,10 +4,34 @@ description: I dont want to write fucking docs, just need to read the fucking so
 ---
 
 ### Installation
-```package-install
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
 npx shadcn@latest add "https://ui.ednesdayw.com/r/input"
 ```
 
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="input" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
 
 ### Size
 <ComponentPreview name="input-size-demo" />
@@ -23,10 +47,3 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/input"
 
 ### Phone Input
 <ComponentPreview name="input-phone-input-demo" />
-
-## Cards
-
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>

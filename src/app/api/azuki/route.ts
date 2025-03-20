@@ -1,4 +1,4 @@
-import { axiosInstance } from "@/app/axios";
+import { axiosInstance } from "@/axios";
 import { NextResponse } from "next/server";
 import { AzukiTokenConfig, ERC721Metadata } from "./types";
 
