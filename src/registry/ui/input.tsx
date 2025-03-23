@@ -34,7 +34,7 @@ const containerVariants = cva(
 );
 
 const inputVariants = cva(
-    "w-full h-full outline-none disabled:cursor-not-allowed bg-transparent",
+    "w-full h-full outline-none disabled:cursor-not-allowed bg-transparent [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill:hover]:bg-transparent [&:-webkit-autofill:focus]:bg-transparent [&:-webkit-autofill:active]:bg-transparent [&:-webkit-autofill]:[transition-delay:9999s]",
     {
         variants: {
             size: {
@@ -60,7 +60,7 @@ interface InputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    ({ className, inputClassName, type, placeholder, value, variant, size, isInvalid, disabled, startContent, endContent, ...props }, ref) => {
+    ({ className, inputClassName, type, placeholder, value, variant, size, "aria-invalid": ariaInvalid, disabled, startContent, endContent, ...props }, ref) => {
         const [showPassword, setShowPassword] = React.useState(false);
 
         const endContentRender = () => {
@@ -95,7 +95,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     "group flex items-center justify-center gap-1.5",
                     className
                 )}
-                data-is-invalid={isInvalid?.toString()}
+                data-is-invalid={ariaInvalid?.toString()}
             >
                 {startContent && (
                     startContent
