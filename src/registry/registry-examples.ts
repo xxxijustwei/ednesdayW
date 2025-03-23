@@ -65,5 +65,18 @@ export const examples: Registry["items"] = [
                 target: "components/ednesdayw/input-phone-input-demo.tsx"
             }
         ]
+    },
+    {
+        name: "input-form-demo",
+        type: "registry:example",
+        title: "Input Form Demo",
+        description: "A demo of the input form",
+        files: [
+            {
+                path: "src/registry/example/input/form.tsx",
+                type: "registry:example",
+                target: "components/ednesdayw/input-form-demo.tsx"
+            }
+        ]
     }
 ]

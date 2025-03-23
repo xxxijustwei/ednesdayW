@@ -117,6 +117,23 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "input-form-demo": {
+    name: "input-form-demo",
+    description: "A demo of the input form",
+    type: "registry:example",
+    registryDependencies: undefined,
+    files: [{
+      path: "src/registry/example/input/form.tsx",
+      type: "registry:example",
+      target: "components/ednesdayw/input-form-demo.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/input/form.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    meta: undefined,
+  },
   "utils": {
     name: "utils",
     description: "",

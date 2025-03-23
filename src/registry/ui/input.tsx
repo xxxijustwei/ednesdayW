@@ -6,13 +6,13 @@ import { cva, VariantProps } from "class-variance-authority"
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 const containerVariants = cva(
-    "flex w-full rounded-md text-base relative cursor-text data-[is-invalid=true]:border-destructive transition-all duration-200",
+    "flex w-full rounded-md text-base relative cursor-text data-[is-invalid=true]:border-destructive focus-within:border-ring transition-all duration-200",
     {
         variants: {
             variant: {
-                default: "bg-input border-2 border-input",
-                bordered: "border-2 border-input focus-within:border-ring",
-                underline: "border-b-2 border-input rounded-none focus-within:border-ring",
+                default: "bg-muted border-2 border-input",
+                bordered: "border-2 border-input",
+                underline: "border-b-2 border-input rounded-none",
             },
             size: {
                 sm: "h-10 min-h-8 px-3 py-1.5",
@@ -60,26 +60,8 @@ interface InputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    ({ className, inputClassName, type, placeholder, value, variant, size, isInvalid, disabled, onFocus, onBlur, onChange, startContent, endContent, ...props }, ref) => {
-        const containerRef = React.useRef<HTMLDivElement>(null);
-        const inputRef = React.useRef<HTMLInputElement>(null);
-
+    ({ className, inputClassName, type, placeholder, value, variant, size, isInvalid, disabled, startContent, endContent, ...props }, ref) => {
         const [showPassword, setShowPassword] = React.useState(false);
-        
-        const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-            containerRef.current?.setAttribute('data-focus', 'true');
-            onFocus?.(e);
-        };
-
-        const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-            containerRef.current?.setAttribute('data-focus', 'false');
-            onBlur?.(e);
-        };
-
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            containerRef.current?.setAttribute('data-is-fill', (!!e.target.value).toString());
-            onChange?.(e);
-        };
 
         const endContentRender = () => {
             if (endContent) {
@@ -106,28 +88,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             return null;
         }
 
-        React.useEffect(() => {
-            if (containerRef.current && inputRef.current) {
-                containerRef.current.setAttribute(
-                    'data-is-fill',
-                    (!!inputRef.current.value).toString()
-                );
-            }
-        }, [value]);
-
         return (
             <div
-                ref={containerRef}
                 className={cn(
                     containerVariants({ variant, size }),
                     "group flex items-center justify-center gap-1.5",
                     className
                 )}
-                onClick={() => {
-                    inputRef.current?.focus();
-                }}
-                data-focus="false"
-                data-is-fill="false"
                 data-is-invalid={isInvalid?.toString()}
             >
                 {startContent && (
@@ -141,21 +108,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 }>
                     <input
                         type={type === "password" && endContent === undefined && showPassword ? "text" : type}
-                        ref={(node) => {
-                            inputRef.current = node;
-                            if (typeof ref === 'function') {
-                                ref(node);
-                            } else if (ref) {
-                                ref.current = node;
-                            }
-                        }}
+                        ref={ref}
                         className={cn(inputVariants({ size }), inputClassName)}
                         value={value}
                         disabled={disabled}
                         placeholder={placeholder}
-                        onFocus={(e) => handleFocus(e)}
-                        onBlur={(e) => handleBlur(e)}
-                        onChange={handleChange}
                         {...props}
                     />
                 </div>
