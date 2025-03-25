@@ -15,7 +15,7 @@ git clone https://github.com/xxxijustwei/ednesdayW.git
 2. Install dependencies
 
 ```bash
-bun install # plz use fucking bun!!!
+bun install
 ```
 
 3. Run the development server
@@ -29,6 +29,6 @@ bun run dev
 ## Acknowledgements
 
 - [Next.js](https://nextjs.org)
-- [Fumadocs](https://fumadocs.vercel.app)
 - [Shadcn](https://ui.shadcn.com)
 - [Tailwind CSS](https://tailwindcss.com)
+- [Content Collections](https://www.content-collections.dev/)
