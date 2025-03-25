@@ -10,8 +10,8 @@ export function rehypeNpmCommand() {
             }
 
             // npm install.
-            if (node.properties?.["__rawstring__"]?.startsWith("npm install")) {
-                const npmCommand = node.properties?.["__rawstring__"]
+            if (node.properties?.["__raw_string__"]?.startsWith("npm install")) {
+                const npmCommand = node.properties?.["__raw_string__"]
                 node.properties["__npmCommand__"] = npmCommand
                 node.properties["__yarnCommand__"] = npmCommand.replace(
                     "npm install",
@@ -28,8 +28,8 @@ export function rehypeNpmCommand() {
             }
 
             // npx create-.
-            if (node.properties?.["__rawstring__"]?.startsWith("npx create-")) {
-                const npmCommand = node.properties?.["__rawstring__"]
+            if (node.properties?.["__raw_string__"]?.startsWith("npx create-")) {
+                const npmCommand = node.properties?.["__raw_string__"]
                 node.properties["__npmCommand__"] = npmCommand
                 node.properties["__yarnCommand__"] = npmCommand.replace(
                     "npx create-",
@@ -46,8 +46,8 @@ export function rehypeNpmCommand() {
             }
 
             // npm create.
-            if (node.properties?.["__rawstring__"]?.startsWith("npm create")) {
-                const npmCommand = node.properties?.["__rawstring__"]
+            if (node.properties?.["__raw_string__"]?.startsWith("npm create")) {
+                const npmCommand = node.properties?.["__raw_string__"]
                 node.properties["__npmCommand__"] = npmCommand
                 node.properties["__yarnCommand__"] = npmCommand.replace(
                     "npm create",
@@ -65,10 +65,10 @@ export function rehypeNpmCommand() {
 
             // npx.
             if (
-                node.properties?.["__rawstring__"]?.startsWith("npx") &&
-                !node.properties?.["__rawstring__"]?.startsWith("npx create-")
+                node.properties?.["__raw_string__"]?.startsWith("npx") &&
+                !node.properties?.["__raw_string__"]?.startsWith("npx create-")
             ) {
-                const npmCommand = node.properties?.["__rawstring__"]
+                const npmCommand = node.properties?.["__raw_string__"]
                 node.properties["__npmCommand__"] = npmCommand
                 node.properties["__yarnCommand__"] = npmCommand.replace(
                     "npx",

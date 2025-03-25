@@ -170,10 +170,10 @@ const components = {
         __yarnCommand__,
         __pnpmCommand__,
         __bunCommand__,
-        __rawstring__,
+        __raw_string__,
         ...props
     }: React.HTMLAttributes<HTMLPreElement> & {
-        __rawstring__?: string
+        __raw_string__?: string
         __withMeta__?: boolean
     } & NpmCommands) => {
         const isNpmCommand =
@@ -200,9 +200,9 @@ const components = {
                     )}
                     {...props}
                 />
-                {__rawstring__ && (
+                {__raw_string__ && (
                     <CopyButton
-                        value={__rawstring__}
+                        value={__raw_string__}
                         className="absolute right-4 top-4"
                     />
                 )}

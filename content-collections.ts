@@ -81,7 +81,7 @@ const documents = defineCollection({
                   codeEl.data.meta = codeEl.data.meta.replace(regex, "")
                 }
               }
-              node.__rawString__ = codeEl.children?.[0].value
+              node.__raw_string__ = codeEl.children?.[0].value
               node.__src__ = node.properties?.__src__
               node.__style__ = node.properties?.__style__
             }
@@ -102,7 +102,7 @@ const documents = defineCollection({
 
               preElement.properties["__withMeta__"] =
                 node.children.at(0).tagName === "div"
-              preElement.properties["__rawString__"] = node.__rawString__
+              preElement.properties["__raw_string__"] = node.__raw_string__
 
               if (node.__src__) {
                 preElement.properties["__src__"] = node.__src__
