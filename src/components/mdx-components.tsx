@@ -2,8 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useMDXComponent } from "next-contentlayer2/hooks"
-
+import { useMDXComponent } from "@content-collections/mdx/react"
 import type { NpmCommands } from "@/types/unist"
 import { cn } from "@/lib/utils"
 import {
@@ -194,6 +193,7 @@ const components = {
         return (
             <>
                 <pre
+                    suppressHydrationWarning
                     className={cn(
                         "mt-6 max-h-[650px] overflow-x-auto rounded-xl bg-zinc-950 py-4 dark:bg-zinc-900",
                         className

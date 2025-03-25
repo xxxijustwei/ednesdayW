@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { allDocs } from "contentlayer/generated"
+import { allDocs } from "content-collections"
 import { ChevronRightIcon, ExternalLinkIcon } from "lucide-react"
 import { Balancer } from "react-wrap-balancer"
 

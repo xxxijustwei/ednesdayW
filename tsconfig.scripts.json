@@ -9,7 +9,7 @@
         "isolatedModules": false
     },
     "include": [
-        ".contentlayer/generated",
+        ".content-collections/generated",
         "scripts/**/*.ts"
     ],
     "exclude": [

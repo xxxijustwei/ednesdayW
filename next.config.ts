@@ -1,7 +1,8 @@
-import { createContentlayerPlugin } from "next-contentlayer2"
+import type { NextConfig } from "next";
+import { withContentCollections } from "@content-collections/next";
 
 /** @type {import('next').NextConfig} */
-const config = {
+const config: NextConfig = {
     reactStrictMode: true,
     images: {
         remotePatterns: [
@@ -12,8 +13,4 @@ const config = {
     },
 };
 
-const withContentlayer = createContentlayerPlugin({
-    // Additional Contentlayer config options
-})
-
-export default withContentlayer(config)
+export default withContentCollections(config);
