@@ -11,7 +11,6 @@ import { useTheme } from "next-themes";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import {
     Popover,
     PopoverContent,

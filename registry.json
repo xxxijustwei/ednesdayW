@@ -124,7 +124,8 @@
       "files": [
         {
           "path": "src/registry/lib/utils.ts",
-          "type": "registry:lib"
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
         }
       ]
     }

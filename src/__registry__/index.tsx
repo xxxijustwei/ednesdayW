@@ -195,7 +195,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/lib/utils.ts",
                 type: "registry:lib",
-                target: "",
+                target: "lib/utils.ts",
             },
         ],
         component: React.lazy(async () => {

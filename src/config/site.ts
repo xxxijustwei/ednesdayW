@@ -1,8 +1,8 @@
 export const siteConfig = {
     name: "ednesdayW",
     url: "https://ui.ednesdayW.com",
-    ogImage: "https://ui.ednesdayW.com/favicon.ico",
-    description: "Just fucking headless ui components",
+    ogImage: "https://ui.ednesdayW.com/og.png",
+    description: "Just headless ui components",
     links: {
         github: "https://github.com/xxxijustwei",
         repo: "https://github.com/xxxijustwei/ednesdayW",
