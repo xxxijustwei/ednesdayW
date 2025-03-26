@@ -26,7 +26,8 @@
                 "useSemanticElements": "off",
                 "noRedundantRoles": "off",
                 "noSvgWithoutTitle": "off",
-                "useHeadingContent": "off"
+                "useHeadingContent": "off",
+                "useFocusableInteractive": "off"
             },
             "suspicious": {
                 "noArrayIndexKey": "off"

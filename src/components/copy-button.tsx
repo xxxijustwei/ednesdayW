@@ -3,10 +3,11 @@
 import { CheckIcon, ClipboardIcon } from "lucide-react";
 import * as React from "react";
 
-import { Button, type ButtonProps } from "@/components/ui/button";
+import { Button, type buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { VariantProps } from "class-variance-authority";
 
-interface CopyButtonProps extends ButtonProps {
+interface CopyButtonProps extends React.ComponentProps<"button"> {
     value: string;
     src?: string;
 }
@@ -16,7 +17,10 @@ export function CopyButton({
     className,
     variant = "ghost",
     ...props
-}: CopyButtonProps) {
+}: CopyButtonProps &
+    VariantProps<typeof buttonVariants> & {
+        asChild?: boolean;
+    }) {
     const [hasCopied, setHasCopied] = React.useState(false);
 
     React.useEffect(() => {
