@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Currency } from "lucide-react"
+import { Currency } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 
 export function MainNav() {
-    const pathname = usePathname()
+    const pathname = usePathname();
 
     return (
         <div className="mr-4 hidden md:flex">
@@ -25,12 +25,12 @@ export function MainNav() {
                         "transition-colors hover:text-foreground/80",
                         pathname.startsWith("/docs")
                             ? "text-foreground"
-                            : "text-foreground/80"
+                            : "text-foreground/80",
                     )}
                 >
                     Components
                 </Link>
             </nav>
         </div>
-    )
+    );
 }

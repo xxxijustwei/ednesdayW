@@ -15,7 +15,7 @@ export const THEMES = [
     "dark-yellow",
     "green",
     "dark-green",
-]
+];
 
 export const baseColors = [
     {
@@ -456,6 +456,6 @@ export const baseColors = [
             },
         },
     },
-] as const
+] as const;
 
-export type BaseColor = (typeof baseColors)[number]
+export type BaseColor = (typeof baseColors)[number];

@@ -93,5 +93,5 @@ export function DocGridPattern() {
                 </defs>
             </svg>
         </span>
-    )
+    );
 }

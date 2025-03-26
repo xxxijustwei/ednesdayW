@@ -1,4 +1,4 @@
-import { Input } from "@/registry/ui/input"
+import { Input } from "@/registry/ui/input";
 
 export const InputSizeExample = () => {
     const sizes = ["sm", "md", "lg"] as const;
@@ -8,5 +8,5 @@ export const InputSizeExample = () => {
                 <Input key={size} size={size} placeholder={size} />
             ))}
         </div>
-    )
-}
+    );
+};

@@ -1,4 +1,4 @@
-import { Registry } from "shadcn/registry";
+import type { Registry } from "shadcn/registry";
 
 export const examples: Registry["items"] = [
     {
@@ -10,9 +10,9 @@ export const examples: Registry["items"] = [
             {
                 path: "src/registry/example/input/size.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-size-demo.tsx"
-            }
-        ]
+                target: "components/ednesdayw/input-size-demo.tsx",
+            },
+        ],
     },
     {
         name: "input-variant-demo",
@@ -23,9 +23,9 @@ export const examples: Registry["items"] = [
             {
                 path: "src/registry/example/input/variant.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-variant-demo.tsx"
-            }
-        ]
+                target: "components/ednesdayw/input-variant-demo.tsx",
+            },
+        ],
     },
     {
         name: "input-start-end-content-demo",
@@ -36,9 +36,9 @@ export const examples: Registry["items"] = [
             {
                 path: "src/registry/example/input/start-end-content.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-start-end-content-demo.tsx"
-            }
-        ]
+                target: "components/ednesdayw/input-start-end-content-demo.tsx",
+            },
+        ],
     },
     {
         name: "input-password-demo",
@@ -49,9 +49,9 @@ export const examples: Registry["items"] = [
             {
                 path: "src/registry/example/input/password.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-password-demo.tsx"
-            }
-        ]
+                target: "components/ednesdayw/input-password-demo.tsx",
+            },
+        ],
     },
     {
         name: "input-phone-input-demo",
@@ -62,9 +62,9 @@ export const examples: Registry["items"] = [
             {
                 path: "src/registry/example/input/phone-input.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-phone-input-demo.tsx"
-            }
-        ]
+                target: "components/ednesdayw/input-phone-input-demo.tsx",
+            },
+        ],
     },
     {
         name: "input-form-demo",
@@ -75,8 +75,8 @@ export const examples: Registry["items"] = [
             {
                 path: "src/registry/example/input/form.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-form-demo.tsx"
-            }
-        ]
-    }
-]
+                target: "components/ednesdayw/input-form-demo.tsx",
+            },
+        ],
+    },
+];

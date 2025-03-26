@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { cn } from "@/lib/utils";
 
 export function Callout({
     title,
@@ -14,5 +14,5 @@ export function Callout({
             {title && <AlertTitle>{title}</AlertTitle>}
             <AlertDescription>{children}</AlertDescription>
         </Alert>
-    )
+    );
 }

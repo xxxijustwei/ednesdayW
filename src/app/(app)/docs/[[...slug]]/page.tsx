@@ -1,49 +1,49 @@
-import { Metadata } from "next"
-import { notFound } from "next/navigation"
-import { allDocs } from "content-collections"
-import { ChevronRightIcon, ExternalLinkIcon } from "lucide-react"
-import { Balancer } from "react-wrap-balancer"
+import { allDocs } from "content-collections";
+import { ChevronRightIcon, ExternalLinkIcon } from "lucide-react";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { Balancer } from "react-wrap-balancer";
 
-import { siteConfig } from "@/config/site"
-import { getTableOfContents } from "@/lib/toc"
-import { absoluteUrl, cn } from "@/lib/utils"
-import { Mdx } from "@/components/mdx-components"
-import { DashboardTableOfContents } from "@/components/toc"
+import { Mdx } from "@/components/mdx-components";
+import { DashboardTableOfContents } from "@/components/toc";
+import { siteConfig } from "@/config/site";
+import { getTableOfContents } from "@/lib/toc";
+import { absoluteUrl, cn } from "@/lib/utils";
 
-import "@/styles/mdx.css"
+import "@/styles/mdx.css";
 
-import Link from "next/link"
+import Link from "next/link";
 
-import { badgeVariants } from "@/components/ui/badge"
-import { Contribute } from "@/components/contribute"
-import { DocGridPattern } from "@/components/doc-grid-pattern"
-import { ScrambleText } from "@/components/scramble-text"
+import { Contribute } from "@/components/contribute";
+import { DocGridPattern } from "@/components/doc-grid-pattern";
+import { ScrambleText } from "@/components/scramble-text";
+import { badgeVariants } from "@/components/ui/badge";
 
 interface DocPageProps {
     params: {
-        slug: string[]
-    }
+        slug: string[];
+    };
 }
 
 async function getDocFromParams({ params }: DocPageProps) {
-    const slug = params.slug?.join("/") || ""
-    const doc = allDocs.find((doc) => doc.slugAsParams === slug)
+    const slug = params.slug?.join("/") || "";
+    const doc = allDocs.find((doc) => doc.slugAsParams === slug);
 
     if (!doc) {
-        return null
+        return null;
     }
 
-    return doc
+    return doc;
 }
 
 export async function generateMetadata(props: {
-    params: Promise<DocPageProps["params"]>
+    params: Promise<DocPageProps["params"]>;
 }): Promise<Metadata> {
-    const params = await props.params
-    const doc = await getDocFromParams({ params })
+    const params = await props.params;
+    const doc = await getDocFromParams({ params });
 
     if (!doc) {
-        return {}
+        return {};
     }
 
     return {
@@ -70,7 +70,7 @@ export async function generateMetadata(props: {
             images: [siteConfig.ogImage],
             creator: "@xxxijustwei",
         },
-    }
+    };
 }
 
 export async function generateStaticParams(): Promise<
@@ -78,21 +78,21 @@ export async function generateStaticParams(): Promise<
 > {
     return allDocs.map((doc) => ({
         slug: doc.slugAsParams.split("/"),
-    }))
+    }));
 }
 
 export default async function DocPage(props: {
-    params: Promise<DocPageProps["params"]>
+    params: Promise<DocPageProps["params"]>;
 }) {
-    const params = await props.params
+    const params = await props.params;
 
-    const doc = await getDocFromParams({ params })
+    const doc = await getDocFromParams({ params });
 
     if (!doc) {
-        notFound()
+        notFound();
     }
 
-    const toc = await getTableOfContents(doc.body.raw)
+    const toc = await getTableOfContents(doc.body.raw);
 
     return (
         <>
@@ -108,7 +108,7 @@ export default async function DocPage(props: {
                         <ScrambleText
                             text={doc.title}
                             className={cn(
-                                "h-10 w-fit scroll-m-20 text-3xl font-bold tracking-tight"
+                                "h-10 w-fit scroll-m-20 text-3xl font-bold tracking-tight",
                             )}
                         />
                         {doc.description && (
@@ -122,12 +122,12 @@ export default async function DocPage(props: {
                             {Object.entries(doc.links).map(([k, v]) => (
                                 <Link
                                     key={k}
-                                    href={v as any}
+                                    href={v}
                                     target="_blank"
                                     rel="noreferrer"
                                     className={cn(
                                         badgeVariants({ variant: "secondary" }),
-                                        "gap-1"
+                                        "gap-1",
                                     )}
                                 >
                                     {k}
@@ -150,5 +150,5 @@ export default async function DocPage(props: {
                 </div>
             </main>
         </>
-    )
+    );
 }

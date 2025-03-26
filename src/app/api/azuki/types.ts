@@ -9,7 +9,7 @@ export interface AzukiTokenConfig {
         Mouth: string;
         Offhand: string;
         Background: string;
-    }
+    };
 }
 
 export interface ERC721Attribute {

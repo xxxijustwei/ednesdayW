@@ -1,10 +1,10 @@
-import * as React from "react"
+import type * as React from "react";
 
-import { docsConfig } from "@/config/docs"
-import { DocsNav } from "@/components/docs-nav"
+import { DocsNav } from "@/components/docs-nav";
+import { docsConfig } from "@/config/docs";
 
 interface DocsLayoutProps {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
 
 export default function DocsLayout({ children }: DocsLayoutProps) {
@@ -17,5 +17,5 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
             </aside>
             {children}
         </div>
-    )
+    );
 }

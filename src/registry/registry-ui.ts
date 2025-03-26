@@ -1,4 +1,4 @@
-import { Registry } from "shadcn/registry";
+import type { Registry } from "shadcn/registry";
 
 export const ui: Registry["items"] = [
     {
@@ -10,8 +10,8 @@ export const ui: Registry["items"] = [
             {
                 path: "src/registry/ui/input.tsx",
                 type: "registry:ui",
-                target: "components/ednesdayw/input.tsx"
-            }
-        ]
-    }
-]
+                target: "components/ednesdayw/input.tsx",
+            },
+        ],
+    },
+];

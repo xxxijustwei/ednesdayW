@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import * as React from "react"
 import {
     CheckIcon,
     MoonIcon,
     PaletteIcon,
     RepeatIcon,
     SunIcon,
-} from "lucide-react"
-import { useTheme } from "next-themes"
+} from "lucide-react";
+import { useTheme } from "next-themes";
+import * as React from "react";
 
-import { baseColors } from "@/config/colors"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { DialogTitle } from "@/components/ui/dialog"
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
-import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button";
+import { DialogTitle } from "@/components/ui/dialog";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { Label } from "@/components/ui/label";
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
-} from "@/components/ui/popover"
-import { Skeleton } from "@/components/ui/skeleton"
+} from "@/components/ui/popover";
+import { Skeleton } from "@/components/ui/skeleton";
+import { baseColors } from "@/config/colors";
+import { cn } from "@/lib/utils";
 
 export function ThemeCustomizer() {
     return (
@@ -33,7 +33,9 @@ export function ThemeCustomizer() {
                     </Button>
                 </DrawerTrigger>
                 <DrawerContent>
-                    <DialogTitle className="sr-only">Theme Customizer</DialogTitle>
+                    <DialogTitle className="sr-only">
+                        Theme Customizer
+                    </DialogTitle>
                     <Customizer />
                 </DrawerContent>
             </Drawer>
@@ -54,16 +56,16 @@ export function ThemeCustomizer() {
                 </Popover>
             </div>
         </>
-    )
+    );
 }
 
 export function Customizer() {
-    const [mounted, setMounted] = React.useState(false)
-    const { setTheme, resolvedTheme: theme } = useTheme()
+    const [mounted, setMounted] = React.useState(false);
+    const { setTheme, resolvedTheme: theme } = useTheme();
 
     React.useEffect(() => {
-        setMounted(true)
-    }, [])
+        setMounted(true);
+    }, []);
 
     return (
         <div className="w-full">
@@ -91,7 +93,7 @@ export function Customizer() {
                     <Label className="text-xs">Color</Label>
                     <div className="grid grid-cols-3 gap-2">
                         {baseColors.map((color) => {
-                            const isActive = theme?.includes(color.name)
+                            const isActive = theme?.includes(color.name);
 
                             return mounted ? (
                                 <Button
@@ -102,32 +104,42 @@ export function Customizer() {
                                         setTheme(
                                             theme?.includes("dark")
                                                 ? `dark-${color.name}`
-                                                : color.name
-                                        )
+                                                : color.name,
+                                        );
                                     }}
                                     className={cn(
                                         "justify-start",
-                                        isActive && "border-2 border-primary"
+                                        isActive && "border-2 border-primary",
                                     )}
                                     style={
                                         {
-                                            "--theme-primary": `hsl(${color?.activeColor[theme === "dark" ? "dark" : "light"]
-                                                })`,
+                                            "--theme-primary": `hsl(${
+                                                color?.activeColor[
+                                                    theme === "dark"
+                                                        ? "dark"
+                                                        : "light"
+                                                ]
+                                            })`,
                                         } as React.CSSProperties
                                     }
                                 >
                                     <span
                                         className={cn(
-                                            "mr-1 flex size-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]"
+                                            "mr-1 flex size-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]",
                                         )}
                                     >
-                                        {isActive && <CheckIcon className="size-4 text-white" />}
+                                        {isActive && (
+                                            <CheckIcon className="size-4 text-white" />
+                                        )}
                                     </span>
                                     {color.label}
                                 </Button>
                             ) : (
-                                <Skeleton className="h-8 w-full" key={color.name} />
-                            )
+                                <Skeleton
+                                    className="h-8 w-full"
+                                    key={color.name}
+                                />
+                            );
                         })}
                     </div>
                 </div>
@@ -144,12 +156,13 @@ export function Customizer() {
                                             theme === "dark"
                                                 ? "light"
                                                 : theme?.includes("dark")
-                                                    ? theme?.replace("dark-", "")
-                                                    : `${theme}`
+                                                  ? theme?.replace("dark-", "")
+                                                  : `${theme}`,
                                         )
                                     }
                                     className={cn(
-                                        !theme?.includes("dark") && "border-2 border-primary"
+                                        !theme?.includes("dark") &&
+                                            "border-2 border-primary",
                                     )}
                                 >
                                     <SunIcon className="mr-1 -translate-x-1" />
@@ -163,12 +176,13 @@ export function Customizer() {
                                             theme === "light"
                                                 ? "dark"
                                                 : theme?.includes("dark")
-                                                    ? theme
-                                                    : `dark-${theme}`
+                                                  ? theme
+                                                  : `dark-${theme}`,
                                         )
                                     }
                                     className={cn(
-                                        theme?.includes("dark") && "border-2 border-primary"
+                                        theme?.includes("dark") &&
+                                            "border-2 border-primary",
                                     )}
                                 >
                                     <MoonIcon className="mr-1 -translate-x-1" />
@@ -185,5 +199,5 @@ export function Customizer() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

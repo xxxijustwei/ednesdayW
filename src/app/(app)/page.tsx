@@ -1,8 +1,8 @@
-import Link from "next/link"
+import Link from "next/link";
 
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-import { GridPattern } from "@/components/grid-pattern"
+import { GridPattern } from "@/components/grid-pattern";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
     return (
@@ -28,9 +28,9 @@ export default function Home() {
                 ]}
                 className={cn(
                     "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-                    "-inset-y-1/2 inset-x-0 h-[200%] skew-y-12"
+                    "-inset-y-1/2 inset-x-0 h-[200%] skew-y-12",
                 )}
             />
         </div>
-    )
+    );
 }

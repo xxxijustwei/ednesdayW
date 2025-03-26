@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { ERC721Metadata } from '@/app/api/azuki/types';
+import type { ERC721Metadata } from "@/app/api/azuki/types";
+import { create } from "zustand";
 
 interface TraitCount {
     key: string;
@@ -28,7 +28,7 @@ const initialState = {
     traitCounts: {},
     serialNumber: undefined,
     traits: {},
-}
+};
 
 export const useERC721Utils = create<State & Filter & Action>((set, get) => ({
     ...initialState,
@@ -42,33 +42,37 @@ export const useERC721Utils = create<State & Filter & Action>((set, get) => ({
     filterTraits: (traitsType: string, traitsValue: string) => {
         const traits = get().traits;
         const currentTraits = [...(traits[traitsType] || [])];
-        
+
         set({
             traits: {
                 ...traits,
                 [traitsType]: currentTraits.includes(traitsValue)
-                    ? currentTraits.filter(trait => trait !== traitsValue)
-                    : [...currentTraits, traitsValue]
-            }
+                    ? currentTraits.filter((trait) => trait !== traitsValue)
+                    : [...currentTraits, traitsValue],
+            },
         });
     },
     getNFTs: (isFiltered = false) => {
         const { nfts, serialNumber, traits } = get();
         if (!isFiltered) return nfts;
-        
+
         const hasTraits = Object.keys(traits).length > 0;
-        
-        return nfts.filter(nft => {
-            if (serialNumber && nft.serial_number !== serialNumber) return false;
+
+        return nfts.filter((nft) => {
+            if (serialNumber && nft.serial_number !== serialNumber)
+                return false;
             if (!hasTraits) return true;
-            
+
             const nftTraitMap = new Map(
-                nft.attributes.map(attr => [attr.trait_type, attr.value])
+                nft.attributes.map((attr) => [attr.trait_type, attr.value]),
             );
-            
+
             return Object.entries(traits).every(([traitType, traitValues]) => {
                 const nftValue = nftTraitMap.get(traitType);
-                return traitValues.length === 0 || (nftValue && traitValues.includes(nftValue));
+                return (
+                    traitValues.length === 0 ||
+                    (nftValue && traitValues.includes(nftValue))
+                );
             });
         });
     },
@@ -83,7 +87,9 @@ const getTraitCounts = (nfts: ERC721Metadata[]) => {
                 traitMap.set(trait_type, new Map());
             }
 
-            const valueMap = traitMap.get(trait_type)!;
+            const valueMap = traitMap.get(trait_type);
+            if (!valueMap) continue;
+
             valueMap.set(value, (valueMap.get(value) || 0) + 1);
         }
     }
@@ -93,9 +99,9 @@ const getTraitCounts = (nfts: ERC721Metadata[]) => {
     traitMap.forEach((valueMap, trait_type) => {
         result[trait_type] = Array.from(valueMap).map(([key, count]) => ({
             key,
-            count
+            count,
         }));
     });
 
     return result;
-}
+};

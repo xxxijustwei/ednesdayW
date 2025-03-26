@@ -1,9 +1,9 @@
 import { Index } from "@/__registry__";
-import { ComponentWrapper } from "./component-wrapper";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
-import * as React from "react";
 import { Loader2 } from "lucide-react";
+import * as React from "react";
+import { ComponentWrapper } from "./component-wrapper";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
     name: string;
@@ -26,7 +26,9 @@ export const ComponentPreview = ({
         const Component = Index[name]?.component;
 
         if (!Component) {
-            console.error(`Component with name "${name}" not found in registry.`);
+            console.error(
+                `Component with name "${name}" not found in registry.`,
+            );
             return (
                 <p className="text-sm text-muted-foreground">
                     Component{" "}
@@ -92,4 +94,4 @@ export const ComponentPreview = ({
             </Tabs>
         </div>
     );
-}
+};

@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { useId } from "react"
+import { useId } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 interface GridPatternProps {
-    width?: number
-    height?: number
-    x?: number
-    y?: number
-    squares?: Array<[x: number, y: number]>
-    strokeDasharray?: string
-    className?: string
-    [key: string]: unknown
+    width?: number;
+    height?: number;
+    x?: number;
+    y?: number;
+    squares?: Array<[x: number, y: number]>;
+    strokeDasharray?: string;
+    className?: string;
+    [key: string]: unknown;
 }
 
 export function GridPattern({
@@ -25,14 +25,14 @@ export function GridPattern({
     className,
     ...props
 }: GridPatternProps) {
-    const id = useId()
+    const id = useId();
 
     return (
         <svg
             aria-hidden="true"
             className={cn(
                 "pointer-events-none absolute inset-0 size-full fill-primary/30 stroke-primary/30",
-                className
+                className,
             )}
             {...props}
         >
@@ -52,7 +52,12 @@ export function GridPattern({
                     />
                 </pattern>
             </defs>
-            <rect width="100%" height="100%" strokeWidth={0} fill={`url(#${id})`} />
+            <rect
+                width="100%"
+                height="100%"
+                strokeWidth={0}
+                fill={`url(#${id})`}
+            />
             {squares && (
                 <svg x={x} y={y} className="overflow-visible">
                     {squares.map(([x, y]) => (
@@ -68,5 +73,5 @@ export function GridPattern({
                 </svg>
             )}
         </svg>
-    )
+    );
 }

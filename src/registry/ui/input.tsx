@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import * as React from "react"
-import { cn } from "@/lib/utils"
-import { cva, VariantProps } from "class-variance-authority"
+import { cn } from "@/lib/utils";
+import { type VariantProps, cva } from "class-variance-authority";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
+import * as React from "react";
 
 const containerVariants = cva(
     "flex w-full rounded-md text-base relative cursor-text data-[is-invalid=true]:border-destructive focus-within:border-ring transition-all duration-200",
@@ -23,8 +23,8 @@ const containerVariants = cva(
         compoundVariants: [
             {
                 variant: "underline",
-                className: "px-0.5"
-            }
+                className: "px-0.5",
+            },
         ],
         defaultVariants: {
             variant: "default",
@@ -50,8 +50,8 @@ const inputVariants = cva(
 );
 
 interface InputProps
-    extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
-    VariantProps<typeof containerVariants> {
+    extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size">,
+        VariantProps<typeof containerVariants> {
     inputClassName?: string;
     size?: "sm" | "md" | "lg";
     isInvalid?: boolean;
@@ -60,7 +60,23 @@ interface InputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    ({ className, inputClassName, type, placeholder, value, variant, size, "aria-invalid": ariaInvalid, disabled, startContent, endContent, ...props }, ref) => {
+    (
+        {
+            className,
+            inputClassName,
+            type,
+            placeholder,
+            value,
+            variant,
+            size,
+            "aria-invalid": ariaInvalid,
+            disabled,
+            startContent,
+            endContent,
+            ...props
+        },
+        ref,
+    ) => {
         const [showPassword, setShowPassword] = React.useState(false);
 
         const endContentRender = () => {
@@ -86,28 +102,32 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             }
 
             return null;
-        }
+        };
 
         return (
             <div
                 className={cn(
                     containerVariants({ variant, size }),
                     "group flex items-center justify-center gap-1.5",
-                    className
+                    className,
                 )}
                 data-is-invalid={ariaInvalid?.toString()}
             >
-                {startContent && (
-                    startContent
-                )}
-                <div className={
-                    cn(
+                {startContent && startContent}
+                <div
+                    className={cn(
                         "inline-flex w-full items-end h-full relative",
-                        disabled && "opacity-50"
-                    )
-                }>
+                        disabled && "opacity-50",
+                    )}
+                >
                     <input
-                        type={type === "password" && endContent === undefined && showPassword ? "text" : type}
+                        type={
+                            type === "password" &&
+                            endContent === undefined &&
+                            showPassword
+                                ? "text"
+                                : type
+                        }
                         ref={ref}
                         className={cn(inputVariants({ size }), inputClassName)}
                         value={value}
@@ -118,10 +138,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 </div>
                 {endContentRender()}
             </div>
-        )
-    }
-)
+        );
+    },
+);
 
-Input.displayName = "Input"
+Input.displayName = "Input";
 
-export { Input, type InputProps }
+export { Input, type InputProps };

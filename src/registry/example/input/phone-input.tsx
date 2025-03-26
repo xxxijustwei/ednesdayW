@@ -1,14 +1,18 @@
-'use client'
+"use client";
 
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover";
 import { Input } from "@/registry/ui/input";
 import { Check, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
 interface Country {
-    name: string
-    flag: string
-    dialCode: string
+    name: string;
+    flag: string;
+    dialCode: string;
 }
 
 const countries: Country[] = [
@@ -41,8 +45,8 @@ export const PhoneInputExample = () => {
             <BorderedPhoneInput />
             <UnderlinePhoneInput />
         </div>
-    )
-}
+    );
+};
 
 interface PhoneInputProps {
     value?: string;
@@ -59,26 +63,31 @@ const PhoneInput = ({ value, onChange }: PhoneInputProps) => {
             const match = value.match(/^\+\d{1,3}\s\d{7,14}$/);
             if (match) {
                 const [dialCode, phoneNumber] = match[0].split(" ");
-                setCountry(countries.find(c => c.dialCode === dialCode) || countries[0]);
+                setCountry(
+                    countries.find((c) => c.dialCode === dialCode) ||
+                        countries[0],
+                );
                 setPhoneNumber(phoneNumber);
             }
         }
     }, []);
 
     const handleCountrySelect = (country: Country) => {
-        setCountry(country)
-        setIsOpen(false)
-        onChange?.(`${country.dialCode} ${phoneNumber}`)
-    }
+        setCountry(country);
+        setIsOpen(false);
+        onChange?.(`${country.dialCode} ${phoneNumber}`);
+    };
 
-    const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handlePhoneNumberChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+    ) => {
         const newNumber = e.target.value;
         if (newNumber !== "" && !/^[0-9]+$/.test(newNumber)) {
             return;
         }
-        setPhoneNumber(newNumber)
-        onChange?.(`${country.dialCode} ${newNumber}`)
-    }
+        setPhoneNumber(newNumber);
+        onChange?.(`${country.dialCode} ${newNumber}`);
+    };
 
     return (
         <Input
@@ -89,10 +98,17 @@ const PhoneInput = ({ value, onChange }: PhoneInputProps) => {
                 <div className="h-full flex items-center">
                     <Popover open={isOpen} onOpenChange={setIsOpen}>
                         <PopoverTrigger asChild>
-                            <button type="button" className="flex items-center justify-between gap-1 text-sm cursor-pointer">
+                            <button
+                                type="button"
+                                className="flex items-center justify-between gap-1 text-sm cursor-pointer"
+                            >
                                 <div className="flex items-center gap-1">
-                                    <span className="text-base">{country.flag}</span>
-                                    <span className="font-medium">{country.dialCode}</span>
+                                    <span className="text-base">
+                                        {country.flag}
+                                    </span>
+                                    <span className="font-medium">
+                                        {country.dialCode}
+                                    </span>
                                 </div>
                                 <ChevronDown className="w-4 h-4 ml-1 text-muted-foreground" />
                             </button>
@@ -111,12 +127,22 @@ const PhoneInput = ({ value, onChange }: PhoneInputProps) => {
                                         key={index}
                                         type="button"
                                         className="flex items-center w-full px-4 py-2 text-sm hover:bg-muted"
-                                        onClick={() => handleCountrySelect(item)}
+                                        onClick={() =>
+                                            handleCountrySelect(item)
+                                        }
                                     >
-                                        <span className="mr-2 text-base">{item.flag}</span>
-                                        <span className="flex-1 text-left">{item.name}</span>
-                                        <span className="text-muted-foreground">{item.dialCode}</span>
-                                        {item.dialCode === country.dialCode && <Check className="w-4 h-4 ml-2 text-primary" />}
+                                        <span className="mr-2 text-base">
+                                            {item.flag}
+                                        </span>
+                                        <span className="flex-1 text-left">
+                                            {item.name}
+                                        </span>
+                                        <span className="text-muted-foreground">
+                                            {item.dialCode}
+                                        </span>
+                                        {item.dialCode === country.dialCode && (
+                                            <Check className="w-4 h-4 ml-2 text-primary" />
+                                        )}
                                     </button>
                                 ))}
                             </div>
@@ -126,8 +152,8 @@ const PhoneInput = ({ value, onChange }: PhoneInputProps) => {
                 </div>
             }
         />
-    )
-}
+    );
+};
 
 const BorderedPhoneInput = ({ value, onChange }: PhoneInputProps) => {
     const [country, setCountry] = useState(countries[0]);
@@ -139,26 +165,31 @@ const BorderedPhoneInput = ({ value, onChange }: PhoneInputProps) => {
             const match = value.match(/^\+\d{1,3}\s\d{7,14}$/);
             if (match) {
                 const [dialCode, phoneNumber] = match[0].split(" ");
-                setCountry(countries.find(c => c.dialCode === dialCode) || countries[0]);
+                setCountry(
+                    countries.find((c) => c.dialCode === dialCode) ||
+                        countries[0],
+                );
                 setPhoneNumber(phoneNumber);
             }
         }
     }, []);
 
     const handleCountrySelect = (country: Country) => {
-        setCountry(country)
-        setIsOpen(false)
-        onChange?.(`${country.dialCode} ${phoneNumber}`)
-    }
+        setCountry(country);
+        setIsOpen(false);
+        onChange?.(`${country.dialCode} ${phoneNumber}`);
+    };
 
-    const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handlePhoneNumberChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+    ) => {
         const newNumber = e.target.value;
         if (newNumber !== "" && !/^[0-9]+$/.test(newNumber)) {
             return;
         }
-        setPhoneNumber(newNumber)
-        onChange?.(`${country.dialCode} ${newNumber}`)
-    }
+        setPhoneNumber(newNumber);
+        onChange?.(`${country.dialCode} ${newNumber}`);
+    };
 
     return (
         <Input
@@ -170,10 +201,17 @@ const BorderedPhoneInput = ({ value, onChange }: PhoneInputProps) => {
                 <div className="h-full flex items-center">
                     <Popover open={isOpen} onOpenChange={setIsOpen}>
                         <PopoverTrigger asChild>
-                            <button type="button" className="flex items-center justify-between gap-1 text-sm cursor-pointer">
+                            <button
+                                type="button"
+                                className="flex items-center justify-between gap-1 text-sm cursor-pointer"
+                            >
                                 <div className="flex items-center gap-1">
-                                    <span className="text-base">{country.flag}</span>
-                                    <span className="font-medium">{country.dialCode}</span>
+                                    <span className="text-base">
+                                        {country.flag}
+                                    </span>
+                                    <span className="font-medium">
+                                        {country.dialCode}
+                                    </span>
                                 </div>
                                 <ChevronDown className="w-4 h-4 ml-1 text-muted-foreground" />
                             </button>
@@ -192,12 +230,22 @@ const BorderedPhoneInput = ({ value, onChange }: PhoneInputProps) => {
                                         key={index}
                                         type="button"
                                         className="flex items-center w-full px-4 py-2 text-sm hover:bg-muted"
-                                        onClick={() => handleCountrySelect(item)}
+                                        onClick={() =>
+                                            handleCountrySelect(item)
+                                        }
                                     >
-                                        <span className="mr-2 text-base">{item.flag}</span>
-                                        <span className="flex-1 text-left">{item.name}</span>
-                                        <span className="text-muted-foreground">{item.dialCode}</span>
-                                        {item.dialCode === country.dialCode && <Check className="w-4 h-4 ml-2 text-primary" />}
+                                        <span className="mr-2 text-base">
+                                            {item.flag}
+                                        </span>
+                                        <span className="flex-1 text-left">
+                                            {item.name}
+                                        </span>
+                                        <span className="text-muted-foreground">
+                                            {item.dialCode}
+                                        </span>
+                                        {item.dialCode === country.dialCode && (
+                                            <Check className="w-4 h-4 ml-2 text-primary" />
+                                        )}
                                     </button>
                                 ))}
                             </div>
@@ -207,8 +255,8 @@ const BorderedPhoneInput = ({ value, onChange }: PhoneInputProps) => {
                 </div>
             }
         />
-    )
-}
+    );
+};
 
 const UnderlinePhoneInput = ({ value, onChange }: PhoneInputProps) => {
     const [country, setCountry] = useState(countries[0]);
@@ -220,26 +268,31 @@ const UnderlinePhoneInput = ({ value, onChange }: PhoneInputProps) => {
             const match = value.match(/^\+\d{1,3}\s\d{7,14}$/);
             if (match) {
                 const [dialCode, phoneNumber] = match[0].split(" ");
-                setCountry(countries.find(c => c.dialCode === dialCode) || countries[0]);
+                setCountry(
+                    countries.find((c) => c.dialCode === dialCode) ||
+                        countries[0],
+                );
                 setPhoneNumber(phoneNumber);
             }
         }
     }, []);
 
     const handleCountrySelect = (country: Country) => {
-        setCountry(country)
-        setIsOpen(false)
-        onChange?.(`${country.dialCode} ${phoneNumber}`)
-    }
+        setCountry(country);
+        setIsOpen(false);
+        onChange?.(`${country.dialCode} ${phoneNumber}`);
+    };
 
-    const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handlePhoneNumberChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+    ) => {
         const newNumber = e.target.value;
         if (newNumber !== "" && !/^[0-9]+$/.test(newNumber)) {
             return;
         }
-        setPhoneNumber(newNumber)
-        onChange?.(`${country.dialCode} ${newNumber}`)
-    }
+        setPhoneNumber(newNumber);
+        onChange?.(`${country.dialCode} ${newNumber}`);
+    };
 
     return (
         <Input
@@ -251,10 +304,17 @@ const UnderlinePhoneInput = ({ value, onChange }: PhoneInputProps) => {
                 <div className="h-full flex items-center">
                     <Popover open={isOpen} onOpenChange={setIsOpen}>
                         <PopoverTrigger asChild>
-                            <button type="button" className="flex items-center justify-between gap-1 text-sm cursor-pointer">
+                            <button
+                                type="button"
+                                className="flex items-center justify-between gap-1 text-sm cursor-pointer"
+                            >
                                 <div className="flex items-center gap-1">
-                                    <span className="text-base">{country.flag}</span>
-                                    <span className="font-medium">{country.dialCode}</span>
+                                    <span className="text-base">
+                                        {country.flag}
+                                    </span>
+                                    <span className="font-medium">
+                                        {country.dialCode}
+                                    </span>
                                 </div>
                                 <ChevronDown className="w-4 h-4 ml-1 text-muted-foreground" />
                             </button>
@@ -273,12 +333,22 @@ const UnderlinePhoneInput = ({ value, onChange }: PhoneInputProps) => {
                                         key={index}
                                         type="button"
                                         className="flex items-center w-full px-4 py-2 text-sm hover:bg-muted"
-                                        onClick={() => handleCountrySelect(item)}
+                                        onClick={() =>
+                                            handleCountrySelect(item)
+                                        }
                                     >
-                                        <span className="mr-2 text-base">{item.flag}</span>
-                                        <span className="flex-1 text-left">{item.name}</span>
-                                        <span className="text-muted-foreground">{item.dialCode}</span>
-                                        {item.dialCode === country.dialCode && <Check className="w-4 h-4 ml-2 text-primary" />}
+                                        <span className="mr-2 text-base">
+                                            {item.flag}
+                                        </span>
+                                        <span className="flex-1 text-left">
+                                            {item.name}
+                                        </span>
+                                        <span className="text-muted-foreground">
+                                            {item.dialCode}
+                                        </span>
+                                        {item.dialCode === country.dialCode && (
+                                            <Check className="w-4 h-4 ml-2 text-primary" />
+                                        )}
                                     </button>
                                 ))}
                             </div>
@@ -288,5 +358,5 @@ const UnderlinePhoneInput = ({ value, onChange }: PhoneInputProps) => {
                 </div>
             }
         />
-    )
-}
+    );
+};

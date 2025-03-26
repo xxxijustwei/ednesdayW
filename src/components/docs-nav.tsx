@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { SidebarNavItem } from "@/types/nav"
-import { type DocsConfig } from "@/config/docs"
-import { cn } from "@/lib/utils"
+import type { DocsConfig } from "@/config/docs";
+import { cn } from "@/lib/utils";
+import type { SidebarNavItem } from "@/types/nav";
 
 export function DocsNav({ config }: { config: DocsConfig }) {
-    const pathname = usePathname()
+    const pathname = usePathname();
 
-    const items = config.sidebarNav
+    const items = config.sidebarNav;
 
     return items.length ? (
         <div className="flex flex-col gap-6">
@@ -25,15 +25,15 @@ export function DocsNav({ config }: { config: DocsConfig }) {
                 </div>
             ))}
         </div>
-    ) : null
+    ) : null;
 }
 
 function DocsNavItems({
     items,
     pathname,
 }: {
-    items: SidebarNavItem[]
-    pathname: string | null
+    items: SidebarNavItem[];
+    pathname: string | null;
 }) {
     return items?.length ? (
         <div className="grid grid-flow-row auto-rows-max gap-0.5 text-sm">
@@ -45,7 +45,8 @@ function DocsNavItems({
                         className={cn(
                             "group flex h-8 w-full items-center rounded-lg px-2 font-normal text-foreground underline-offset-2 hover:bg-primary/10 hover:text-accent-foreground",
                             item.disabled && "cursor-not-allowed opacity-60",
-                            pathname === item.href && "bg-primary/10 font-medium text-primary"
+                            pathname === item.href &&
+                                "bg-primary/10 font-medium text-primary",
                         )}
                         target={item.external ? "_blank" : ""}
                         rel={item.external ? "noreferrer" : ""}
@@ -62,7 +63,7 @@ function DocsNavItems({
                         key={index}
                         className={cn(
                             "flex w-full cursor-not-allowed items-center rounded-md p-2 text-muted-foreground hover:underline",
-                            item.disabled && "cursor-not-allowed opacity-60"
+                            item.disabled && "cursor-not-allowed opacity-60",
                         )}
                     >
                         {item.title}
@@ -72,8 +73,8 @@ function DocsNavItems({
                             </span>
                         )}
                     </span>
-                )
+                ),
             )}
         </div>
-    ) : null
+    ) : null;
 }

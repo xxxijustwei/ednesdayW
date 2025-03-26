@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link, { LinkProps } from "next/link"
-import { useRouter } from "next/navigation"
+import Link, { type LinkProps } from "next/link";
+import { useRouter } from "next/navigation";
+import * as React from "react";
 
-import { docsConfig } from "@/config/docs"
-import { cn } from "@/lib/utils"
-import { useMetaColor } from "@/hooks/use-meta-color"
-import { Button } from "@/components/ui/button"
-import { DialogTitle } from "@/components/ui/dialog"
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
+import { Button } from "@/components/ui/button";
+import { DialogTitle } from "@/components/ui/dialog";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { docsConfig } from "@/config/docs";
+import { useMetaColor } from "@/hooks/use-meta-color";
+import { cn } from "@/lib/utils";
 
 export function MobileNav() {
-    const [open, setOpen] = React.useState(false)
-    const { setMetaColor, metaColor } = useMetaColor()
+    const [open, setOpen] = React.useState(false);
+    const { setMetaColor, metaColor } = useMetaColor();
 
     const onOpenChange = React.useCallback(
         (open: boolean) => {
-            setOpen(open)
-            setMetaColor(open ? "#09090b" : metaColor)
+            setOpen(open);
+            setMetaColor(open ? "#09090b" : metaColor);
         },
-        [setMetaColor, metaColor]
-    )
+        [setMetaColor, metaColor],
+    );
 
     return (
         <Drawer open={open} onOpenChange={onOpenChange}>
@@ -61,12 +61,15 @@ export function MobileNav() {
                                     >
                                         {item.title}
                                     </MobileLink>
-                                )
+                                ),
                         )}
                     </div>
                     <div className="flex flex-col space-y-2">
                         {docsConfig.sidebarNav.map((item, index) => (
-                            <div key={index} className="flex flex-col space-y-3 pt-6">
+                            <div
+                                key={index}
+                                className="flex flex-col space-y-3 pt-6"
+                            >
                                 <h4 className="font-medium">{item.title}</h4>
                                 {item?.items?.length &&
                                     item.items.map((item) => (
@@ -96,13 +99,13 @@ export function MobileNav() {
                 </div>
             </DrawerContent>
         </Drawer>
-    )
+    );
 }
 
 interface MobileLinkProps extends LinkProps {
-    onOpenChange?: (open: boolean) => void
-    children: React.ReactNode
-    className?: string
+    onOpenChange?: (open: boolean) => void;
+    children: React.ReactNode;
+    className?: string;
 }
 
 function MobileLink({
@@ -112,18 +115,18 @@ function MobileLink({
     children,
     ...props
 }: MobileLinkProps) {
-    const router = useRouter()
+    const router = useRouter();
     return (
         <Link
             href={href}
             onClick={() => {
-                router.push(href.toString())
-                onOpenChange?.(false)
+                router.push(href.toString());
+                onOpenChange?.(false);
             }}
             className={cn("text-base", className)}
             {...props}
         >
             {children}
         </Link>
-    )
+    );
 }

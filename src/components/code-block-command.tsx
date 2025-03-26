@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { CheckIcon, ClipboardIcon } from "lucide-react"
+import { CheckIcon, ClipboardIcon } from "lucide-react";
+import * as React from "react";
 
-import { NpmCommands } from "@/types/unist"
-import { useConfig } from "@/hooks/use-config"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useConfig } from "@/hooks/use-config";
+import type { NpmCommands } from "@/types/unist";
 
 export function CodeBlockCommand({
     __npmCommand__,
@@ -14,36 +14,36 @@ export function CodeBlockCommand({
     __pnpmCommand__,
     __bunCommand__,
 }: React.ComponentProps<"pre"> & NpmCommands) {
-    const [config, setConfig] = useConfig()
-    const [hasCopied, setHasCopied] = React.useState(false)
+    const [config, setConfig] = useConfig();
+    const [hasCopied, setHasCopied] = React.useState(false);
 
     React.useEffect(() => {
         if (hasCopied) {
-            const timer = setTimeout(() => setHasCopied(false), 2000)
-            return () => clearTimeout(timer)
+            const timer = setTimeout(() => setHasCopied(false), 2000);
+            return () => clearTimeout(timer);
         }
-    }, [hasCopied])
+    }, [hasCopied]);
 
-    const packageManager = config.packageManager
+    const packageManager = config.packageManager;
     const tabs = React.useMemo(() => {
         return {
             pnpm: __pnpmCommand__,
             npm: __npmCommand__,
             yarn: __yarnCommand__,
             bun: __bunCommand__,
-        }
-    }, [__npmCommand__, __pnpmCommand__, __yarnCommand__, __bunCommand__])
+        };
+    }, [__npmCommand__, __pnpmCommand__, __yarnCommand__, __bunCommand__]);
 
     const copyCommand = React.useCallback(() => {
-        const command = tabs[packageManager]
+        const command = tabs[packageManager];
 
         if (!command) {
-            return
+            return;
         }
 
-        navigator.clipboard.writeText(command)
-        setHasCopied(true)
-    }, [packageManager, tabs])
+        navigator.clipboard.writeText(command);
+        setHasCopied(true);
+    }, [packageManager, tabs]);
 
     return (
         <div className="relative mt-6 max-h-[650px] overflow-x-auto rounded-xl bg-zinc-950 dark:bg-zinc-900">
@@ -52,8 +52,12 @@ export function CodeBlockCommand({
                 onValueChange={(value) => {
                     setConfig({
                         ...config,
-                        packageManager: value as "pnpm" | "npm" | "yarn" | "bun",
-                    })
+                        packageManager: value as
+                            | "pnpm"
+                            | "npm"
+                            | "yarn"
+                            | "bun",
+                    });
                 }}
             >
                 <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900 px-3 pt-2.5">
@@ -67,7 +71,7 @@ export function CodeBlockCommand({
                                 >
                                     {key}
                                 </TabsTrigger>
-                            )
+                            );
                         })}
                     </TabsList>
                 </div>
@@ -83,7 +87,7 @@ export function CodeBlockCommand({
                                 </code>
                             </pre>
                         </TabsContent>
-                    )
+                    );
                 })}
             </Tabs>
             <Button
@@ -96,5 +100,5 @@ export function CodeBlockCommand({
                 {hasCopied ? <CheckIcon /> : <ClipboardIcon />}
             </Button>
         </div>
-    )
+    );
 }
