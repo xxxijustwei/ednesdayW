@@ -1,59 +1,57 @@
 .theme-blue {
-    --background: oklch(0.99 0.005 255); /* Near white, slight blue tint (like HeroUI light background #FFFFFF) */
-    --foreground: oklch(0.2 0.015 255); /* Dark grayish blue (like HeroUI light foreground #11181C) */
-    --card: oklch(1 0 0); /* White card (like HeroUI light content1 #FFFFFF) */
-    --card-foreground: oklch(0.2 0.015 255); /* Match foreground */
-    --popover: oklch(1 0 0); /* White popover */
-    --popover-foreground: oklch(0.2 0.015 255); /* Match foreground */
-    --primary: oklch(0.6 0.18 255); /* HeroUI Blue 500 */
-    --primary-foreground: oklch(1 0 0); /* White for contrast */
-    --secondary: oklch(0.94 0.02 255); /* Lighter blue-gray (like HeroUI default-100/200) */
-    --secondary-foreground: oklch(0.4 0.05 255); /* Medium blue-gray */
-    --muted: oklch(0.96 0.01 255); /* Very light blue-gray (like HeroUI default-50/100) */
-    --muted-foreground: oklch(0.5 0.02 255); /* Softer blue-gray text */
-    --accent: oklch(0.94 0.02 255); /* Same as secondary for subtle highlights */
-    --accent-foreground: oklch(0.4 0.05 255); /* Match secondary foreground */
-    --destructive: oklch(0.65 0.22 29); /* HeroUI Red 500 (#F31260) */
-    --border: oklch(0.9 0.015 255); /* Light blue-gray border (like HeroUI light divider/default-200) */
-    --input: oklch(0.9 0.015 255); /* Match border */
-    --ring: oklch(0.6 0.18 255 / 0.8); /* Primary blue for focus ring (like HeroUI focus) */
-    /* chart-* kept from original, adjust if needed */
-    --sidebar: oklch(0.98 0.01 255); /* Slightly off-white blue tint for sidebar */
-    --sidebar-foreground: oklch(0.2 0.015 255); /* Match foreground */
-    --sidebar-primary: oklch(0.6 0.18 255); /* Match primary */
-    --sidebar-primary-foreground: oklch(1 0 0); /* Match primary-foreground */
-    --sidebar-accent: oklch(0.94 0.02 255); /* Match accent/secondary */
-    --sidebar-accent-foreground: oklch(0.4 0.05 255); /* Match accent/secondary foreground */
-    --sidebar-border: oklch(0.9 0.015 255); /* Match border */
-    --sidebar-ring: oklch(0.6 0.18 255 / 0.8); /* Match ring */
+    --background: oklch(0.99 0.005 255);
+    --foreground: oklch(0.2 0.015 255);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.2 0.015 255);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.2 0.015 255);
+    --primary: oklch(0.6 0.18 255);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.94 0.02 255);
+    --secondary-foreground: oklch(0.4 0.05 255);
+    --muted: oklch(0.96 0.01 255);
+    --muted-foreground: oklch(0.5 0.02 255);
+    --accent: oklch(0.94 0.02 255);
+    --accent-foreground: oklch(0.4 0.05 255);
+    --destructive: oklch(0.65 0.22 29);
+    --border: oklch(0.9 0.015 255);
+    --input: oklch(0.9 0.015 255);
+    --ring: oklch(0.6 0.18 255 / 0.8);
+    --sidebar: oklch(0.98 0.01 255);
+    --sidebar-foreground: oklch(0.2 0.015 255);
+    --sidebar-primary: oklch(0.6 0.18 255);
+    --sidebar-primary-foreground: oklch(1 0 0);
+    --sidebar-accent: oklch(0.94 0.02 255);
+    --sidebar-accent-foreground: oklch(0.4 0.05 255);
+    --sidebar-border: oklch(0.9 0.015 255);
+    --sidebar-ring: oklch(0.6 0.18 255 / 0.8);
 
     @variant dark {
-        --background: oklch(0.12 0.015 255); /* Very dark blue (like HeroUI dark background #000000 but with blue tint) */
-        --foreground: oklch(0.97 0.008 255); /* Very light grayish blue (like HeroUI dark foreground #ECEDEE) */
-        --card: oklch(0.18 0.02 255); /* Dark blue-gray card (like HeroUI dark content1 #18181B) */
-        --card-foreground: oklch(0.97 0.008 255); /* Match foreground */
-        --popover: oklch(0.22 0.025 255); /* Slightly lighter dark blue-gray popover (like HeroUI dark content2 #27272A) */
-        --popover-foreground: oklch(0.97 0.008 255); /* Match foreground */
-        --primary: oklch(0.65 0.17 255); /* Brighter Blue for dark mode contrast (similar lightness to HeroUI #338EF7) */
-        --primary-foreground: oklch(0.1 0.02 255); /* Very dark blue for contrast on bright primary */
-        --secondary: oklch(0.3 0.03 255); /* Muted dark blue-gray (like HeroUI dark default-200/300) */
-        --secondary-foreground: oklch(0.95 0.01 255); /* Light grayish blue */
-        --muted: oklch(0.25 0.025 255); /* Darker muted blue-gray */
-        --muted-foreground: oklch(0.65 0.015 255); /* Medium grayish blue text */
-        --accent: oklch(0.35 0.035 255); /* Slightly more saturated dark blue */
-        --accent-foreground: oklch(0.95 0.01 255); /* Match secondary foreground */
-        --destructive: oklch(0.7 0.19 28); /* HeroUI Red 400 (#F54180) - Brighter red for dark mode */
-        --border: oklch(0.25 0.02 255); /* Dark blue-gray border (like HeroUI dark divider rgba(255, 255, 255, 0.15)) */
-        --input: oklch(0.28 0.025 255); /* Slightly lighter than border for input */
-        --ring: oklch(0.65 0.17 255 / 0.8); /* Primary blue for focus ring */
-        /* chart-* kept from original, adjust if needed */
-        --sidebar: oklch(0.18 0.02 255); /* Match card */
-        --sidebar-foreground: oklch(0.97 0.008 255); /* Match foreground */
-        --sidebar-primary: oklch(0.65 0.17 255); /* Match primary */
-        --sidebar-primary-foreground: oklch(0.1 0.02 255); /* Match primary-foreground */
-        --sidebar-accent: oklch(0.3 0.03 255); /* Match accent/secondary */
-        --sidebar-accent-foreground: oklch(0.95 0.01 255); /* Match accent/secondary foreground */
-        --sidebar-border: oklch(0.25 0.02 255); /* Match border */
-        --sidebar-ring: oklch(0.65 0.17 255 / 0.8); /* Match ring */
+        --background: oklch(0.12 0.015 255);
+        --foreground: oklch(0.97 0.008 255);
+        --card: oklch(0.18 0.02 255);
+        --card-foreground: oklch(0.97 0.008 255);
+        --popover: oklch(0.22 0.025 255);
+        --popover-foreground: oklch(0.97 0.008 255);
+        --primary: oklch(0.65 0.17 255);
+        --primary-foreground: oklch(0.1 0.02 255);
+        --secondary: oklch(0.3 0.03 255);
+        --secondary-foreground: oklch(0.95 0.01 255);
+        --muted: oklch(0.25 0.025 255);
+        --muted-foreground: oklch(0.65 0.015 255);
+        --accent: oklch(0.35 0.035 255);
+        --accent-foreground: oklch(0.95 0.01 255);
+        --destructive: oklch(0.7 0.19 28);
+        --border: oklch(0.25 0.02 255);
+        --input: oklch(0.28 0.025 255);
+        --ring: oklch(0.65 0.17 255 / 0.8);
+        --sidebar: oklch(0.18 0.02 255);
+        --sidebar-foreground: oklch(0.97 0.008 255);
+        --sidebar-primary: oklch(0.65 0.17 255);
+        --sidebar-primary-foreground: oklch(0.1 0.02 255);
+        --sidebar-accent: oklch(0.3 0.03 255);
+        --sidebar-accent-foreground: oklch(0.95 0.01 255);
+        --sidebar-border: oklch(0.25 0.02 255);
+        --sidebar-ring: oklch(0.65 0.17 255 / 0.8);
     }
 }
