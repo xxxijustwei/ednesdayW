@@ -278,7 +278,7 @@ const components = {
     }: React.ComponentProps<typeof TabsTrigger>) => (
         <TabsTrigger
             className={cn(
-                "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none",
+                "flex-none relative h-9 rounded-none border-0 border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary dark:data-[state=active]:border-b-primary dark:data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none",
                 className,
             )}
             {...props}
