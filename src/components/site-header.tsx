@@ -4,6 +4,7 @@ import { CommandMenu } from "@/components/command-menu";
 import { Icons } from "@/components/icons";
 import { MainNav } from "@/components/main-nav";
 import { MobileNav } from "@/components/mobile-nav";
+import { ModeSwitcher } from "@/components/mode-switcher";
 import { ThemeCustomizer } from "@/components/theme-customizer";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
@@ -37,6 +38,7 @@ export function SiteHeader() {
                                 <span className="sr-only">GitHub</span>
                             </Link>
                             <ThemeCustomizer />
+                            <ModeSwitcher />
                         </nav>
                     </div>
                 </div>
