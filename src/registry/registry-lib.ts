@@ -9,6 +9,7 @@ export const lib: Registry["items"] = [
             {
                 path: "src/registry/lib/utils.ts",
                 type: "registry:lib",
+                target: "lib/utils.ts",
             },
         ],
     },

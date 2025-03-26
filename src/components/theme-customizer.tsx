@@ -77,7 +77,7 @@ export function Customizer() {
                 </div>
             </div>
             <div className="flex flex-1 flex-col space-y-4 md:space-y-6 mt-2">
-                <div className="grid grid-cols-3 gap-2">
+                <div className="flex flex-wrap gap-2">
                     {THEMES.map((color) => {
                         const isActive = activeTheme === color.value;
 
