@@ -20,8 +20,11 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import { Skeleton } from "@/components/ui/skeleton";
-import { baseColors } from "@/config/colors";
+import { META_THEME_COLORS } from "@/config/site";
+import { useMetaColor } from "@/hooks/use-meta-color";
+import { THEMES } from "@/lib/themes";
 import { cn } from "@/lib/utils";
+import { useThemeConfig } from "./active-theme";
 
 export function ThemeCustomizer() {
     return (
@@ -48,7 +51,7 @@ export function ThemeCustomizer() {
                     </PopoverTrigger>
                     <PopoverContent
                         align="end"
-                        className="z-[999] w-[340px] rounded-[12px] p-6"
+                        className="z-999 w-[340px] rounded-[12px] p-6"
                         sideOffset={10}
                     >
                         <Customizer />
@@ -61,7 +64,18 @@ export function ThemeCustomizer() {
 
 export function Customizer() {
     const [mounted, setMounted] = React.useState(false);
-    const { setTheme, resolvedTheme: theme } = useTheme();
+    const { setTheme, resolvedTheme } = useTheme();
+    const { activeTheme, setActiveTheme } = useThemeConfig();
+    const { setMetaColor } = useMetaColor();
+
+    const toggleTheme = React.useCallback(() => {
+        setTheme(resolvedTheme === "dark" ? "light" : "dark");
+        setMetaColor(
+            resolvedTheme === "dark"
+                ? META_THEME_COLORS.light
+                : META_THEME_COLORS.dark,
+        );
+    }, [resolvedTheme, setTheme, setMetaColor]);
 
     React.useEffect(() => {
         setMounted(true);
@@ -82,7 +96,7 @@ export function Customizer() {
                     variant="ghost"
                     size="icon"
                     className="ml-auto rounded-[0.5rem]"
-                    onClick={() => setTheme("system")}
+                    onClick={() => setActiveTheme("default")}
                 >
                     <RepeatIcon />
                     <span className="sr-only">Reset</span>
@@ -92,8 +106,10 @@ export function Customizer() {
                 <div className="space-y-1.5">
                     <Label className="text-xs">Color</Label>
                     <div className="grid grid-cols-3 gap-2">
-                        {baseColors.map((color) => {
-                            const isActive = theme?.includes(color.name);
+                        {THEMES.filter(
+                            (theme) => theme.value !== "default",
+                        ).map((color) => {
+                            const isActive = activeTheme === color.value;
 
                             return mounted ? (
                                 <Button
@@ -101,11 +117,7 @@ export function Customizer() {
                                     size="sm"
                                     key={color.name}
                                     onClick={() => {
-                                        setTheme(
-                                            theme?.includes("dark")
-                                                ? `dark-${color.name}`
-                                                : color.name,
-                                        );
+                                        setActiveTheme(color.value);
                                     }}
                                     className={cn(
                                         "justify-start",
@@ -114,8 +126,8 @@ export function Customizer() {
                                     style={
                                         {
                                             "--theme-primary": `hsl(${
-                                                color?.activeColor[
-                                                    theme === "dark"
+                                                color.activeColor?.[
+                                                    resolvedTheme === "dark"
                                                         ? "dark"
                                                         : "light"
                                                 ]
@@ -125,14 +137,14 @@ export function Customizer() {
                                 >
                                     <span
                                         className={cn(
-                                            "mr-1 flex size-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]",
+                                            "mr-1 flex size-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-(--theme-primary)",
                                         )}
                                     >
                                         {isActive && (
                                             <CheckIcon className="size-4 text-white" />
                                         )}
                                     </span>
-                                    {color.label}
+                                    {color.name}
                                 </Button>
                             ) : (
                                 <Skeleton
@@ -146,55 +158,16 @@ export function Customizer() {
                 <div className="space-y-1.5">
                     <Label className="text-xs">Mode</Label>
                     <div className="grid grid-cols-3 gap-2">
-                        {mounted ? (
-                            <>
-                                <Button
-                                    variant={"outline"}
-                                    size="sm"
-                                    onClick={() =>
-                                        setTheme(
-                                            theme === "dark"
-                                                ? "light"
-                                                : theme?.includes("dark")
-                                                  ? theme?.replace("dark-", "")
-                                                  : `${theme}`,
-                                        )
-                                    }
-                                    className={cn(
-                                        !theme?.includes("dark") &&
-                                            "border-2 border-primary",
-                                    )}
-                                >
-                                    <SunIcon className="mr-1 -translate-x-1" />
-                                    Light
-                                </Button>
-                                <Button
-                                    variant={"outline"}
-                                    size="sm"
-                                    onClick={() =>
-                                        setTheme(
-                                            theme === "light"
-                                                ? "dark"
-                                                : theme?.includes("dark")
-                                                  ? theme
-                                                  : `dark-${theme}`,
-                                        )
-                                    }
-                                    className={cn(
-                                        theme?.includes("dark") &&
-                                            "border-2 border-primary",
-                                    )}
-                                >
-                                    <MoonIcon className="mr-1 -translate-x-1" />
-                                    Dark
-                                </Button>
-                            </>
-                        ) : (
-                            <>
-                                <Skeleton className="h-8 w-full" />
-                                <Skeleton className="h-8 w-full" />
-                            </>
-                        )}
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            className="group/toggle size-8"
+                            onClick={toggleTheme}
+                        >
+                            <SunIcon className="hidden [html.dark_&]:block" />
+                            <MoonIcon className="hidden [html.light_&]:block" />
+                            <span className="sr-only">Toggle theme</span>
+                        </Button>
                     </div>
                 </div>
             </div>

@@ -10,8 +10,6 @@ import { siteConfig } from "@/config/site";
 import { getTableOfContents } from "@/lib/toc";
 import { absoluteUrl, cn } from "@/lib/utils";
 
-import "@/styles/mdx.css";
-
 import Link from "next/link";
 
 import { Contribute } from "@/components/contribute";

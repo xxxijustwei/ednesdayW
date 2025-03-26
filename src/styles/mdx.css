@@ -15,7 +15,7 @@
 }
 
 [data-rehype-pretty-code-figure] {
-    @apply relative text-white;
+    @apply relative text-zinc-50;
 }
 
 [data-rehype-pretty-code-figure] code {

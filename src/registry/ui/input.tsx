@@ -34,7 +34,7 @@ const containerVariants = cva(
 );
 
 const inputVariants = cva(
-    "w-full h-full outline-none disabled:cursor-not-allowed bg-transparent [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill:hover]:bg-transparent [&:-webkit-autofill:focus]:bg-transparent [&:-webkit-autofill:active]:bg-transparent [&:-webkit-autofill]:[transition-delay:9999s]",
+    "w-full h-full outline-hidden disabled:cursor-not-allowed bg-transparent [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill:hover]:bg-transparent [&:-webkit-autofill:focus]:bg-transparent [&:-webkit-autofill:active]:bg-transparent [&:-webkit-autofill]:[transition-delay:9999s]",
     {
         variants: {
             size: {
