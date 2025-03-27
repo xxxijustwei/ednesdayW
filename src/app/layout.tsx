@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://v4.shadcn.com",
+        url: siteConfig.url,
         title: siteConfig.name,
         description: siteConfig.description,
         siteName: siteConfig.name,
