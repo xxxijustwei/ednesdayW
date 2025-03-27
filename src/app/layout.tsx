@@ -1,16 +1,10 @@
-import { ThemeProvider } from "next-themes";
-
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 
 import "@/styles/globals.css";
 
-import { ActiveThemeProvider } from "@/components/active-theme";
-import { Toaster } from "@/components/ui/sonner";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
 import type { Metadata, Viewport } from "next";
-import { cookies } from "next/headers";
 import { LayoutClient } from "./client";
 
 export const metadata: Metadata = {
@@ -71,14 +65,11 @@ export const viewport: Viewport = {
     themeColor: META_THEME_COLORS.light,
 };
 
-export default async function RootLayout({
+export default function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const cookieStore = await cookies();
-    const activeThemeValue = cookieStore.get("active_theme")?.value;
-
     return (
         <html lang="en" suppressHydrationWarning>
             <head>
@@ -97,25 +88,11 @@ export default async function RootLayout({
             <body
                 className={cn(
                     "min-h-svh overflow-x-hidden bg-background font-sans antialiased",
-                    activeThemeValue ? `theme-${activeThemeValue}` : "",
                     fontSans.variable,
                     fontMono.variable,
                 )}
             >
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
-                    enableColorScheme
-                >
-                    <ActiveThemeProvider initialTheme={activeThemeValue}>
-                        <TooltipProvider>
-                            <LayoutClient>{children}</LayoutClient>
-                        </TooltipProvider>
-                        <Toaster />
-                    </ActiveThemeProvider>
-                </ThemeProvider>
+                <LayoutClient>{children}</LayoutClient>
             </body>
         </html>
     );
