@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useConfig } from "@/hooks/use-config";
 import type { NpmCommands } from "@/types/unist";
+import Image from "next/image";
 
 export function CodeBlockCommand({
     __npmCommand__,
@@ -27,8 +28,8 @@ export function CodeBlockCommand({
     const packageManager = config.packageManager;
     const tabs = React.useMemo(() => {
         return {
-            pnpm: __pnpmCommand__,
             npm: __npmCommand__,
+            pnpm: __pnpmCommand__,
             yarn: __yarnCommand__,
             bun: __bunCommand__,
         };
@@ -67,9 +68,17 @@ export function CodeBlockCommand({
                                 <TabsTrigger
                                     key={key}
                                     value={key}
-                                    className="rounded-none border-b border-transparent bg-transparent p-0 pb-1.5 font-mono text-zinc-400 data-[state=active]:border-b-zinc-50 data-[state=active]:bg-transparent data-[state=active]:text-zinc-50"
+                                    className="rounded-none border-0 border-b border-transparent bg-transparent pt-0 pb-1.5 font-mono text-zinc-400 data-[state=active]:border-b-zinc-50 dark:data-[state=active]:border-b-zinc-50 data-[state=active]:bg-transparent data-[state=active]:text-zinc-50"
                                 >
-                                    {key}
+                                    <div className="flex items-center gap-2">
+                                        <Image
+                                            alt={key}
+                                            src={`/logo/${key}.svg`}
+                                            width={16}
+                                            height={16}
+                                        />
+                                        <span>{key}</span>
+                                    </div>
                                 </TabsTrigger>
                             );
                         })}
