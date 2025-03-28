@@ -7,7 +7,16 @@
     },
     "files": {
         "ignoreUnknown": false,
-        "ignore": ["public", "registry.json"]
+        "ignore": [
+            "public/*",
+            "node_modules/*",
+            "biome.json",
+            ".next/*",
+            "package.json",
+            "next.config.ts",
+            "tsconfig.json",
+            "registry.json"
+        ]
     },
     "formatter": {
         "enabled": true,

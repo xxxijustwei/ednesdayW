@@ -50,7 +50,7 @@ const inputVariants = cva(
 );
 
 interface InputProps
-    extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size">,
+    extends Omit<React.ComponentProps<"input">, "size">,
         VariantProps<typeof containerVariants> {
     inputClassName?: string;
     size?: "sm" | "md" | "lg";
