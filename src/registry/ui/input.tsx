@@ -53,7 +53,6 @@ interface InputProps
     extends Omit<React.ComponentProps<"input">, "size">,
         VariantProps<typeof containerVariants> {
     inputClassName?: string;
-    size?: "sm" | "md" | "lg";
     isInvalid?: boolean;
     startContent?: React.ReactNode;
     endContent?: React.ReactNode;
