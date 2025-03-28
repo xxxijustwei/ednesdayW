@@ -4,7 +4,7 @@ import { exec } from "node:child_process";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { rimraf } from "rimraf";
-import { registryItemSchema, type Registry } from "shadcn/registry";
+import { type Registry, registryItemSchema } from "shadcn/registry";
 import { z } from "zod";
 
 import { examples } from "../src/registry/registry-examples";

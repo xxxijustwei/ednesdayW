@@ -14,4 +14,17 @@ export const ui: Registry["items"] = [
             },
         ],
     },
+    {
+        name: "select",
+        type: "registry:ui",
+        title: "Select",
+        description: "A select component",
+        files: [
+            {
+                path: "src/registry/ui/select.tsx",
+                type: "registry:ui",
+                target: "components/ednesdayw/select.tsx",
+            },
+        ],
+    },
 ];

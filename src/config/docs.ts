@@ -25,6 +25,11 @@ export const docsConfig: DocsConfig = {
                     href: "/docs/input",
                     items: [],
                 },
+                {
+                    title: "Select",
+                    href: "/docs/select",
+                    items: [],
+                },
             ],
         },
     ],

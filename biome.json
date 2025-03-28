@@ -10,6 +10,7 @@
         "ignore": [
             "public/*",
             "node_modules/*",
+            ".content-collections/*",
             "biome.json",
             ".next/*",
             "package.json",

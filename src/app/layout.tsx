@@ -1,4 +1,3 @@
-import { fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 
 import "@/styles/globals.css";
@@ -93,8 +92,6 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
                 className={cn(
                     "min-h-svh overflow-x-hidden bg-background font-sans antialiased",
                     activeTheme ? `theme-${activeTheme}` : "",
-                    fontSans.variable,
-                    fontMono.variable,
                 )}
             >
                 <ThemeProvider

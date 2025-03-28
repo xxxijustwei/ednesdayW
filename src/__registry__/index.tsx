@@ -38,6 +38,30 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    select: {
+        name: "select",
+        description: "A select component",
+        type: "registry:ui",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/ui/select.tsx",
+                type: "registry:ui",
+                target: "components/ednesdayw/select.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/ui/select.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     "input-size-demo": {
         name: "input-size-demo",
         description: "A demo of the input size",
@@ -176,6 +200,54 @@ export const Index: Record<string, any> = {
         ],
         component: React.lazy(async () => {
             const mod = await import("@/registry/example/input/form.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "select-size-demo": {
+        name: "select-size-demo",
+        description: "A demo of the select size",
+        type: "registry:example",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/select/size.tsx",
+                type: "registry:example",
+                target: "components/ednesdayw/select-size-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/select/size.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "select-variant-demo": {
+        name: "select-variant-demo",
+        description: "A demo of the select variant",
+        type: "registry:example",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/select/variant.tsx",
+                type: "registry:example",
+                target: "components/ednesdayw/select-variant-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/select/variant.tsx");
             const exportName =
                 Object.keys(mod).find(
                     (key) =>

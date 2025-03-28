@@ -6,7 +6,14 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
 import * as React from "react";
 
 const containerVariants = cva(
-    "flex w-full rounded-md text-base relative cursor-text data-[is-invalid=true]:border-destructive focus-within:border-ring transition-all duration-200",
+    cn(
+        "flex w-full",
+        "rounded-md",
+        "text-base relative cursor-text",
+        "data-[is-invalid=true]:border-destructive",
+        "focus-within:border-ring hover:border-ring",
+        "transition-all duration-200",
+    ),
     {
         variants: {
             variant: {
@@ -15,9 +22,9 @@ const containerVariants = cva(
                 underline: "border-b-2 border-input rounded-none",
             },
             size: {
-                sm: "h-10 min-h-8 px-3 py-1.5",
-                md: "h-12 min-h-10 px-3 py-2",
-                lg: "h-14 min-h-12 px-3 py-2.5",
+                sm: "h-10 px-3 py-1.5",
+                md: "h-12 px-3 py-2",
+                lg: "h-14 px-3 py-2.5",
             },
         },
         compoundVariants: [
@@ -34,7 +41,17 @@ const containerVariants = cva(
 );
 
 const inputVariants = cva(
-    "w-full h-full outline-hidden disabled:cursor-not-allowed bg-transparent [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill:hover]:bg-transparent [&:-webkit-autofill:focus]:bg-transparent [&:-webkit-autofill:active]:bg-transparent [&:-webkit-autofill]:[transition-delay:9999s]",
+    cn(
+        "w-full h-full outline-hidden",
+        "disabled:cursor-not-allowed",
+        "bg-transparent",
+        "placeholder:text-muted-foreground",
+        "[&:-webkit-autofill]:bg-transparent",
+        "[&:-webkit-autofill:hover]:bg-transparent",
+        "[&:-webkit-autofill:focus]:bg-transparent",
+        "[&:-webkit-autofill:active]:bg-transparent",
+        "[&:-webkit-autofill]:[transition-delay:9999s]",
+    ),
     {
         variants: {
             size: {
