@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site";
 import type { Registry } from "shadcn/registry";
 
 export const inputExamples: Registry["items"] = [
@@ -6,6 +7,7 @@ export const inputExamples: Registry["items"] = [
         type: "registry:example",
         title: "Input Size Demo",
         description: "A demo of the input size",
+        registryDependencies: [`${siteConfig.registryUrl}/input.json`],
         files: [
             {
                 path: "src/registry/example/input/size.tsx",
@@ -19,6 +21,7 @@ export const inputExamples: Registry["items"] = [
         type: "registry:example",
         title: "Input Variant Demo",
         description: "A demo of the input variant",
+        registryDependencies: [`${siteConfig.registryUrl}/input.json`],
         files: [
             {
                 path: "src/registry/example/input/variant.tsx",
@@ -28,10 +31,39 @@ export const inputExamples: Registry["items"] = [
         ],
     },
     {
+        name: "input-disabled-demo",
+        type: "registry:example",
+        title: "Input Disabled Demo",
+        description: "A demo of the input disabled",
+        registryDependencies: [`${siteConfig.registryUrl}/input.json`],
+        files: [
+            {
+                path: "src/registry/example/input/disabled.tsx",
+                type: "registry:example",
+                target: "components/ednesdayw/input-disabled-demo.tsx",
+            },
+        ],
+    },
+    {
+        name: "input-invalid-demo",
+        type: "registry:example",
+        title: "Input Invalid Demo",
+        description: "A demo of the input invalid",
+        registryDependencies: [`${siteConfig.registryUrl}/input.json`],
+        files: [
+            {
+                path: "src/registry/example/input/invalid.tsx",
+                type: "registry:example",
+                target: "components/ednesdayw/input-invalid-demo.tsx",
+            },
+        ],
+    },
+    {
         name: "input-start-end-content-demo",
         type: "registry:example",
         title: "Input Start End Content Demo",
         description: "A demo of the input start end content",
+        registryDependencies: [`${siteConfig.registryUrl}/input.json`],
         files: [
             {
                 path: "src/registry/example/input/start-end-content.tsx",
@@ -45,6 +77,7 @@ export const inputExamples: Registry["items"] = [
         type: "registry:example",
         title: "Input Password Demo",
         description: "A demo of the input password",
+        registryDependencies: [`${siteConfig.registryUrl}/input.json`],
         files: [
             {
                 path: "src/registry/example/input/password.tsx",
@@ -58,6 +91,7 @@ export const inputExamples: Registry["items"] = [
         type: "registry:example",
         title: "Input Phone Input Demo",
         description: "A demo of the input phone input",
+        registryDependencies: [`${siteConfig.registryUrl}/input.json`],
         files: [
             {
                 path: "src/registry/example/input/phone-input.tsx",
@@ -71,6 +105,7 @@ export const inputExamples: Registry["items"] = [
         type: "registry:example",
         title: "Input Form Demo",
         description: "A demo of the input form",
+        registryDependencies: [`${siteConfig.registryUrl}/input.json`],
         files: [
             {
                 path: "src/registry/example/input/form.tsx",

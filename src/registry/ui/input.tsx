@@ -5,19 +5,21 @@ import { type VariantProps, cva } from "class-variance-authority";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import * as React from "react";
 
-const containerVariants = cva(
+export const containerVariants = cva(
     cn(
         "flex w-full",
         "rounded-md",
         "text-base relative cursor-text",
         "data-[is-invalid=true]:border-destructive",
-        "focus-within:border-ring hover:border-ring",
+        "data-[disabled=true]:opacity-80 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
+        "hover:border-ring focus-within:border-ring",
         "transition-all duration-200",
     ),
     {
         variants: {
             variant: {
                 default: "bg-muted border-2 border-input",
+                faded: "bg-muted border-2 border-muted hover:bg-accent focus-within:bg-accent",
                 bordered: "border-2 border-input",
                 underline: "border-b-2 border-input rounded-none",
             },
@@ -70,7 +72,6 @@ interface InputProps
     extends Omit<React.ComponentProps<"input">, "size">,
         VariantProps<typeof containerVariants> {
     inputClassName?: string;
-    isInvalid?: boolean;
     startContent?: React.ReactNode;
     endContent?: React.ReactNode;
 }
@@ -128,14 +129,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     className,
                 )}
                 data-is-invalid={ariaInvalid?.toString()}
+                data-disabled={disabled?.toString()}
             >
                 {startContent && startContent}
-                <div
-                    className={cn(
-                        "inline-flex w-full items-end h-full relative",
-                        disabled && "opacity-50",
-                    )}
-                >
+                <div className="inline-flex w-full items-end h-full relative">
                     <input
                         type={
                             type === "password" &&

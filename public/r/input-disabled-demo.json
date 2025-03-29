@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-disabled-demo",
+  "type": "registry:example",
+  "title": "Input Disabled Demo",
+  "description": "A demo of the input disabled",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/input/disabled.tsx",
+      "content": "import { Input } from \"@/registry/ui/input\";\n\nexport const inputVariants = [\n    \"default\",\n    \"faded\",\n    \"bordered\",\n    \"underline\",\n] as const;\n\nexport const InputDisabledExample = () => {\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            {inputVariants.map((variant) => (\n                <Input key={variant} variant={variant} disabled placeholder=\"Disabled\" />\n            ))}\n        </div>\n    );\n};\n",
+      "type": "registry:example",
+      "target": "components/ednesdayw/input-disabled-demo.tsx"
+    }
+  ]
+}

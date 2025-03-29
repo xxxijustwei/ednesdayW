@@ -4,6 +4,9 @@
   "type": "registry:example",
   "title": "Input Form Demo",
   "description": "A demo of the input form",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/input.json"
+  ],
   "files": [
     {
       "path": "src/registry/example/input/form.tsx",

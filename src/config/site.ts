@@ -7,6 +7,7 @@ export const siteConfig = {
         github: "https://github.com/xxxijustwei",
         repo: "https://github.com/xxxijustwei/ednesdayW",
     },
+    registryUrl: "https://ui.ednesdayw.com/r",
 };
 
 export type SiteConfig = typeof siteConfig;

@@ -4,10 +4,13 @@
   "type": "registry:example",
   "title": "Input Variant Demo",
   "description": "A demo of the input variant",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/input.json"
+  ],
   "files": [
     {
       "path": "src/registry/example/input/variant.tsx",
-      "content": "import { Input } from \"@/registry/ui/input\";\n\nexport const InputVariantExample = () => {\n    const variants = [\"default\", \"bordered\", \"underline\"] as const;\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            {variants.map((variant) => (\n                <Input\n                    key={variant}\n                    variant={variant}\n                    placeholder=\"Please enter\"\n                />\n            ))}\n        </div>\n    );\n};\n",
+      "content": "import { Input } from \"@/registry/ui/input\";\n\nexport const inputVariants = [\n    \"default\",\n    \"faded\",\n    \"bordered\",\n    \"underline\",\n] as const;\n\nexport const InputVariantExample = () => {\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            {inputVariants.map((variant) => (\n                <Input\n                    key={variant}\n                    variant={variant}\n                    placeholder=\"Please enter\"\n                />\n            ))}\n        </div>\n    );\n};\n",
       "type": "registry:example",
       "target": "components/ednesdayw/input-variant-demo.tsx"
     }

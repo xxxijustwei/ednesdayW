@@ -54,6 +54,9 @@
       "type": "registry:example",
       "title": "Input Size Demo",
       "description": "A demo of the input size",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
       "files": [
         {
           "path": "src/registry/example/input/size.tsx",
@@ -67,6 +70,9 @@
       "type": "registry:example",
       "title": "Input Variant Demo",
       "description": "A demo of the input variant",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
       "files": [
         {
           "path": "src/registry/example/input/variant.tsx",
@@ -76,10 +82,45 @@
       ]
     },
     {
+      "name": "input-disabled-demo",
+      "type": "registry:example",
+      "title": "Input Disabled Demo",
+      "description": "A demo of the input disabled",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/input/disabled.tsx",
+          "type": "registry:example",
+          "target": "components/ednesdayw/input-disabled-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-invalid-demo",
+      "type": "registry:example",
+      "title": "Input Invalid Demo",
+      "description": "A demo of the input invalid",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/input/invalid.tsx",
+          "type": "registry:example",
+          "target": "components/ednesdayw/input-invalid-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "input-start-end-content-demo",
       "type": "registry:example",
       "title": "Input Start End Content Demo",
       "description": "A demo of the input start end content",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
       "files": [
         {
           "path": "src/registry/example/input/start-end-content.tsx",
@@ -93,6 +134,9 @@
       "type": "registry:example",
       "title": "Input Password Demo",
       "description": "A demo of the input password",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
       "files": [
         {
           "path": "src/registry/example/input/password.tsx",
@@ -106,6 +150,9 @@
       "type": "registry:example",
       "title": "Input Phone Input Demo",
       "description": "A demo of the input phone input",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
       "files": [
         {
           "path": "src/registry/example/input/phone-input.tsx",
@@ -119,6 +166,9 @@
       "type": "registry:example",
       "title": "Input Form Demo",
       "description": "A demo of the input form",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
       "files": [
         {
           "path": "src/registry/example/input/form.tsx",

@@ -4,10 +4,13 @@
   "type": "registry:example",
   "title": "Input Size Demo",
   "description": "A demo of the input size",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/input.json"
+  ],
   "files": [
     {
       "path": "src/registry/example/input/size.tsx",
-      "content": "import { Input } from \"@/registry/ui/input\";\n\nexport const InputSizeExample = () => {\n    const sizes = [\"sm\", \"md\", \"lg\"] as const;\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            {sizes.map((size) => (\n                <Input key={size} size={size} placeholder={size} />\n            ))}\n        </div>\n    );\n};\n",
+      "content": "import { Input } from \"@/registry/ui/input\";\n\nexport const inputSizes = [\"sm\", \"md\", \"lg\"] as const;\n\nexport const InputSizeExample = () => {\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            {inputSizes.map((size) => (\n                <Input key={size} size={size} placeholder={size} />\n            ))}\n        </div>\n    );\n};\n",
       "type": "registry:example",
       "target": "components/ednesdayw/input-size-demo.tsx"
     }

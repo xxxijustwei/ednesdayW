@@ -66,7 +66,7 @@ export const Index: Record<string, any> = {
         name: "input-size-demo",
         description: "A demo of the input size",
         type: "registry:example",
-        registryDependencies: undefined,
+        registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/size.tsx",
@@ -90,7 +90,7 @@ export const Index: Record<string, any> = {
         name: "input-variant-demo",
         description: "A demo of the input variant",
         type: "registry:example",
-        registryDependencies: undefined,
+        registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/variant.tsx",
@@ -110,11 +110,59 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "input-disabled-demo": {
+        name: "input-disabled-demo",
+        description: "A demo of the input disabled",
+        type: "registry:example",
+        registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
+        files: [
+            {
+                path: "src/registry/example/input/disabled.tsx",
+                type: "registry:example",
+                target: "components/ednesdayw/input-disabled-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/input/disabled.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "input-invalid-demo": {
+        name: "input-invalid-demo",
+        description: "A demo of the input invalid",
+        type: "registry:example",
+        registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
+        files: [
+            {
+                path: "src/registry/example/input/invalid.tsx",
+                type: "registry:example",
+                target: "components/ednesdayw/input-invalid-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/input/invalid.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     "input-start-end-content-demo": {
         name: "input-start-end-content-demo",
         description: "A demo of the input start end content",
         type: "registry:example",
-        registryDependencies: undefined,
+        registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/start-end-content.tsx",
@@ -140,7 +188,7 @@ export const Index: Record<string, any> = {
         name: "input-password-demo",
         description: "A demo of the input password",
         type: "registry:example",
-        registryDependencies: undefined,
+        registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/password.tsx",
@@ -164,7 +212,7 @@ export const Index: Record<string, any> = {
         name: "input-phone-input-demo",
         description: "A demo of the input phone input",
         type: "registry:example",
-        registryDependencies: undefined,
+        registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/phone-input.tsx",
@@ -190,7 +238,7 @@ export const Index: Record<string, any> = {
         name: "input-form-demo",
         description: "A demo of the input form",
         type: "registry:example",
-        registryDependencies: undefined,
+        registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/form.tsx",

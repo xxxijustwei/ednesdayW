@@ -4,6 +4,9 @@
   "type": "registry:example",
   "title": "Input Phone Input Demo",
   "description": "A demo of the input phone input",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/input.json"
+  ],
   "files": [
     {
       "path": "src/registry/example/input/phone-input.tsx",

@@ -7,15 +7,15 @@ export const inputVariants = [
     "underline",
 ] as const;
 
-export const InputPasswordExample = () => {
+export const InputInvalidExample = () => {
     return (
         <div className="flex flex-col gap-4 w-full max-w-sm">
             {inputVariants.map((variant) => (
                 <Input
                     key={variant}
                     variant={variant}
-                    type="password"
-                    placeholder="Please enter your password"
+                    aria-invalid
+                    placeholder="Invalid"
                 />
             ))}
         </div>
