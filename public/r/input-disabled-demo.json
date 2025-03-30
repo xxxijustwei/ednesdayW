@@ -10,9 +10,9 @@
   "files": [
     {
       "path": "src/registry/example/input/disabled.tsx",
-      "content": "import { Input } from \"@/registry/ui/input\";\n\nexport const inputVariants = [\n    \"default\",\n    \"faded\",\n    \"bordered\",\n    \"underline\",\n] as const;\n\nexport const InputDisabledExample = () => {\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            {inputVariants.map((variant) => (\n                <Input key={variant} variant={variant} disabled placeholder=\"Disabled\" />\n            ))}\n        </div>\n    );\n};\n",
+      "content": "import { Input } from \"@/registry/ui/input\";\n\nexport const inputVariants = [\n    \"default\",\n    \"faded\",\n    \"bordered\",\n    \"underline\",\n] as const;\n\nexport const InputDisabledExample = () => {\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            {inputVariants.map((variant) => (\n                <Input\n                    key={variant}\n                    variant={variant}\n                    disabled\n                    placeholder=\"Disabled\"\n                />\n            ))}\n        </div>\n    );\n};\n",
       "type": "registry:example",
-      "target": "components/ednesdayw/input-disabled-demo.tsx"
+      "target": "components/wed-demo/input-disabled-demo.tsx"
     }
   ]
 }

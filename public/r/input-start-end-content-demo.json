@@ -12,7 +12,7 @@
       "path": "src/registry/example/input/start-end-content.tsx",
       "content": "import { Input } from \"@/registry/ui/input\";\nimport { CheckCheck, SearchIcon } from \"lucide-react\";\n\nexport const InputStartEndContentExample = () => {\n    const startContent = <SearchIcon size={20} />;\n    const endContent = <CheckCheck size={20} />;\n\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            <Input\n                variant=\"bordered\"\n                placeholder=\"Please enter\"\n                startContent={startContent}\n            />\n            <Input\n                variant=\"bordered\"\n                placeholder=\"Please enter\"\n                endContent={endContent}\n            />\n            <Input\n                variant=\"bordered\"\n                placeholder=\"Please enter\"\n                startContent={startContent}\n                endContent={endContent}\n            />\n        </div>\n    );\n};\n",
       "type": "registry:example",
-      "target": "components/ednesdayw/input-start-end-content-demo.tsx"
+      "target": "components/wed-demo/input-start-end-content-demo.tsx"
     }
   ]
 }

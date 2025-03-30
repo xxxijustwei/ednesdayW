@@ -10,7 +10,7 @@ export const selectExamples: Registry["items"] = [
             {
                 path: "src/registry/example/select/size.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/select-size-demo.tsx",
+                target: "components/wed-demo/select-size-demo.tsx",
             },
         ],
     },
@@ -23,7 +23,7 @@ export const selectExamples: Registry["items"] = [
             {
                 path: "src/registry/example/select/variant.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/select-variant-demo.tsx",
+                target: "components/wed-demo/select-variant-demo.tsx",
             },
         ],
     },

@@ -12,7 +12,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/size.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-size-demo.tsx",
+                target: "components/wed-demo/input-size-demo.tsx",
             },
         ],
     },
@@ -26,7 +26,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/variant.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-variant-demo.tsx",
+                target: "components/wed-demo/input-variant-demo.tsx",
             },
         ],
     },
@@ -40,7 +40,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/disabled.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-disabled-demo.tsx",
+                target: "components/wed-demo/input-disabled-demo.tsx",
             },
         ],
     },
@@ -54,7 +54,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/invalid.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-invalid-demo.tsx",
+                target: "components/wed-demo/input-invalid-demo.tsx",
             },
         ],
     },
@@ -68,7 +68,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/start-end-content.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-start-end-content-demo.tsx",
+                target: "components/wed-demo/input-start-end-content-demo.tsx",
             },
         ],
     },
@@ -82,7 +82,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/password.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-password-demo.tsx",
+                target: "components/wed-demo/input-password-demo.tsx",
             },
         ],
     },
@@ -96,7 +96,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/phone-input.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-phone-input-demo.tsx",
+                target: "components/wed-demo/input-phone-input-demo.tsx",
             },
         ],
     },
@@ -110,7 +110,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/form.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-form-demo.tsx",
+                target: "components/wed-demo/input-form-demo.tsx",
             },
         ],
     },

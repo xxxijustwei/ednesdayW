@@ -23,7 +23,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/ui/input.tsx",
                 type: "registry:ui",
-                target: "components/ednesdayw/input.tsx",
+                target: "components/wed/input.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -47,7 +47,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/ui/select.tsx",
                 type: "registry:ui",
-                target: "components/ednesdayw/select.tsx",
+                target: "components/wed/select.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -71,7 +71,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/example/input/size.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-size-demo.tsx",
+                target: "components/wed-demo/input-size-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -95,7 +95,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/example/input/variant.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-variant-demo.tsx",
+                target: "components/wed-demo/input-variant-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -119,7 +119,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/example/input/disabled.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-disabled-demo.tsx",
+                target: "components/wed-demo/input-disabled-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -143,7 +143,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/example/input/invalid.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-invalid-demo.tsx",
+                target: "components/wed-demo/input-invalid-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -167,7 +167,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/example/input/start-end-content.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-start-end-content-demo.tsx",
+                target: "components/wed-demo/input-start-end-content-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -193,7 +193,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/example/input/password.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-password-demo.tsx",
+                target: "components/wed-demo/input-password-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -217,7 +217,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/example/input/phone-input.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-phone-input-demo.tsx",
+                target: "components/wed-demo/input-phone-input-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -243,7 +243,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/example/input/form.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/input-form-demo.tsx",
+                target: "components/wed-demo/input-form-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -267,7 +267,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/example/select/size.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/select-size-demo.tsx",
+                target: "components/wed-demo/select-size-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -291,7 +291,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/example/select/variant.tsx",
                 type: "registry:example",
-                target: "components/ednesdayw/select-variant-demo.tsx",
+                target: "components/wed-demo/select-variant-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
