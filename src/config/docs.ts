@@ -22,12 +22,22 @@ export const docsConfig: DocsConfig = {
             items: [
                 {
                     title: "Input",
-                    href: "/docs/input",
+                    href: "/docs/components/input",
                     items: [],
                 },
                 {
                     title: "Select",
-                    href: "/docs/select",
+                    href: "/docs/components/select",
+                    items: [],
+                },
+            ],
+        },
+        {
+            title: "Hooks",
+            items: [
+                {
+                    title: "useDisclosure",
+                    href: "/docs/hooks/use-disclosure",
                     items: [],
                 },
             ],

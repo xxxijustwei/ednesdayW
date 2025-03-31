@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-invalid-demo",
-  "type": "registry:example",
+  "type": "registry:component",
   "title": "Input Invalid Demo",
   "description": "A demo of the input invalid",
   "registryDependencies": [
@@ -10,9 +10,9 @@
   "files": [
     {
       "path": "src/registry/example/input/invalid.tsx",
-      "content": "import { Input } from \"@/registry/ui/input\";\n\nexport const inputVariants = [\n    \"default\",\n    \"faded\",\n    \"bordered\",\n    \"underline\",\n] as const;\n\nexport const InputInvalidExample = () => {\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            {inputVariants.map((variant) => (\n                <Input\n                    key={variant}\n                    variant={variant}\n                    aria-invalid\n                    placeholder=\"Invalid\"\n                />\n            ))}\n        </div>\n    );\n};\n",
-      "type": "registry:example",
-      "target": "components/wed-demo/input-invalid-demo.tsx"
+      "content": "import { Input } from \"@/components/ui/input\";\n\nexport const inputVariants = [\n    \"default\",\n    \"faded\",\n    \"bordered\",\n    \"underline\",\n] as const;\n\nexport const InputInvalidExample = () => {\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            {inputVariants.map((variant) => (\n                <Input\n                    key={variant}\n                    variant={variant}\n                    aria-invalid\n                    placeholder=\"Invalid\"\n                />\n            ))}\n        </div>\n    );\n};\n",
+      "type": "registry:component",
+      "target": "components/input-invalid-demo.tsx"
     }
   ]
 }

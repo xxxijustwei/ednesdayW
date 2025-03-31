@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-disclosure",
+  "type": "registry:hook",
+  "title": "Use Disclosure",
+  "description": "A hook for managing disclosure state",
+  "dependencies": [
+    "@radix-ui/react-use-callback-ref"
+  ],
+  "files": [
+    {
+      "path": "src/registry/hooks/use-disclosure.tsx",
+      "content": "\"use client\";\n\nimport { useCallbackRef } from \"@radix-ui/react-use-callback-ref\";\nimport { useCallback, useState } from \"react\";\n\nexport interface UseDisclosureProps {\n    open?: boolean;\n    defaultOpen?: boolean;\n    onOpen?: () => void;\n    onClose?: () => void;\n}\n\nexport const useDisclosure = (props: UseDisclosureProps = {}) => {\n    const handleOpen = useCallbackRef(props.onOpen);\n    const handleClose = useCallbackRef(props.onClose);\n    const [uncontrolledOpen, setUncontrolledOpen] = useState(\n        props.defaultOpen ?? false,\n    );\n\n    const open = props.open !== undefined ? props.open : uncontrolledOpen;\n    const isControlled = props.open !== undefined;\n\n    const onOpen = useCallback(() => {\n        if (!isControlled) {\n            setUncontrolledOpen(true);\n        }\n        handleOpen?.();\n    }, [isControlled, handleOpen]);\n\n    const onClose = useCallback(() => {\n        if (!isControlled) {\n            setUncontrolledOpen(false);\n        }\n        handleClose?.();\n    }, [isControlled, handleClose]);\n\n    const onOpenChange = useCallback(\n        (isOpen?: boolean) => {\n            const newIsOpen = isOpen !== undefined ? isOpen : !open;\n\n            if (newIsOpen) {\n                onOpen();\n            } else {\n                onClose();\n            }\n        },\n        [open, onOpen, onClose],\n    );\n    return {\n        open,\n        onOpen,\n        onClose,\n        onOpenChange,\n    };\n};\n\nexport type UseDisclosureReturn = ReturnType<typeof useDisclosure>;\n",
+      "type": "registry:hook",
+      "target": "hooks/use-disclosure.tsx"
+    }
+  ]
+}

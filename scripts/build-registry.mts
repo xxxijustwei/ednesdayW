@@ -10,6 +10,7 @@ import { z } from "zod";
 import { examples } from "../src/registry/registry-examples";
 import { lib } from "../src/registry/registry-lib";
 import { ui } from "../src/registry/registry-ui";
+import { hooks } from "../src/registry/reigstry-hooks";
 
 const DEPRECATED_ITEMS = ["toast"];
 
@@ -36,6 +37,7 @@ const registry = {
                 files: [],
             },
             ...ui,
+            ...hooks,
             ...examples,
             ...lib,
         ].filter((item) => {
@@ -144,7 +146,7 @@ async function buildRegistry() {
         });
     });
 
-    // 2. Replace `@/registry/ednesdayw/` with `@/components/ednesdayw/` in all files
+    // 2. Replace `@/registry` with `@/components` in all files
     const files = await fs.readdir(path.join(process.cwd(), "public/r"));
 
     await Promise.all(
@@ -156,13 +158,13 @@ async function buildRegistry() {
 
             const registryItem = JSON.parse(content);
 
-            // Replace `@/registry/ednesdayw/` in files
+            // Replace `@/registry` in files
             // biome-ignore lint/suspicious/noExplicitAny: <explanation>
             registryItem.files = registryItem.files?.map((file: any) => {
-                if (file.content?.includes("@/registry/ednesdayw")) {
+                if (file.content?.includes("@/registry")) {
                     file.content = file.content?.replaceAll(
-                        "@/registry/ednesdayw",
-                        "@/components/ednesdayw",
+                        "@/registry",
+                        "@/components",
                     );
                 }
                 return file;

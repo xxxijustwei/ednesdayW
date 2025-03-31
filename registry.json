@@ -32,7 +32,7 @@
         {
           "path": "src/registry/ui/input.tsx",
           "type": "registry:ui",
-          "target": "components/wed/input.tsx"
+          "target": "components/input.tsx"
         }
       ]
     },
@@ -45,13 +45,29 @@
         {
           "path": "src/registry/ui/select.tsx",
           "type": "registry:ui",
-          "target": "components/wed/select.tsx"
+          "target": "components/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "use-disclosure",
+      "type": "registry:hook",
+      "title": "Use Disclosure",
+      "description": "A hook for managing disclosure state",
+      "dependencies": [
+        "@radix-ui/react-use-callback-ref"
+      ],
+      "files": [
+        {
+          "path": "src/registry/hooks/use-disclosure.tsx",
+          "type": "registry:hook",
+          "target": "hooks/use-disclosure.tsx"
         }
       ]
     },
     {
       "name": "input-size-demo",
-      "type": "registry:example",
+      "type": "registry:component",
       "title": "Input Size Demo",
       "description": "A demo of the input size",
       "registryDependencies": [
@@ -60,14 +76,14 @@
       "files": [
         {
           "path": "src/registry/example/input/size.tsx",
-          "type": "registry:example",
-          "target": "components/wed-demo/input-size-demo.tsx"
+          "type": "registry:component",
+          "target": "components/input-size-demo.tsx"
         }
       ]
     },
     {
       "name": "input-variant-demo",
-      "type": "registry:example",
+      "type": "registry:component",
       "title": "Input Variant Demo",
       "description": "A demo of the input variant",
       "registryDependencies": [
@@ -76,14 +92,14 @@
       "files": [
         {
           "path": "src/registry/example/input/variant.tsx",
-          "type": "registry:example",
-          "target": "components/wed-demo/input-variant-demo.tsx"
+          "type": "registry:component",
+          "target": "components/input-variant-demo.tsx"
         }
       ]
     },
     {
       "name": "input-disabled-demo",
-      "type": "registry:example",
+      "type": "registry:component",
       "title": "Input Disabled Demo",
       "description": "A demo of the input disabled",
       "registryDependencies": [
@@ -92,14 +108,14 @@
       "files": [
         {
           "path": "src/registry/example/input/disabled.tsx",
-          "type": "registry:example",
-          "target": "components/wed-demo/input-disabled-demo.tsx"
+          "type": "registry:component",
+          "target": "components/input-disabled-demo.tsx"
         }
       ]
     },
     {
       "name": "input-invalid-demo",
-      "type": "registry:example",
+      "type": "registry:component",
       "title": "Input Invalid Demo",
       "description": "A demo of the input invalid",
       "registryDependencies": [
@@ -108,14 +124,14 @@
       "files": [
         {
           "path": "src/registry/example/input/invalid.tsx",
-          "type": "registry:example",
-          "target": "components/wed-demo/input-invalid-demo.tsx"
+          "type": "registry:component",
+          "target": "components/input-invalid-demo.tsx"
         }
       ]
     },
     {
       "name": "input-start-end-content-demo",
-      "type": "registry:example",
+      "type": "registry:component",
       "title": "Input Start End Content Demo",
       "description": "A demo of the input start end content",
       "registryDependencies": [
@@ -124,14 +140,14 @@
       "files": [
         {
           "path": "src/registry/example/input/start-end-content.tsx",
-          "type": "registry:example",
-          "target": "components/wed-demo/input-start-end-content-demo.tsx"
+          "type": "registry:component",
+          "target": "components/input-start-end-content-demo.tsx"
         }
       ]
     },
     {
       "name": "input-password-demo",
-      "type": "registry:example",
+      "type": "registry:component",
       "title": "Input Password Demo",
       "description": "A demo of the input password",
       "registryDependencies": [
@@ -140,14 +156,14 @@
       "files": [
         {
           "path": "src/registry/example/input/password.tsx",
-          "type": "registry:example",
-          "target": "components/wed-demo/input-password-demo.tsx"
+          "type": "registry:component",
+          "target": "components/input-password-demo.tsx"
         }
       ]
     },
     {
       "name": "input-phone-input-demo",
-      "type": "registry:example",
+      "type": "registry:component",
       "title": "Input Phone Input Demo",
       "description": "A demo of the input phone input",
       "registryDependencies": [
@@ -156,14 +172,14 @@
       "files": [
         {
           "path": "src/registry/example/input/phone-input.tsx",
-          "type": "registry:example",
-          "target": "components/wed-demo/input-phone-input-demo.tsx"
+          "type": "registry:component",
+          "target": "components/input-phone-input-demo.tsx"
         }
       ]
     },
     {
       "name": "input-form-demo",
-      "type": "registry:example",
+      "type": "registry:component",
       "title": "Input Form Demo",
       "description": "A demo of the input form",
       "registryDependencies": [
@@ -172,34 +188,51 @@
       "files": [
         {
           "path": "src/registry/example/input/form.tsx",
-          "type": "registry:example",
-          "target": "components/wed-demo/input-form-demo.tsx"
+          "type": "registry:component",
+          "target": "components/input-form-demo.tsx"
         }
       ]
     },
     {
       "name": "select-size-demo",
-      "type": "registry:example",
+      "type": "registry:component",
       "title": "Select Size Demo",
       "description": "A demo of the select size",
       "files": [
         {
           "path": "src/registry/example/select/size.tsx",
-          "type": "registry:example",
-          "target": "components/wed-demo/select-size-demo.tsx"
+          "type": "registry:component",
+          "target": "components/select-size-demo.tsx"
         }
       ]
     },
     {
       "name": "select-variant-demo",
-      "type": "registry:example",
+      "type": "registry:component",
       "title": "Select Variant Demo",
       "description": "A demo of the select variant",
       "files": [
         {
           "path": "src/registry/example/select/variant.tsx",
-          "type": "registry:example",
-          "target": "components/wed-demo/select-variant-demo.tsx"
+          "type": "registry:component",
+          "target": "components/select-variant-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "use-disclosure-dialog-demo",
+      "type": "registry:component",
+      "title": "Use Disclosure Dialog Demo",
+      "description": "A demo of the use disclosure dialog",
+      "dependencies": [
+        "dialog",
+        "https://ui.ednesdayw.com/r/use-disclosure.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/use-disclosure/dialog.tsx",
+          "type": "registry:component",
+          "target": "components/use-disclosure-dialog-demo.tsx"
         }
       ]
     },

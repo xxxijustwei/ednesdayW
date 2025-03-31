@@ -12,7 +12,11 @@ export function MainNav() {
 
     return (
         <div className="mr-4 hidden md:flex">
-            <Link href="/" className="mr-4 flex items-center gap-2 lg:mr-6">
+            <Link
+                href="/"
+                prefetch={true}
+                className="mr-4 flex items-center gap-2 lg:mr-6"
+            >
                 <Currency className="size-5" />
                 <span className="hidden font-bold lg:inline-block">
                     {siteConfig.name}
@@ -20,7 +24,8 @@ export function MainNav() {
             </Link>
             <nav className="flex items-center gap-4 text-sm xl:gap-6">
                 <Link
-                    href="/docs/input"
+                    href="/docs/components/input"
+                    prefetch={true}
                     className={cn(
                         "transition-colors hover:text-foreground/80",
                         pathname.startsWith("/docs")

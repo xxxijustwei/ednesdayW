@@ -5,8 +5,9 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbopack",
-        "build": "next build",
+        "build": "bun run format && bun run lint && next build",
         "start": "next start",
+        "format": "biome format --write --no-errors-on-unmatched ./src",
         "lint": "biome lint --write --no-errors-on-unmatched ./src",
         "registry:build": "bun run scripts/build-registry.mts",
         "prepare": "husky"

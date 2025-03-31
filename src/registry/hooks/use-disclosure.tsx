@@ -17,8 +17,8 @@ export const useDisclosure = (props: UseDisclosureProps = {}) => {
         props.defaultOpen ?? false,
     );
 
+    const open = props.open !== undefined ? props.open : uncontrolledOpen;
     const isControlled = props.open !== undefined;
-    const open = isControlled ? props.open : uncontrolledOpen;
 
     const onOpen = useCallback(() => {
         if (!isControlled) {
@@ -34,14 +34,18 @@ export const useDisclosure = (props: UseDisclosureProps = {}) => {
         handleClose?.();
     }, [isControlled, handleClose]);
 
-    const onOpenChange = useCallback(() => {
-        if (open) {
-            handleClose();
-        } else {
-            handleOpen();
-        }
-    }, [open, handleClose, handleOpen]);
+    const onOpenChange = useCallback(
+        (isOpen?: boolean) => {
+            const newIsOpen = isOpen !== undefined ? isOpen : !open;
 
+            if (newIsOpen) {
+                onOpen();
+            } else {
+                onClose();
+            }
+        },
+        [open, onOpen, onClose],
+    );
     return {
         open,
         onOpen,

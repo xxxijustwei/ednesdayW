@@ -11,7 +11,7 @@ export const hooks: Registry["items"] = [
             {
                 path: "src/registry/hooks/use-disclosure.tsx",
                 type: "registry:hook",
-                target: "hooks/wed/use-disclosure.tsx",
+                target: "hooks/use-disclosure.tsx",
             },
         ],
     },

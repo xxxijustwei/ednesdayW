@@ -23,7 +23,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/ui/input.tsx",
                 type: "registry:ui",
-                target: "components/wed/input.tsx",
+                target: "components/input.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -47,7 +47,7 @@ export const Index: Record<string, any> = {
             {
                 path: "src/registry/ui/select.tsx",
                 type: "registry:ui",
-                target: "components/wed/select.tsx",
+                target: "components/select.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -62,16 +62,40 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "use-disclosure": {
+        name: "use-disclosure",
+        description: "A hook for managing disclosure state",
+        type: "registry:hook",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/hooks/use-disclosure.tsx",
+                type: "registry:hook",
+                target: "hooks/use-disclosure.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/hooks/use-disclosure.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     "input-size-demo": {
         name: "input-size-demo",
         description: "A demo of the input size",
-        type: "registry:example",
+        type: "registry:component",
         registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/size.tsx",
-                type: "registry:example",
-                target: "components/wed-demo/input-size-demo.tsx",
+                type: "registry:component",
+                target: "components/input-size-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -89,13 +113,13 @@ export const Index: Record<string, any> = {
     "input-variant-demo": {
         name: "input-variant-demo",
         description: "A demo of the input variant",
-        type: "registry:example",
+        type: "registry:component",
         registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/variant.tsx",
-                type: "registry:example",
-                target: "components/wed-demo/input-variant-demo.tsx",
+                type: "registry:component",
+                target: "components/input-variant-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -113,13 +137,13 @@ export const Index: Record<string, any> = {
     "input-disabled-demo": {
         name: "input-disabled-demo",
         description: "A demo of the input disabled",
-        type: "registry:example",
+        type: "registry:component",
         registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/disabled.tsx",
-                type: "registry:example",
-                target: "components/wed-demo/input-disabled-demo.tsx",
+                type: "registry:component",
+                target: "components/input-disabled-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -137,13 +161,13 @@ export const Index: Record<string, any> = {
     "input-invalid-demo": {
         name: "input-invalid-demo",
         description: "A demo of the input invalid",
-        type: "registry:example",
+        type: "registry:component",
         registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/invalid.tsx",
-                type: "registry:example",
-                target: "components/wed-demo/input-invalid-demo.tsx",
+                type: "registry:component",
+                target: "components/input-invalid-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -161,13 +185,13 @@ export const Index: Record<string, any> = {
     "input-start-end-content-demo": {
         name: "input-start-end-content-demo",
         description: "A demo of the input start end content",
-        type: "registry:example",
+        type: "registry:component",
         registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/start-end-content.tsx",
-                type: "registry:example",
-                target: "components/wed-demo/input-start-end-content-demo.tsx",
+                type: "registry:component",
+                target: "components/input-start-end-content-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -187,13 +211,13 @@ export const Index: Record<string, any> = {
     "input-password-demo": {
         name: "input-password-demo",
         description: "A demo of the input password",
-        type: "registry:example",
+        type: "registry:component",
         registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/password.tsx",
-                type: "registry:example",
-                target: "components/wed-demo/input-password-demo.tsx",
+                type: "registry:component",
+                target: "components/input-password-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -211,13 +235,13 @@ export const Index: Record<string, any> = {
     "input-phone-input-demo": {
         name: "input-phone-input-demo",
         description: "A demo of the input phone input",
-        type: "registry:example",
+        type: "registry:component",
         registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/phone-input.tsx",
-                type: "registry:example",
-                target: "components/wed-demo/input-phone-input-demo.tsx",
+                type: "registry:component",
+                target: "components/input-phone-input-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -237,13 +261,13 @@ export const Index: Record<string, any> = {
     "input-form-demo": {
         name: "input-form-demo",
         description: "A demo of the input form",
-        type: "registry:example",
+        type: "registry:component",
         registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
         files: [
             {
                 path: "src/registry/example/input/form.tsx",
-                type: "registry:example",
-                target: "components/wed-demo/input-form-demo.tsx",
+                type: "registry:component",
+                target: "components/input-form-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -261,13 +285,13 @@ export const Index: Record<string, any> = {
     "select-size-demo": {
         name: "select-size-demo",
         description: "A demo of the select size",
-        type: "registry:example",
+        type: "registry:component",
         registryDependencies: undefined,
         files: [
             {
                 path: "src/registry/example/select/size.tsx",
-                type: "registry:example",
-                target: "components/wed-demo/select-size-demo.tsx",
+                type: "registry:component",
+                target: "components/select-size-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
@@ -285,17 +309,43 @@ export const Index: Record<string, any> = {
     "select-variant-demo": {
         name: "select-variant-demo",
         description: "A demo of the select variant",
-        type: "registry:example",
+        type: "registry:component",
         registryDependencies: undefined,
         files: [
             {
                 path: "src/registry/example/select/variant.tsx",
-                type: "registry:example",
-                target: "components/wed-demo/select-variant-demo.tsx",
+                type: "registry:component",
+                target: "components/select-variant-demo.tsx",
             },
         ],
         component: React.lazy(async () => {
             const mod = await import("@/registry/example/select/variant.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "use-disclosure-dialog-demo": {
+        name: "use-disclosure-dialog-demo",
+        description: "A demo of the use disclosure dialog",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/use-disclosure/dialog.tsx",
+                type: "registry:component",
+                target: "components/use-disclosure-dialog-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/use-disclosure/dialog.tsx"
+            );
             const exportName =
                 Object.keys(mod).find(
                     (key) =>

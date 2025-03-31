@@ -1,0 +1,47 @@
+---
+title: Use Disclosure
+description: A hook that allows you to manage the open state of a component.
+---
+
+### Installation
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/use-disclosure.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-disclosure" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+```tsx
+import { useDisclosure } from "@/hooks/use-disclosure"
+
+const { open, onOpen, onClose, onOpenChange } = useDisclosure();
+```
+
+### Example
+
+#### Dialog
+<ComponentPreview name="use-disclosure-dialog-demo" />

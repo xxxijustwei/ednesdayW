@@ -10,7 +10,7 @@ export const ui: Registry["items"] = [
             {
                 path: "src/registry/ui/input.tsx",
                 type: "registry:ui",
-                target: "components/wed/input.tsx",
+                target: "components/input.tsx",
             },
         ],
     },
@@ -23,7 +23,7 @@ export const ui: Registry["items"] = [
             {
                 path: "src/registry/ui/select.tsx",
                 type: "registry:ui",
-                target: "components/wed/select.tsx",
+                target: "components/select.tsx",
             },
         ],
     },
