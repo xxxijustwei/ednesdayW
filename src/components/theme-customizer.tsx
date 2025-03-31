@@ -1,12 +1,6 @@
 "use client";
 
-import {
-    CheckIcon,
-    MoonIcon,
-    PaletteIcon,
-    RepeatIcon,
-    SunIcon,
-} from "lucide-react";
+import { CheckIcon, PaletteIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import * as React from "react";
 
@@ -78,7 +72,7 @@ export function Customizer() {
             <div className="flex flex-1 flex-col space-y-4 md:space-y-6 mt-2">
                 <div className="flex flex-wrap gap-2">
                     {THEMES.map((color) => {
-                        const isActive = activeTheme === color.value;
+                        const isActive = activeTheme === color.name;
 
                         return mounted ? (
                             <Button
@@ -86,7 +80,7 @@ export function Customizer() {
                                 size="sm"
                                 key={color.name}
                                 onClick={() => {
-                                    setActiveTheme(color.value);
+                                    setActiveTheme(color.name);
                                 }}
                                 className={cn(
                                     "justify-start",
@@ -113,10 +107,13 @@ export function Customizer() {
                                         <CheckIcon className="size-4 text-white" />
                                     )}
                                 </span>
-                                {color.name}
+                                {color.label}
                             </Button>
                         ) : (
-                            <Skeleton className="h-8 w-full" key={color.name} />
+                            <Skeleton
+                                className="h-8 w-full"
+                                key={color.label}
+                            />
                         );
                     })}
                 </div>
