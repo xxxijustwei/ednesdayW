@@ -11,7 +11,7 @@ export const containerVariants = cva(
         "rounded-md",
         "text-base relative cursor-text",
         "data-[is-invalid=true]:border-destructive",
-        "data-[disabled=true]:opacity-80 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
+        "data-[disabled=true]:opacity-50 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
         "hover:border-ring focus-within:border-ring",
         "transition-all duration-200",
     ),
