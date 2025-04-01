@@ -38,6 +38,30 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "phone-input": {
+        name: "phone-input",
+        description: "A phone input component",
+        type: "registry:ui",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/ui/phone-input.tsx",
+                type: "registry:ui",
+                target: "components/phone-input.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/ui/phone-input.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     select: {
         name: "select",
         description: "A select component",
@@ -272,6 +296,108 @@ export const Index: Record<string, any> = {
         ],
         component: React.lazy(async () => {
             const mod = await import("@/registry/example/input/form.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "phone-input-size-demo": {
+        name: "phone-input-size-demo",
+        description: "A demo of the phone input size",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/phone-input.json"],
+        files: [
+            {
+                path: "src/registry/example/phone-input/size.tsx",
+                type: "registry:component",
+                target: "components/phone-input-size-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/phone-input/size.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "phone-input-variant-demo": {
+        name: "phone-input-variant-demo",
+        description: "A demo of the phone input variant",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/phone-input.json"],
+        files: [
+            {
+                path: "src/registry/example/phone-input/variant.tsx",
+                type: "registry:component",
+                target: "components/phone-input-variant-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/phone-input/variant.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "phone-input-disabled-demo": {
+        name: "phone-input-disabled-demo",
+        description: "A demo of the phone input disabled",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/phone-input.json"],
+        files: [
+            {
+                path: "src/registry/example/phone-input/disabled.tsx",
+                type: "registry:component",
+                target: "components/phone-input-disabled-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/phone-input/disabled.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "phone-input-invalid-demo": {
+        name: "phone-input-invalid-demo",
+        description: "A demo of the phone input invalid",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/phone-input.json"],
+        files: [
+            {
+                path: "src/registry/example/phone-input/invalid.tsx",
+                type: "registry:component",
+                target: "components/phone-input-invalid-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/phone-input/invalid.tsx"
+            );
             const exportName =
                 Object.keys(mod).find(
                     (key) =>

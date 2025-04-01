@@ -26,6 +26,11 @@ export const docsConfig: DocsConfig = {
                     items: [],
                 },
                 {
+                    title: "Phone Input",
+                    href: "/docs/components/phone-input",
+                    items: [],
+                },
+                {
                     title: "Select",
                     href: "/docs/components/select",
                     items: [],

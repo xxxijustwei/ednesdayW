@@ -97,7 +97,7 @@ export function rehypeComponent() {
                     const filePath = src;
                     let source = fs.readFileSync(filePath, "utf8");
 
-                    source = source.replaceAll("@/registry/hooks/", "@/hooks/");
+                    source = source.replaceAll("@/registry", "@");
                     source = source.replaceAll("export default", "export");
 
                     // Add code as children so that rehype can take over at build time.

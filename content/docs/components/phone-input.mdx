@@ -1,0 +1,73 @@
+---
+title: Phone Input
+description: A phone input component
+---
+
+### Installation
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/phone-input.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="phone-input" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+```tsx
+import { PhoneInput } from "@/components/ui/phone-input";
+
+export const items = [
+    {
+        name: "United States",
+        flag: "🇺🇸",
+        code: "US",
+        mask: "(999) 999-9999",
+        dialCode: 1,
+    },
+    {
+        name: "Hong Kong",
+        flag: "🇭🇰",
+        code: "HK",
+        mask: "9999 9999",
+        dialCode: 852,
+    },
+];
+
+<PhoneInput items={items} />
+```
+
+### Example
+
+#### Size
+<ComponentPreview name="phone-input-size-demo" />
+
+#### Variant
+<ComponentPreview name="phone-input-variant-demo" />
+
+#### Disabled
+<ComponentPreview name="phone-input-disabled-demo" />
+
+#### Invalid
+<ComponentPreview name="phone-input-invalid-demo" />

@@ -133,7 +133,6 @@ async function buildRegistryJsonFile() {
 }
 
 async function buildRegistry() {
-    // 1. Build the registry
     await new Promise((resolve, reject) => {
         const process = exec("bunx shadcn build");
 
@@ -146,7 +145,6 @@ async function buildRegistry() {
         });
     });
 
-    // 2. Replace `@/registry` with `@/components` in all files
     const files = await fs.readdir(path.join(process.cwd(), "public/r"));
 
     await Promise.all(
@@ -161,11 +159,14 @@ async function buildRegistry() {
             // Replace `@/registry` in files
             // biome-ignore lint/suspicious/noExplicitAny: <explanation>
             registryItem.files = registryItem.files?.map((file: any) => {
-                if (file.content?.includes("@/registry")) {
+                if (file.content?.includes("@/registry/ui")) {
                     file.content = file.content?.replaceAll(
-                        "@/registry",
-                        "@/components",
+                        "@/registry/ui",
+                        "@/components/ui",
                     );
+                }
+                if (file.content?.includes("@/registry")) {
+                    file.content = file.content?.replaceAll("@/registry", "@");
                 }
                 return file;
             });
