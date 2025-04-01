@@ -180,22 +180,6 @@
       ]
     },
     {
-      "name": "input-phone-input-demo",
-      "type": "registry:component",
-      "title": "Input Phone Input Demo",
-      "description": "A demo of the input phone input",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/input.json"
-      ],
-      "files": [
-        {
-          "path": "src/registry/example/input/phone-input.tsx",
-          "type": "registry:component",
-          "target": "components/input-phone-input-demo.tsx"
-        }
-      ]
-    },
-    {
       "name": "input-form-demo",
       "type": "registry:component",
       "title": "Input Form Demo",
@@ -280,6 +264,9 @@
       "type": "registry:component",
       "title": "Select Size Demo",
       "description": "A demo of the select size",
+      "dependencies": [
+        "https://ui.ednesdayw.com/r/select.json"
+      ],
       "files": [
         {
           "path": "src/registry/example/select/size.tsx",
@@ -293,11 +280,46 @@
       "type": "registry:component",
       "title": "Select Variant Demo",
       "description": "A demo of the select variant",
+      "dependencies": [
+        "https://ui.ednesdayw.com/r/select.json"
+      ],
       "files": [
         {
           "path": "src/registry/example/select/variant.tsx",
           "type": "registry:component",
           "target": "components/select-variant-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-disabled-demo",
+      "type": "registry:component",
+      "title": "Select Disabled Demo",
+      "description": "A demo of the select disabled",
+      "dependencies": [
+        "https://ui.ednesdayw.com/r/select.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/select/disabled.tsx",
+          "type": "registry:component",
+          "target": "components/select-disabled-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-invalid-demo",
+      "type": "registry:component",
+      "title": "Select Invalid Demo",
+      "description": "A demo of the select invalid",
+      "dependencies": [
+        "https://ui.ednesdayw.com/r/select.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/select/invalid.tsx",
+          "type": "registry:component",
+          "target": "components/select-invalid-demo.tsx"
         }
       ]
     },

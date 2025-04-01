@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site";
 import type { Registry } from "shadcn/registry";
 
 export const selectExamples: Registry["items"] = [
@@ -6,6 +7,7 @@ export const selectExamples: Registry["items"] = [
         type: "registry:component",
         title: "Select Size Demo",
         description: "A demo of the select size",
+        dependencies: [`${siteConfig.registryUrl}/select.json`],
         files: [
             {
                 path: "src/registry/example/select/size.tsx",
@@ -19,11 +21,40 @@ export const selectExamples: Registry["items"] = [
         type: "registry:component",
         title: "Select Variant Demo",
         description: "A demo of the select variant",
+        dependencies: [`${siteConfig.registryUrl}/select.json`],
         files: [
             {
                 path: "src/registry/example/select/variant.tsx",
                 type: "registry:component",
                 target: "components/select-variant-demo.tsx",
+            },
+        ],
+    },
+    {
+        name: "select-disabled-demo",
+        type: "registry:component",
+        title: "Select Disabled Demo",
+        description: "A demo of the select disabled",
+        dependencies: [`${siteConfig.registryUrl}/select.json`],
+        files: [
+            {
+                path: "src/registry/example/select/disabled.tsx",
+                type: "registry:component",
+                target: "components/select-disabled-demo.tsx",
+            },
+        ],
+    },
+    {
+        name: "select-invalid-demo",
+        type: "registry:component",
+        title: "Select Invalid Demo",
+        description: "A demo of the select invalid",
+        dependencies: [`${siteConfig.registryUrl}/select.json`],
+        files: [
+            {
+                path: "src/registry/example/select/invalid.tsx",
+                type: "registry:component",
+                target: "components/select-invalid-demo.tsx",
             },
         ],
     },

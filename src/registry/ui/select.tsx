@@ -40,9 +40,12 @@ const selectTriggerVariants = cva(
     {
         variants: {
             variant: {
-                default: "bg-muted border-2 border-input",
-                bordered: "border-2 border-input",
-                underline: "border-b-2 border-input rounded-none",
+                default:
+                    "bg-muted border-2 border-input disabled:hover:border-input",
+                faded: "bg-muted border-2 border-muted hover:bg-accent hover:border-accent focus-within:bg-accent focus-within:border-accent disabled:hover:bg-muted disabled:hover:border-muted",
+                bordered: "border-2 border-input disabled:hover:border-input",
+                underline:
+                    "border-b-2 border-input rounded-none disabled:hover:border-input",
             },
             size: {
                 sm: "h-10 px-3 py-1.5 text-sm data-[placeholder]:text-sm",

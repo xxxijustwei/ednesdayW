@@ -87,20 +87,6 @@ export const inputExamples: Registry["items"] = [
         ],
     },
     {
-        name: "input-phone-input-demo",
-        type: "registry:component",
-        title: "Input Phone Input Demo",
-        description: "A demo of the input phone input",
-        registryDependencies: [`${siteConfig.registryUrl}/input.json`],
-        files: [
-            {
-                path: "src/registry/example/input/phone-input.tsx",
-                type: "registry:component",
-                target: "components/input-phone-input-demo.tsx",
-            },
-        ],
-    },
-    {
         name: "input-form-demo",
         type: "registry:component",
         title: "Input Form Demo",

@@ -256,32 +256,6 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
-    "input-phone-input-demo": {
-        name: "input-phone-input-demo",
-        description: "A demo of the input phone input",
-        type: "registry:component",
-        registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
-        files: [
-            {
-                path: "src/registry/example/input/phone-input.tsx",
-                type: "registry:component",
-                target: "components/input-phone-input-demo.tsx",
-            },
-        ],
-        component: React.lazy(async () => {
-            const mod = await import(
-                "@/registry/example/input/phone-input.tsx"
-            );
-            const exportName =
-                Object.keys(mod).find(
-                    (key) =>
-                        typeof mod[key] === "function" ||
-                        typeof mod[key] === "object",
-                ) || item.name;
-            return { default: mod.default || mod[exportName] };
-        }),
-        meta: undefined,
-    },
     "input-form-demo": {
         name: "input-form-demo",
         description: "A demo of the input form",
@@ -446,6 +420,54 @@ export const Index: Record<string, any> = {
         ],
         component: React.lazy(async () => {
             const mod = await import("@/registry/example/select/variant.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "select-disabled-demo": {
+        name: "select-disabled-demo",
+        description: "A demo of the select disabled",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/select/disabled.tsx",
+                type: "registry:component",
+                target: "components/select-disabled-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/select/disabled.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "select-invalid-demo": {
+        name: "select-invalid-demo",
+        description: "A demo of the select invalid",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/select/invalid.tsx",
+                type: "registry:component",
+                target: "components/select-invalid-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/select/invalid.tsx");
             const exportName =
                 Object.keys(mod).find(
                     (key) =>

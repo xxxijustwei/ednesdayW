@@ -7,17 +7,16 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/registry/ui/select";
-import { countries } from "./data";
 
 export const SelectVariantExample = () => {
-    const variants = ["default", "bordered", "underline"] as const;
+    const variants = ["default", "faded", "bordered", "underline"] as const;
 
     return (
         <div className="flex flex-col gap-4 w-full max-w-sm">
             {variants.map((variant) => (
                 <Select key={variant}>
                     <SelectTrigger size="md" variant={variant}>
-                        <SelectValue placeholder={variant} />
+                        <SelectValue placeholder="Select a country" />
                     </SelectTrigger>
                     <SelectContent>
                         {countries.map(({ key, label }) => (
@@ -31,3 +30,22 @@ export const SelectVariantExample = () => {
         </div>
     );
 };
+
+const countries = [
+    { key: "cn", label: "China" },
+    { key: "jp", label: "Japan" },
+    { key: "kr", label: "Korea" },
+    { key: "ru", label: "Russia" },
+    { key: "in", label: "India" },
+    { key: "br", label: "Brazil" },
+    { key: "de", label: "Germany" },
+    { key: "fr", label: "France" },
+    { key: "it", label: "Italy" },
+    { key: "es", label: "Spain" },
+    { key: "us", label: "United States" },
+    { key: "ca", label: "Canada" },
+    { key: "mx", label: "Mexico" },
+    { key: "gb", label: "United Kingdom" },
+    { key: "au", label: "Australia" },
+    { key: "nz", label: "New Zealand" },
+];

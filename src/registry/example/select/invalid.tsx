@@ -1,5 +1,3 @@
-"use client";
-
 import {
     Select,
     SelectContent,
@@ -8,14 +6,19 @@ import {
     SelectValue,
 } from "@/registry/ui/select";
 
-export const SelectSizeExample = () => {
-    const size = ["sm", "md", "lg"] as const;
+export const inputVariants = [
+    "default",
+    "faded",
+    "bordered",
+    "underline",
+] as const;
 
+export const SelectInvalidExample = () => {
     return (
         <div className="flex flex-col gap-4 w-full max-w-sm">
-            {size.map((size) => (
-                <Select key={size}>
-                    <SelectTrigger size={size}>
+            {inputVariants.map((variant) => (
+                <Select key={variant}>
+                    <SelectTrigger aria-invalid variant={variant}>
                         <SelectValue placeholder="Select a country" />
                     </SelectTrigger>
                     <SelectContent>

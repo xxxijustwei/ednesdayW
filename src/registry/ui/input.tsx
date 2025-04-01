@@ -19,7 +19,7 @@ export const containerVariants = cva(
         variants: {
             variant: {
                 default: "bg-muted border-2 border-input",
-                faded: "bg-muted border-2 border-muted hover:bg-accent focus-within:bg-accent",
+                faded: "bg-muted border-2 border-muted hover:bg-accent hover:border-accent focus-within:bg-accent focus-within:border-accent data-[disabled=true]:hover:bg-muted data-[disabled=true]:hover:border-muted",
                 bordered: "border-2 border-input",
                 underline: "border-b-2 border-input rounded-none",
             },
