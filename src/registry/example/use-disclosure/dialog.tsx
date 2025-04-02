@@ -9,9 +9,9 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useDisclosure } from "@/registry/hooks/use-disclosure";
+import { Input } from "@/registry/ui/input";
 
 export function UseDisclosureDialogDemo() {
     const { open, onOpen, onOpenChange } = useDisclosure();
@@ -31,17 +31,17 @@ export function UseDisclosureDialogDemo() {
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
-                        <div className="grid grid-cols-4 items-center gap-4">
+                        <div className="flex flex-col gap-2">
                             <Label htmlFor="name" className="text-right">
                                 Name
                             </Label>
-                            <Input id="name" className="col-span-3" />
+                            <Input id="name" variant="bordered" />
                         </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
+                        <div className="flex flex-col gap-2">
                             <Label htmlFor="username" className="text-right">
                                 Username
                             </Label>
-                            <Input id="username" className="col-span-3" />
+                            <Input id="username" variant="bordered" />
                         </div>
                     </div>
                     <DialogFooter>

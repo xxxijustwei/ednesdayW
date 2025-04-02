@@ -7,9 +7,8 @@ import * as React from "react";
 
 export const containerVariants = cva(
     cn(
-        "flex w-full",
-        "rounded-md",
-        "text-base relative cursor-text",
+        "flex w-full relative rounded-md shadow-sm",
+        "text-base cursor-text",
         "data-[is-invalid=true]:border-destructive",
         "data-[disabled=true]:opacity-50 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
         "hover:border-ring focus-within:border-ring",
@@ -21,7 +20,7 @@ export const containerVariants = cva(
                 default: "bg-muted border-2 border-input",
                 faded: "bg-muted border-2 border-muted hover:bg-accent hover:border-accent focus-within:bg-accent focus-within:border-accent data-[disabled=true]:hover:bg-muted data-[disabled=true]:hover:border-muted",
                 bordered: "border-2 border-input",
-                underline: "border-b-2 border-input rounded-none",
+                underline: "border-b-2 border-input rounded-none shadow-none",
             },
             size: {
                 sm: "h-10 px-3 py-1.5",

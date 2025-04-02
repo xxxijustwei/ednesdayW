@@ -27,7 +27,7 @@ function SelectValue({
 
 const selectTriggerVariants = cva(
     cn(
-        "w-full data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground",
+        "w-full shadow-sm data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground",
         "hover:border-ring data-[state=open]:border-ring focus-visible:border-ring focus-visible:ring-ring/50",
         "aria-invalid:ring-destructive/20 aria-invalid:border-destructive",
         "flex items-center justify-between gap-2",
@@ -45,7 +45,7 @@ const selectTriggerVariants = cva(
                 faded: "bg-muted border-2 border-muted hover:bg-accent hover:border-accent focus-within:bg-accent focus-within:border-accent disabled:hover:bg-muted disabled:hover:border-muted",
                 bordered: "border-2 border-input disabled:hover:border-input",
                 underline:
-                    "border-b-2 border-input rounded-none disabled:hover:border-input",
+                    "border-b-2 border-input rounded-none shadow-none disabled:hover:border-input",
             },
             size: {
                 sm: "h-10 px-3 py-1.5 text-sm data-[placeholder]:text-sm",
