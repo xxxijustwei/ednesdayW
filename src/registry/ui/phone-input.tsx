@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 interface PhoneCode {
     name: string;
     flag: string;
-    dialCode: number;
+    dialCode: string;
     mask?: string;
 }
 
@@ -40,7 +40,7 @@ const PhoneInput = ({
     const handleCountrySelect = (country: PhoneCode) => {
         setSelectedItem(country);
         onClose();
-        onChange?.(`+${country.dialCode} ${phoneNumber}`);
+        onChange?.(`${country.dialCode} ${phoneNumber}`);
     };
 
     const handlePhoneNumberChange = (
@@ -51,7 +51,7 @@ const PhoneInput = ({
             return;
         }
         setPhoneNumber(newNumber);
-        onChange?.(`+${selectedItem.dialCode} ${newNumber}`);
+        onChange?.(`${selectedItem.dialCode} ${newNumber}`);
     };
 
     useEffect(() => {
@@ -59,10 +59,8 @@ const PhoneInput = ({
             const match = value.match(/^\+\d{1,3}\s\d{7,14}$/);
             if (match) {
                 const [dialCode, phoneNumber] = match[0].split(" ");
-                const dialCodeNumber = Number.parseInt(dialCode.substring(1));
                 setSelectedItem(
-                    items.find((c) => c.dialCode === dialCodeNumber) ||
-                        items[0],
+                    items.find((c) => c.dialCode === dialCode) || items[0],
                 );
                 setPhoneNumber(phoneNumber);
             }
@@ -91,7 +89,7 @@ const PhoneInput = ({
                                         {selectedItem.flag}
                                     </span>
                                     <span className="font-medium">
-                                        {`+${selectedItem.dialCode}`}
+                                        {selectedItem.dialCode}
                                     </span>
                                 </div>
                                 <ChevronDown className="w-4 h-4 ml-1 text-muted-foreground" />
@@ -122,7 +120,7 @@ const PhoneInput = ({
                                             {item.name}
                                         </span>
                                         <span className="text-muted-foreground">
-                                            {`+${item.dialCode}`}
+                                            {item.dialCode}
                                         </span>
                                         {item.dialCode ===
                                             selectedItem.dialCode && (
