@@ -3,11 +3,21 @@
 import { CheckIcon, ClipboardIcon } from "lucide-react";
 import * as React from "react";
 
+import BunIcon from "@/components/icons/bun";
+import NpmIcon from "@/components/icons/npm";
+import PnpmIcon from "@/components/icons/pnpm";
+import YarnIcon from "@/components/icons/yarn";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useConfig } from "@/hooks/use-config";
 import type { NpmCommands } from "@/types/unist";
-import Image from "next/image";
+
+const icons = {
+    npm: NpmIcon,
+    pnpm: PnpmIcon,
+    yarn: YarnIcon,
+    bun: BunIcon,
+};
 
 export function CodeBlockCommand({
     __npmCommand__,
@@ -68,15 +78,12 @@ export function CodeBlockCommand({
                                 <TabsTrigger
                                     key={key}
                                     value={key}
-                                    className="rounded-none border-0 border-b border-transparent bg-transparent pt-0 pb-1.5 font-mono text-zinc-400 data-[state=active]:border-b-zinc-50 dark:data-[state=active]:border-b-zinc-50 data-[state=active]:bg-transparent data-[state=active]:text-zinc-50"
+                                    className="rounded-none border-0 border-b border-transparent bg-transparent pt-0 pb-1.5 font-mono text-zinc-400 data-[state=active]:border-b-zinc-50 dark:data-[state=active]:border-b-zinc-50 dark:data-[state=active]:bg-transparent data-[state=active]:bg-transparent data-[state=active]:text-zinc-50"
                                 >
                                     <div className="flex items-center gap-2">
-                                        <Image
-                                            alt={key}
-                                            src={`/logo/${key}.svg`}
-                                            width={16}
-                                            height={16}
-                                        />
+                                        {icons[key as keyof typeof icons]({
+                                            className: "size-4",
+                                        })}
                                         <span>{key}</span>
                                     </div>
                                 </TabsTrigger>
