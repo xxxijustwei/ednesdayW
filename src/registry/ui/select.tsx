@@ -27,15 +27,15 @@ function SelectValue({
 
 const selectTriggerVariants = cva(
     cn(
-        "w-full shadow-sm data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground",
+        "w-full flex items-center justify-between gap-2 shadow-sm",
+        "rounded-md bg-transparent text-sm whitespace-nowrap",
         "hover:border-ring data-[state=open]:border-ring focus-visible:border-ring focus-visible:ring-ring/50",
         "aria-invalid:ring-destructive/20 aria-invalid:border-destructive",
-        "flex items-center justify-between gap-2",
-        "rounded-md bg-transparent text-sm whitespace-nowrap",
-        "transition-[color,box-shadow] outline-none ",
+        "data-[placeholder]:text-muted-foreground",
+        "transition-[color,box-shadow] outline-none",
         "disabled:cursor-not-allowed disabled:opacity-50",
         "*:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2",
-        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground",
     ),
     {
         variants: {
