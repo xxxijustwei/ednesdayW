@@ -13,4 +13,15 @@ export const lib: Registry["items"] = [
             },
         ],
     },
+    {
+        name: "colors",
+        type: "registry:lib",
+        files: [
+            {
+                path: "src/registry/lib/colors.ts",
+                type: "registry:lib",
+                target: "lib/colors.ts",
+            },
+        ],
+    },
 ];

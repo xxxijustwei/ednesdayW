@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "color-picker-demo",
+  "type": "registry:component",
+  "title": "Color Picker Demo",
+  "description": "A demo of the color picker",
+  "dependencies": [
+    "https://ui.ednesdayw.com/r/color-picker.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/color-picker/demo.tsx",
+      "content": "import { ColorPicker } from \"@/components/ui/color-picker\";\nimport { useState } from \"react\";\n\nexport const ColorPickerDemo = () => {\n    const [color, setColor] = useState(\"#4ec4b8\");\n    return (\n        <ColorPicker value={color} onChange={(value) => setColor(value)} />\n    );\n}\n",
+      "type": "registry:component",
+      "target": "components/color-picker-demo.tsx"
+    }
+  ]
+}

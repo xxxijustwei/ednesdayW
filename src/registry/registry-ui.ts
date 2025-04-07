@@ -46,4 +46,41 @@ export const ui: Registry["items"] = [
             },
         ],
     },
+    {
+        name: "color-picker",
+        type: "registry:ui",
+        title: "Color Picker",
+        description: "A color picker component",
+        dependencies: ["react-colorful"],
+        registryDependencies: [
+            "popover",
+            "button",
+            `${siteConfig.registryUrl}/colors.json`,
+        ],
+        files: [
+            {
+                path: "src/registry/ui/color-picker.tsx",
+                type: "registry:ui",
+                target: "components/color-picker.tsx",
+            },
+        ],
+    },
+    {
+        name: "color-input",
+        type: "registry:ui",
+        title: "Color Input",
+        description: "A color input component",
+        dependencies: [
+            "react-colorful",
+            `${siteConfig.registryUrl}/colors.json`,
+            `${siteConfig.registryUrl}/input.json`,
+        ],
+        files: [
+            {
+                path: "src/registry/ui/color-input.tsx",
+                type: "registry:ui",
+                target: "components/color-input.tsx",
+            },
+        ],
+    },
 ];

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "color-picker",
+  "type": "registry:ui",
+  "title": "Color Picker",
+  "description": "A color picker component",
+  "dependencies": [
+    "react-colorful"
+  ],
+  "registryDependencies": [
+    "popover",
+    "button",
+    "https://ui.ednesdayw.com/r/colors.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/ui/color-picker.tsx",
+      "content": "\"use client\";\n\nimport type * as PopoverPrimitive from \"@radix-ui/react-popover\";\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/components/ui/popover\";\nimport type React from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport { HexColorPicker } from \"react-colorful\";\nimport { sanitizeHex } from \"@/lib/colors\";\nimport { useMemo } from \"react\";\n\ninterface ColorPickerProps extends Omit<React.ComponentProps<typeof PopoverPrimitive.Content>, \"value\" | \"onChange\"> {\n    disabled?: boolean;\n    value: string;\n    onChange: (value: string) => void;\n    onBlur?: () => void;\n}\n\nconst ColorPicker = ({ disabled, className, value = \"#4ec4b8\", onChange, onBlur, ...props }: ColorPickerProps) => {\n    const parsedValue = useMemo(() => sanitizeHex(value), [value]);\n    \n    return (\n        <Popover>\n            <PopoverTrigger asChild disabled={disabled} onBlur={onBlur}>\n                <Button\n                    type=\"button\"\n                    className={cn(\"size-8 rounded-lg\", className)}\n                    style={{ backgroundColor: parsedValue }}\n                    size=\"icon\"\n                    variant=\"ghost\"\n                    disabled={disabled}\n                />\n            </PopoverTrigger>\n            <PopoverContent\n                {...props}\n                className=\"w-fit p-0 bg-transparent border-none shadow-none\"\n            >\n                <HexColorPicker\n                    color={parsedValue}\n                    onChange={onChange}\n                />\n            </PopoverContent>\n        </Popover>\n    )\n}\n\nexport { ColorPicker, type ColorPickerProps };",
+      "type": "registry:ui",
+      "target": "components/color-picker.tsx"
+    }
+  ]
+}

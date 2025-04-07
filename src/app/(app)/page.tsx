@@ -1,13 +1,12 @@
-import Link from "next/link";
-
 import { GridPattern } from "@/components/grid-pattern";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Home() {
     return (
         <div className="relative grid h-full flex-1 place-items-center overflow-hidden">
-            <div className="z-10 flex flex-col items-center space-y-6">
+            <div className="w-full z-10 flex flex-col items-center space-y-6">
                 <Link
                     href="/docs/components/input"
                     prefetch={true}

@@ -35,6 +35,16 @@ export const docsConfig: DocsConfig = {
                     href: "/docs/components/select",
                     items: [],
                 },
+                {
+                    title: "Color Picker",
+                    href: "/docs/components/color-picker",
+                    items: [],
+                },
+                {
+                    title: "Color Input",
+                    href: "/docs/components/color-input",
+                    items: [],
+                },
             ],
         },
         {

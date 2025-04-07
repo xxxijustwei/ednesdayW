@@ -86,6 +86,58 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "color-picker": {
+        name: "color-picker",
+        description: "A color picker component",
+        type: "registry:ui",
+        registryDependencies: [
+            "popover",
+            "button",
+            "https://ui.ednesdayw.com/r/colors.json",
+        ],
+        files: [
+            {
+                path: "src/registry/ui/color-picker.tsx",
+                type: "registry:ui",
+                target: "components/color-picker.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/ui/color-picker.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "color-input": {
+        name: "color-input",
+        description: "A color input component",
+        type: "registry:ui",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/ui/color-input.tsx",
+                type: "registry:ui",
+                target: "components/color-input.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/ui/color-input.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     "use-disclosure": {
         name: "use-disclosure",
         description: "A hook for managing disclosure state",
@@ -504,6 +556,58 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "color-picker-demo": {
+        name: "color-picker-demo",
+        description: "A demo of the color picker",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/color-picker/demo.tsx",
+                type: "registry:component",
+                target: "components/color-picker-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/color-picker/demo.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "color-input-variant-demo": {
+        name: "color-input-variant-demo",
+        description: "A demo of the color input variant",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/color-input/variant.tsx",
+                type: "registry:component",
+                target: "components/color-input-variant-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/color-input/variant.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     utils: {
         name: "utils",
         description: "",
@@ -518,6 +622,30 @@ export const Index: Record<string, any> = {
         ],
         component: React.lazy(async () => {
             const mod = await import("@/registry/lib/utils.ts");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    colors: {
+        name: "colors",
+        description: "",
+        type: "registry:lib",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/lib/colors.ts",
+                type: "registry:lib",
+                target: "lib/colors.ts",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/lib/colors.ts");
             const exportName =
                 Object.keys(mod).find(
                     (key) =>

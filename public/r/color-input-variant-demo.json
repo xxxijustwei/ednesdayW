@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "color-input-variant-demo",
+  "type": "registry:component",
+  "title": "Color Input Variant Demo",
+  "description": "A demo of the color input variant",
+  "dependencies": [
+    "https://ui.ednesdayw.com/r/color-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/color-input/variant.tsx",
+      "content": "import { ColorInput } from \"@/components/ui/color-input\";\nimport { useState } from \"react\";\n\nexport const inputVariants = [\n    \"default\",\n    \"faded\",\n    \"bordered\",\n    \"underline\",\n] as const;\n\nexport const ColorInputVariantExample = () => {\n    const [color, setColor] = useState(\"#4ec4b8\");\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-sm\">\n            {inputVariants.map((variant) => (\n                <ColorInput\n                    key={variant}\n                    variant={variant}\n                    value={color}\n                    onChange={(value) => setColor(value)}\n                />\n            ))}\n        </div>\n    );\n};\n",
+      "type": "registry:component",
+      "target": "components/color-input-variant-demo.tsx"
+    }
+  ]
+}

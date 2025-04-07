@@ -68,6 +68,45 @@
       ]
     },
     {
+      "name": "color-picker",
+      "type": "registry:ui",
+      "title": "Color Picker",
+      "description": "A color picker component",
+      "dependencies": [
+        "react-colorful"
+      ],
+      "registryDependencies": [
+        "popover",
+        "button",
+        "https://ui.ednesdayw.com/r/colors.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/color-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/color-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "color-input",
+      "type": "registry:ui",
+      "title": "Color Input",
+      "description": "A color input component",
+      "dependencies": [
+        "react-colorful",
+        "https://ui.ednesdayw.com/r/colors.json",
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/color-input.tsx",
+          "type": "registry:ui",
+          "target": "components/color-input.tsx"
+        }
+      ]
+    },
+    {
       "name": "use-disclosure",
       "type": "registry:hook",
       "title": "Use Disclosure",
@@ -341,6 +380,38 @@
       ]
     },
     {
+      "name": "color-picker-demo",
+      "type": "registry:component",
+      "title": "Color Picker Demo",
+      "description": "A demo of the color picker",
+      "dependencies": [
+        "https://ui.ednesdayw.com/r/color-picker.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/color-picker/demo.tsx",
+          "type": "registry:component",
+          "target": "components/color-picker-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "color-input-variant-demo",
+      "type": "registry:component",
+      "title": "Color Input Variant Demo",
+      "description": "A demo of the color input variant",
+      "dependencies": [
+        "https://ui.ednesdayw.com/r/color-input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/color-input/variant.tsx",
+          "type": "registry:component",
+          "target": "components/color-input-variant-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "dependencies": [
@@ -352,6 +423,17 @@
           "path": "src/registry/lib/utils.ts",
           "type": "registry:lib",
           "target": "lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "colors",
+      "type": "registry:lib",
+      "files": [
+        {
+          "path": "src/registry/lib/colors.ts",
+          "type": "registry:lib",
+          "target": "lib/colors.ts"
         }
       ]
     }
