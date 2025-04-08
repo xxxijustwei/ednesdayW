@@ -69,30 +69,14 @@ export const viewport: Viewport = {
     themeColor: META_THEME_COLORS.light,
 };
 
-const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-    const cookieStore = await cookies();
-    const activeTheme = cookieStore.get("active_theme")?.value;
-
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <html lang="en" suppressHydrationWarning>
-            <head>
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            try {
-                                if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                                document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
-                                }
-                            } catch (_) {}
-                        `,
-                    }}
-                />
-            </head>
             <body
                 className={cn(
                     "min-h-svh overflow-x-hidden bg-background font-sans antialiased",
-                    activeTheme ? `theme-${activeTheme}` : "",
                 )}
+                suppressHydrationWarning
             >
                 <ThemeProvider
                     attribute="class"
@@ -101,7 +85,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
                     disableTransitionOnChange
                     enableColorScheme
                 >
-                    <ActiveThemeProvider initialTheme={activeTheme}>
+                    <ActiveThemeProvider>
                         <TooltipProvider>
                             <LayoutClient>{children}</LayoutClient>
                         </TooltipProvider>

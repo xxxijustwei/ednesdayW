@@ -42,7 +42,6 @@ function DocsNavItems({
                     <Link
                         key={index}
                         href={item.href}
-                        prefetch={true}
                         className={cn(
                             "group flex h-8 w-full items-center rounded-lg px-2 font-normal text-foreground underline-offset-2 hover:bg-primary/10 hover:text-accent-foreground",
                             item.disabled && "cursor-not-allowed opacity-60",

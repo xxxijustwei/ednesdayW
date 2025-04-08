@@ -9,7 +9,6 @@ export default function Home() {
             <div className="w-full z-10 flex flex-col items-center space-y-6">
                 <Link
                     href="/docs/components/input"
-                    prefetch={true}
                     className={cn(buttonVariants())}
                 >
                     Explore the docs

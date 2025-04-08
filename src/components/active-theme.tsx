@@ -36,6 +36,18 @@ export function ActiveThemeProvider({
     );
 
     useEffect(() => {
+        const cookie = document.cookie
+            .split("; ")
+            .find((row) => row.startsWith(`${COOKIE_NAME}=`));
+        if (cookie) {
+            const cookieTheme = cookie.split("=")[1];
+            if (cookieTheme && cookieTheme !== activeTheme) {
+                setActiveTheme(cookieTheme);
+            }
+        }
+    }, []);
+
+    useEffect(() => {
         setThemeCookie(activeTheme);
 
         for (const className of document.body.classList) {
@@ -48,6 +60,23 @@ export function ActiveThemeProvider({
 
     return (
         <ThemeContext.Provider value={{ activeTheme, setActiveTheme }}>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                    (function() {
+                        try {
+                        const themeCookie = document.cookie
+                            .split('; ')
+                            .find(row => row.startsWith('active_theme='));
+                        if (themeCookie) {
+                            const theme = themeCookie.split('=')[1];
+                            document.body.classList.add('theme-' + theme);
+                        }
+                        } catch (e) {}
+                    })();
+                    `,
+                }}
+            />
             {children}
         </ThemeContext.Provider>
     );
