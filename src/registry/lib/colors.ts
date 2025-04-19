@@ -13,7 +13,7 @@ type Color = hsl & hex;
 const sanitizeHex = (val: string) => {
     const sanitized = val.replace(/[^a-fA-F0-9]/g, "").toUpperCase();
 
-    if (![3, 6].includes(sanitized.length)) {
+    if (![3, 6, 8].includes(sanitized.length)) {
         return "000000";
     }
 

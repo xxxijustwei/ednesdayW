@@ -11,7 +11,7 @@ import { cn } from "@/registry/lib/utils";
 import type * as PopoverPrimitive from "@radix-ui/react-popover";
 import type React from "react";
 import { useMemo } from "react";
-import { HexColorPicker } from "react-colorful";
+import { HexAlphaColorPicker, HexColorPicker } from "react-colorful";
 
 interface ColorPickerProps
     extends Omit<
@@ -19,6 +19,7 @@ interface ColorPickerProps
         "value" | "onChange"
     > {
     disabled?: boolean;
+    type?: "hex" | "hex-alpha";
     value: string;
     onChange: (value: string) => void;
     onBlur?: () => void;
@@ -28,6 +29,7 @@ const ColorPicker = ({
     disabled,
     className,
     value = "#4ec4b8",
+    type = "hex",
     onChange,
     onBlur,
     ...props
@@ -50,7 +52,14 @@ const ColorPicker = ({
                 {...props}
                 className="w-fit p-0 bg-transparent border-none shadow-none"
             >
-                <HexColorPicker color={parsedValue} onChange={onChange} />
+                {type === "hex" ? (
+                    <HexColorPicker color={parsedValue} onChange={onChange} />
+                ) : (
+                    <HexAlphaColorPicker
+                        color={parsedValue}
+                        onChange={onChange}
+                    />
+                )}
             </PopoverContent>
         </Popover>
     );
