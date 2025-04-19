@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/registry/example/color-picker/demo.tsx",
-      "content": "import { ColorPicker } from \"@/components/ui/color-picker\";\nimport { useState } from \"react\";\n\nexport const ColorPickerDemo = () => {\n    const [color, setColor] = useState(\"#4ec4b8\");\n    return (\n        <ColorPicker value={color} onChange={(value) => setColor(value)} />\n    );\n}\n",
+      "content": "import { ColorPicker } from \"@/components/ui/color-picker\";\nimport { useState } from \"react\";\n\nexport const ColorPickerDemo = () => {\n    const [color, setColor] = useState(\"#4ec4b8\");\n    return <ColorPicker value={color} onChange={(value) => setColor(value)} />;\n};\n",
       "type": "registry:component",
       "target": "components/color-picker-demo.tsx"
     }
