@@ -27,25 +27,32 @@ function SelectValue({
 
 const selectTriggerVariants = cva(
     cn(
-        "w-full flex items-center justify-between gap-2 shadow-sm",
-        "rounded-md bg-transparent text-sm whitespace-nowrap",
-        "hover:border-ring data-[state=open]:border-ring focus-visible:border-ring focus-visible:ring-ring/50",
+        "w-full flex items-center justify-between gap-2",
+        "rounded-md bg-transparent text-sm whitespace-nowrap shadow-sm",
+        "hover:border-ring",
+        "data-[state=open]:border-ring",
+        "focus-visible:border-ring focus-visible:ring-ring/50",
+        "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-input",
         "aria-invalid:ring-destructive/20 aria-invalid:border-destructive",
         "data-[placeholder]:text-muted-foreground",
         "transition-[color,box-shadow] outline-none",
-        "disabled:cursor-not-allowed disabled:opacity-50",
-        "*:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2",
-        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground",
+        "*:data-[slot=select-value]:(line-clamp-1 flex items-center gap-2)",
+        "[&_svg]:(pointer-events-none shrink-0)",
+        "[&_svg:not([class*='size-'])]:size-4",
+        "[&_svg:not([class*='text-'])]:text-muted-foreground",
     ),
     {
         variants: {
             variant: {
-                default:
-                    "bg-muted border-2 border-input disabled:hover:border-input",
-                faded: "bg-muted border-2 border-muted hover:bg-accent hover:border-accent focus-within:bg-accent focus-within:border-accent disabled:hover:bg-muted disabled:hover:border-muted",
-                bordered: "border-2 border-input disabled:hover:border-input",
-                underline:
-                    "border-b-2 border-input rounded-none shadow-none disabled:hover:border-input",
+                default: "bg-muted border-2 border-input",
+                faded: cn(
+                    "bg-muted border-2 border-muted",
+                    "hover:(bg-accent border-accent)",
+                    "focus-within:(bg-accent border-accent)",
+                    "disabled:hover:bg-muted",
+                ),
+                bordered: "border-2 border-input",
+                underline: "border-b-2 border-input rounded-none shadow-none",
             },
             size: {
                 sm: "h-10 px-3 py-1.5 text-sm data-[placeholder]:text-sm",
