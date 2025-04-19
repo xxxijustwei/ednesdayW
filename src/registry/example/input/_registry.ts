@@ -12,7 +12,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/size.tsx",
                 type: "registry:component",
-                target: "components/input-size-demo.tsx",
+                target: "components/demo/input-size-demo.tsx",
             },
         ],
     },
@@ -26,7 +26,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/variant.tsx",
                 type: "registry:component",
-                target: "components/input-variant-demo.tsx",
+                target: "components/demo/input-variant-demo.tsx",
             },
         ],
     },
@@ -40,7 +40,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/disabled.tsx",
                 type: "registry:component",
-                target: "components/input-disabled-demo.tsx",
+                target: "components/demo/input-disabled-demo.tsx",
             },
         ],
     },
@@ -54,7 +54,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/invalid.tsx",
                 type: "registry:component",
-                target: "components/input-invalid-demo.tsx",
+                target: "components/demo/input-invalid-demo.tsx",
             },
         ],
     },
@@ -68,7 +68,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/start-end-content.tsx",
                 type: "registry:component",
-                target: "components/input-start-end-content-demo.tsx",
+                target: "components/demo/input-start-end-content-demo.tsx",
             },
         ],
     },
@@ -82,7 +82,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/password.tsx",
                 type: "registry:component",
-                target: "components/input-password-demo.tsx",
+                target: "components/demo/input-password-demo.tsx",
             },
         ],
     },
@@ -96,7 +96,7 @@ export const inputExamples: Registry["items"] = [
             {
                 path: "src/registry/example/input/form.tsx",
                 type: "registry:component",
-                target: "components/input-form-demo.tsx",
+                target: "components/demo/input-form-demo.tsx",
             },
         ],
     },

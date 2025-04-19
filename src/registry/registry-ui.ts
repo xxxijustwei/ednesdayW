@@ -11,7 +11,7 @@ export const ui: Registry["items"] = [
             {
                 path: "src/registry/ui/input.tsx",
                 type: "registry:ui",
-                target: "components/input.tsx",
+                target: "components/wed/input.tsx",
             },
         ],
     },
@@ -29,7 +29,7 @@ export const ui: Registry["items"] = [
             {
                 path: "src/registry/ui/phone-input.tsx",
                 type: "registry:ui",
-                target: "components/phone-input.tsx",
+                target: "components/wed/phone-input.tsx",
             },
         ],
     },
@@ -42,7 +42,7 @@ export const ui: Registry["items"] = [
             {
                 path: "src/registry/ui/select.tsx",
                 type: "registry:ui",
-                target: "components/select.tsx",
+                target: "components/wed/select.tsx",
             },
         ],
     },
@@ -61,7 +61,7 @@ export const ui: Registry["items"] = [
             {
                 path: "src/registry/ui/color-picker.tsx",
                 type: "registry:ui",
-                target: "components/color-picker.tsx",
+                target: "components/wed/color-picker.tsx",
             },
         ],
     },
@@ -79,7 +79,7 @@ export const ui: Registry["items"] = [
             {
                 path: "src/registry/ui/color-input.tsx",
                 type: "registry:ui",
-                target: "components/color-input.tsx",
+                target: "components/wed/color-input.tsx",
             },
         ],
     },
