@@ -107,6 +107,19 @@
       ]
     },
     {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A button component",
+      "files": [
+        {
+          "path": "src/registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/wed/button.tsx"
+        }
+      ]
+    },
+    {
       "name": "use-disclosure",
       "type": "registry:hook",
       "title": "Use Disclosure",
@@ -408,6 +421,22 @@
           "path": "src/registry/example/color-input/variant.tsx",
           "type": "registry:component",
           "target": "components/color-input-variant-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-variant-demo",
+      "type": "registry:component",
+      "title": "Button Variant Demo",
+      "description": "A demo of the button variant",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/button/variant.tsx",
+          "type": "registry:component",
+          "target": "components/demo/button-variant-demo.tsx"
         }
       ]
     },
