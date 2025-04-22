@@ -4,8 +4,8 @@ import { Slot } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 import type * as React from "react";
 
-import { useRipple } from "@/hooks/use-ripple";
 import { cn } from "@/lib/utils";
+import { useRipple } from "@/registry/hooks/use-ripple";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import { LoaderIcon } from "lucide-react";
 import { useState } from "react";

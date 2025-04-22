@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { useDisclosure } from "@/registry/hooks/use-disclosure";
 import { Input } from "@/registry/ui/input";
 
-export function UseDisclosureDialogDemo() {
+export const UseDisclosureDialogDemo = () => {
     const { open, onOpen, onOpenChange } = useDisclosure();
 
     return (
@@ -51,4 +51,4 @@ export function UseDisclosureDialogDemo() {
             </Dialog>
         </div>
     );
-}
+};

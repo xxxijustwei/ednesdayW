@@ -9,9 +9,22 @@ export const hooks: Registry["items"] = [
         dependencies: ["@radix-ui/react-use-callback-ref"],
         files: [
             {
-                path: "src/registry/hooks/use-disclosure.tsx",
+                path: "src/registry/hooks/use-disclosure.ts",
                 type: "registry:hook",
-                target: "hooks/use-disclosure.tsx",
+                target: "hooks/use-disclosure.ts",
+            },
+        ],
+    },
+    {
+        name: "use-ripple",
+        type: "registry:hook",
+        title: "Use Ripple",
+        description: "A hook for creating ripples on an element",
+        files: [
+            {
+                path: "src/registry/hooks/use-ripple.ts",
+                type: "registry:hook",
+                target: "hooks/use-ripple.ts",
             },
         ],
     },

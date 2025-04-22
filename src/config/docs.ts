@@ -60,6 +60,11 @@ export const docsConfig: DocsConfig = {
                     href: "/docs/hooks/use-disclosure",
                     items: [],
                 },
+                {
+                    title: "useRipple",
+                    href: "/docs/hooks/use-ripple",
+                    items: [],
+                },
             ],
         },
     ],

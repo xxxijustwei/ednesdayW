@@ -169,13 +169,37 @@ export const Index: Record<string, any> = {
         registryDependencies: undefined,
         files: [
             {
-                path: "src/registry/hooks/use-disclosure.tsx",
+                path: "src/registry/hooks/use-disclosure.ts",
                 type: "registry:hook",
-                target: "hooks/use-disclosure.tsx",
+                target: "hooks/use-disclosure.ts",
             },
         ],
         component: React.lazy(async () => {
-            const mod = await import("@/registry/hooks/use-disclosure.tsx");
+            const mod = await import("@/registry/hooks/use-disclosure.ts");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "use-ripple": {
+        name: "use-ripple",
+        description: "A hook for creating ripples on an element",
+        type: "registry:hook",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/hooks/use-ripple.ts",
+                type: "registry:hook",
+                target: "hooks/use-ripple.ts",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/hooks/use-ripple.ts");
             const exportName =
                 Object.keys(mod).find(
                     (key) =>
@@ -554,32 +578,6 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
-    "use-disclosure-dialog-demo": {
-        name: "use-disclosure-dialog-demo",
-        description: "A demo of the use disclosure dialog",
-        type: "registry:component",
-        registryDependencies: undefined,
-        files: [
-            {
-                path: "src/registry/example/use-disclosure/dialog.tsx",
-                type: "registry:component",
-                target: "components/use-disclosure-dialog-demo.tsx",
-            },
-        ],
-        component: React.lazy(async () => {
-            const mod = await import(
-                "@/registry/example/use-disclosure/dialog.tsx"
-            );
-            const exportName =
-                Object.keys(mod).find(
-                    (key) =>
-                        typeof mod[key] === "function" ||
-                        typeof mod[key] === "object",
-                ) || item.name;
-            return { default: mod.default || mod[exportName] };
-        }),
-        meta: undefined,
-    },
     "color-picker-demo": {
         name: "color-picker-demo",
         description: "A demo of the color picker",
@@ -694,6 +692,56 @@ export const Index: Record<string, any> = {
         ],
         component: React.lazy(async () => {
             const mod = await import("@/registry/example/button/icon.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "use-disclosure-dialog-demo": {
+        name: "use-disclosure-dialog-demo",
+        description: "A demo of the use disclosure dialog",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/use-disclosure/dialog.tsx",
+                type: "registry:component",
+                target: "components/demo/use-disclosure-dialog-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/use-disclosure/dialog.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "use-ripple-demo": {
+        name: "use-ripple-demo",
+        description: "A demo of the use ripple",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/use-ripple.json"],
+        files: [
+            {
+                path: "src/registry/example/use-ripple/demo.tsx",
+                type: "registry:component",
+                target: "components/demo/use-ripple-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/use-ripple/demo.tsx");
             const exportName =
                 Object.keys(mod).find(
                     (key) =>

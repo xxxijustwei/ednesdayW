@@ -10,7 +10,7 @@ export interface RippleType {
 export const useRipple = () => {
     const [ripples, setRipples] = useState<RippleType[]>([]);
 
-    const onClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    const onClick = useCallback((e: React.MouseEvent<HTMLElement>) => {
         const target = e.currentTarget;
         const size = Math.max(target.clientWidth, target.clientHeight);
         const clientRect = target.getBoundingClientRect();

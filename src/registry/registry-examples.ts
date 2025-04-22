@@ -6,13 +6,15 @@ import { inputExamples } from "./example/input/_registry";
 import { phoneInputExamples } from "./example/phone-input/_registry";
 import { selectExamples } from "./example/select/_registry";
 import { useDisclosureExamples } from "./example/use-disclosure/_registry";
+import { useRippleExamples } from "./example/use-ripple/_registry";
 
 export const examples: Registry["items"] = [
     ...inputExamples,
     ...phoneInputExamples,
     ...selectExamples,
-    ...useDisclosureExamples,
     ...colorPickerExamples,
     ...colorInputExamples,
     ...buttonExamples,
+    ...useDisclosureExamples,
+    ...useRippleExamples,
 ];

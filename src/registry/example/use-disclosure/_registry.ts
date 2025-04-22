@@ -15,7 +15,7 @@ export const useDisclosureExamples: Registry["items"] = [
             {
                 path: "src/registry/example/use-disclosure/dialog.tsx",
                 type: "registry:component",
-                target: "components/use-disclosure-dialog-demo.tsx",
+                target: "components/demo/use-disclosure-dialog-demo.tsx",
             },
         ],
     },

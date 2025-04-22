@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-ripple",
+  "type": "registry:hook",
+  "title": "Use Ripple",
+  "description": "A hook for creating ripples on an element",
+  "files": [
+    {
+      "path": "src/registry/hooks/use-ripple.ts",
+      "content": "import { useCallback, useState } from \"react\";\n\nexport interface RippleType {\n    id: string;\n    x: number;\n    y: number;\n    size: number;\n}\n\nexport const useRipple = () => {\n    const [ripples, setRipples] = useState<RippleType[]>([]);\n\n    const onClick = useCallback((e: React.MouseEvent<HTMLElement>) => {\n        const target = e.currentTarget;\n        const size = Math.max(target.clientWidth, target.clientHeight);\n        const clientRect = target.getBoundingClientRect();\n        const x = e.clientX - clientRect.left - size / 2;\n        const y = e.clientY - clientRect.top - size / 2;\n\n        setRipples((prev) => [\n            ...prev,\n            { id: crypto.randomUUID(), x, y, size },\n        ]);\n    }, []);\n\n    const onClear = useCallback((id: string) => {\n        setRipples((prev) => prev.filter((ripple) => ripple.id !== id));\n    }, []);\n\n    return { ripples, onClick, onClear };\n};\n\nexport type UseRippleReturn = ReturnType<typeof useRipple>;\n",
+      "type": "registry:hook",
+      "target": "hooks/use-ripple.ts"
+    }
+  ]
+}

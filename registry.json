@@ -135,9 +135,22 @@
       ],
       "files": [
         {
-          "path": "src/registry/hooks/use-disclosure.tsx",
+          "path": "src/registry/hooks/use-disclosure.ts",
           "type": "registry:hook",
-          "target": "hooks/use-disclosure.tsx"
+          "target": "hooks/use-disclosure.ts"
+        }
+      ]
+    },
+    {
+      "name": "use-ripple",
+      "type": "registry:hook",
+      "title": "Use Ripple",
+      "description": "A hook for creating ripples on an element",
+      "files": [
+        {
+          "path": "src/registry/hooks/use-ripple.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-ripple.ts"
         }
       ]
     },
@@ -382,23 +395,6 @@
       ]
     },
     {
-      "name": "use-disclosure-dialog-demo",
-      "type": "registry:component",
-      "title": "Use Disclosure Dialog Demo",
-      "description": "A demo of the use disclosure dialog",
-      "dependencies": [
-        "dialog",
-        "https://ui.ednesdayw.com/r/use-disclosure.json"
-      ],
-      "files": [
-        {
-          "path": "src/registry/example/use-disclosure/dialog.tsx",
-          "type": "registry:component",
-          "target": "components/use-disclosure-dialog-demo.tsx"
-        }
-      ]
-    },
-    {
       "name": "color-picker-demo",
       "type": "registry:component",
       "title": "Color Picker Demo",
@@ -475,6 +471,42 @@
           "path": "src/registry/example/button/icon.tsx",
           "type": "registry:component",
           "target": "components/demo/button-icon-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "use-disclosure-dialog-demo",
+      "type": "registry:component",
+      "title": "Use Disclosure Dialog Demo",
+      "description": "A demo of the use disclosure dialog",
+      "dependencies": [
+        "dialog",
+        "https://ui.ednesdayw.com/r/use-disclosure.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/use-disclosure/dialog.tsx",
+          "type": "registry:component",
+          "target": "components/demo/use-disclosure-dialog-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "use-ripple-demo",
+      "type": "registry:component",
+      "title": "Use Ripple Demo",
+      "description": "A demo of the use ripple",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/use-ripple.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/use-ripple/demo.tsx",
+          "type": "registry:component",
+          "target": "components/demo/use-ripple-demo.tsx"
         }
       ]
     },
