@@ -83,4 +83,19 @@ export const ui: Registry["items"] = [
             },
         ],
     },
+    {
+        name: "button",
+        type: "registry:ui",
+        title: "Button",
+        description: "A button component",
+        registryDependencies: [`${siteConfig.registryUrl}/use-ripple.json`],
+        dependencies: ["motion"],
+        files: [
+            {
+                path: "src/registry/ui/button.tsx",
+                type: "registry:ui",
+                target: "components/wed/button.tsx",
+            },
+        ],
+    },
 ];

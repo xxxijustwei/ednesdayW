@@ -1,4 +1,5 @@
 import { Button } from "@/registry/ui/button";
+import { CurrencyIcon } from "lucide-react";
 
 const buttonVariants = [
     "primary",
@@ -9,12 +10,12 @@ const buttonVariants = [
     "link",
 ] as const;
 
-export const ButtonVariantExample = () => {
+export const ButtonIconExample = () => {
     return (
-        <div className="w-full max-w-xs grid grid-cols-2 gap-4">
+        <div className="w-full max-w-24 grid grid-cols-2 gap-4 place-items-center">
             {buttonVariants.map((variant) => (
-                <Button key={variant} variant={variant}>
-                    {variant.charAt(0).toUpperCase() + variant.slice(1)}
+                <Button key={variant} variant={variant} size="icon">
+                    <CurrencyIcon />
                 </Button>
             ))}
         </div>

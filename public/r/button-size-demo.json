@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-size-demo",
+  "type": "registry:component",
+  "title": "Button Size Demo",
+  "description": "A demo of the button size",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/button/size.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\n\nconst buttonSizes = [\n    \"sm\",\n    \"md\",\n    \"lg\",\n] as const;\n\nexport const ButtonSizeExample = () => {\n    return (\n        <div className=\"w-full max-w-48 flex flex-col gap-4\">\n            {buttonSizes.map((size) => (\n                <Button key={size} size={size}>\n                    {size.toUpperCase()}\n                </Button>\n            ))}\n        </div>\n    );\n};",
+      "type": "registry:component",
+      "target": "components/demo/button-size-demo.tsx"
+    }
+  ]
+}

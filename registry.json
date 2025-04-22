@@ -111,6 +111,12 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "A button component",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/use-ripple.json"
+      ],
       "files": [
         {
           "path": "src/registry/ui/button.tsx",
@@ -437,6 +443,38 @@
           "path": "src/registry/example/button/variant.tsx",
           "type": "registry:component",
           "target": "components/demo/button-variant-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-size-demo",
+      "type": "registry:component",
+      "title": "Button Size Demo",
+      "description": "A demo of the button size",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/button/size.tsx",
+          "type": "registry:component",
+          "target": "components/demo/button-size-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-icon-demo",
+      "type": "registry:component",
+      "title": "Button Icon Demo",
+      "description": "A demo of the button icon",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/button/icon.tsx",
+          "type": "registry:component",
+          "target": "components/demo/button-icon-demo.tsx"
         }
       ]
     },

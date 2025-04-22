@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-icon-demo",
+  "type": "registry:component",
+  "title": "Button Icon Demo",
+  "description": "A demo of the button icon",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/button/icon.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { CurrencyIcon } from \"lucide-react\";\n\nconst buttonVariants = [\n    \"primary\",\n    \"secondary\",\n    \"outline\",\n    \"destructive\",\n    \"ghost\",\n    \"link\",\n] as const;\n\nexport const ButtonIconExample = () => {\n    return (\n        <div className=\"w-full max-w-24 grid grid-cols-2 gap-4 place-items-center\">\n            {buttonVariants.map((variant) => (\n                <Button key={variant} variant={variant} size=\"icon\">\n                    <CurrencyIcon />\n                </Button>\n            ))}\n        </div>\n    );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/button-icon-demo.tsx"
+    }
+  ]
+}

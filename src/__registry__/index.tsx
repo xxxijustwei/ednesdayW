@@ -138,6 +138,30 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    button: {
+        name: "button",
+        description: "A button component",
+        type: "registry:ui",
+        registryDependencies: ["https://ui.ednesdayw.com/r/use-ripple.json"],
+        files: [
+            {
+                path: "src/registry/ui/button.tsx",
+                type: "registry:ui",
+                target: "components/wed/button.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/ui/button.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     "use-disclosure": {
         name: "use-disclosure",
         description: "A hook for managing disclosure state",
@@ -598,6 +622,78 @@ export const Index: Record<string, any> = {
             const mod = await import(
                 "@/registry/example/color-input/variant.tsx"
             );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "button-variant-demo": {
+        name: "button-variant-demo",
+        description: "A demo of the button variant",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/button.json"],
+        files: [
+            {
+                path: "src/registry/example/button/variant.tsx",
+                type: "registry:component",
+                target: "components/demo/button-variant-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/button/variant.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "button-size-demo": {
+        name: "button-size-demo",
+        description: "A demo of the button size",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/button.json"],
+        files: [
+            {
+                path: "src/registry/example/button/size.tsx",
+                type: "registry:component",
+                target: "components/demo/button-size-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/button/size.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "button-icon-demo": {
+        name: "button-icon-demo",
+        description: "A demo of the button icon",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/button.json"],
+        files: [
+            {
+                path: "src/registry/example/button/icon.tsx",
+                type: "registry:component",
+                target: "components/demo/button-icon-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/button/icon.tsx");
             const exportName =
                 Object.keys(mod).find(
                     (key) =>
