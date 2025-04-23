@@ -1,7 +1,6 @@
 import { GridPattern } from "@/components/grid-pattern";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Button } from "@/registry/ui/button";
 import Link from "next/link";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
                 >
                     Explore the docs
                 </Link>
-                <Button>Click me</Button>
             </div>
             <GridPattern
                 squares={[
