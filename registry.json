@@ -475,6 +475,22 @@
       ]
     },
     {
+      "name": "button-loading-demo",
+      "type": "registry:component",
+      "title": "Button Loading Demo",
+      "description": "A demo of the button loading",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/button/loading.tsx",
+          "type": "registry:component",
+          "target": "components/demo/button-loading-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "use-disclosure-dialog-demo",
       "type": "registry:component",
       "title": "Use Disclosure Dialog Demo",

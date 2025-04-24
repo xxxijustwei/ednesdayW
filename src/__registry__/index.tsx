@@ -702,6 +702,30 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "button-loading-demo": {
+        name: "button-loading-demo",
+        description: "A demo of the button loading",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/button.json"],
+        files: [
+            {
+                path: "src/registry/example/button/loading.tsx",
+                type: "registry:component",
+                target: "components/demo/button-loading-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/button/loading.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     "use-disclosure-dialog-demo": {
         name: "use-disclosure-dialog-demo",
         description: "A demo of the use disclosure dialog",

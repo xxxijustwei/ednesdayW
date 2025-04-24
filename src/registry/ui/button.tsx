@@ -7,7 +7,7 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 import { useRipple } from "@/registry/hooks/use-ripple";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
-import { LoaderIcon } from "lucide-react";
+import { Loader2Icon } from "lucide-react";
 import { useState } from "react";
 
 const buttonVariants = cva(
@@ -15,7 +15,7 @@ const buttonVariants = cva(
         "group inline-flex items-center justify-center gap-2 shrink-0 outline-none relative overflow-hidden",
         "text-sm font-medium whitespace-nowrap rounded-md transition-all cursor-pointer",
         "active:scale-98 transition-all duration-100",
-        "disabled:pointer-events-none disabled:opacity-50",
+        "disabled:pointer-events-none disabled:opacity-70",
         "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4",
         "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
         "aria-invalid:border-destructive aria-invalid:ring-destructive/20 aria-invalid:dark:ring-destructive/40",
@@ -103,7 +103,7 @@ function Button({
             onClick={handleClick}
             {...props}
         >
-            <LoaderIcon
+            <Loader2Icon
                 className="size-4 shrink-0 animate-spin group-data-[loading=false]:hidden"
                 aria-hidden="true"
             />
