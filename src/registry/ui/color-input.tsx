@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { sanitizeHex } from "@/registry/lib/colors";
 import { ColorPicker } from "@/registry/ui/color-picker";
 import { Input, type InputProps } from "@/registry/ui/input";
 
@@ -26,8 +25,8 @@ const ColorInput = ({
             className={cn("p-2", variant !== "underline" && "rounded-lg")}
             value={value}
             onChange={(e) => {
-                const hex = sanitizeHex(e.target.value);
-                onChange(hex);
+                const value = e.target.value;
+                onChange(value);
             }}
             startContent={
                 <ColorPicker

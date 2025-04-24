@@ -42,7 +42,12 @@ const ColorPicker = ({
                 <Button
                     type="button"
                     className={cn("size-8 rounded-lg", className)}
-                    style={{ backgroundColor: parsedValue }}
+                    style={{
+                        backgroundColor: parsedValue,
+                        backgroundImage: !parsedValue
+                            ? `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill-opacity=".15"><path d="M8 0h8v8H8zM0 8h8v8H0z"/></svg>')`
+                            : undefined,
+                    }}
                     size="icon"
                     variant="ghost"
                     disabled={disabled}
@@ -53,10 +58,13 @@ const ColorPicker = ({
                 className="w-fit p-0 bg-transparent border-none shadow-none"
             >
                 {type === "hex" ? (
-                    <HexColorPicker color={parsedValue} onChange={onChange} />
+                    <HexColorPicker
+                        color={parsedValue ?? "#000000"}
+                        onChange={onChange}
+                    />
                 ) : (
                     <HexAlphaColorPicker
-                        color={parsedValue}
+                        color={parsedValue ?? "#000000"}
                         onChange={onChange}
                     />
                 )}
