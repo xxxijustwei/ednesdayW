@@ -38,7 +38,8 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         ".content-collections/generated",
-        "scripts/build-registry.mts"
+        "scripts/build-registry.mts", 
+        "vitest.config.mts"
     ],
     "exclude": [
         "node_modules"
