@@ -54,7 +54,7 @@ export const paginate = ({
             ? [
                   {
                       type: "ellipsis",
-                      value: between(right + siblings * 2 + 1, 1, totalPages),
+                      value: between(page + siblings * 2 + 1, 1, totalPages),
                   },
               ]
             : []),
