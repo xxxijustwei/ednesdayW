@@ -50,6 +50,11 @@ export const docsConfig: DocsConfig = {
                     href: "/docs/components/color-input",
                     items: [],
                 },
+                {
+                    title: "Pagination",
+                    href: "/docs/components/pagination",
+                    items: [],
+                },
             ],
         },
         {

@@ -98,4 +98,17 @@ export const ui: Registry["items"] = [
             },
         ],
     },
+    {
+        name: "pagination",
+        type: "registry:ui",
+        title: "Pagination",
+        description: "A pagination component",
+        files: [
+            {
+                path: "src/registry/ui/pagination.tsx",
+                type: "registry:ui",
+                target: "components/wed/pagination.tsx",
+            },
+        ],
+    },
 ];

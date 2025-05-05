@@ -126,6 +126,19 @@
       ]
     },
     {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "A pagination component",
+      "files": [
+        {
+          "path": "src/registry/ui/pagination.tsx",
+          "type": "registry:ui",
+          "target": "components/wed/pagination.tsx"
+        }
+      ]
+    },
+    {
       "name": "use-disclosure",
       "type": "registry:hook",
       "title": "Use Disclosure",
@@ -527,6 +540,22 @@
       ]
     },
     {
+      "name": "pagination-demo",
+      "type": "registry:component",
+      "title": "Pagination Demo",
+      "description": "A demo of the pagination component",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/pagination.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/pagination/demo.tsx",
+          "type": "registry:component",
+          "target": "components/demo/pagination-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "dependencies": [
@@ -549,6 +578,17 @@
           "path": "src/registry/lib/colors.ts",
           "type": "registry:lib",
           "target": "lib/colors.ts"
+        }
+      ]
+    },
+    {
+      "name": "paginate",
+      "type": "registry:lib",
+      "files": [
+        {
+          "path": "src/registry/lib/paginate.ts",
+          "type": "registry:lib",
+          "target": "lib/paginate.ts"
         }
       ]
     }

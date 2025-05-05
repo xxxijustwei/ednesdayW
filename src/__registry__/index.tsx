@@ -162,6 +162,30 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    pagination: {
+        name: "pagination",
+        description: "A pagination component",
+        type: "registry:ui",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/ui/pagination.tsx",
+                type: "registry:ui",
+                target: "components/wed/pagination.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/ui/pagination.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     "use-disclosure": {
         name: "use-disclosure",
         description: "A hook for managing disclosure state",
@@ -776,6 +800,30 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "pagination-demo": {
+        name: "pagination-demo",
+        description: "A demo of the pagination component",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/pagination.json"],
+        files: [
+            {
+                path: "src/registry/example/pagination/demo.tsx",
+                type: "registry:component",
+                target: "components/demo/pagination-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/pagination/demo.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     utils: {
         name: "utils",
         description: "",
@@ -814,6 +862,30 @@ export const Index: Record<string, any> = {
         ],
         component: React.lazy(async () => {
             const mod = await import("@/registry/lib/colors.ts");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    paginate: {
+        name: "paginate",
+        description: "",
+        type: "registry:lib",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/lib/paginate.ts",
+                type: "registry:lib",
+                target: "lib/paginate.ts",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/lib/paginate.ts");
             const exportName =
                 Object.keys(mod).find(
                     (key) =>

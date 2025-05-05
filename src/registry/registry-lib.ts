@@ -24,4 +24,15 @@ export const lib: Registry["items"] = [
             },
         ],
     },
+    {
+        name: "paginate",
+        type: "registry:lib",
+        files: [
+            {
+                path: "src/registry/lib/paginate.ts",
+                type: "registry:lib",
+                target: "lib/paginate.ts",
+            },
+        ],
+    },
 ];

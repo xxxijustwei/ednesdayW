@@ -1,53 +1,72 @@
 interface PaginateProps {
-    current: number;
-    max: number;
+    currentPage: number;
+    totalPages: number;
+    siblings?: number;
 }
 
-interface PaginateReturn {
-    prev: number | null;
-    next: number | null;
-    current: number;
-    items: (number | "…")[];
-}
+const range = (start: number, end: number) => {
+    return Array.from({ length: end - start }, (_, i) => i + start);
+};
+
+const between = (num: number, min: number, max: number) => {
+    return Math.max(min, Math.min(num, max));
+};
 
 export const paginate = ({
-    current,
-    max,
-}: PaginateProps): PaginateReturn | null => {
-    if (!current || !max) {
-        return null;
-    }
+    currentPage,
+    totalPages,
+    siblings = 2,
+}: PaginateProps) => {
+    const page = between(currentPage, 1, totalPages);
+    const max = totalPages - 1;
 
-    const prev = current === 1 ? null : current - 1;
-    const next = current === max ? null : current + 1;
-    const items: (number | "…")[] = [1];
+    const left = between(
+        page - siblings,
+        2,
+        Math.min(max - siblings * 2 - 1, max),
+    );
+    const right = between(
+        page + siblings,
+        Math.min(2 + siblings * 2 + 1, max),
+        max,
+    );
 
-    if (current === 1 && max === 1) {
-        return { current, prev, next, items };
-    }
+    const hasLeftEllipsis = left - 1 > 2;
+    const hasRightEllipsis = totalPages - right > 2;
 
-    if (current > 4) {
-        items.push("…");
-    }
+    const middle = range(
+        left - 1 === 2 ? left - 1 : left,
+        totalPages - right === 2 ? right + 2 : right + 1,
+    );
 
-    const RANGE = 2;
-    const rangeStart = current - RANGE;
-    const rangeEnd = current + RANGE;
+    const items = [
+        { type: "item", value: 1 },
+        ...(hasLeftEllipsis
+            ? [
+                  {
+                      type: "ellipsis",
+                      value: between(page - siblings * 2 - 1, 1, totalPages),
+                  },
+              ]
+            : []),
+        ...middle.map((n) => ({ type: "item", value: n })),
+        ...(hasRightEllipsis
+            ? [
+                  {
+                      type: "ellipsis",
+                      value: between(right + siblings * 2 + 1, 1, totalPages),
+                  },
+              ]
+            : []),
+        ...(totalPages >= 2 ? [{ type: "item", value: totalPages }] : []),
+    ];
 
-    for (
-        let i = rangeStart > 2 ? rangeStart : 2;
-        i <= Math.min(max, rangeEnd);
-        i++
-    ) {
-        items.push(i);
-    }
-
-    if (rangeEnd + 1 < max) {
-        items.push("…");
-    }
-    if (rangeEnd < max) {
-        items.push(max);
-    }
-
-    return { current, prev, next, items };
+    return {
+        prev: page > 1 ? page - 1 : null,
+        next: page < totalPages ? page + 1 : null,
+        current: page,
+        items,
+    };
 };
+
+export type PaginateReturn = ReturnType<typeof paginate>;
