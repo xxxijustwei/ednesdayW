@@ -27,31 +27,27 @@ const formSchema = z.object({
     email: z.string().email({
         message: "Invalid email",
     }),
-    password: z.string().nonempty({
-        message: "Password is required",
-    }),
 });
 
-export const InputFormExample = () => {
+export const ButtonFormExample = () => {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             email: "",
-            password: "",
         },
     });
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         await new Promise((resolve) => setTimeout(resolve, 300));
-        toast.success("Login Successfully");
+        toast.success("Email sent successfully");
     };
 
     return (
         <Card className="w-full max-w-sm">
             <CardHeader>
-                <CardTitle>Login</CardTitle>
+                <CardTitle>Reset Password</CardTitle>
                 <CardDescription>
-                    Enjoy the best experience with us
+                    Please enter your email to reset your password
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -70,24 +66,6 @@ export const InputFormExample = () => {
                                         <Input
                                             variant="bordered"
                                             placeholder="Please enter your Email"
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="password"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Password</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            type="password"
-                                            variant="bordered"
-                                            placeholder="Please enter your Password"
                                             {...field}
                                         />
                                     </FormControl>

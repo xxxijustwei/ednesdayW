@@ -6,9 +6,10 @@ import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { useRipple } from "@/registry/hooks/use-ripple";
+import { useCallbackRef } from "@radix-ui/react-use-callback-ref";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import { Loader2Icon } from "lucide-react";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 const buttonVariants = cva(
     cn(
@@ -58,21 +59,39 @@ function Button({
     size,
     disabled = false,
     asChild = false,
-    isLoading = false,
+    loading,
+    setLoading,
     onClick,
     children,
     ...props
 }: React.ComponentProps<"button"> &
     VariantProps<typeof buttonVariants> & {
         asChild?: boolean;
-        isLoading?: boolean;
+        loading?: boolean;
+        setLoading?: (loading: boolean) => void;
     }) {
-    const [loading, setLoading] = useState(isLoading);
     const {
         ripples,
         onClick: handleRippleClick,
         onClear: handleRippleClear,
     } = useRipple();
+    const handleLoading = useCallbackRef(setLoading);
+
+    const [uncontrolledLoading, setUncontrolledLoading] = useState(
+        loading ?? false,
+    );
+    const isLoading = loading ?? uncontrolledLoading;
+    const isControlled = loading !== undefined;
+
+    const onLoadingChange = useCallback(
+        (loading: boolean) => {
+            if (!isControlled) {
+                setUncontrolledLoading(loading);
+            }
+            handleLoading?.(loading);
+        },
+        [isControlled, handleLoading],
+    );
 
     const Comp = asChild ? Slot : "button";
 
@@ -84,9 +103,9 @@ function Button({
             typeof onClick === "function" &&
             onClick.constructor.name === "AsyncFunction"
         ) {
-            setLoading(true);
+            onLoadingChange(true);
             Promise.resolve(onClick(event)).finally(() => {
-                setLoading(false);
+                onLoadingChange(false);
             });
             return;
         }
@@ -97,9 +116,9 @@ function Button({
     return (
         <Comp
             data-slot="button"
-            data-loading={loading}
+            data-loading={isLoading}
             className={cn(buttonVariants({ variant, size, className }))}
-            disabled={disabled || loading}
+            disabled={disabled || isLoading}
             onClick={handleClick}
             {...props}
         >
