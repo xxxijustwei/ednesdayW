@@ -70,6 +70,16 @@ export const docsConfig: DocsConfig = {
                     href: "/docs/hooks/use-ripple",
                     items: [],
                 },
+                {
+                    title: "useCountdown",
+                    href: "/docs/hooks/use-countdown",
+                    items: [],
+                },
+                {
+                    title: "useDeviceDetection",
+                    href: "/docs/hooks/use-device-detection",
+                    items: [],
+                },
             ],
         },
     ],

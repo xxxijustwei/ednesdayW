@@ -24,7 +24,7 @@ export const useCountdown = ({
         }
 
         setStatus("running");
-    }, []);
+    }, [initialSeconds, countdown]);
 
     const reset = useCallback(() => {
         setCountdown(Math.max(initialSeconds, 0));

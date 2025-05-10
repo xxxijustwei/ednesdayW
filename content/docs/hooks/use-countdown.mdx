@@ -1,0 +1,48 @@
+---
+title: Use Countdown
+description: A hook that allows you to create a countdown timer.
+---
+
+### Installation
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/use-countdown.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="use-countdown" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+```tsx
+import { useCountdown } from "@/hooks/use-countdown";
+
+const { countdown, status, start, reset, setCountdown } = useCountdown({
+  initialSeconds: 10,
+});
+```
+
+### Example
+
+<ComponentPreview name="use-countdown-demo" />

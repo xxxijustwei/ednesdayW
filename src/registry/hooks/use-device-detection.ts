@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 type DeviceType = "mobile" | "tablet" | "desktop";
 
-const mobileRegex = /iphone|ipad|ipod|android|blackberry|windows phone/g;
-const tabletRegex = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g;
+const mobileRegex = /iphone|ipad|ipod|android|blackberry|windows phone/gi;
+const tabletRegex = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/gi;
 
 export const useDeviceDetection = () => {
     const [device, setDevice] = useState<DeviceType>("desktop");

@@ -28,4 +28,30 @@ export const hooks: Registry["items"] = [
             },
         ],
     },
+    {
+        name: "use-countdown",
+        type: "registry:hook",
+        title: "Use Countdown",
+        description: "A hook for creating a countdown timer",
+        files: [
+            {
+                path: "src/registry/hooks/use-countdown.ts",
+                type: "registry:hook",
+                target: "hooks/use-countdown.ts",
+            },
+        ],
+    },
+    {
+        name: "use-device-detection",
+        type: "registry:hook",
+        title: "Use Device Detection",
+        description: "A hook for detecting the device type",
+        files: [
+            {
+                path: "src/registry/hooks/use-device-detection.ts",
+                type: "registry:hook",
+                target: "hooks/use-device-detection.ts",
+            },
+        ],
+    },
 ];
