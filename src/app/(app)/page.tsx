@@ -1,3 +1,5 @@
+"use client";
+
 import { GridPattern } from "@/components/grid-pattern";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
