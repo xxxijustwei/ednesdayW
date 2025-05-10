@@ -13,7 +13,7 @@ import { useCallback, useState } from "react";
 
 const buttonVariants = cva(
     cn(
-        "group inline-flex items-center justify-center gap-2 shrink-0 outline-none relative overflow-hidden",
+        "inline-flex items-center justify-center gap-2 shrink-0 outline-none relative overflow-hidden",
         "text-sm font-medium whitespace-nowrap rounded-md transition-all cursor-pointer",
         "active:scale-98 transition-all duration-100",
         "disabled:pointer-events-none disabled:opacity-70",
@@ -116,17 +116,20 @@ function Button({
     return (
         <Comp
             data-slot="button"
-            data-loading={isLoading}
             className={cn(buttonVariants({ variant, size, className }))}
             disabled={disabled || isLoading}
             onClick={handleClick}
             {...props}
         >
-            <Loader2Icon
-                className="size-4 shrink-0 animate-spin group-data-[loading=false]:hidden"
-                aria-hidden="true"
-            />
-            <span className="sr-only">Loading</span>
+            {isLoading && (
+                <>
+                    <Loader2Icon
+                        className="size-4 shrink-0 animate-spin"
+                        aria-hidden="true"
+                    />
+                    <span className="sr-only">Loading</span>
+                </>
+            )}
             <Slottable>{children}</Slottable>
             {ripples.map((ripple) => {
                 const duration = Math.min(
