@@ -1,4 +1,4 @@
-import Link from "next/link";
+"use client";
 
 import { CommandMenu } from "@/components/command-menu";
 import { Icons } from "@/components/icons";
@@ -9,6 +9,7 @@ import { ThemeCustomizer } from "@/components/theme-customizer";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export function SiteHeader() {
     return (

@@ -1,9 +1,12 @@
 import { Index } from "@/__registry__";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { Loader2 } from "lucide-react";
+import { Loader2, RotateCcw } from "lucide-react";
 import * as React from "react";
 import { ComponentWrapper } from "./component-wrapper";
+import { OpenInV0Button } from "./open-in-v0-button";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
     name: string;
@@ -19,6 +22,7 @@ export const ComponentPreview = ({
     preview = false,
     ...props
 }: ComponentPreviewProps) => {
+    const [key, setKey] = React.useState(0);
     const Codes = React.Children.toArray(children) as React.ReactElement[];
     const Code = Codes[0];
 
@@ -53,25 +57,38 @@ export const ComponentPreview = ({
         >
             <Tabs defaultValue="preview" className="relative mr-auto w-full">
                 {!preview && (
-                    <div className="flex items-center justify-between pb-3">
-                        <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
+                    <div className="flex items-center justify-between pb-1">
+                        <TabsList className="w-full justify-start rounded-none bg-transparent p-0">
                             <TabsTrigger
                                 value="preview"
-                                className="flex-none relative h-9 rounded-none border-0 border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary dark:data-[state=active]:border-b-primary dark:data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none"
+                                className="flex-none relative h-8 rounded-none border-0 border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary dark:data-[state=active]:border-b-primary dark:data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=inactive]:hover:text-accent-foreground hover:cursor-pointer"
                             >
                                 Preview
                             </TabsTrigger>
                             <TabsTrigger
                                 value="code"
-                                className="flex-none relative h-9 rounded-none border-0 border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary dark:data-[state=active]:border-b-primary dark:data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none"
+                                className="flex-none relative h-8 rounded-none border-0 border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary dark:data-[state=active]:border-b-primary dark:data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=inactive]:hover:text-accent-foreground hover:cursor-pointer"
                             >
                                 Code
                             </TabsTrigger>
                         </TabsList>
+                        <div className="flex items-center justify-end gap-2">
+                            <Button
+                                onClick={() => setKey((prev) => prev + 1)}
+                                className="flex items-center rounded-lg px-3 py-1"
+                                variant="ghost"
+                                size="icon"
+                            >
+                                <RotateCcw aria-label="restart-btn" size={16} />
+                            </Button>
+                            <OpenInV0Button
+                                url={`${siteConfig.url}/r/${name}.json`}
+                            />
+                        </div>
                     </div>
                 )}
                 <TabsContent value="preview" className="relative rounded-md">
-                    <ComponentWrapper name={name}>
+                    <ComponentWrapper uniqueKey={key}>
                         <React.Suspense
                             fallback={
                                 <div className="flex items-center text-sm text-muted-foreground">
