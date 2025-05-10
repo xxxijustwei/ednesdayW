@@ -878,7 +878,10 @@ export const Index: Record<string, any> = {
         name: "pagination-demo",
         description: "A demo of the pagination component",
         type: "registry:component",
-        registryDependencies: ["https://ui.ednesdayw.com/r/pagination.json"],
+        registryDependencies: [
+            "https://ui.ednesdayw.com/r/pagination.json",
+            "https://ui.ednesdayw.com/r/use-device-detection.json",
+        ],
         files: [
             {
                 path: "src/registry/example/pagination/demo.tsx",

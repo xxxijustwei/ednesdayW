@@ -587,7 +587,8 @@
       "title": "Pagination Demo",
       "description": "A demo of the pagination component",
       "registryDependencies": [
-        "https://ui.ednesdayw.com/r/pagination.json"
+        "https://ui.ednesdayw.com/r/pagination.json",
+        "https://ui.ednesdayw.com/r/use-device-detection.json"
       ],
       "files": [
         {
