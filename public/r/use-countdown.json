@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-countdown",
+  "type": "registry:hook",
+  "title": "Use Countdown",
+  "description": "A hook for creating a countdown timer",
+  "files": [
+    {
+      "path": "src/registry/hooks/use-countdown.ts",
+      "content": "import { useCallback, useEffect, useState } from \"react\";\n\ninterface UseCountdownType {\n    initialSeconds: number;\n    autoStart?: boolean;\n    onComplete?: () => void;\n}\n\ntype CountdownState = \"idle\" | \"running\" | \"finished\";\n\nexport const useCountdown = ({\n    initialSeconds,\n    autoStart = false,\n    onComplete,\n}: UseCountdownType) => {\n    const [countdown, setCountdown] = useState(Math.max(initialSeconds, 0));\n    const [status, setStatus] = useState<CountdownState>(\n        autoStart ? \"running\" : \"idle\",\n    );\n\n    const start = useCallback(() => {\n        if (countdown <= 0) {\n            setCountdown(Math.max(initialSeconds, 0));\n        }\n\n        setStatus(\"running\");\n    }, [initialSeconds, countdown]);\n\n    const reset = useCallback(() => {\n        setCountdown(Math.max(initialSeconds, 0));\n        setStatus(\"idle\");\n    }, [initialSeconds]);\n\n    useEffect(() => {\n        if (status === \"idle\" || status === \"finished\") return;\n\n        const interval = setInterval(() => {\n            setCountdown((prev) => {\n                const next = prev - 1;\n                if (next <= 0) {\n                    clearInterval(interval);\n                    setStatus(\"finished\");\n                    onComplete?.();\n                    return 0;\n                }\n                return next;\n            });\n        }, 1000);\n\n        return () => clearInterval(interval);\n    }, [status, countdown, onComplete]);\n\n    return {\n        countdown,\n        status,\n        start,\n        reset,\n        setCountdown,\n    };\n};\n\nexport type UseCountdownReturn = ReturnType<typeof useCountdown>;\n",
+      "type": "registry:hook",
+      "target": "hooks/use-countdown.ts"
+    }
+  ]
+}

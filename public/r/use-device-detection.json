@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-device-detection",
+  "type": "registry:hook",
+  "title": "Use Device Detection",
+  "description": "A hook for detecting the device type",
+  "files": [
+    {
+      "path": "src/registry/hooks/use-device-detection.ts",
+      "content": "import { useEffect, useState } from \"react\";\n\ntype DeviceType = \"mobile\" | \"tablet\" | \"desktop\";\n\nconst mobileRegex = /iphone|ipad|ipod|android|blackberry|windows phone/gi;\nconst tabletRegex = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/gi;\n\nexport const useDeviceDetection = () => {\n    const [device, setDevice] = useState<DeviceType>(\"desktop\");\n\n    useEffect(() => {\n        const handleDeviceDetector = () => {\n            const userAgent = navigator.userAgent.toLocaleLowerCase();\n\n            if (mobileRegex.test(userAgent)) {\n                setDevice(\"mobile\");\n                return;\n            }\n\n            if (tabletRegex.test(userAgent)) {\n                setDevice(\"tablet\");\n                return;\n            }\n\n            setDevice(\"desktop\");\n        };\n\n        handleDeviceDetector();\n\n        window.addEventListener(\"resize\", handleDeviceDetector);\n\n        return () => {\n            window.removeEventListener(\"resize\", handleDeviceDetector);\n        };\n    }, []);\n\n    return device;\n};\n\nexport type UseDeviceDetectionReturn = ReturnType<typeof useDeviceDetection>;\n",
+      "type": "registry:hook",
+      "target": "hooks/use-device-detection.ts"
+    }
+  ]
+}
