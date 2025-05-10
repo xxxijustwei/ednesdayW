@@ -530,6 +530,22 @@
       ]
     },
     {
+      "name": "button-form-demo",
+      "type": "registry:component",
+      "title": "Button Form Demo",
+      "description": "A demo of the button form",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/button/form.tsx",
+          "type": "registry:component",
+          "target": "components/demo/button-form-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "use-disclosure-dialog-demo",
       "type": "registry:component",
       "title": "Use Disclosure Dialog Demo",

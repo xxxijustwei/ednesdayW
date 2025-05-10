@@ -800,6 +800,30 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "button-form-demo": {
+        name: "button-form-demo",
+        description: "A demo of the button form",
+        type: "registry:component",
+        registryDependencies: ["https://ui.ednesdayw.com/r/button.json"],
+        files: [
+            {
+                path: "src/registry/example/button/form.tsx",
+                type: "registry:component",
+                target: "components/demo/button-form-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/button/form.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     "use-disclosure-dialog-demo": {
         name: "use-disclosure-dialog-demo",
         description: "A demo of the use disclosure dialog",

@@ -58,4 +58,18 @@ export const buttonExamples: Registry["items"] = [
             },
         ],
     },
+    {
+        name: "button-form-demo",
+        type: "registry:component",
+        title: "Button Form Demo",
+        description: "A demo of the button form",
+        registryDependencies: [`${siteConfig.registryUrl}/button.json`],
+        files: [
+            {
+                path: "src/registry/example/button/form.tsx",
+                type: "registry:component",
+                target: "components/demo/button-form-demo.tsx",
+            },
+        ],
+    },
 ];
