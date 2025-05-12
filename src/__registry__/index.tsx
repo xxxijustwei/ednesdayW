@@ -652,6 +652,56 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "select-start-content-demo": {
+        name: "select-start-content-demo",
+        description: "A demo of the select start content",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/select/start-content.tsx",
+                type: "registry:component",
+                target: "components/select-start-content-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/select/start-content.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "select-clearable-demo": {
+        name: "select-clearable-demo",
+        description: "A demo of the select clearable",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/select/clearable.tsx",
+                type: "registry:component",
+                target: "components/select-clearable-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/example/select/clearable.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     "color-picker-demo": {
         name: "color-picker-demo",
         description: "A demo of the color picker",

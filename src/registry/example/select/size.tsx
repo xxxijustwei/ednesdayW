@@ -12,7 +12,7 @@ export const SelectSizeExample = () => {
     const size = ["sm", "md", "lg"] as const;
 
     return (
-        <div className="flex flex-col gap-4 w-full max-w-sm">
+        <div className="flex flex-col gap-4 w-full max-w-72">
             {size.map((size) => (
                 <Select key={size}>
                     <SelectTrigger size={size}>

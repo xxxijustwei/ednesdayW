@@ -434,6 +434,38 @@
       ]
     },
     {
+      "name": "select-start-content-demo",
+      "type": "registry:component",
+      "title": "Select Start Content Demo",
+      "description": "A demo of the select start content",
+      "dependencies": [
+        "https://ui.ednesdayw.com/r/select.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/select/start-content.tsx",
+          "type": "registry:component",
+          "target": "components/select-start-content-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-clearable-demo",
+      "type": "registry:component",
+      "title": "Select Clearable Demo",
+      "description": "A demo of the select clearable",
+      "dependencies": [
+        "https://ui.ednesdayw.com/r/select.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/select/clearable.tsx",
+          "type": "registry:component",
+          "target": "components/select-clearable-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "color-picker-demo",
       "type": "registry:component",
       "title": "Color Picker Demo",

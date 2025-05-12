@@ -6,16 +6,16 @@ import {
     SelectValue,
 } from "@/registry/ui/select";
 
-export const inputVariants = [
-    "default",
-    "faded",
-    "bordered",
-    "underline",
-] as const;
-
 export const SelectDisabledExample = () => {
+    const inputVariants = [
+        "default",
+        "faded",
+        "bordered",
+        "underline",
+    ] as const;
+
     return (
-        <div className="flex flex-col gap-4 w-full max-w-sm">
+        <div className="flex flex-col gap-4 w-full max-w-72">
             {inputVariants.map((variant) => (
                 <Select key={variant}>
                     <SelectTrigger disabled variant={variant}>

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-clearable-demo",
+  "type": "registry:component",
+  "title": "Select Clearable Demo",
+  "description": "A demo of the select clearable",
+  "dependencies": [
+    "https://ui.ednesdayw.com/r/select.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/select/clearable.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport {\n    Select,\n    SelectContent,\n    SelectIcon,\n    SelectItem,\n    SelectTrigger,\n    SelectValue,\n} from \"@/components/ui/select\";\nimport { XIcon } from \"lucide-react\";\nimport { useState } from \"react\";\n\nexport const SelectVariantExample = () => {\n    const variants = [\"default\", \"faded\", \"bordered\", \"underline\"] as const;\n    const [country, setCountry] = useState<string>();\n\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-72\">\n            {variants.map((variant) => (\n                <Select key={variant} value={country} onValueChange={setCountry}>\n                    <SelectTrigger size=\"md\" variant={variant}>\n                        <div className=\"w-full flex items-center justify-between gap-1 overflow-hidden\">\n                            <SelectValue placeholder=\"Select a country\" />\n                            {country && (\n                                <SelectIcon \n                                    asChild\n                                    onPointerDown={(e) => e.stopPropagation()}\n                                >\n                                    <Button\n                                        variant=\"ghost\"\n                                        size=\"icon\"\n                                        asChild\n                                        className=\"rounded-full size-4 text-white hover:text-white bg-accent-foreground hover:bg-foreground\"\n                                        onClick={() => setCountry(undefined)}\n                                    >\n                                        <div>\n                                            <XIcon className=\"shrink-0 scale-75\" />\n                                        </div>\n                                    </Button>\n                                </SelectIcon>\n                            )}\n                        </div>\n                    </SelectTrigger>\n                    <SelectContent>\n                        {countries.map(({ key, label }) => (\n                            <SelectItem key={key} value={key}>\n                                {label}\n                            </SelectItem>\n                        ))}\n                    </SelectContent>\n                </Select>\n            ))}\n        </div>\n    );\n};\n\nconst countries = [\n    { key: \"cn\", label: \"China\" },\n    { key: \"jp\", label: \"Japan\" },\n    { key: \"kr\", label: \"Korea\" },\n    { key: \"ru\", label: \"Russia\" },\n    { key: \"in\", label: \"India\" },\n    { key: \"br\", label: \"Brazil\" },\n    { key: \"de\", label: \"Germany\" },\n    { key: \"fr\", label: \"France\" },\n    { key: \"it\", label: \"Italy\" },\n    { key: \"es\", label: \"Spain\" },\n    { key: \"us\", label: \"United States\" },\n    { key: \"ca\", label: \"Canada\" },\n    { key: \"mx\", label: \"Mexico\" },\n    { key: \"gb\", label: \"United Kingdom\" },\n    { key: \"au\", label: \"Australia\" },\n    { key: \"nz\", label: \"New Zealand\" },\n];\n",
+      "type": "registry:component",
+      "target": "components/select-clearable-demo.tsx"
+    }
+  ]
+}

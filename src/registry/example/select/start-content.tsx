@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Select,
     SelectContent,
@@ -5,8 +7,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/registry/ui/select";
+import { EarthIcon } from "lucide-react";
 
-export const SelectInvalidExample = () => {
+export const SelectStartContentExample = () => {
     const inputVariants = [
         "default",
         "faded",
@@ -18,8 +21,11 @@ export const SelectInvalidExample = () => {
         <div className="flex flex-col gap-4 w-full max-w-72">
             {inputVariants.map((variant) => (
                 <Select key={variant}>
-                    <SelectTrigger aria-invalid variant={variant}>
-                        <SelectValue placeholder="Select a country" />
+                    <SelectTrigger variant={variant} size="lg">
+                        <div className="flex items-center gap-2 overflow-hidden">
+                            <EarthIcon className="shrink-0 size-5" />
+                            <SelectValue placeholder="Select a country" />
+                        </div>
                     </SelectTrigger>
                     <SelectContent>
                         {countries.map(({ key, label }) => (

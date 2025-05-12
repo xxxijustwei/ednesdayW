@@ -12,7 +12,7 @@ export const SelectVariantExample = () => {
     const variants = ["default", "faded", "bordered", "underline"] as const;
 
     return (
-        <div className="flex flex-col gap-4 w-full max-w-sm">
+        <div className="flex flex-col gap-4 w-full max-w-72">
             {variants.map((variant) => (
                 <Select key={variant}>
                     <SelectTrigger size="md" variant={variant}>
