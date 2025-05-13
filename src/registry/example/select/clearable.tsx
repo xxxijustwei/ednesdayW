@@ -37,7 +37,7 @@ export const SelectVariantExample = () => {
                                         size="icon"
                                         asChild
                                         className="rounded-full size-4 text-white hover:text-white bg-accent-foreground hover:bg-foreground"
-                                        onClick={() => setCountry(undefined)}
+                                        onClick={() => setCountry("")}
                                     >
                                         <div>
                                             <XIcon className="shrink-0 scale-75" />
