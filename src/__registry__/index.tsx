@@ -1003,6 +1003,162 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "autocomplete-size-demo": {
+        name: "autocomplete-size-demo",
+        description: "A demo of the autocomplete size",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/autocomplete/size.tsx",
+                type: "registry:component",
+                target: "components/autocomplete-size-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/autocomplete/size.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "autocomplete-variant-demo": {
+        name: "autocomplete-variant-demo",
+        description: "A demo of the autocomplete variant",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/autocomplete/variant.tsx",
+                type: "registry:component",
+                target: "components/autocomplete-variant-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/autocomplete/variant.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "autocomplete-disabled-demo": {
+        name: "autocomplete-disabled-demo",
+        description: "A demo of the autocomplete disabled",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/autocomplete/disabled.tsx",
+                type: "registry:component",
+                target: "components/autocomplete-disabled-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/autocomplete/disabled.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "autocomplete-disabled-item-demo": {
+        name: "autocomplete-disabled-item-demo",
+        description: "A demo of the autocomplete disabled item",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/autocomplete/disabled-item.tsx",
+                type: "registry:component",
+                target: "components/autocomplete-disabled-item-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/autocomplete/disabled-item.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "autocomplete-invalid-demo": {
+        name: "autocomplete-invalid-demo",
+        description: "A demo of the autocomplete invalid",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/autocomplete/invalid.tsx",
+                type: "registry:component",
+                target: "components/autocomplete-invalid-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/autocomplete/invalid.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "autocomplete-start-content-demo": {
+        name: "autocomplete-start-content-demo",
+        description: "A demo of the autocomplete start content",
+        type: "registry:component",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "src/registry/example/autocomplete/start-content.tsx",
+                type: "registry:component",
+                target: "components/autocomplete-start-content-demo.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import(
+                "@/registry/example/autocomplete/start-content.tsx"
+            );
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     utils: {
         name: "utils",
         description: "",
