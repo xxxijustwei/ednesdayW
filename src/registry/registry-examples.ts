@@ -1,4 +1,5 @@
 import type { Registry } from "shadcn/registry";
+import { autocompleteExamples } from "./example/autocomplete/_registry";
 import { buttonExamples } from "./example/button/_registry";
 import { colorInputExamples } from "./example/color-input/_registry";
 import { colorPickerExamples } from "./example/color-picker/_registry";
@@ -23,4 +24,5 @@ export const examples: Registry["items"] = [
     ...paginationExamples,
     ...useCountdownExamples,
     ...useDeviceDetectionExamples,
+    ...autocompleteExamples,
 ];

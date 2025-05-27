@@ -15,7 +15,7 @@ import {
     type UseComboboxReturnValue,
     useCombobox,
 } from "downshift";
-import { CheckIcon, ChevronDownIcon, CircleIcon } from "lucide-react";
+import { CheckIcon, ChevronDownIcon } from "lucide-react";
 import {
     Children,
     type ComponentPropsWithoutRef,
@@ -213,7 +213,7 @@ const Autocomplete = ({
 
 type AutocompleteInputProps = Omit<
     InputProps,
-    keyof UseComboboxGetInputPropsReturnValue
+    keyof UseComboboxGetInputPropsReturnValue | "endContent"
 >;
 
 const AutocompleteInput = (props: AutocompleteInputProps) => {
@@ -279,7 +279,9 @@ const AutocompleteItem = ({
                     <CheckIcon className="size-4" />
                 </span>
             )}
-            <span className="text-sm text-foreground">{label}</span>
+            {children || (
+                <span className="text-sm text-foreground">{label}</span>
+            )}
         </li>
     );
 };
