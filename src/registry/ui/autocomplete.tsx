@@ -53,7 +53,7 @@ type AutocompleteContextValue = Partial<
         filteredItems: AutocompleteItemType[];
         items: AutocompleteItemType[];
         onItemsChange: (items: AutocompleteItemType[]) => void;
-        onValueChange: (value: string | null) => void;
+        onChange: (value: string) => void;
         openedOnce: boolean;
     }
 >;
@@ -65,8 +65,8 @@ const AutocompleteContext = createContext<AutocompleteContextValue>(
 const useAutocompleteContext = () => useContext(AutocompleteContext);
 
 type AutocompleteProps = PropsWithChildren<{
-    value?: string | null;
-    onValueChange?: (value: string | null) => void;
+    value?: string;
+    onChange?: (value: string) => void;
     filterItems?: (
         search: string,
         items: AutocompleteItemType[],
@@ -85,7 +85,7 @@ const defaultFilter = (inputValue: string, items: AutocompleteItemType[]) => {
 
 const Autocomplete = ({
     value,
-    onValueChange,
+    onChange,
     filterItems = defaultFilter,
     children,
 }: AutocompleteProps) => {
@@ -172,8 +172,9 @@ const Autocomplete = ({
             typeof value !== "undefined"
                 ? items.find((item) => item.value === value) || null
                 : undefined,
-        onSelectedItemChange: ({ selectedItem }) =>
-            onValueChange?.(selectedItem?.value || null),
+        onSelectedItemChange: ({ selectedItem }) => {
+            onChange?.(selectedItem?.value || "");
+        },
 
         stateReducer,
     });
@@ -199,7 +200,7 @@ const Autocomplete = ({
                 isOpen,
                 items,
                 onItemsChange: setItems,
-                onValueChange,
+                onChange,
                 openedOnce,
                 selectedItem,
                 selectItem,
