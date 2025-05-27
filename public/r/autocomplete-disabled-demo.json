@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "autocomplete-disabled-demo",
+  "type": "registry:component",
+  "title": "Autocomplete Disabled Demo",
+  "description": "A demo of the autocomplete disabled",
+  "dependencies": [
+    "https://ui.ednesdayw.com/r/autocomplete.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/autocomplete/disabled.tsx",
+      "content": "import {\n    Autocomplete,\n    AutocompleteContent,\n    AutocompleteEmpty,\n    AutocompleteInput,\n    AutocompleteItem,\n} from \"@/components/ui/autocomplete\";\n\nexport const AutocompleteDisabledExample = () => {\n    const inputVariants = [\n        \"default\",\n        \"faded\",\n        \"bordered\",\n        \"underline\",\n    ] as const;\n\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-72\">\n            {inputVariants.map((variant) => (\n                <Autocomplete key={variant}>\n                    <AutocompleteInput\n                        placeholder=\"Select a country\"\n                        variant={variant}\n                        disabled\n                    />\n                    <AutocompleteContent>\n                        {countries.map(({ key, flag, label }) => (\n                            <AutocompleteItem\n                                key={key}\n                                value={key}\n                                label={label}\n                            >\n                                <span className=\"text-base text-foreground\">\n                                    {`${flag} ${label}`}\n                                </span>\n                            </AutocompleteItem>\n                        ))}\n                        <AutocompleteEmpty>No results.</AutocompleteEmpty>\n                    </AutocompleteContent>\n                </Autocomplete>\n            ))}\n        </div>\n    );\n};\n\nconst countries = [\n    { key: \"cn\", flag: \"🇨🇳\", label: \"China\" },\n    { key: \"jp\", flag: \"🇯🇵\", label: \"Japan\" },\n    { key: \"kr\", flag: \"🇰🇷\", label: \"Korea\" },\n    { key: \"ru\", flag: \"🇷🇺\", label: \"Russia\" },\n    { key: \"in\", flag: \"🇮🇳\", label: \"India\" },\n    { key: \"br\", flag: \"🇧🇷\", label: \"Brazil\" },\n    { key: \"de\", flag: \"🇩🇪\", label: \"Germany\" },\n    { key: \"fr\", flag: \"🇫🇷\", label: \"France\" },\n    { key: \"it\", flag: \"🇮🇹\", label: \"Italy\" },\n    { key: \"es\", flag: \"🇪🇸\", label: \"Spain\" },\n    { key: \"us\", flag: \"🇺🇸\", label: \"United States\" },\n    { key: \"ca\", flag: \"🇨🇦\", label: \"Canada\" },\n    { key: \"mx\", flag: \"🇲🇽\", label: \"Mexico\" },\n    { key: \"gb\", flag: \"🇬🇧\", label: \"United Kingdom\" },\n    { key: \"au\", flag: \"🇦🇺\", label: \"Australia\" },\n    { key: \"nz\", flag: \"🇳🇿\", label: \"New Zealand\" },\n];\n",
+      "type": "registry:component",
+      "target": "components/autocomplete-disabled-demo.tsx"
+    }
+  ]
+}
