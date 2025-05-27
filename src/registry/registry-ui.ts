@@ -111,4 +111,22 @@ export const ui: Registry["items"] = [
             },
         ],
     },
+    {
+        name: "autocomplete",
+        type: "registry:ui",
+        title: "Autocomplete",
+        description: "A autocomplete component",
+        dependencies: ["downshift"],
+        registryDependencies: [
+            "popover",
+            `${siteConfig.registryUrl}/input.json`,
+        ],
+        files: [
+            {
+                path: "src/registry/ui/autocomplete.tsx",
+                type: "registry:ui",
+                target: "components/wed/autocomplete.tsx",
+            },
+        ],
+    },
 ];
