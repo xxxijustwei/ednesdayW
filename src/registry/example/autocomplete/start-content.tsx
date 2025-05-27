@@ -18,7 +18,7 @@ export const AutocompleteStartContentExample = () => {
                     variant="bordered"
                     startContent={
                         country && (
-                            <span className="text-base text-foreground">
+                            <span>
                                 {
                                     countries.find(({ key }) => key === country)
                                         ?.flag

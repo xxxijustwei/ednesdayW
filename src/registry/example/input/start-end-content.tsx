@@ -6,7 +6,7 @@ export const InputStartEndContentExample = () => {
     const endContent = <CheckCheck size={20} />;
 
     return (
-        <div className="flex flex-col gap-4 w-full max-w-sm">
+        <div className="flex flex-col gap-4 w-full max-w-72">
             <Input
                 variant="bordered"
                 placeholder="Please enter"

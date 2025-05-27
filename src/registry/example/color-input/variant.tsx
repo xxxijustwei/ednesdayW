@@ -12,7 +12,7 @@ export const ColorInputVariantExample = () => {
     const [hex, setHex] = useState("#4ec4b8");
     const [hexAlpha, setHexAlpha] = useState("#4ec4b880");
     return (
-        <div className="flex flex-col gap-4 w-full max-w-sm">
+        <div className="flex flex-col gap-4 w-full max-w-72">
             {inputVariants.map((variant, idx) => (
                 <ColorInput
                     key={variant}
