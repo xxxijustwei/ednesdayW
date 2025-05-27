@@ -8,53 +8,46 @@ import {
     SelectValue,
 } from "@/registry/ui/select";
 import { EarthIcon } from "lucide-react";
+import { useState } from "react";
 
 export const SelectStartContentExample = () => {
-    const inputVariants = [
-        "default",
-        "faded",
-        "bordered",
-        "underline",
-    ] as const;
-
+    const [country, setCountry] = useState("");
     return (
         <div className="flex flex-col gap-4 w-full max-w-72">
-            {inputVariants.map((variant) => (
-                <Select key={variant}>
-                    <SelectTrigger variant={variant} size="lg">
-                        <div className="flex items-center gap-2 overflow-hidden">
-                            <EarthIcon className="shrink-0 size-5" />
-                            <SelectValue placeholder="Select a country" />
-                        </div>
-                    </SelectTrigger>
-                    <SelectContent>
-                        {countries.map(({ key, label }) => (
-                            <SelectItem key={key} value={key}>
-                                {label}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
-            ))}
+            <Select value={country} onValueChange={setCountry}>
+                <SelectTrigger variant="bordered" size="lg">
+                    <div className="flex items-center gap-2 overflow-hidden">
+                        {!country && <EarthIcon className="shrink-0 size-5" />}
+                        <SelectValue placeholder="Select a country" />
+                    </div>
+                </SelectTrigger>
+                <SelectContent>
+                    {countries.map(({ key, flag, label }) => (
+                        <SelectItem key={key} value={key}>
+                            {`${flag} ${label}`}
+                        </SelectItem>
+                    ))}
+                </SelectContent>
+            </Select>
         </div>
     );
 };
 
 const countries = [
-    { key: "cn", label: "China" },
-    { key: "jp", label: "Japan" },
-    { key: "kr", label: "Korea" },
-    { key: "ru", label: "Russia" },
-    { key: "in", label: "India" },
-    { key: "br", label: "Brazil" },
-    { key: "de", label: "Germany" },
-    { key: "fr", label: "France" },
-    { key: "it", label: "Italy" },
-    { key: "es", label: "Spain" },
-    { key: "us", label: "United States" },
-    { key: "ca", label: "Canada" },
-    { key: "mx", label: "Mexico" },
-    { key: "gb", label: "United Kingdom" },
-    { key: "au", label: "Australia" },
-    { key: "nz", label: "New Zealand" },
+    { key: "cn", flag: "🇨🇳", label: "China" },
+    { key: "jp", flag: "🇯🇵", label: "Japan" },
+    { key: "kr", flag: "🇰🇷", label: "Korea" },
+    { key: "ru", flag: "🇷🇺", label: "Russia" },
+    { key: "in", flag: "🇮🇳", label: "India" },
+    { key: "br", flag: "🇧🇷", label: "Brazil" },
+    { key: "de", flag: "🇩🇪", label: "Germany" },
+    { key: "fr", flag: "🇫🇷", label: "France" },
+    { key: "it", flag: "🇮🇹", label: "Italy" },
+    { key: "es", flag: "🇪🇸", label: "Spain" },
+    { key: "us", flag: "🇺🇸", label: "United States" },
+    { key: "ca", flag: "🇨🇦", label: "Canada" },
+    { key: "mx", flag: "🇲🇽", label: "Mexico" },
+    { key: "gb", flag: "🇬🇧", label: "United Kingdom" },
+    { key: "au", flag: "🇦🇺", label: "Australia" },
+    { key: "nz", flag: "🇳🇿", label: "New Zealand" },
 ];
