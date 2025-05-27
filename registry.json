@@ -760,6 +760,22 @@
       ]
     },
     {
+      "name": "autocomplete-form-demo",
+      "type": "registry:component",
+      "title": "Autocomplete Form Demo",
+      "description": "A demo of the autocomplete form",
+      "dependencies": [
+        "https://ui.ednesdayw.com/r/autocomplete.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/autocomplete/form.tsx",
+          "type": "registry:component",
+          "target": "components/autocomplete-form-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "dependencies": [
