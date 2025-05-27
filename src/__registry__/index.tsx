@@ -186,6 +186,33 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    autocomplete: {
+        name: "autocomplete",
+        description: "A autocomplete component",
+        type: "registry:ui",
+        registryDependencies: [
+            "popover",
+            "https://ui.ednesdayw.com/r/input.json",
+        ],
+        files: [
+            {
+                path: "src/registry/ui/autocomplete.tsx",
+                type: "registry:ui",
+                target: "components/wed/autocomplete.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("@/registry/ui/autocomplete.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" ||
+                        typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
     "use-disclosure": {
         name: "use-disclosure",
         description: "A hook for managing disclosure state",

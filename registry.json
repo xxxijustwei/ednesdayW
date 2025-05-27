@@ -139,6 +139,26 @@
       ]
     },
     {
+      "name": "autocomplete",
+      "type": "registry:ui",
+      "title": "Autocomplete",
+      "description": "A autocomplete component",
+      "dependencies": [
+        "downshift"
+      ],
+      "registryDependencies": [
+        "popover",
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/autocomplete.tsx",
+          "type": "registry:ui",
+          "target": "components/wed/autocomplete.tsx"
+        }
+      ]
+    },
+    {
       "name": "use-disclosure",
       "type": "registry:hook",
       "title": "Use Disclosure",
