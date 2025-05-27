@@ -8,11 +8,11 @@ import {
 import { useState } from "react";
 
 export const AutocompleteStartContentExample = () => {
-    const [country, setCountry] = useState<string | null>(null);
+    const [country, setCountry] = useState<string>("");
 
     return (
         <div className="flex flex-col gap-4 w-full max-w-72">
-            <Autocomplete value={country} onValueChange={setCountry}>
+            <Autocomplete value={country} onChange={setCountry}>
                 <AutocompleteInput
                     placeholder="Select a country"
                     variant="bordered"
