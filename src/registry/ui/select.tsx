@@ -61,7 +61,7 @@ const selectTriggerVariants = cva(
         compoundVariants: [
             {
                 variant: "underline",
-                className: "px-0.5",
+                className: "px-2",
             },
         ],
         defaultVariants: {
