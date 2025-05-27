@@ -21,6 +21,11 @@ export const docsConfig: DocsConfig = {
             title: "Components",
             items: [
                 {
+                    title: "Autocomplete",
+                    href: "/docs/components/autocomplete",
+                    items: [],
+                },
+                {
                     title: "Input",
                     href: "/docs/components/input",
                     items: [],
