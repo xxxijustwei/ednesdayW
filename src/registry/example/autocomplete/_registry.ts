@@ -86,4 +86,18 @@ export const autocompleteExamples: Registry["items"] = [
             },
         ],
     },
+    {
+        name: "autocomplete-form-demo",
+        type: "registry:component",
+        title: "Autocomplete Form Demo",
+        description: "A demo of the autocomplete form",
+        dependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
+        files: [
+            {
+                path: "src/registry/example/autocomplete/form.tsx",
+                type: "registry:component",
+                target: "components/autocomplete-form-demo.tsx",
+            },
+        ],
+    },
 ];
