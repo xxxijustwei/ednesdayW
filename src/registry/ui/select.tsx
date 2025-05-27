@@ -55,7 +55,7 @@ const selectTriggerVariants = cva(
             size: {
                 sm: "h-10 px-3 py-1.5 text-sm data-[placeholder]:text-sm",
                 md: "h-12 px-3 py-2 text-base data-[placeholder]:text-base",
-                lg: "h-14 px-3 py-2.5 text-lg data-[placeholder]:text-lg",
+                lg: "h-13 px-3 py-2.5 text-lg data-[placeholder]:text-lg",
             },
         },
         compoundVariants: [
