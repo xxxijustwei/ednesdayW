@@ -8,7 +8,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
-import { cookies } from "next/headers";
 import { LayoutClient } from "./client";
 
 export const metadata: Metadata = {
@@ -72,6 +71,12 @@ export const viewport: Viewport = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <html lang="en" suppressHydrationWarning>
+            <head>
+                <meta
+                    name="google-adsense-account"
+                    content="ca-pub-8346899919126115"
+                />
+            </head>
             <body
                 className={cn(
                     "min-h-svh overflow-x-hidden bg-background font-sans antialiased",
