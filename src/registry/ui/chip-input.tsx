@@ -39,7 +39,7 @@ const useChipInputContext = () => {
     return context;
 };
 
-interface ChipInputWrapperProps extends React.ComponentProps<"div"> {
+interface ChipInputProps extends React.ComponentProps<"div"> {
     values: string[];
     onValuesChange: (values: string[]) => void;
     size: ChipInputContextType["size"];
@@ -49,7 +49,7 @@ interface ChipInputWrapperProps extends React.ComponentProps<"div"> {
     ref?: React.RefObject<HTMLInputElement>;
 }
 
-const ChipInputWrapper = ({
+const ChipInput = ({
     className,
     values,
     onValuesChange,
@@ -60,7 +60,7 @@ const ChipInputWrapper = ({
     ref,
     children,
     ...props
-}: ChipInputWrapperProps) => {
+}: ChipInputProps) => {
     const handleValuesChange = useCallbackRef(onValuesChange);
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -115,7 +115,7 @@ const ChipInputWrapper = ({
     );
 };
 
-ChipInputWrapper.displayName = "ChipInputWrapper";
+ChipInput.displayName = "ChipInput";
 
 const containerVariants = cva(
     cn(
@@ -194,6 +194,16 @@ const ChipInputContainer = ({
 
 ChipInputContainer.displayName = "ChipInputContainer";
 
+const badgeVariants = cva(cn("max-w-full"), {
+    variants: {
+        size: {
+            sm: "h-",
+            md: "text-base",
+            lg: "text-lg",
+        },
+    },
+});
+
 interface ChipInputBadgeProps extends React.ComponentProps<typeof Badge> {
     value: string;
 }
@@ -207,7 +217,11 @@ const ChipInputBadge = ({
     const { onDeleteChip } = useChipInputContext();
 
     return (
-        <Badge {...props} className={cn("max-w-full", className)}>
+        <Badge
+            {...props}
+            className={cn("max-w-full", className)}
+            onClick={(e) => e.stopPropagation()}
+        >
             {children}
             <Button
                 variant="ghost"
@@ -299,7 +313,7 @@ const ChipInputBox = ({
 ChipInputBox.displayName = "ChipInputBox";
 
 export {
-    ChipInputWrapper,
+    ChipInput,
     ChipInputContainer,
     ChipInputBadge,
     ChipInputBox,
