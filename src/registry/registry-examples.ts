@@ -13,16 +13,16 @@ import { useDisclosureExamples } from "./example/use-disclosure/_registry";
 import { useRippleExamples } from "./example/use-ripple/_registry";
 
 export const examples: Registry["items"] = [
-    ...inputExamples,
-    ...phoneInputExamples,
-    ...selectExamples,
-    ...colorPickerExamples,
-    ...colorInputExamples,
-    ...buttonExamples,
-    ...useDisclosureExamples,
-    ...useRippleExamples,
-    ...paginationExamples,
-    ...useCountdownExamples,
-    ...useDeviceDetectionExamples,
-    ...autocompleteExamples,
+  ...inputExamples,
+  ...phoneInputExamples,
+  ...selectExamples,
+  ...colorPickerExamples,
+  ...colorInputExamples,
+  ...buttonExamples,
+  ...useDisclosureExamples,
+  ...useRippleExamples,
+  ...paginationExamples,
+  ...useCountdownExamples,
+  ...useDeviceDetectionExamples,
+  ...autocompleteExamples,
 ];
