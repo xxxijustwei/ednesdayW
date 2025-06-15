@@ -46,6 +46,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Tag Input",
+          href: "/docs/components/tag-input",
+          items: [],
+        },
+        {
           title: "Color Picker",
           href: "/docs/components/color-picker",
           items: [],
