@@ -222,9 +222,22 @@ interface TagInputBadgeProps extends React.ComponentProps<typeof Badge> {
   value: string;
 }
 
+const badgeVariants = cva("max-w-full", {
+  variants: {
+    size: {
+      sm: "text-sm h-6",
+      md: "text-base h-7",
+      lg: "text-lg h-7",
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
+});
+
 const TagInputBadge = React.memo(
   ({ children, value, className, ...props }: TagInputBadgeProps) => {
-    const { onDeleteChip } = useTagInputContext();
+    const { size, onDeleteChip } = useTagInputContext();
 
     const handleDelete = useCallback(() => {
       onDeleteChip(value);
@@ -233,7 +246,7 @@ const TagInputBadge = React.memo(
     return (
       <Badge
         {...props}
-        className={cn("max-w-full", className)}
+        className={cn(badgeVariants({ size }), className)}
         onClick={stopPropagation}
       >
         {children}
@@ -304,7 +317,7 @@ const TagInputBox = ({ className, onKeyDown, ...props }: TagInputBoxProps) => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const shouldAddChip =
-      (confirmKey === "space" && e.key === " ") ||
+      (confirmKey === "space" && e.key === " " && !e.nativeEvent.isComposing) ||
       (confirmKey === "enter" &&
         e.key === "Enter" &&
         !e.nativeEvent.isComposing) ||
