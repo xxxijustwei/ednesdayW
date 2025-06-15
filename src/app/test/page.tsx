@@ -1,11 +1,11 @@
 "use client";
 
 import {
-  ChipInput,
-  ChipInputBadge,
-  ChipInputBox,
-  ChipInputContainer,
-} from "@/registry/ui/chip-input";
+  TagInput,
+  TagInputBadge,
+  TagInputBox,
+  TagInputContainer,
+} from "@/registry/ui/tag-input";
 import { useState } from "react";
 
 const Page = () => {
@@ -13,16 +13,23 @@ const Page = () => {
   return (
     <div className="w-full h-dvh flex items-center justify-center">
       <div className="w-full max-w-72">
-        <ChipInput values={values} onValuesChange={setValues} size="sm">
-          <ChipInputContainer>
-            <ChipInputBox placeholder="Add a tag" />
+        <TagInput
+          values={values}
+          onValuesChange={setValues}
+          size="lg"
+          confirmKey="enter"
+        >
+          <TagInputContainer>
+            <TagInputBox placeholder="Add a tag" />
+          </TagInputContainer>
+          <div className="flex flex-wrap gap-1.5">
             {values.map((value) => (
-              <ChipInputBadge key={value} value={value}>
+              <TagInputBadge key={value} value={value}>
                 <span className="truncate">{value}</span>
-              </ChipInputBadge>
+              </TagInputBadge>
             ))}
-          </ChipInputContainer>
-        </ChipInput>
+          </div>
+        </TagInput>
       </div>
     </div>
   );
