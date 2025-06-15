@@ -126,4 +126,19 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "tag-input",
+    type: "registry:ui",
+    title: "Tag Input",
+    description: "A tag input component",
+    dependencies: ["@radix-ui/react-use-callback-ref"],
+    registryDependencies: ["badge", `${siteConfig.registryUrl}/button.json`],
+    files: [
+      {
+        path: "src/registry/ui/tag-input.tsx",
+        type: "registry:ui",
+        target: "components/wed/tag-input.tsx",
+      },
+    ],
+  },
 ];

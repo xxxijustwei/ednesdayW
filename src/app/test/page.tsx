@@ -18,6 +18,7 @@ const Page = () => {
           onValuesChange={setValues}
           size="lg"
           confirmKey="enter"
+          disabled
         >
           <TagInputContainer>
             <TagInputBox placeholder="Add a tag" />

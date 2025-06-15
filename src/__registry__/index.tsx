@@ -202,6 +202,29 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "tag-input": {
+    name: "tag-input",
+    description: "A tag input component",
+    type: "registry:ui",
+    registryDependencies: ["badge", "https://ui.ednesdayw.com/r/button.json"],
+    files: [
+      {
+        path: "src/registry/ui/tag-input.tsx",
+        type: "registry:ui",
+        target: "components/wed/tag-input.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/ui/tag-input.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   "use-disclosure": {
     name: "use-disclosure",
     description: "A hook for managing disclosure state",
