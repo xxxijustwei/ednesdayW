@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "src/registry/example/use-countdown/demo.tsx",
-      "content": "\"use client\";\n\nimport { useCountdown } from \"@/hooks/use-countdown\";\nimport { Button } from \"@/components/ui/button\";\n\nexport const UseCountdownDemo = () => {\n    const { countdown, status, start } = useCountdown({\n        initialSeconds: 10,\n    });\n\n    return (\n        <div className=\"w-full max-w-48 flex flex-col items-center justify-center\">\n            <Button\n                variant=\"outline\"\n                className=\"w-full max-w-24\"\n                disabled={status === \"running\"}\n                onClick={() => {\n                    if (status === \"running\") return;\n                    start();\n                }}\n            >\n                {`Send ${status === \"running\" ? `(${countdown}s)` : \"\"}`}\n            </Button>\n        </div>\n    );\n};\n",
+      "content": "\"use client\";\n\nimport { useCountdown } from \"@/hooks/use-countdown\";\nimport { Button } from \"@/components/ui/button\";\n\nexport const UseCountdownDemo = () => {\n  const { countdown, status, start } = useCountdown({\n    initialSeconds: 10,\n  });\n\n  return (\n    <div className=\"w-full max-w-48 flex flex-col items-center justify-center\">\n      <Button\n        variant=\"outline\"\n        className=\"w-full max-w-24\"\n        disabled={status === \"running\"}\n        onClick={() => {\n          if (status === \"running\") return;\n          start();\n        }}\n      >\n        {`Send ${status === \"running\" ? `(${countdown}s)` : \"\"}`}\n      </Button>\n    </div>\n  );\n};\n",
       "type": "registry:component",
       "target": "components/demo/use-countdown-demo.tsx"
     }

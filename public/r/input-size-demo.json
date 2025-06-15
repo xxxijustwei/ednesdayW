@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/registry/example/input/size.tsx",
-      "content": "import { Input } from \"@/components/ui/input\";\n\nexport const inputSizes = [\"sm\", \"md\", \"lg\"] as const;\n\nexport const InputSizeExample = () => {\n    return (\n        <div className=\"flex flex-col gap-4 w-full max-w-72\">\n            {inputSizes.map((size) => (\n                <Input key={size} size={size} placeholder={size} />\n            ))}\n        </div>\n    );\n};\n",
+      "content": "import { Input } from \"@/components/ui/input\";\n\nexport const inputSizes = [\"sm\", \"md\", \"lg\"] as const;\n\nexport const InputSizeExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      {inputSizes.map((size) => (\n        <Input key={size} size={size} placeholder={size} />\n      ))}\n    </div>\n  );\n};\n",
       "type": "registry:component",
       "target": "components/demo/input-size-demo.tsx"
     }

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/registry/example/use-device-detection/demo.tsx",
-      "content": "import { useDeviceDetection } from \"@/hooks/use-device-detection\";\n\nexport const UseDeviceDetectionDemo = () => {\n    const device = useDeviceDetection();\n\n    return (\n        <div className=\"w-full max-w-48 flex flex-col items-center justify-center\">\n            <p>Current Device: {device}</p>\n        </div>\n    );\n};\n",
+      "content": "import { useDeviceDetection } from \"@/hooks/use-device-detection\";\n\nexport const UseDeviceDetectionDemo = () => {\n  const device = useDeviceDetection();\n\n  return (\n    <div className=\"w-full max-w-48 flex flex-col items-center justify-center\">\n      <p>Current Device: {device}</p>\n    </div>\n  );\n};\n",
       "type": "registry:component",
       "target": "components/demo/use-device-detection-demo.tsx"
     }

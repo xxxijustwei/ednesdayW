@@ -10,15 +10,11 @@
         "class-variance-authority",
         "lucide-react"
       ],
-      "registryDependencies": [
-        "utils"
-      ],
+      "registryDependencies": ["utils"],
       "files": [],
       "tailwind": {
         "config": {
-          "plugins": [
-            "require(\"tailwindcss-animate\")"
-          ]
+          "plugins": ["require(\"tailwindcss-animate\")"]
         }
       },
       "cssVars": {}
@@ -72,9 +68,7 @@
       "type": "registry:ui",
       "title": "Color Picker",
       "description": "A color picker component",
-      "dependencies": [
-        "react-colorful"
-      ],
+      "dependencies": ["react-colorful"],
       "registryDependencies": [
         "popover",
         "button",
@@ -111,12 +105,8 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "A button component",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/use-ripple.json"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/use-ripple.json"],
       "files": [
         {
           "path": "src/registry/ui/button.tsx",
@@ -143,9 +133,7 @@
       "type": "registry:ui",
       "title": "Autocomplete",
       "description": "A autocomplete component",
-      "dependencies": [
-        "downshift"
-      ],
+      "dependencies": ["downshift"],
       "registryDependencies": [
         "popover",
         "https://ui.ednesdayw.com/r/input.json"
@@ -159,13 +147,29 @@
       ]
     },
     {
+      "name": "tag-input",
+      "type": "registry:ui",
+      "title": "Tag Input",
+      "description": "A tag input component",
+      "dependencies": ["@radix-ui/react-use-callback-ref"],
+      "registryDependencies": [
+        "badge",
+        "https://ui.ednesdayw.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/tag-input.tsx",
+          "type": "registry:ui",
+          "target": "components/wed/tag-input.tsx"
+        }
+      ]
+    },
+    {
       "name": "use-disclosure",
       "type": "registry:hook",
       "title": "Use Disclosure",
       "description": "A hook for managing disclosure state",
-      "dependencies": [
-        "@radix-ui/react-use-callback-ref"
-      ],
+      "dependencies": ["@radix-ui/react-use-callback-ref"],
       "files": [
         {
           "path": "src/registry/hooks/use-disclosure.ts",
@@ -218,9 +222,7 @@
       "type": "registry:component",
       "title": "Input Size Demo",
       "description": "A demo of the input size",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/input.json"],
       "files": [
         {
           "path": "src/registry/example/input/size.tsx",
@@ -234,9 +236,7 @@
       "type": "registry:component",
       "title": "Input Variant Demo",
       "description": "A demo of the input variant",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/input.json"],
       "files": [
         {
           "path": "src/registry/example/input/variant.tsx",
@@ -250,9 +250,7 @@
       "type": "registry:component",
       "title": "Input Disabled Demo",
       "description": "A demo of the input disabled",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/input.json"],
       "files": [
         {
           "path": "src/registry/example/input/disabled.tsx",
@@ -266,9 +264,7 @@
       "type": "registry:component",
       "title": "Input Invalid Demo",
       "description": "A demo of the input invalid",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/input.json"],
       "files": [
         {
           "path": "src/registry/example/input/invalid.tsx",
@@ -282,9 +278,7 @@
       "type": "registry:component",
       "title": "Input Start End Content Demo",
       "description": "A demo of the input start end content",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/input.json"],
       "files": [
         {
           "path": "src/registry/example/input/start-end-content.tsx",
@@ -298,9 +292,7 @@
       "type": "registry:component",
       "title": "Input Password Demo",
       "description": "A demo of the input password",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/input.json"],
       "files": [
         {
           "path": "src/registry/example/input/password.tsx",
@@ -314,9 +306,7 @@
       "type": "registry:component",
       "title": "Input Form Demo",
       "description": "A demo of the input form",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/input.json"],
       "files": [
         {
           "path": "src/registry/example/input/form.tsx",
@@ -330,9 +320,7 @@
       "type": "registry:component",
       "title": "Phone Input Size Demo",
       "description": "A demo of the phone input size",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/phone-input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/phone-input.json"],
       "files": [
         {
           "path": "src/registry/example/phone-input/size.tsx",
@@ -346,9 +334,7 @@
       "type": "registry:component",
       "title": "Phone Input Variant Demo",
       "description": "A demo of the phone input variant",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/phone-input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/phone-input.json"],
       "files": [
         {
           "path": "src/registry/example/phone-input/variant.tsx",
@@ -362,9 +348,7 @@
       "type": "registry:component",
       "title": "Phone Input Disabled Demo",
       "description": "A demo of the phone input disabled",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/phone-input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/phone-input.json"],
       "files": [
         {
           "path": "src/registry/example/phone-input/disabled.tsx",
@@ -378,9 +362,7 @@
       "type": "registry:component",
       "title": "Phone Input Invalid Demo",
       "description": "A demo of the phone input invalid",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/phone-input.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/phone-input.json"],
       "files": [
         {
           "path": "src/registry/example/phone-input/invalid.tsx",
@@ -394,9 +376,7 @@
       "type": "registry:component",
       "title": "Select Size Demo",
       "description": "A demo of the select size",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/select.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/select.json"],
       "files": [
         {
           "path": "src/registry/example/select/size.tsx",
@@ -410,9 +390,7 @@
       "type": "registry:component",
       "title": "Select Variant Demo",
       "description": "A demo of the select variant",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/select.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/select.json"],
       "files": [
         {
           "path": "src/registry/example/select/variant.tsx",
@@ -426,9 +404,7 @@
       "type": "registry:component",
       "title": "Select Disabled Demo",
       "description": "A demo of the select disabled",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/select.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/select.json"],
       "files": [
         {
           "path": "src/registry/example/select/disabled.tsx",
@@ -442,9 +418,7 @@
       "type": "registry:component",
       "title": "Select Invalid Demo",
       "description": "A demo of the select invalid",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/select.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/select.json"],
       "files": [
         {
           "path": "src/registry/example/select/invalid.tsx",
@@ -458,9 +432,7 @@
       "type": "registry:component",
       "title": "Select Start Content Demo",
       "description": "A demo of the select start content",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/select.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/select.json"],
       "files": [
         {
           "path": "src/registry/example/select/start-content.tsx",
@@ -474,9 +446,7 @@
       "type": "registry:component",
       "title": "Select Clearable Demo",
       "description": "A demo of the select clearable",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/select.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/select.json"],
       "files": [
         {
           "path": "src/registry/example/select/clearable.tsx",
@@ -490,9 +460,7 @@
       "type": "registry:component",
       "title": "Color Picker Demo",
       "description": "A demo of the color picker",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/color-picker.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/color-picker.json"],
       "files": [
         {
           "path": "src/registry/example/color-picker/demo.tsx",
@@ -506,9 +474,7 @@
       "type": "registry:component",
       "title": "Color Input Variant Demo",
       "description": "A demo of the color input variant",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/color-input.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/color-input.json"],
       "files": [
         {
           "path": "src/registry/example/color-input/variant.tsx",
@@ -522,9 +488,7 @@
       "type": "registry:component",
       "title": "Button Variant Demo",
       "description": "A demo of the button variant",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/button.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/button.json"],
       "files": [
         {
           "path": "src/registry/example/button/variant.tsx",
@@ -538,9 +502,7 @@
       "type": "registry:component",
       "title": "Button Size Demo",
       "description": "A demo of the button size",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/button.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/button.json"],
       "files": [
         {
           "path": "src/registry/example/button/size.tsx",
@@ -554,9 +516,7 @@
       "type": "registry:component",
       "title": "Button Icon Demo",
       "description": "A demo of the button icon",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/button.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/button.json"],
       "files": [
         {
           "path": "src/registry/example/button/icon.tsx",
@@ -570,9 +530,7 @@
       "type": "registry:component",
       "title": "Button Loading Demo",
       "description": "A demo of the button loading",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/button.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/button.json"],
       "files": [
         {
           "path": "src/registry/example/button/loading.tsx",
@@ -586,9 +544,7 @@
       "type": "registry:component",
       "title": "Button Form Demo",
       "description": "A demo of the button form",
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/button.json"
-      ],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/button.json"],
       "files": [
         {
           "path": "src/registry/example/button/form.tsx",
@@ -619,12 +575,8 @@
       "type": "registry:component",
       "title": "Use Ripple Demo",
       "description": "A demo of the use ripple",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://ui.ednesdayw.com/r/use-ripple.json"
-      ],
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://ui.ednesdayw.com/r/use-ripple.json"],
       "files": [
         {
           "path": "src/registry/example/use-ripple/demo.tsx",
@@ -672,9 +624,7 @@
       "type": "registry:component",
       "title": "Use Device Detection Demo",
       "description": "A demo of the use device detection",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/use-device-detection.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/use-device-detection.json"],
       "files": [
         {
           "path": "src/registry/example/use-device-detection/demo.tsx",
@@ -688,9 +638,7 @@
       "type": "registry:component",
       "title": "Autocomplete Size Demo",
       "description": "A demo of the autocomplete size",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/autocomplete.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/autocomplete.json"],
       "files": [
         {
           "path": "src/registry/example/autocomplete/size.tsx",
@@ -704,9 +652,7 @@
       "type": "registry:component",
       "title": "Autocomplete Variant Demo",
       "description": "A demo of the autocomplete variant",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/autocomplete.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/autocomplete.json"],
       "files": [
         {
           "path": "src/registry/example/autocomplete/variant.tsx",
@@ -720,9 +666,7 @@
       "type": "registry:component",
       "title": "Autocomplete Disabled Demo",
       "description": "A demo of the autocomplete disabled",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/autocomplete.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/autocomplete.json"],
       "files": [
         {
           "path": "src/registry/example/autocomplete/disabled.tsx",
@@ -736,9 +680,7 @@
       "type": "registry:component",
       "title": "Autocomplete Disabled Item Demo",
       "description": "A demo of the autocomplete disabled item",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/autocomplete.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/autocomplete.json"],
       "files": [
         {
           "path": "src/registry/example/autocomplete/disabled-item.tsx",
@@ -752,9 +694,7 @@
       "type": "registry:component",
       "title": "Autocomplete Invalid Demo",
       "description": "A demo of the autocomplete invalid",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/autocomplete.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/autocomplete.json"],
       "files": [
         {
           "path": "src/registry/example/autocomplete/invalid.tsx",
@@ -768,9 +708,7 @@
       "type": "registry:component",
       "title": "Autocomplete Start Content Demo",
       "description": "A demo of the autocomplete start content",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/autocomplete.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/autocomplete.json"],
       "files": [
         {
           "path": "src/registry/example/autocomplete/start-content.tsx",
@@ -784,9 +722,7 @@
       "type": "registry:component",
       "title": "Autocomplete Form Demo",
       "description": "A demo of the autocomplete form",
-      "dependencies": [
-        "https://ui.ednesdayw.com/r/autocomplete.json"
-      ],
+      "dependencies": ["https://ui.ednesdayw.com/r/autocomplete.json"],
       "files": [
         {
           "path": "src/registry/example/autocomplete/form.tsx",
@@ -798,10 +734,7 @@
     {
       "name": "utils",
       "type": "registry:lib",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "src/registry/lib/utils.ts",

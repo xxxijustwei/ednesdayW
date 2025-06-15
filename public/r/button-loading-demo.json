@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/registry/example/button/loading.tsx",
-      "content": "import { Button } from \"@/components/ui/button\";\n\nconst buttonVariants = [\n    \"primary\",\n    \"secondary\",\n    \"outline\",\n    \"destructive\",\n    \"ghost\",\n    \"link\",\n] as const;\n\nexport const ButtonLoadingExample = () => {\n    return (\n        <div className=\"w-full max-w-xs grid grid-cols-2 gap-4\">\n            {buttonVariants.map((variant) => (\n                <Button key={variant} variant={variant} loading>\n                    {variant.charAt(0).toUpperCase() + variant.slice(1)}\n                </Button>\n            ))}\n        </div>\n    );\n};\n",
+      "content": "import { Button } from \"@/components/ui/button\";\n\nconst buttonVariants = [\n  \"primary\",\n  \"secondary\",\n  \"outline\",\n  \"destructive\",\n  \"ghost\",\n  \"link\",\n] as const;\n\nexport const ButtonLoadingExample = () => {\n  return (\n    <div className=\"w-full max-w-xs grid grid-cols-2 gap-4\">\n      {buttonVariants.map((variant) => (\n        <Button key={variant} variant={variant} loading>\n          {variant.charAt(0).toUpperCase() + variant.slice(1)}\n        </Button>\n      ))}\n    </div>\n  );\n};\n",
       "type": "registry:component",
       "target": "components/demo/button-loading-demo.tsx"
     }
