@@ -12,7 +12,7 @@ export const TagInputInvalidExample = () => {
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
       <TagInput values={values} onValuesChange={setValues} size="md" invalid>
-        <TagInputContainer>
+        <TagInputContainer variant="bordered">
           {values.map((value) => (
             <TagInputBadge key={value} value={value}>
               <span className="truncate">{value}</span>

@@ -34,7 +34,7 @@ const Demo = ({ confirmKey }: { confirmKey: (typeof confirmKeys)[number] }) => {
       size="md"
       confirmKey={confirmKey}
     >
-      <TagInputContainer>
+      <TagInputContainer variant="bordered">
         {values.map((value) => (
           <TagInputBadge key={value} value={value}>
             <span className="truncate">{value}</span>

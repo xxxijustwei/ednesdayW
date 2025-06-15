@@ -12,7 +12,7 @@ export const TagInputOutsideTagsExample = () => {
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
       <TagInput values={values} onValuesChange={setValues} size="md">
-        <TagInputContainer>
+        <TagInputContainer variant="bordered">
           <TagInputBox placeholder="Add a tag" />
         </TagInputContainer>
         <div className="flex flex-wrap gap-1.5">
