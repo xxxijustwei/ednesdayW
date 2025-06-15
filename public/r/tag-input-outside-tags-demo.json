@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag-input-outside-tags-demo",
+  "type": "registry:component",
+  "title": "Tag Input Outside Tags Demo",
+  "description": "A demo of the tag input outside tags",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/tag-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/tag-input/outside-tags.tsx",
+      "content": "import {\n  TagInput,\n  TagInputBadge,\n  TagInputBox,\n  TagInputContainer,\n} from \"@/components/ui/tag-input\";\nimport { useState } from \"react\";\n\nexport const TagInputOutsideTagsExample = () => {\n  const [values, setValues] = useState<string[]>([]);\n\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <TagInput values={values} onValuesChange={setValues} size=\"md\">\n        <TagInputContainer>\n          <TagInputBox placeholder=\"Add a tag\" />\n        </TagInputContainer>\n        <div className=\"flex flex-wrap gap-1.5\">\n          {values.map((value) => (\n            <TagInputBadge key={value} value={value}>\n              <span className=\"truncate\">{value}</span>\n            </TagInputBadge>\n          ))}\n        </div>\n      </TagInput>\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/tag-input-outside-tags-demo.tsx"
+    }
+  ]
+}

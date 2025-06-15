@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag-input-variant-demo",
+  "type": "registry:component",
+  "title": "Tag Input Variant Demo",
+  "description": "A demo of the tag input variant",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/tag-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/tag-input/variant.tsx",
+      "content": "import {\n  TagInput,\n  TagInputBadge,\n  TagInputBox,\n  TagInputContainer,\n} from \"@/components/ui/tag-input\";\nimport { useState } from \"react\";\n\nexport const inputVariants = [\n  \"default\",\n  \"faded\",\n  \"bordered\",\n  \"underline\",\n] as const;\n\nexport const TagInputVariantExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      {inputVariants.map((variant) => (\n        <Demo key={variant} variant={variant} />\n      ))}\n    </div>\n  );\n};\n\nconst Demo = ({ variant }: { variant: (typeof inputVariants)[number] }) => {\n  const [values, setValues] = useState<string[]>([]);\n\n  return (\n    <TagInput values={values} onValuesChange={setValues} size=\"md\">\n      <TagInputContainer variant={variant}>\n        {values.map((value) => (\n          <TagInputBadge key={value} value={value}>\n            <span className=\"truncate\">{value}</span>\n          </TagInputBadge>\n        ))}\n        <TagInputBox placeholder=\"Add a tag\" />\n      </TagInputContainer>\n    </TagInput>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/tag-input-variant-demo.tsx"
+    }
+  ]
+}

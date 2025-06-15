@@ -1156,6 +1156,144 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "tag-input-size-demo": {
+    name: "tag-input-size-demo",
+    description: "A demo of the tag input size",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/tag-input.json"],
+    files: [
+      {
+        path: "src/registry/example/tag-input/size.tsx",
+        type: "registry:component",
+        target: "components/demo/tag-input-size-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/tag-input/size.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "tag-input-variant-demo": {
+    name: "tag-input-variant-demo",
+    description: "A demo of the tag input variant",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/tag-input.json"],
+    files: [
+      {
+        path: "src/registry/example/tag-input/variant.tsx",
+        type: "registry:component",
+        target: "components/demo/tag-input-variant-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/tag-input/variant.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "tag-input-invalid-demo": {
+    name: "tag-input-invalid-demo",
+    description: "A demo of the tag input invalid",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/tag-input.json"],
+    files: [
+      {
+        path: "src/registry/example/tag-input/invalid.tsx",
+        type: "registry:component",
+        target: "components/demo/tag-input-invalid-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/tag-input/invalid.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "tag-input-disabled-demo": {
+    name: "tag-input-disabled-demo",
+    description: "A demo of the tag input disabled",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/tag-input.json"],
+    files: [
+      {
+        path: "src/registry/example/tag-input/disabled.tsx",
+        type: "registry:component",
+        target: "components/demo/tag-input-disabled-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/tag-input/disabled.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "tag-input-confirm-key-demo": {
+    name: "tag-input-confirm-key-demo",
+    description: "A demo of the tag input confirm key",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/tag-input.json"],
+    files: [
+      {
+        path: "src/registry/example/tag-input/confirm-key.tsx",
+        type: "registry:component",
+        target: "components/demo/tag-input-confirm-key-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/tag-input/confirm-key.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "tag-input-outside-tags-demo": {
+    name: "tag-input-outside-tags-demo",
+    description: "A demo of the tag input outside tags",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/tag-input.json"],
+    files: [
+      {
+        path: "src/registry/example/tag-input/outside-tags.tsx",
+        type: "registry:component",
+        target: "components/demo/tag-input-outside-tags-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/tag-input/outside-tags.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   utils: {
     name: "utils",
     description: "",

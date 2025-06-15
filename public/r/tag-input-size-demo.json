@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag-input-size-demo",
+  "type": "registry:component",
+  "title": "Tag Input Size Demo",
+  "description": "A demo of the tag input size",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/tag-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/tag-input/size.tsx",
+      "content": "import {\n  TagInput,\n  TagInputBadge,\n  TagInputBox,\n  TagInputContainer,\n} from \"@/components/ui/tag-input\";\nimport { useState } from \"react\";\n\nexport const inputSizes = [\"sm\", \"md\", \"lg\"] as const;\n\nexport const TagInputSizeExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      {inputSizes.map((size) => (\n        <Demo key={size} size={size} />\n      ))}\n    </div>\n  );\n};\n\nconst Demo = ({ size }: { size: (typeof inputSizes)[number] }) => {\n  const [values, setValues] = useState<string[]>([]);\n\n  return (\n    <TagInput values={values} onValuesChange={setValues} size={size}>\n      <TagInputContainer>\n        {values.map((value) => (\n          <TagInputBadge key={value} value={value}>\n            <span className=\"truncate\">{value}</span>\n          </TagInputBadge>\n        ))}\n        <TagInputBox placeholder=\"Add a tag\" />\n      </TagInputContainer>\n    </TagInput>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/tag-input-size-demo.tsx"
+    }
+  ]
+}
