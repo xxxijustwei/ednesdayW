@@ -86,4 +86,35 @@ export const tagInputExamples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "tag-input-max-tags-demo",
+    type: "registry:component",
+    title: "Tag Input Max Tags Demo",
+    description: "A demo of the tag input max tags",
+    registryDependencies: [`${siteConfig.registryUrl}/tag-input.json`],
+    files: [
+      {
+        path: "src/registry/example/tag-input/max-tags.tsx",
+        type: "registry:component",
+        target: "components/demo/tag-input-max-tags-demo.tsx",
+      },
+    ],
+  },
+  {
+    name: "tag-input-paste-tags-demo",
+    type: "registry:component",
+    title: "Tag Input Paste Tags Demo",
+    description: "A demo of the tag input paste tags",
+    registryDependencies: [
+      `${siteConfig.registryUrl}/tag-input.json`,
+      "https://hookcn.ouassim.tech/r/use-copy-to-clipboard",
+    ],
+    files: [
+      {
+        path: "src/registry/example/tag-input/paste-tags.tsx",
+        type: "registry:component",
+        target: "components/demo/tag-input-paste-tags-demo.tsx",
+      },
+    ],
+  },
 ];

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag-input-paste-tags-demo",
+  "type": "registry:component",
+  "title": "Tag Input Paste Tags Demo",
+  "description": "A demo of the tag input paste tags",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/tag-input.json",
+    "https://hookcn.ouassim.tech/r/use-copy-to-clipboard"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/tag-input/paste-tags.tsx",
+      "content": "import { useCopyToClipboard } from \"@/hooks/use-copy-to-clipboard\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  TagInput,\n  TagInputBadge,\n  TagInputBox,\n  TagInputContainer,\n} from \"@/components/ui/tag-input\";\nimport { ClipboardCheckIcon, ClipboardIcon } from \"lucide-react\";\nimport { useState } from \"react\";\n\nconst copyText = \"Cry4Me, Die4U, Nice4What\";\n\nexport const TagInputPasteTagsExample = () => {\n  const [copy, isCopied] = useCopyToClipboard();\n  const [values, setValues] = useState<string[]>([]);\n\n  return (\n    <div className=\"flex flex-col gap-2 w-full max-w-72\">\n      <div className=\"flex items-center gap-1.5\">\n        <span>{copyText}</span>\n        <Button\n          variant=\"outline\"\n          size=\"icon\"\n          onClick={() => copy(copyText)}\n          disabled={isCopied}\n        >\n          {isCopied ? (\n            <ClipboardCheckIcon size={16} />\n          ) : (\n            <ClipboardIcon size={16} />\n          )}\n        </Button>\n      </div>\n      <TagInput\n        values={values}\n        onValuesChange={setValues}\n        size=\"md\"\n        pasteDelimiter=\",\"\n      >\n        <TagInputContainer variant=\"bordered\">\n          <TagInputBox placeholder=\"Paste tags here\" />\n        </TagInputContainer>\n        <div className=\"flex flex-wrap gap-1.5\">\n          {values.map((value) => (\n            <TagInputBadge key={value} value={value}>\n              <span className=\"truncate\">{value}</span>\n            </TagInputBadge>\n          ))}\n        </div>\n      </TagInput>\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/tag-input-paste-tags-demo.tsx"
+    }
+  ]
+}

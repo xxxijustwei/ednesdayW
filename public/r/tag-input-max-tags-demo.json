@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag-input-max-tags-demo",
+  "type": "registry:component",
+  "title": "Tag Input Max Tags Demo",
+  "description": "A demo of the tag input max tags",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/tag-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/tag-input/max-tags.tsx",
+      "content": "import {\n  TagInput,\n  TagInputBadge,\n  TagInputBox,\n  TagInputContainer,\n} from \"@/components/ui/tag-input\";\nimport { useState } from \"react\";\n\nexport const TagInputMaxTagsExample = () => {\n  const [values, setValues] = useState<string[]>([]);\n\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <TagInput\n        values={values}\n        onValuesChange={setValues}\n        size=\"md\"\n        maxTags={3}\n      >\n        <TagInputContainer variant=\"bordered\">\n          <TagInputBox placeholder=\"Add a tag (Max: 3 tags)\" />\n        </TagInputContainer>\n        <div className=\"flex flex-wrap gap-1.5\">\n          {values.map((value) => (\n            <TagInputBadge key={value} value={value}>\n              <span className=\"truncate\">{value}</span>\n            </TagInputBadge>\n          ))}\n        </div>\n      </TagInput>\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/tag-input-max-tags-demo.tsx"
+    }
+  ]
+}
