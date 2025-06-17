@@ -18,13 +18,15 @@ export const TagInputMaxTagsExample = () => {
         maxTags={3}
       >
         <TagInputContainer variant="bordered">
+          <TagInputBox placeholder="Add a tag (Max: 3 tags)" />
+        </TagInputContainer>
+        <div className="flex flex-wrap gap-1.5">
           {values.map((value) => (
             <TagInputBadge key={value} value={value}>
               <span className="truncate">{value}</span>
             </TagInputBadge>
           ))}
-          <TagInputBox placeholder="Add a tag (Max: 3 tags)" />
-        </TagInputContainer>
+        </div>
       </TagInput>
     </div>
   );

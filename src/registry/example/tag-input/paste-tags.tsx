@@ -9,15 +9,15 @@ import {
 import { ClipboardCheckIcon, ClipboardIcon } from "lucide-react";
 import { useState } from "react";
 
-const copyText = "Cry For Me, Die For You, Nice For What";
+const copyText = "Cry4Me, Die4U, Nice4What";
 
 export const TagInputPasteTagsExample = () => {
   const [copy, isCopied] = useCopyToClipboard();
   const [values, setValues] = useState<string[]>([]);
 
   return (
-    <div className="flex flex-col gap-4 w-full max-w-72">
-      <div className="flex items-center justify-between gap-1.5">
+    <div className="flex flex-col gap-2 w-full max-w-72">
+      <div className="flex items-center gap-1.5">
         <span>{copyText}</span>
         <Button
           variant="outline"
@@ -26,9 +26,9 @@ export const TagInputPasteTagsExample = () => {
           disabled={isCopied}
         >
           {isCopied ? (
-            <ClipboardCheckIcon className="w-4 h-4" />
+            <ClipboardCheckIcon size={16} />
           ) : (
-            <ClipboardIcon className="w-4 h-4" />
+            <ClipboardIcon size={16} />
           )}
         </Button>
       </div>
@@ -39,13 +39,15 @@ export const TagInputPasteTagsExample = () => {
         pasteDelimiter=","
       >
         <TagInputContainer variant="bordered">
+          <TagInputBox placeholder="Paste tags here" />
+        </TagInputContainer>
+        <div className="flex flex-wrap gap-1.5">
           {values.map((value) => (
             <TagInputBadge key={value} value={value}>
               <span className="truncate">{value}</span>
             </TagInputBadge>
           ))}
-          <TagInputBox placeholder="Paste tags here" />
-        </TagInputContainer>
+        </div>
       </TagInput>
     </div>
   );
