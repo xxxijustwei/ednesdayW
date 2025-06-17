@@ -1294,6 +1294,55 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "tag-input-max-tags-demo": {
+    name: "tag-input-max-tags-demo",
+    description: "A demo of the tag input max tags",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/tag-input.json"],
+    files: [
+      {
+        path: "src/registry/example/tag-input/max-tags.tsx",
+        type: "registry:component",
+        target: "components/demo/tag-input-max-tags-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/tag-input/max-tags.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "tag-input-paste-tags-demo": {
+    name: "tag-input-paste-tags-demo",
+    description: "A demo of the tag input paste tags",
+    type: "registry:component",
+    registryDependencies: [
+      "https://ui.ednesdayw.com/r/tag-input.json",
+      "https://hookcn.ouassim.tech/r/use-copy-to-clipboard",
+    ],
+    files: [
+      {
+        path: "src/registry/example/tag-input/paste-tags.tsx",
+        type: "registry:component",
+        target: "components/demo/tag-input-paste-tags-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/tag-input/paste-tags.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   utils: {
     name: "utils",
     description: "",
