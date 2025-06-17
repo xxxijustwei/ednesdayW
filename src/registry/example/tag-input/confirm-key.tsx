@@ -6,13 +6,7 @@ import {
 } from "@/registry/ui/tag-input";
 import { useState } from "react";
 
-export const confirmKeys = ["both", "enter", "space"] as const;
-
-const confirmKeyLabels = {
-  both: "Enter/Space",
-  enter: "Enter",
-  space: "Space",
-};
+export const confirmKeys = ["enter", "space"] as const;
 
 export const TagInputConfirmKeyExample = () => {
   return (
@@ -41,7 +35,7 @@ const Demo = ({ confirmKey }: { confirmKey: (typeof confirmKeys)[number] }) => {
           </TagInputBadge>
         ))}
         <TagInputBox
-          placeholder={`Press ${confirmKeyLabels[confirmKey]} to add tag`}
+          placeholder={`Press ${confirmKey.toUpperCase()} to add tag`}
         />
       </TagInputContainer>
     </TagInput>
