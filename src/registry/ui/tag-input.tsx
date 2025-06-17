@@ -40,7 +40,7 @@ const TagInputContext = createContext<TagInputContextType>({
   onDeleteChip: () => {},
   size: "md",
   confirmKey: "space",
-  pasteDelimiter: ",",
+  pasteDelimiter: undefined,
   maxTags: undefined,
 });
 
@@ -76,7 +76,7 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
       invalid,
       onBlur,
       confirmKey = "space",
-      pasteDelimiter = ",",
+      pasteDelimiter,
       maxTags,
       children,
       ...props
