@@ -21,14 +21,16 @@ const stopPropagation = (e: React.MouseEvent<HTMLDivElement>) => {
 type TagInputContextType = {
   values: string[];
   onValuesChange: (values: string[]) => void;
-  onAddChip: (value: string) => void;
+  onAddChip: (value: string | string[]) => void;
   onDeleteChip: (value: string) => void;
   size: "sm" | "md" | "lg";
   disabled?: boolean;
   invalid?: boolean;
+  confirmKey?: "enter" | "space";
+  pasteDelimiter?: string;
+  maxTags?: number;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   ref?: React.RefObject<HTMLInputElement | null>;
-  confirmKey?: "enter" | "space" | "both";
 };
 
 const TagInputContext = createContext<TagInputContextType>({
@@ -38,6 +40,8 @@ const TagInputContext = createContext<TagInputContextType>({
   onDeleteChip: () => {},
   size: "md",
   confirmKey: "space",
+  pasteDelimiter: ",",
+  maxTags: undefined,
 });
 
 const useTagInputContext = () => {
@@ -54,9 +58,11 @@ interface TagInputProps extends React.ComponentProps<"div"> {
   size: TagInputContextType["size"];
   disabled?: boolean;
   invalid?: boolean;
+  confirmKey?: "enter" | "space";
+  pasteDelimiter?: string;
+  maxTags?: number;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   ref?: React.RefObject<HTMLInputElement | null>;
-  confirmKey?: "enter" | "space" | "both";
 }
 
 const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
@@ -70,6 +76,8 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
       invalid,
       onBlur,
       confirmKey = "space",
+      pasteDelimiter = ",",
+      maxTags,
       children,
       ...props
     },
@@ -91,9 +99,13 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
     );
 
     const onAddChip = useCallback(
-      (value: string) => {
-        if (value.trim() && !values.includes(value.trim())) {
-          handleValuesChange([...values, value.trim()]);
+      (value: string | string[]) => {
+        const valuesToAdd = Array.isArray(value) ? value : [value];
+        const uniqueValues = valuesToAdd.filter(
+          (v) => v.trim() && !values.includes(v.trim()),
+        );
+        if (uniqueValues.length > 0) {
+          handleValuesChange([...values, ...uniqueValues]);
         }
       },
       [values, handleValuesChange],
@@ -111,6 +123,8 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
         onBlur,
         ref,
         confirmKey,
+        pasteDelimiter,
+        maxTags: maxTags && maxTags > 0 ? maxTags : undefined,
       }),
       [
         values,
@@ -123,6 +137,8 @@ const TagInput = React.forwardRef<HTMLInputElement, TagInputProps>(
         onBlur,
         ref,
         confirmKey,
+        pasteDelimiter,
+        maxTags,
       ],
     );
 
@@ -312,21 +328,23 @@ const TagInputBox = ({ className, onKeyDown, ...props }: TagInputBoxProps) => {
     onBlur,
     ref,
     confirmKey,
+    pasteDelimiter,
+    maxTags,
   } = useTagInputContext();
   const [inputValue, setInputValue] = useState("");
+
+  const canAddMoreTags = maxTags === undefined || values.length < maxTags;
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const shouldAddChip =
       (confirmKey === "space" && e.key === " " && !e.nativeEvent.isComposing) ||
       (confirmKey === "enter" &&
         e.key === "Enter" &&
-        !e.nativeEvent.isComposing) ||
-      (confirmKey === "both" &&
-        (e.key === " " || (e.key === "Enter" && !e.nativeEvent.isComposing)));
+        !e.nativeEvent.isComposing);
 
     if (shouldAddChip) {
       e.preventDefault();
-      if (inputValue.trim()) {
+      if (inputValue.trim() && canAddMoreTags) {
         onAddChip(inputValue);
         setInputValue("");
       }
@@ -342,6 +360,29 @@ const TagInputBox = ({ className, onKeyDown, ...props }: TagInputBoxProps) => {
     onKeyDown?.(e);
   };
 
+  const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    if (!pasteDelimiter) return;
+
+    e.preventDefault();
+    const pastedText = inputValue + e.clipboardData.getData("text");
+    const items = pastedText
+      .split(pasteDelimiter)
+      .map((item) => item.trim())
+      .filter(Boolean);
+
+    if (items.length > 0) {
+      let itemsToAdd = items;
+
+      if (maxTags !== undefined) {
+        const remainingSlots = maxTags - values.length;
+        itemsToAdd = items.slice(0, remainingSlots);
+      }
+
+      onAddChip(itemsToAdd);
+      setInputValue("");
+    }
+  };
+
   return (
     <input
       {...props}
@@ -351,6 +392,7 @@ const TagInputBox = ({ className, onKeyDown, ...props }: TagInputBoxProps) => {
       value={inputValue}
       onChange={(e) => setInputValue(e.target.value)}
       onKeyDown={handleKeyDown}
+      onPaste={handlePaste}
       disabled={disabled}
       onBlur={onBlur}
       ref={ref}
