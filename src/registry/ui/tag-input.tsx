@@ -272,11 +272,11 @@ const TagInputBadge = React.memo(
           variant="ghost"
           size="icon"
           asChild
-          className="rounded-full size-4 text-white hover:text-white bg-accent-foreground hover:bg-foreground"
+          className="rounded-full size-4 text-background hover:text-background bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent"
           onClick={handleDelete}
         >
           <div>
-            <XIcon className="shrink-0 scale-75" />
+            <XIcon className="shrink-0" />
           </div>
         </Button>
       </Badge>
