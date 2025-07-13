@@ -28,9 +28,9 @@ export const containerVariants = cva(
         underline: "border-b-2 border-input rounded-none shadow-none",
       },
       size: {
-        sm: "h-10 px-3 py-1.5",
-        md: "h-12 px-3 py-2",
-        lg: "h-13 px-3 py-2.5",
+        sm: "h-10 px-2 py-1.5",
+        md: "h-12 px-2.5 py-2",
+        lg: "h-13 p-2.5",
       },
     },
     compoundVariants: [
