@@ -10,7 +10,20 @@ import {
   SelectValue,
 } from "@/registry/ui/select";
 import { XIcon } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
+
+const TOKENS = [
+  "USDT",
+  "USDC",
+  "USDe",
+  "USDS",
+  "DAI",
+  "USD1",
+  "FDUSD",
+  "USDY",
+  "FRAX",
+];
 
 export const SelectVariantExample = () => {
   const variants = ["default", "faded", "bordered", "underline"] as const;
@@ -19,55 +32,61 @@ export const SelectVariantExample = () => {
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
       {variants.map((variant) => (
-        <Select key={variant} value={country} onValueChange={setCountry}>
-          <SelectTrigger size="md" variant={variant}>
-            <div className="w-full flex items-center justify-between gap-1 overflow-hidden">
-              <SelectValue placeholder="Select a country" />
-              {country && (
-                <SelectIcon asChild onPointerDown={(e) => e.stopPropagation()}>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    asChild
-                    className="rounded-full size-4 text-white hover:text-white bg-accent-foreground hover:bg-foreground"
-                    onClick={() => setCountry("")}
-                  >
-                    <div>
-                      <XIcon className="shrink-0 scale-75" />
-                    </div>
-                  </Button>
-                </SelectIcon>
-              )}
-            </div>
-          </SelectTrigger>
-          <SelectContent>
-            {countries.map(({ key, label }) => (
-              <SelectItem key={key} value={key}>
-                {label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <TokenSelect key={variant} variant={variant} />
       ))}
     </div>
   );
 };
 
-const countries = [
-  { key: "cn", label: "China" },
-  { key: "jp", label: "Japan" },
-  { key: "kr", label: "Korea" },
-  { key: "ru", label: "Russia" },
-  { key: "in", label: "India" },
-  { key: "br", label: "Brazil" },
-  { key: "de", label: "Germany" },
-  { key: "fr", label: "France" },
-  { key: "it", label: "Italy" },
-  { key: "es", label: "Spain" },
-  { key: "us", label: "United States" },
-  { key: "ca", label: "Canada" },
-  { key: "mx", label: "Mexico" },
-  { key: "gb", label: "United Kingdom" },
-  { key: "au", label: "Australia" },
-  { key: "nz", label: "New Zealand" },
-];
+const TokenSelect = ({
+  variant,
+}: {
+  variant: "default" | "faded" | "bordered" | "underline";
+}) => {
+  const [token, setToken] = useState<string>();
+
+  return (
+    <Select value={token} onValueChange={setToken}>
+      <SelectTrigger
+        size="lg"
+        variant={variant}
+        className={variant !== "underline" ? "rounded-full" : undefined}
+      >
+        <div className="w-full flex items-center justify-between gap-1 overflow-hidden">
+          <SelectValue placeholder="Select a token" />
+          {token && (
+            <SelectIcon asChild onPointerDown={(e) => e.stopPropagation()}>
+              <Button
+                variant="ghost"
+                size="icon"
+                asChild
+                className="rounded-full size-5 text-accent hover:text-accent bg-muted-foreground hover:bg-accent-foreground"
+                onClick={() => setToken("")}
+              >
+                <div>
+                  <XIcon className="shrink-0" />
+                </div>
+              </Button>
+            </SelectIcon>
+          )}
+        </div>
+      </SelectTrigger>
+      <SelectContent>
+        {TOKENS.map((token) => (
+          <SelectItem key={token} value={token}>
+            <div className="flex items-center gap-1.5">
+              <Image
+                src={`/tokens/${token}.svg`}
+                alt={token}
+                width={32}
+                height={32}
+                className="rounded-full"
+              />
+              <span className="text-lg font-semibold">{token}</span>
+            </div>
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+};
