@@ -93,7 +93,7 @@ function SelectTrigger({
       <SelectPrimitive.Icon asChild>
         <ChevronDownIcon
           className={cn(
-            "size-4 opacity-50 transition-transform duration-100",
+            "size-5 transition-transform duration-100",
             "group-data-[state=open]:rotate-180",
           )}
         />

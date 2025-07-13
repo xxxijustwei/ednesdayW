@@ -7,24 +7,43 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/registry/ui/select";
-import { EarthIcon } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
-export const SelectStartContentExample = () => {
-  const [country, setCountry] = useState("");
+const TOKENS = [
+  "USDT",
+  "USDC",
+  "USDe",
+  "USDS",
+  "DAI",
+  "USD1",
+  "FDUSD",
+  "USDY",
+  "FRAX",
+];
+
+export const SelectTokensExample = () => {
+  const [token, setToken] = useState<string>();
+
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
-      <Select value={country} onValueChange={setCountry}>
-        <SelectTrigger variant="bordered" size="lg">
-          <div className="flex items-center gap-2 overflow-hidden">
-            {!country && <EarthIcon className="shrink-0 size-5" />}
-            <SelectValue placeholder="Select a country" />
-          </div>
+      <Select value={token} onValueChange={setToken}>
+        <SelectTrigger size="lg" variant="bordered" className="rounded-full">
+          <SelectValue placeholder="Select a token" />
         </SelectTrigger>
         <SelectContent>
-          {countries.map(({ key, flag, label }) => (
-            <SelectItem key={key} value={key}>
-              {`${flag} ${label}`}
+          {TOKENS.map((token) => (
+            <SelectItem key={token} value={token}>
+              <div className="flex items-center gap-1.5">
+                <Image
+                  src={`/tokens/${token}.svg`}
+                  alt={token}
+                  width={32}
+                  height={32}
+                  className="rounded-full"
+                />
+                <span className="text-lg font-semibold">{token}</span>
+              </div>
             </SelectItem>
           ))}
         </SelectContent>
@@ -32,22 +51,3 @@ export const SelectStartContentExample = () => {
     </div>
   );
 };
-
-const countries = [
-  { key: "cn", flag: "🇨🇳", label: "China" },
-  { key: "jp", flag: "🇯🇵", label: "Japan" },
-  { key: "kr", flag: "🇰🇷", label: "Korea" },
-  { key: "ru", flag: "🇷🇺", label: "Russia" },
-  { key: "in", flag: "🇮🇳", label: "India" },
-  { key: "br", flag: "🇧🇷", label: "Brazil" },
-  { key: "de", flag: "🇩🇪", label: "Germany" },
-  { key: "fr", flag: "🇫🇷", label: "France" },
-  { key: "it", flag: "🇮🇹", label: "Italy" },
-  { key: "es", flag: "🇪🇸", label: "Spain" },
-  { key: "us", flag: "🇺🇸", label: "United States" },
-  { key: "ca", flag: "🇨🇦", label: "Canada" },
-  { key: "mx", flag: "🇲🇽", label: "Mexico" },
-  { key: "gb", flag: "🇬🇧", label: "United Kingdom" },
-  { key: "au", flag: "🇦🇺", label: "Australia" },
-  { key: "nz", flag: "🇳🇿", label: "New Zealand" },
-];
