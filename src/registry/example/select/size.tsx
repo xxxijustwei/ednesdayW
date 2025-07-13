@@ -9,16 +9,16 @@ import {
 } from "@/registry/ui/select";
 import Image from "next/image";
 
-const TOKENS = [
-  "USDT",
-  "USDC",
-  "USDe",
-  "USDS",
-  "DAI",
-  "USD1",
-  "FDUSD",
-  "USDY",
-  "FRAX",
+const NETWORKS = [
+  "Ethereum",
+  "BSC",
+  "Solana",
+  "Tron",
+  "Base",
+  "Arbitrum",
+  "Sui",
+  "Hyperliquid",
+  "Avalanche",
 ];
 
 const ICON_SIZE = {
@@ -39,20 +39,20 @@ export const SelectSizeExample = () => {
             variant="bordered"
             className="rounded-full"
           >
-            <SelectValue placeholder="Select a token" />
+            <SelectValue placeholder="Select a network" />
           </SelectTrigger>
           <SelectContent>
-            {TOKENS.map((token) => (
-              <SelectItem key={token} value={token}>
+            {NETWORKS.map((network) => (
+              <SelectItem key={network} value={network}>
                 <div className="flex items-center gap-1.5">
                   <Image
-                    src={`/tokens/${token}.svg`}
-                    alt={token}
+                    src={`/networks/${network}.svg`}
+                    alt={network}
                     width={ICON_SIZE[size]}
                     height={ICON_SIZE[size]}
                     className="rounded-full"
                   />
-                  <span className="font-semibold">{token}</span>
+                  <span className="font-semibold">{network}</span>
                 </div>
               </SelectItem>
             ))}

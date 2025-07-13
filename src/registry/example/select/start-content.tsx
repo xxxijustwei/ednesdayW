@@ -10,39 +10,39 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 
-const TOKENS = [
-  "USDT",
-  "USDC",
-  "USDe",
-  "USDS",
-  "DAI",
-  "USD1",
-  "FDUSD",
-  "USDY",
-  "FRAX",
+const NETWORKS = [
+  "Ethereum",
+  "BSC",
+  "Solana",
+  "Tron",
+  "Base",
+  "Arbitrum",
+  "Sui",
+  "Hyperliquid",
+  "Avalanche",
 ];
 
 export const SelectTokensExample = () => {
-  const [token, setToken] = useState<string>();
+  const [network, setNetwork] = useState<string>();
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
-      <Select value={token} onValueChange={setToken}>
+      <Select value={network} onValueChange={setNetwork}>
         <SelectTrigger size="lg" variant="bordered" className="rounded-full">
-          <SelectValue placeholder="Select a token" />
+          <SelectValue placeholder="Select a network" />
         </SelectTrigger>
         <SelectContent>
-          {TOKENS.map((token) => (
-            <SelectItem key={token} value={token}>
+          {NETWORKS.map((network) => (
+            <SelectItem key={network} value={network}>
               <div className="flex items-center gap-1.5">
                 <Image
-                  src={`/tokens/${token}.svg`}
-                  alt={token}
+                  src={`/networks/${network}.svg`}
+                  alt={network}
                   width={32}
                   height={32}
                   className="rounded-full"
                 />
-                <span className="text-lg font-semibold">{token}</span>
+                <span className="text-lg font-semibold">{network}</span>
               </div>
             </SelectItem>
           ))}
