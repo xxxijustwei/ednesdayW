@@ -5,6 +5,26 @@ import {
   AutocompleteInput,
   AutocompleteItem,
 } from "@/registry/ui/autocomplete";
+import Image from "next/image";
+import { useState } from "react";
+
+const TOKENS = [
+  "USDT",
+  "USDC",
+  "USDe",
+  "USDS",
+  "DAI",
+  "USD1",
+  "FDUSD",
+  "USDY",
+  "FRAX",
+];
+
+const ICON_SIZE = {
+  sm: 18,
+  md: 24,
+  lg: 32,
+};
 
 export const AutocompleteSizeExample = () => {
   const size = ["sm", "md", "lg"] as const;
@@ -12,39 +32,50 @@ export const AutocompleteSizeExample = () => {
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
       {size.map((size) => (
-        <Autocomplete key={size}>
-          <AutocompleteInput placeholder="Select a country" size={size} />
-          <AutocompleteContent>
-            {countries.map(({ key, flag, label }) => (
-              <AutocompleteItem key={key} value={key} label={label}>
-                <span className="text-base text-foreground">
-                  {`${flag} ${label}`}
-                </span>
-              </AutocompleteItem>
-            ))}
-            <AutocompleteEmpty>No results.</AutocompleteEmpty>
-          </AutocompleteContent>
-        </Autocomplete>
+        <TokenAutocomplete key={size} size={size} />
       ))}
     </div>
   );
 };
 
-const countries = [
-  { key: "cn", flag: "🇨🇳", label: "China" },
-  { key: "jp", flag: "🇯🇵", label: "Japan" },
-  { key: "kr", flag: "🇰🇷", label: "Korea" },
-  { key: "ru", flag: "🇷🇺", label: "Russia" },
-  { key: "in", flag: "🇮🇳", label: "India" },
-  { key: "br", flag: "🇧🇷", label: "Brazil" },
-  { key: "de", flag: "🇩🇪", label: "Germany" },
-  { key: "fr", flag: "🇫🇷", label: "France" },
-  { key: "it", flag: "🇮🇹", label: "Italy" },
-  { key: "es", flag: "🇪🇸", label: "Spain" },
-  { key: "us", flag: "🇺🇸", label: "United States" },
-  { key: "ca", flag: "🇨🇦", label: "Canada" },
-  { key: "mx", flag: "🇲🇽", label: "Mexico" },
-  { key: "gb", flag: "🇬🇧", label: "United Kingdom" },
-  { key: "au", flag: "🇦🇺", label: "Australia" },
-  { key: "nz", flag: "🇳🇿", label: "New Zealand" },
-];
+const TokenAutocomplete = ({ size }: { size: "sm" | "md" | "lg" }) => {
+  const [token, setToken] = useState("");
+  return (
+    <Autocomplete key={size} value={token} onChange={setToken}>
+      <AutocompleteInput
+        placeholder="Select a token"
+        size={size}
+        className="rounded-full"
+        variant="bordered"
+        startContent={
+          token && (
+            <Image
+              src={`/tokens/${token}.svg`}
+              alt={token}
+              width={ICON_SIZE[size]}
+              height={ICON_SIZE[size]}
+              className="rounded-full"
+            />
+          )
+        }
+      />
+      <AutocompleteContent>
+        {TOKENS.map((token) => (
+          <AutocompleteItem key={token} value={token} label={token}>
+            <div className="flex items-center gap-1.5">
+              <Image
+                src={`/tokens/${token}.svg`}
+                alt={token}
+                width={ICON_SIZE[size]}
+                height={ICON_SIZE[size]}
+                className="rounded-full"
+              />
+              <span className="font-semibold">{token}</span>
+            </div>
+          </AutocompleteItem>
+        ))}
+        <AutocompleteEmpty>No results.</AutocompleteEmpty>
+      </AutocompleteContent>
+    </Autocomplete>
+  );
+};

@@ -5,29 +5,56 @@ import {
   AutocompleteInput,
   AutocompleteItem,
 } from "@/registry/ui/autocomplete";
+import Image from "next/image";
 import { useState } from "react";
 
+const TOKENS = [
+  "USDT",
+  "USDC",
+  "USDe",
+  "USDS",
+  "DAI",
+  "USD1",
+  "FDUSD",
+  "USDY",
+  "FRAX",
+];
+
 export const AutocompleteStartContentExample = () => {
-  const [country, setCountry] = useState<string>("");
+  const [token, setToken] = useState<string>("");
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
-      <Autocomplete value={country} onChange={setCountry}>
+      <Autocomplete value={token} onChange={setToken}>
         <AutocompleteInput
-          placeholder="Select a country"
+          placeholder="Select a token"
           variant="bordered"
+          className="rounded-full"
           startContent={
-            country && (
-              <span>{countries.find(({ key }) => key === country)?.flag}</span>
+            token && (
+              <Image
+                src={`/tokens/${token}.svg`}
+                alt={token}
+                width={24}
+                height={24}
+                className="rounded-full"
+              />
             )
           }
         />
         <AutocompleteContent>
-          {countries.map(({ key, flag, label }) => (
-            <AutocompleteItem key={key} value={key} label={label}>
-              <span className="text-base text-foreground">
-                {`${flag} ${label}`}
-              </span>
+          {TOKENS.map((token) => (
+            <AutocompleteItem key={token} value={token} label={token}>
+              <div className="flex items-center gap-1.5">
+                <Image
+                  src={`/tokens/${token}.svg`}
+                  alt={token}
+                  width={24}
+                  height={24}
+                  className="rounded-full"
+                />
+                <span className="font-semibold">{token}</span>
+              </div>
             </AutocompleteItem>
           ))}
           <AutocompleteEmpty>No results.</AutocompleteEmpty>
@@ -36,22 +63,3 @@ export const AutocompleteStartContentExample = () => {
     </div>
   );
 };
-
-const countries = [
-  { key: "cn", flag: "🇨🇳", label: "China" },
-  { key: "jp", flag: "🇯🇵", label: "Japan" },
-  { key: "kr", flag: "🇰🇷", label: "Korea" },
-  { key: "ru", flag: "🇷🇺", label: "Russia" },
-  { key: "in", flag: "🇮🇳", label: "India" },
-  { key: "br", flag: "🇧🇷", label: "Brazil" },
-  { key: "de", flag: "🇩🇪", label: "Germany" },
-  { key: "fr", flag: "🇫🇷", label: "France" },
-  { key: "it", flag: "🇮🇹", label: "Italy" },
-  { key: "es", flag: "🇪🇸", label: "Spain" },
-  { key: "us", flag: "🇺🇸", label: "United States" },
-  { key: "ca", flag: "🇨🇦", label: "Canada" },
-  { key: "mx", flag: "🇲🇽", label: "Mexico" },
-  { key: "gb", flag: "🇬🇧", label: "United Kingdom" },
-  { key: "au", flag: "🇦🇺", label: "Australia" },
-  { key: "nz", flag: "🇳🇿", label: "New Zealand" },
-];

@@ -177,9 +177,9 @@ const containerVariants = cva(
         underline: "border-b-2 border-input rounded-none shadow-none",
       },
       size: {
-        sm: "min-h-10 px-2 py-1.5",
-        md: "min-h-12 px-2.5 py-2",
-        lg: "min-h-13 p-2.5",
+        sm: "min-h-10 px-2.5 py-1.5",
+        md: "min-h-12 px-3 py-2",
+        lg: "min-h-13 px-3 py-2.5",
       },
     },
     compoundVariants: [

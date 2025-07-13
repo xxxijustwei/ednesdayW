@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Autocomplete,
   AutocompleteContent,
@@ -5,6 +7,27 @@ import {
   AutocompleteInput,
   AutocompleteItem,
 } from "@/registry/ui/autocomplete";
+import Image from "next/image";
+import { useState } from "react";
+
+const TOKENS = [
+  {
+    value: "USDT",
+    disabled: false,
+  },
+  {
+    value: "USDC",
+    disabled: true,
+  },
+  {
+    value: "USDe",
+    disabled: false,
+  },
+  {
+    value: "USDS",
+    disabled: false,
+  },
+];
 
 export const AutocompleteDisabledItemExample = () => {
   const inputVariants = ["default", "faded", "bordered", "underline"] as const;
@@ -12,44 +35,59 @@ export const AutocompleteDisabledItemExample = () => {
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
       {inputVariants.map((variant) => (
-        <Autocomplete key={variant}>
-          <AutocompleteInput placeholder="Select a country" variant={variant} />
-          <AutocompleteContent>
-            {countries.map(({ key, flag, label, disabled = false }) => (
-              <AutocompleteItem
-                key={key}
-                value={key}
-                label={label}
-                disabled={disabled}
-              >
-                <span className="text-base text-foreground">
-                  {`${flag} ${label}`}
-                </span>
-              </AutocompleteItem>
-            ))}
-            <AutocompleteEmpty>No results.</AutocompleteEmpty>
-          </AutocompleteContent>
-        </Autocomplete>
+        <TokenAutocomplete key={variant} variant={variant} />
       ))}
     </div>
   );
 };
 
-const countries = [
-  { key: "cn", flag: "🇨🇳", label: "China" },
-  { key: "jp", flag: "🇯🇵", label: "Japan" },
-  { key: "kr", flag: "🇰🇷", label: "Korea" },
-  { key: "ru", flag: "🇷🇺", label: "Russia", disabled: true },
-  { key: "in", flag: "🇮🇳", label: "India" },
-  { key: "br", flag: "🇧🇷", label: "Brazil", disabled: true },
-  { key: "de", flag: "🇩🇪", label: "Germany" },
-  { key: "fr", flag: "🇫🇷", label: "France" },
-  { key: "it", flag: "🇮🇹", label: "Italy" },
-  { key: "es", flag: "🇪🇸", label: "Spain" },
-  { key: "us", flag: "🇺🇸", label: "United States" },
-  { key: "ca", flag: "🇨🇦", label: "Canada" },
-  { key: "mx", flag: "🇲🇽", label: "Mexico", disabled: true },
-  { key: "gb", flag: "🇬🇧", label: "United Kingdom" },
-  { key: "au", flag: "🇦🇺", label: "Australia" },
-  { key: "nz", flag: "🇳🇿", label: "New Zealand" },
-];
+const TokenAutocomplete = ({
+  variant,
+}: {
+  variant: "default" | "faded" | "bordered" | "underline";
+}) => {
+  const [token, setToken] = useState("");
+  return (
+    <Autocomplete key={variant} value={token} onChange={setToken}>
+      <AutocompleteInput
+        placeholder="Select a token"
+        size="md"
+        variant={variant}
+        className={variant !== "underline" ? "rounded-full" : ""}
+        startContent={
+          token && (
+            <Image
+              src={`/tokens/${token}.svg`}
+              alt={token}
+              width={24}
+              height={24}
+              className="rounded-full"
+            />
+          )
+        }
+      />
+      <AutocompleteContent>
+        {TOKENS.map(({ value, disabled }) => (
+          <AutocompleteItem
+            key={value}
+            value={value}
+            label={value}
+            disabled={disabled}
+          >
+            <div className="flex items-center gap-1.5">
+              <Image
+                src={`/tokens/${value}.svg`}
+                alt={value}
+                width={24}
+                height={24}
+                className="rounded-full"
+              />
+              <span className="font-semibold">{value}</span>
+            </div>
+          </AutocompleteItem>
+        ))}
+        <AutocompleteEmpty>No results.</AutocompleteEmpty>
+      </AutocompleteContent>
+    </Autocomplete>
+  );
+};

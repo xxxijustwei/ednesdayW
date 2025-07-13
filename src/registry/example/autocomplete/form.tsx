@@ -22,13 +22,26 @@ import {
 } from "@/registry/ui/autocomplete";
 import { Button } from "@/registry/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 
+const TOKENS = [
+  "USDT",
+  "USDC",
+  "USDe",
+  "USDS",
+  "DAI",
+  "USD1",
+  "FDUSD",
+  "USDY",
+  "FRAX",
+];
+
 const formSchema = z.object({
-  country: z.string().nonempty({
-    message: "Country is required",
+  token: z.string().nonempty({
+    message: "Token is required",
   }),
 });
 
@@ -36,7 +49,7 @@ export const AutocompleteFormExample = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      country: "",
+      token: "",
     },
   });
 
@@ -48,40 +61,51 @@ export const AutocompleteFormExample = () => {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle>Autocomplete Form</CardTitle>
-        <CardDescription>Enjoy the best experience with us</CardDescription>
+        <CardTitle>Withdraw Asset</CardTitle>
+        <CardDescription>Select the asset you want to withdraw</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
             <FormField
               control={form.control}
-              name="country"
+              name="token"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Country</FormLabel>
                   <FormControl>
                     <Autocomplete value={field.value} onChange={field.onChange}>
                       <AutocompleteInput
                         variant="bordered"
-                        placeholder="Select a country"
+                        placeholder="Select a token"
                         startContent={
                           field.value && (
-                            <span>
-                              {
-                                countries.find(({ key }) => key === field.value)
-                                  ?.flag
-                              }
-                            </span>
+                            <Image
+                              src={`/tokens/${field.value}.svg`}
+                              alt={field.value}
+                              width={24}
+                              height={24}
+                              className="rounded-full"
+                            />
                           )
                         }
                       />
                       <AutocompleteContent className="max-h-48">
-                        {countries.map(({ key, flag, label }) => (
-                          <AutocompleteItem key={key} value={key} label={label}>
-                            <span className="text-base text-foreground">
-                              {`${flag} ${label}`}
-                            </span>
+                        {TOKENS.map((token) => (
+                          <AutocompleteItem
+                            key={token}
+                            value={token}
+                            label={token}
+                          >
+                            <div className="flex items-center gap-1.5">
+                              <Image
+                                src={`/tokens/${token}.svg`}
+                                alt={token}
+                                width={24}
+                                height={24}
+                                className="rounded-full"
+                              />
+                              <span className="font-semibold">{token}</span>
+                            </div>
                           </AutocompleteItem>
                         ))}
                         <AutocompleteEmpty>No results.</AutocompleteEmpty>
@@ -103,22 +127,3 @@ export const AutocompleteFormExample = () => {
     </Card>
   );
 };
-
-const countries = [
-  { key: "cn", flag: "🇨🇳", label: "China" },
-  { key: "jp", flag: "🇯🇵", label: "Japan" },
-  { key: "kr", flag: "🇰🇷", label: "Korea" },
-  { key: "ru", flag: "🇷🇺", label: "Russia" },
-  { key: "in", flag: "🇮🇳", label: "India" },
-  { key: "br", flag: "🇧🇷", label: "Brazil" },
-  { key: "de", flag: "🇩🇪", label: "Germany" },
-  { key: "fr", flag: "🇫🇷", label: "France" },
-  { key: "it", flag: "🇮🇹", label: "Italy" },
-  { key: "es", flag: "🇪🇸", label: "Spain" },
-  { key: "us", flag: "🇺🇸", label: "United States" },
-  { key: "ca", flag: "🇨🇦", label: "Canada" },
-  { key: "mx", flag: "🇲🇽", label: "Mexico" },
-  { key: "gb", flag: "🇬🇧", label: "United Kingdom" },
-  { key: "au", flag: "🇦🇺", label: "Australia" },
-  { key: "nz", flag: "🇳🇿", label: "New Zealand" },
-];
