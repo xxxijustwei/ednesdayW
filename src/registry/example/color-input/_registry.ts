@@ -7,7 +7,7 @@ export const colorInputExamples: Registry["items"] = [
     type: "registry:component",
     title: "Color Input Variant Demo",
     description: "A demo of the color input variant",
-    dependencies: [`${siteConfig.registryUrl}/color-input.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/color-input.json`],
     files: [
       {
         path: "src/registry/example/color-input/variant.tsx",

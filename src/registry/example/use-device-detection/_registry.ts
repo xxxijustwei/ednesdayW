@@ -7,7 +7,9 @@ export const useDeviceDetectionExamples: Registry["items"] = [
     type: "registry:component",
     title: "Use Device Detection Demo",
     description: "A demo of the use device detection",
-    dependencies: [`${siteConfig.registryUrl}/use-device-detection.json`],
+    registryDependencies: [
+      `${siteConfig.registryUrl}/use-device-detection.json`,
+    ],
     files: [
       {
         path: "src/registry/example/use-device-detection/demo.tsx",

@@ -7,7 +7,7 @@ export const useCountdownExamples: Registry["items"] = [
     type: "registry:component",
     title: "Use Countdown Demo",
     description: "A demo of the use countdown",
-    dependencies: [
+    registryDependencies: [
       `${siteConfig.registryUrl}/button.json`,
       `${siteConfig.registryUrl}/use-countdown.json`,
     ],

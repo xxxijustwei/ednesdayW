@@ -7,7 +7,7 @@ export const selectExamples: Registry["items"] = [
     type: "registry:component",
     title: "Select Size Demo",
     description: "A demo of the select size",
-    dependencies: [`${siteConfig.registryUrl}/select.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/select.json`],
     files: [
       {
         path: "src/registry/example/select/size.tsx",
@@ -21,7 +21,7 @@ export const selectExamples: Registry["items"] = [
     type: "registry:component",
     title: "Select Variant Demo",
     description: "A demo of the select variant",
-    dependencies: [`${siteConfig.registryUrl}/select.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/select.json`],
     files: [
       {
         path: "src/registry/example/select/variant.tsx",
@@ -35,7 +35,11 @@ export const selectExamples: Registry["items"] = [
     type: "registry:component",
     title: "Select Disabled Demo",
     description: "A demo of the select disabled",
-    dependencies: [`${siteConfig.registryUrl}/select.json`],
+    registryDependencies: [
+      "switch",
+      "label",
+      `${siteConfig.registryUrl}/select.json`,
+    ],
     files: [
       {
         path: "src/registry/example/select/disabled.tsx",
@@ -49,7 +53,7 @@ export const selectExamples: Registry["items"] = [
     type: "registry:component",
     title: "Select Invalid Demo",
     description: "A demo of the select invalid",
-    dependencies: [`${siteConfig.registryUrl}/select.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/select.json`],
     files: [
       {
         path: "src/registry/example/select/invalid.tsx",
@@ -63,7 +67,7 @@ export const selectExamples: Registry["items"] = [
     type: "registry:component",
     title: "Select Start Content Demo",
     description: "A demo of the select start content",
-    dependencies: [`${siteConfig.registryUrl}/select.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/select.json`],
     files: [
       {
         path: "src/registry/example/select/start-content.tsx",
@@ -77,7 +81,7 @@ export const selectExamples: Registry["items"] = [
     type: "registry:component",
     title: "Select Clearable Demo",
     description: "A demo of the select clearable",
-    dependencies: [`${siteConfig.registryUrl}/select.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/select.json`],
     files: [
       {
         path: "src/registry/example/select/clearable.tsx",

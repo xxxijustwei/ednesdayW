@@ -7,7 +7,7 @@ export const colorPickerExamples: Registry["items"] = [
     type: "registry:component",
     title: "Color Picker Demo",
     description: "A demo of the color picker",
-    dependencies: [`${siteConfig.registryUrl}/color-picker.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/color-picker.json`],
     files: [
       {
         path: "src/registry/example/color-picker/demo.tsx",

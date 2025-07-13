@@ -7,7 +7,7 @@ export const autocompleteExamples: Registry["items"] = [
     type: "registry:component",
     title: "Autocomplete Size Demo",
     description: "A demo of the autocomplete size",
-    dependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
     files: [
       {
         path: "src/registry/example/autocomplete/size.tsx",
@@ -21,7 +21,7 @@ export const autocompleteExamples: Registry["items"] = [
     type: "registry:component",
     title: "Autocomplete Variant Demo",
     description: "A demo of the autocomplete variant",
-    dependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
     files: [
       {
         path: "src/registry/example/autocomplete/variant.tsx",
@@ -35,7 +35,7 @@ export const autocompleteExamples: Registry["items"] = [
     type: "registry:component",
     title: "Autocomplete Disabled Demo",
     description: "A demo of the autocomplete disabled",
-    dependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
     files: [
       {
         path: "src/registry/example/autocomplete/disabled.tsx",
@@ -49,7 +49,7 @@ export const autocompleteExamples: Registry["items"] = [
     type: "registry:component",
     title: "Autocomplete Disabled Item Demo",
     description: "A demo of the autocomplete disabled item",
-    dependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
     files: [
       {
         path: "src/registry/example/autocomplete/disabled-item.tsx",
@@ -63,7 +63,7 @@ export const autocompleteExamples: Registry["items"] = [
     type: "registry:component",
     title: "Autocomplete Invalid Demo",
     description: "A demo of the autocomplete invalid",
-    dependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
     files: [
       {
         path: "src/registry/example/autocomplete/invalid.tsx",
@@ -77,7 +77,7 @@ export const autocompleteExamples: Registry["items"] = [
     type: "registry:component",
     title: "Autocomplete Start Content Demo",
     description: "A demo of the autocomplete start content",
-    dependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
     files: [
       {
         path: "src/registry/example/autocomplete/start-content.tsx",
@@ -91,7 +91,7 @@ export const autocompleteExamples: Registry["items"] = [
     type: "registry:component",
     title: "Autocomplete Form Demo",
     description: "A demo of the autocomplete form",
-    dependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
+    registryDependencies: [`${siteConfig.registryUrl}/autocomplete.json`],
     files: [
       {
         path: "src/registry/example/autocomplete/form.tsx",

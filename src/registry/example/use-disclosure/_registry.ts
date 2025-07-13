@@ -7,7 +7,10 @@ export const useDisclosureExamples: Registry["items"] = [
     type: "registry:component",
     title: "Use Disclosure Dialog Demo",
     description: "A demo of the use disclosure dialog",
-    dependencies: ["dialog", `${siteConfig.registryUrl}/use-disclosure.json`],
+    registryDependencies: [
+      "dialog",
+      `${siteConfig.registryUrl}/use-disclosure.json`,
+    ],
     files: [
       {
         path: "src/registry/example/use-disclosure/dialog.tsx",
