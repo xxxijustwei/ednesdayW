@@ -177,9 +177,9 @@ const containerVariants = cva(
         underline: "border-b-2 border-input rounded-none shadow-none",
       },
       size: {
-        sm: "min-h-10 px-3 py-1.5",
-        md: "min-h-12 px-3 py-2",
-        lg: "min-h-13 px-3 py-2.5",
+        sm: "min-h-10 px-2 py-1.5",
+        md: "min-h-12 px-2.5 py-2",
+        lg: "min-h-13 p-2.5",
       },
     },
     compoundVariants: [
@@ -238,18 +238,33 @@ interface TagInputBadgeProps extends React.ComponentProps<typeof Badge> {
   value: string;
 }
 
-const badgeVariants = cva("max-w-full", {
+const badgeVariants = cva("max-w-full gap-1.5", {
   variants: {
     size: {
-      sm: "text-sm h-6",
-      md: "text-base h-7",
-      lg: "text-lg h-7",
+      sm: "text-sm h-6 rounded-sm",
+      md: "text-base h-7 rounded-sm",
+      lg: "text-lg h-7 rounded-sm",
     },
   },
   defaultVariants: {
     size: "md",
   },
 });
+
+const badgeCloseButtonVariants = cva(
+  cn(
+    "rounded-full text-accent hover:text-accent bg-transparent hover:bg-transparent",
+  ),
+  {
+    variants: {
+      size: {
+        sm: "size-3",
+        md: "size-3.5",
+        lg: "size-4",
+      },
+    },
+  },
+);
 
 const TagInputBadge = React.memo(
   ({ children, value, className, ...props }: TagInputBadgeProps) => {
@@ -272,7 +287,7 @@ const TagInputBadge = React.memo(
           variant="ghost"
           size="icon"
           asChild
-          className="rounded-full size-4 text-background hover:text-background bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent"
+          className={badgeCloseButtonVariants({ size })}
           onClick={handleDelete}
         >
           <div>
