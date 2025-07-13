@@ -27,7 +27,6 @@ const TOKENS = [
 
 export const SelectVariantExample = () => {
   const variants = ["default", "faded", "bordered", "underline"] as const;
-  const [country, setCountry] = useState<string>();
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
