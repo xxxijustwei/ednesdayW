@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Use Device Detection Demo",
   "description": "A demo of the use device detection",
-  "dependencies": [
+  "registryDependencies": [
     "https://ui.ednesdayw.com/r/use-device-detection.json"
   ],
   "files": [

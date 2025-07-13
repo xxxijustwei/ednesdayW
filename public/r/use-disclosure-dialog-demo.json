@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Use Disclosure Dialog Demo",
   "description": "A demo of the use disclosure dialog",
-  "dependencies": [
+  "registryDependencies": [
     "dialog",
     "https://ui.ednesdayw.com/r/use-disclosure.json"
   ],

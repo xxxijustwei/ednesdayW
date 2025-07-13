@@ -576,7 +576,7 @@ export const Index: Record<string, any> = {
     name: "select-size-demo",
     description: "A demo of the select size",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/select.json"],
     files: [
       {
         path: "src/registry/example/select/size.tsx",
@@ -599,7 +599,7 @@ export const Index: Record<string, any> = {
     name: "select-variant-demo",
     description: "A demo of the select variant",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/select.json"],
     files: [
       {
         path: "src/registry/example/select/variant.tsx",
@@ -622,7 +622,11 @@ export const Index: Record<string, any> = {
     name: "select-disabled-demo",
     description: "A demo of the select disabled",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: [
+      "switch",
+      "label",
+      "https://ui.ednesdayw.com/r/select.json",
+    ],
     files: [
       {
         path: "src/registry/example/select/disabled.tsx",
@@ -645,7 +649,7 @@ export const Index: Record<string, any> = {
     name: "select-invalid-demo",
     description: "A demo of the select invalid",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/select.json"],
     files: [
       {
         path: "src/registry/example/select/invalid.tsx",
@@ -668,7 +672,7 @@ export const Index: Record<string, any> = {
     name: "select-start-content-demo",
     description: "A demo of the select start content",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/select.json"],
     files: [
       {
         path: "src/registry/example/select/start-content.tsx",
@@ -691,7 +695,7 @@ export const Index: Record<string, any> = {
     name: "select-clearable-demo",
     description: "A demo of the select clearable",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/select.json"],
     files: [
       {
         path: "src/registry/example/select/clearable.tsx",
@@ -714,7 +718,7 @@ export const Index: Record<string, any> = {
     name: "color-picker-demo",
     description: "A demo of the color picker",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/color-picker.json"],
     files: [
       {
         path: "src/registry/example/color-picker/demo.tsx",
@@ -737,7 +741,7 @@ export const Index: Record<string, any> = {
     name: "color-input-variant-demo",
     description: "A demo of the color input variant",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/color-input.json"],
     files: [
       {
         path: "src/registry/example/color-input/variant.tsx",
@@ -875,7 +879,10 @@ export const Index: Record<string, any> = {
     name: "use-disclosure-dialog-demo",
     description: "A demo of the use disclosure dialog",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: [
+      "dialog",
+      "https://ui.ednesdayw.com/r/use-disclosure.json",
+    ],
     files: [
       {
         path: "src/registry/example/use-disclosure/dialog.tsx",
@@ -947,7 +954,10 @@ export const Index: Record<string, any> = {
     name: "use-countdown-demo",
     description: "A demo of the use countdown",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: [
+      "https://ui.ednesdayw.com/r/button.json",
+      "https://ui.ednesdayw.com/r/use-countdown.json",
+    ],
     files: [
       {
         path: "src/registry/example/use-countdown/demo.tsx",
@@ -970,7 +980,9 @@ export const Index: Record<string, any> = {
     name: "use-device-detection-demo",
     description: "A demo of the use device detection",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: [
+      "https://ui.ednesdayw.com/r/use-device-detection.json",
+    ],
     files: [
       {
         path: "src/registry/example/use-device-detection/demo.tsx",
@@ -995,7 +1007,7 @@ export const Index: Record<string, any> = {
     name: "autocomplete-size-demo",
     description: "A demo of the autocomplete size",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/autocomplete.json"],
     files: [
       {
         path: "src/registry/example/autocomplete/size.tsx",
@@ -1018,7 +1030,7 @@ export const Index: Record<string, any> = {
     name: "autocomplete-variant-demo",
     description: "A demo of the autocomplete variant",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/autocomplete.json"],
     files: [
       {
         path: "src/registry/example/autocomplete/variant.tsx",
@@ -1041,7 +1053,7 @@ export const Index: Record<string, any> = {
     name: "autocomplete-disabled-demo",
     description: "A demo of the autocomplete disabled",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/autocomplete.json"],
     files: [
       {
         path: "src/registry/example/autocomplete/disabled.tsx",
@@ -1064,7 +1076,7 @@ export const Index: Record<string, any> = {
     name: "autocomplete-disabled-item-demo",
     description: "A demo of the autocomplete disabled item",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/autocomplete.json"],
     files: [
       {
         path: "src/registry/example/autocomplete/disabled-item.tsx",
@@ -1089,7 +1101,7 @@ export const Index: Record<string, any> = {
     name: "autocomplete-invalid-demo",
     description: "A demo of the autocomplete invalid",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/autocomplete.json"],
     files: [
       {
         path: "src/registry/example/autocomplete/invalid.tsx",
@@ -1112,7 +1124,7 @@ export const Index: Record<string, any> = {
     name: "autocomplete-start-content-demo",
     description: "A demo of the autocomplete start content",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/autocomplete.json"],
     files: [
       {
         path: "src/registry/example/autocomplete/start-content.tsx",
@@ -1137,7 +1149,7 @@ export const Index: Record<string, any> = {
     name: "autocomplete-form-demo",
     description: "A demo of the autocomplete form",
     type: "registry:component",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/autocomplete.json"],
     files: [
       {
         path: "src/registry/example/autocomplete/form.tsx",

@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Autocomplete Variant Demo",
   "description": "A demo of the autocomplete variant",
-  "dependencies": [
+  "registryDependencies": [
     "https://ui.ednesdayw.com/r/autocomplete.json"
   ],
   "files": [

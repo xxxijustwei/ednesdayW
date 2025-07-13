@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Use Countdown Demo",
   "description": "A demo of the use countdown",
-  "dependencies": [
+  "registryDependencies": [
     "https://ui.ednesdayw.com/r/button.json",
     "https://ui.ednesdayw.com/r/use-countdown.json"
   ],
