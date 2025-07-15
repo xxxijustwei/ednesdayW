@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "bun run format && bun run lint && next build",
     "start": "next start",
     "format": "biome format --write --no-errors-on-unmatched ./src",
@@ -98,6 +98,7 @@
     "jsdom": "^26.1.0",
     "lint-staged": "^15.5.0",
     "mdast-util-toc": "^7.1.0",
+    "next-rspack": "^15.4.1",
     "postcss": "^8",
     "rehype": "^13.0.2",
     "rehype-autolink-headings": "^7.1.0",
