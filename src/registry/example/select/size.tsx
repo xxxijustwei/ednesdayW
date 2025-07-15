@@ -46,7 +46,7 @@ export const SelectSizeExample = () => {
               <SelectItem key={network} value={network}>
                 <div className="flex items-center gap-1.5">
                   <Image
-                    src={`/networks/${network}.svg`}
+                    src={`/networks/${network.toLowerCase()}.svg`}
                     alt={network}
                     width={ICON_SIZE[size]}
                     height={ICON_SIZE[size]}

@@ -55,7 +55,7 @@ const TokenSelect = ({
           <SelectItem key={network} value={network}>
             <div className="flex items-center gap-1.5">
               <Image
-                src={`/networks/${network}.svg`}
+                src={`/networks/${network.toLowerCase()}.svg`}
                 alt={network}
                 width={24}
                 height={24}
