@@ -1,11 +1,6 @@
-import { createHash } from "crypto";
+import { Point } from "@noble/ed25519";
 import bs58 from "bs58";
-import {
-  bytesToHex,
-  hexToBytes,
-  isAddress as isEVMAddress,
-  toBytes,
-} from "viem";
+import { hexToBytes, isAddress as isEVMAddress, sha256 } from "viem";
 
 type Network = "evm" | "tron" | "solana";
 
@@ -49,26 +44,12 @@ const isTronAddress = (address: string) => {
   return false;
 };
 
-const sha256 = (data: Uint8Array): `0x${string}` => {
-  return `0x${createHash("sha256")
-    .update(Buffer.from(toBytes(bytesToHex(data))))
-    .digest("hex")}`;
-};
-
-const SOLANA_ADDRESS_LENGTH = 44;
 const SOLANA_PUBKEY_BYTES = 32;
-const BASE58_ALPHABET =
-  "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+const SOLANA_ADDRESS_REGEX = /^[1-9A-HJ-NP-Za-km-z]{43,44}$/;
 
 const isSolanaAddress = (address: string): boolean => {
-  if (address.length !== SOLANA_ADDRESS_LENGTH) {
+  if (!SOLANA_ADDRESS_REGEX.test(address)) {
     return false;
-  }
-
-  for (const char of address) {
-    if (!BASE58_ALPHABET.includes(char)) {
-      return false;
-    }
   }
 
   try {
@@ -77,7 +58,12 @@ const isSolanaAddress = (address: string): boolean => {
       return false;
     }
 
-    return !decoded.every((byte) => byte === 0);
+    if (decoded.every((byte) => byte === 0)) {
+      return false;
+    }
+
+    Point.fromBytes(decoded);
+    return true;
   } catch {
     return false;
   }
