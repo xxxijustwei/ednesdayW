@@ -44,7 +44,8 @@
         "noDangerouslySetInnerHtml": "off"
       },
       "style": {
-        "useImportType": "off"
+        "useImportType": "off",
+        "useNodejsImportProtocol": "off"
       }
     }
   },
