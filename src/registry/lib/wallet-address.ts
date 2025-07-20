@@ -7,7 +7,7 @@ import {
   toBytes,
 } from "viem";
 
-type Network = "evm" | "tron";
+type Network = "evm" | "tron" | "solana";
 
 export const isAddress = (address: string, network: Network = "evm") => {
   switch (network) {
@@ -15,6 +15,8 @@ export const isAddress = (address: string, network: Network = "evm") => {
       return isEVMAddress(address);
     case "tron":
       return isTronAddress(address);
+    case "solana":
+      return isSolanaAddress(address);
   }
 };
 
@@ -51,4 +53,32 @@ const sha256 = (data: Uint8Array): `0x${string}` => {
   return `0x${createHash("sha256")
     .update(Buffer.from(toBytes(bytesToHex(data))))
     .digest("hex")}`;
+};
+
+const SOLANA_ADDRESS_LENGTH = 44;
+const SOLANA_PUBKEY_BYTES = 32;
+const BASE58_ALPHABET =
+  "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+
+const isSolanaAddress = (address: string): boolean => {
+  if (address.length !== SOLANA_ADDRESS_LENGTH) {
+    return false;
+  }
+
+  for (const char of address) {
+    if (!BASE58_ALPHABET.includes(char)) {
+      return false;
+    }
+  }
+
+  try {
+    const decoded = bs58.decode(address);
+    if (decoded.length !== SOLANA_PUBKEY_BYTES) {
+      return false;
+    }
+
+    return !decoded.every((byte) => byte === 0);
+  } catch {
+    return false;
+  }
 };
