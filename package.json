@@ -44,6 +44,7 @@
     "@radix-ui/react-use-callback-ref": "^1.1.0",
     "@tanstack/react-query": "^5.69.0",
     "axios": "^1.8.4",
+    "bs58": "^6.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -72,6 +73,7 @@
     "tw-animate-css": "^1.2.4",
     "use-scramble": "^2.2.15",
     "vaul": "^1.1.2",
+    "viem": "2.32.0",
     "zod": "^3.24.2",
     "zustand": "^5.0.3"
   },
