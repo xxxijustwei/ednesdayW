@@ -92,5 +92,15 @@ export const docsConfig: DocsConfig = {
         },
       ],
     },
+    {
+      title: "Lib",
+      items: [
+        {
+          title: "Wallet Address",
+          href: "/docs/lib/wallet-address",
+          items: [],
+        },
+      ],
+    },
   ],
 };

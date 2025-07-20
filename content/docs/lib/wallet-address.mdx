@@ -1,0 +1,69 @@
+---
+title: Wallet Address
+description: A utility for validating cryptocurrency wallet addresses across different networks.
+---
+
+### Installation
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/wallet-address.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="wallet-address" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+```tsx
+import { isAddress } from "@/lib/wallet-address";
+
+// Validate EVM address (default)
+const isValidEVM = isAddress("0x742d35Cc6634C0532925a3b844Bc9e7595f5b80D");
+
+// Validate Tron address
+const isValidTron = isAddress("TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7", "tron");
+```
+
+### API
+
+#### isAddress
+
+Validates a cryptocurrency wallet address for the specified network.
+
+```tsx
+isAddress(address: string, network?: Network): boolean
+```
+
+##### Parameters
+
+- `address` - The wallet address to validate
+- `network` - The blockchain network type. Options: `"evm"` (default) or `"tron"`
+
+##### Returns
+
+`boolean` - Returns `true` if the address is valid for the specified network, `false` otherwise.
+
+### Example
+
+<ComponentPreview name="wallet-address-validation" />
