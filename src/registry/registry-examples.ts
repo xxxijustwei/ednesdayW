@@ -12,6 +12,7 @@ import { useCountdownExamples } from "./example/use-countdown/_registry";
 import { useDeviceDetectionExamples } from "./example/use-device-detection/_registry";
 import { useDisclosureExamples } from "./example/use-disclosure/_registry";
 import { useRippleExamples } from "./example/use-ripple/_registry";
+import { walletAddressExamples } from "./example/wallet-address/_registry";
 
 export const examples: Registry["items"] = [
   ...inputExamples,
@@ -27,4 +28,5 @@ export const examples: Registry["items"] = [
   ...useDeviceDetectionExamples,
   ...autocompleteExamples,
   ...tagInputExamples,
+  ...walletAddressExamples,
 ];

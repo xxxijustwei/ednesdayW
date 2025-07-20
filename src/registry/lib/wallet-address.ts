@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { createHash } from "crypto";
 import bs58 from "bs58";
 import {
   bytesToHex,

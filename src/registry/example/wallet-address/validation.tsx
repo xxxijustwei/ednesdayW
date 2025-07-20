@@ -10,7 +10,7 @@ export const WalletAddressValidationDemo = () => {
   const [isTronAddress, setIsTronAddress] = useState<boolean>();
 
   return (
-    <div className="flex flex-col gap-4 w-full max-w-72">
+    <div className="flex flex-col gap-4 w-full max-w-[438px]">
       <div className="flex flex-col gap-1.5">
         <Label>EVM Address Check</Label>
         <Input
