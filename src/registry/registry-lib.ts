@@ -35,4 +35,16 @@ export const lib: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "wallet-address",
+    type: "registry:lib",
+    dependencies: ["bs58", "viem"],
+    files: [
+      {
+        path: "src/registry/lib/wallet-address.ts",
+        type: "registry:lib",
+        target: "lib/wallet-address.ts",
+      },
+    ],
+  },
 ];
