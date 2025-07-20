@@ -853,6 +853,24 @@
       ]
     },
     {
+      "name": "wallet-address-validation-demo",
+      "type": "registry:component",
+      "title": "Wallet Address Validation Demo",
+      "description": "A demo of the wallet address validation",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/wallet-address.json",
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/wallet-address/validation.tsx",
+          "type": "registry:component",
+          "target": "components/demo/wallet-address-validation-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "dependencies": ["clsx", "tailwind-merge"],
@@ -883,6 +901,18 @@
           "path": "src/registry/lib/paginate.ts",
           "type": "registry:lib",
           "target": "lib/paginate.ts"
+        }
+      ]
+    },
+    {
+      "name": "wallet-address",
+      "type": "registry:lib",
+      "dependencies": ["bs58", "viem"],
+      "files": [
+        {
+          "path": "src/registry/lib/wallet-address.ts",
+          "type": "registry:lib",
+          "target": "lib/wallet-address.ts"
         }
       ]
     }

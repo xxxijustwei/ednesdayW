@@ -1355,6 +1355,34 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "wallet-address-validation-demo": {
+    name: "wallet-address-validation-demo",
+    description: "A demo of the wallet address validation",
+    type: "registry:component",
+    registryDependencies: [
+      "https://ui.ednesdayw.com/r/wallet-address.json",
+      "https://ui.ednesdayw.com/r/input.json",
+    ],
+    files: [
+      {
+        path: "src/registry/example/wallet-address/validation.tsx",
+        type: "registry:component",
+        target: "components/demo/wallet-address-validation-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/example/wallet-address/validation.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   utils: {
     name: "utils",
     description: "",
@@ -1415,6 +1443,29 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(async () => {
       const mod = await import("@/registry/lib/paginate.ts");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "wallet-address": {
+    name: "wallet-address",
+    description: "",
+    type: "registry:lib",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "src/registry/lib/wallet-address.ts",
+        type: "registry:lib",
+        target: "lib/wallet-address.ts",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/lib/wallet-address.ts");
       const exportName =
         Object.keys(mod).find(
           (key) =>

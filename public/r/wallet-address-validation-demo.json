@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wallet-address-validation-demo",
+  "type": "registry:component",
+  "title": "Wallet Address Validation Demo",
+  "description": "A demo of the wallet address validation",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/wallet-address.json",
+    "https://ui.ednesdayw.com/r/input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/wallet-address/validation.tsx",
+      "content": "import { Label } from \"@/components/ui/label\";\nimport { cn } from \"@/lib/utils\";\nimport { isAddress } from \"@/lib/wallet-address\";\nimport { Input } from \"@/components/ui/input\";\nimport { CheckCheckIcon, XIcon } from \"lucide-react\";\nimport { useState } from \"react\";\n\nexport const WalletAddressValidationDemo = () => {\n  const [isEvmAddress, setIsEvmAddress] = useState<boolean>();\n  const [isTronAddress, setIsTronAddress] = useState<boolean>();\n\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <div className=\"flex flex-col gap-1.5\">\n        <Label>EVM Address Check</Label>\n        <Input\n          variant=\"bordered\"\n          placeholder=\"0x...\"\n          onChange={(e) => {\n            const value = e.target.value;\n            setIsEvmAddress(isAddress(value));\n          }}\n          endContent={\n            <span\n              className={cn(\n                \"font-semibold\",\n                isEvmAddress ? \"text-green-500\" : \"text-red-500\",\n              )}\n            >\n              {isEvmAddress ? <CheckCheckIcon /> : <XIcon />}\n            </span>\n          }\n        />\n      </div>\n      <div className=\"flex flex-col gap-1.5\">\n        <Label>Tron Address Check</Label>\n        <Input\n          variant=\"bordered\"\n          placeholder=\"T...\"\n          onChange={(e) => {\n            const value = e.target.value;\n            setIsTronAddress(isAddress(value, \"tron\"));\n          }}\n          endContent={\n            <span\n              className={cn(\n                \"font-semibold\",\n                isTronAddress ? \"text-green-500\" : \"text-red-500\",\n              )}\n            >\n              {isTronAddress ? <CheckCheckIcon /> : <XIcon />}\n            </span>\n          }\n        />\n      </div>\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/wallet-address-validation-demo.tsx"
+    }
+  ]
+}
