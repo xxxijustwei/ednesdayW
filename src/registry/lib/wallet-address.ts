@@ -14,7 +14,7 @@ export const isAddress = (address: string, network: Network = "evm") => {
     case "evm":
       return isEVMAddress(address);
     case "tron":
-      return /^T[a-zA-Z0-9]{33}$/.test(address);
+      return isTronAddress(address);
   }
 };
 
