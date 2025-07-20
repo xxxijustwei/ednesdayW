@@ -39,10 +39,13 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/wallet-address.json"
 import { isAddress } from "@/lib/wallet-address";
 
 // Validate EVM address (default)
-const isValidEVM = isAddress("0x742d35Cc6634C0532925a3b844Bc9e7595f5b80D");
+const isValidEVM = isAddress("0x888777d851872Cd075D88C61BE8793Ff302C1FAd");
 
 // Validate Tron address
-const isValidTron = isAddress("TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7", "tron");
+const isValidTron = isAddress("TWJ88TmUTG3ZcvPqR8WrPxA33esoXFFFFF", "tron");
+
+// Validate Solana address
+const isValidSolana = isAddress("FQh8Vkasb6h173nJ7mXmHwmbV7DX81N6jXBaNQNaP5RA", "solana");
 ```
 
 ### API
@@ -58,7 +61,7 @@ isAddress(address: string, network?: Network): boolean
 ##### Parameters
 
 - `address` - The wallet address to validate
-- `network` - The blockchain network type. Options: `"evm"` (default) or `"tron"`
+- `network` - The blockchain network type. Options: `evm` (default), `tron` or `solana`
 
 ##### Returns
 

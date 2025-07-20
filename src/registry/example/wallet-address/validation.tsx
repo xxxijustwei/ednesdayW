@@ -8,6 +8,7 @@ import { useState } from "react";
 export const WalletAddressValidationDemo = () => {
   const [isEvmAddress, setIsEvmAddress] = useState<boolean>();
   const [isTronAddress, setIsTronAddress] = useState<boolean>();
+  const [isSolanaAddress, setIsSolanaAddress] = useState<boolean>();
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-[438px]">
@@ -49,6 +50,27 @@ export const WalletAddressValidationDemo = () => {
               )}
             >
               {isTronAddress ? <CheckCheckIcon /> : <XIcon />}
+            </span>
+          }
+        />
+      </div>
+      <div className="flex flex-col gap-1.5">
+        <Label>Solana Address Check</Label>
+        <Input
+          variant="bordered"
+          placeholder="Solana..."
+          onChange={(e) => {
+            const value = e.target.value;
+            setIsSolanaAddress(isAddress(value, "solana"));
+          }}
+          endContent={
+            <span
+              className={cn(
+                "font-semibold",
+                isSolanaAddress ? "text-green-500" : "text-red-500",
+              )}
+            >
+              {isSolanaAddress ? <CheckCheckIcon /> : <XIcon />}
             </span>
           }
         />
