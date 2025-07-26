@@ -60,7 +60,7 @@ const TokenSelect = ({
                 size="icon"
                 asChild
                 className="rounded-full size-5 text-accent hover:text-accent bg-muted-foreground hover:bg-accent-foreground"
-                onClick={() => setNetwork(undefined)}
+                onClick={() => setNetwork("")}
               >
                 <div>
                   <XIcon className="shrink-0" />
@@ -77,8 +77,8 @@ const TokenSelect = ({
               <Image
                 src={`/networks/${network.toLowerCase()}.svg`}
                 alt={network}
-                width={32}
-                height={32}
+                width={28}
+                height={28}
                 className="rounded-full"
               />
               <span className="text-lg font-semibold">{network}</span>

@@ -38,8 +38,8 @@ export const SelectTokensExample = () => {
                 <Image
                   src={`/networks/${network.toLowerCase()}.svg`}
                   alt={network}
-                  width={32}
-                  height={32}
+                  width={28}
+                  height={28}
                   className="rounded-full"
                 />
                 <span className="text-lg font-semibold">{network}</span>
