@@ -89,7 +89,7 @@ export const ui: Registry["items"] = [
     title: "Button",
     description: "A button component",
     registryDependencies: [`${siteConfig.registryUrl}/use-ripple.json`],
-    dependencies: ["motion"],
+    dependencies: ["motion", "@radix-ui/react-use-callback-ref"],
     files: [
       {
         path: "src/registry/ui/button.tsx",
