@@ -105,7 +105,7 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "A button component",
-      "dependencies": ["motion"],
+      "dependencies": ["motion", "@radix-ui/react-use-callback-ref"],
       "registryDependencies": ["https://ui.ednesdayw.com/r/use-ripple.json"],
       "files": [
         {

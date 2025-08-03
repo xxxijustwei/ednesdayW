@@ -5,7 +5,8 @@
   "title": "Button",
   "description": "A button component",
   "dependencies": [
-    "motion"
+    "motion",
+    "@radix-ui/react-use-callback-ref"
   ],
   "registryDependencies": [
     "https://ui.ednesdayw.com/r/use-ripple.json"
