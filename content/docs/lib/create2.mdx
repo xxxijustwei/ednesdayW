@@ -40,8 +40,8 @@ import { predictDeterministicAddress } from "@/lib/create2";
 
 // Predict a deterministic contract address
 const predictedAddress = predictDeterministicAddress({
-  implementation: "0x1234567890123456789012345678901234567890",
-  deployer: "0xabcdef1234567890abcdef1234567890abcdef12",
+  implementation: "0x47deB22A87D12c8BE5F638AFC7DE48b52968205b",
+  deployer: "0x6a569215be90A55B4c615368fCB13F75d99c8A60",
   salt: "my-unique-salt",
 });
 
@@ -88,4 +88,4 @@ The address is calculated by:
 
 ### Example
 
-<ComponentPreview name="create2-prediction-demo" />
+<ComponentPreview name="create2-predict-address-demo" />
