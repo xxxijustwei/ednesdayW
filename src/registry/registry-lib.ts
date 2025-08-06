@@ -47,4 +47,16 @@ export const lib: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "create2",
+    type: "registry:lib",
+    dependencies: ["viem"],
+    files: [
+      {
+        path: "src/registry/lib/create2.ts",
+        type: "registry:lib",
+        target: "lib/create2.ts",
+      },
+    ],
+  },
 ];

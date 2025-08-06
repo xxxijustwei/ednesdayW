@@ -1,0 +1,91 @@
+---
+title: Create2
+description: A utility for predicting deterministic contract addresses using CREATE2 deployment.
+---
+
+### Installation
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/create2.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="create2" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+```tsx
+import { predictDeterministicAddress } from "@/lib/create2";
+
+// Predict a deterministic contract address
+const predictedAddress = predictDeterministicAddress({
+  implementation: "0x1234567890123456789012345678901234567890",
+  deployer: "0xabcdef1234567890abcdef1234567890abcdef12",
+  salt: "my-unique-salt",
+});
+
+console.log(predictedAddress);
+// Output: 0x... (predicted contract address)
+```
+
+### API
+
+#### predictDeterministicAddress
+
+Predicts the deterministic address for a contract deployed using CREATE2 with minimal proxy pattern (EIP-1167).
+
+```tsx
+predictDeterministicAddress(params: Create2PredictAddressParams): `0x${string}`
+```
+
+##### Parameters
+
+- `params` - An object containing:
+  - `implementation` - The implementation contract address (`0x${string}`)
+  - `deployer` - The deployer contract address (`0x${string}`)
+  - `salt` - A unique string salt (max 32 characters) used for address generation
+
+##### Returns
+
+`0x${string}` - Returns the predicted deterministic contract address.
+
+##### Errors
+
+- Throws if the implementation address is invalid
+- Throws if the deployer address is invalid
+- Throws if the salt exceeds 32 characters
+
+### How it works
+
+This utility implements the CREATE2 address prediction algorithm using the minimal proxy pattern (EIP-1167). The minimal proxy is a standardized bytecode pattern that delegates all calls to an implementation contract, allowing for gas-efficient contract deployments.
+
+The address is calculated by:
+1. Constructing the minimal proxy bytecode with the implementation address
+2. Combining it with the deployer address and salt
+3. Computing the keccak256 hash of the encoded parameters
+4. Extracting the last 20 bytes as the predicted address
+
+### Example
+
+<ComponentPreview name="create2-prediction-demo" />

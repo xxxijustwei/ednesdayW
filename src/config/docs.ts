@@ -100,6 +100,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/lib/wallet-address",
           items: [],
         },
+        {
+          title: "Create2",
+          href: "/docs/lib/create2",
+          items: [],
+        },
       ],
     },
   ],
