@@ -306,7 +306,12 @@
       "type": "registry:component",
       "title": "Input Form Demo",
       "description": "A demo of the input form",
-      "registryDependencies": ["https://ui.ednesdayw.com/r/input.json"],
+      "dependencies": ["react-hook-form", "zod", "sonner"],
+      "registryDependencies": [
+        "card",
+        "form",
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
       "files": [
         {
           "path": "src/registry/example/input/form.tsx",
@@ -871,6 +876,26 @@
       ]
     },
     {
+      "name": "create2-predict-address-demo",
+      "type": "registry:component",
+      "title": "Create2 Predict Address Demo",
+      "description": "A demo of the create2 predict address",
+      "dependencies": ["lucide-react", "react-hook-form", "zod", "viem"],
+      "registryDependencies": [
+        "card",
+        "form",
+        "https://ui.ednesdayw.com/r/create2.json",
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/create2/predict-address.tsx",
+          "type": "registry:component",
+          "target": "components/demo/create2-predict-address-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "dependencies": ["clsx", "tailwind-merge"],
@@ -913,6 +938,18 @@
           "path": "src/registry/lib/wallet-address.ts",
           "type": "registry:lib",
           "target": "lib/wallet-address.ts"
+        }
+      ]
+    },
+    {
+      "name": "create2",
+      "type": "registry:lib",
+      "dependencies": ["viem"],
+      "files": [
+        {
+          "path": "src/registry/lib/create2.ts",
+          "type": "registry:lib",
+          "target": "lib/create2.ts"
         }
       ]
     }

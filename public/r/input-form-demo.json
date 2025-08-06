@@ -4,7 +4,14 @@
   "type": "registry:component",
   "title": "Input Form Demo",
   "description": "A demo of the input form",
+  "dependencies": [
+    "react-hook-form",
+    "zod",
+    "sonner"
+  ],
   "registryDependencies": [
+    "card",
+    "form",
     "https://ui.ednesdayw.com/r/input.json"
   ],
   "files": [

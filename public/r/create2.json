@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "create2",
+  "type": "registry:lib",
+  "dependencies": [
+    "viem"
+  ],
+  "files": [
+    {
+      "path": "src/registry/lib/create2.ts",
+      "content": "import {\n  encodePacked,\n  getAddress,\n  isAddress,\n  keccak256,\n  stringToHex,\n} from \"viem\";\n\n/**\n * Minimal Proxy (EIP-1167) Bytecode Template\n * A minimal proxy contract that delegates all calls to the implementation contract\n */\nconst MIN_PROXY_BYTECODE_PREFIX = \"3d602d80600a3d3981f3363d3d373d3d3d363d73\";\nconst MIN_PROXY_BYTECODE_SUFFIX = \"5af43d82803e903d91602b57fd5bf3ff\";\n\ninterface Create2PredictAddressParams {\n  implementation: `0x${string}`;\n  deployer: `0x${string}`;\n  salt: string;\n}\n\nexport const predictDeterministicAddress = ({\n  implementation,\n  deployer,\n  salt,\n}: Create2PredictAddressParams) => {\n  if (!isAddress(implementation)) {\n    throw new Error(`Invalid implementation address: ${implementation}`);\n  }\n\n  if (!isAddress(deployer)) {\n    throw new Error(`Invalid deployer address: ${deployer}`);\n  }\n\n  if (salt.length > 32) {\n    throw new Error(`Salt must be less than 32 characters: ${salt}`);\n  }\n\n  const saltHex = stringToHex(salt, { size: 32 }).slice(2);\n  const cleanImplementation = implementation.slice(2).toLowerCase();\n  const cleanDeployer = deployer.slice(2).toLocaleLowerCase();\n  let bytecode = `${MIN_PROXY_BYTECODE_PREFIX}${cleanImplementation}${MIN_PROXY_BYTECODE_SUFFIX}${cleanDeployer}${saltHex}`;\n  bytecode += keccak256(\n    encodePacked([\"bytes\"], [`0x${bytecode.slice(0, 110)}`]),\n  ).slice(2);\n  const hash = keccak256(\n    encodePacked([\"bytes\"], [`0x${bytecode.slice(110, 280)}`]),\n  ).slice(-40);\n\n  return getAddress(`0x${hash}`);\n};\n",
+      "type": "registry:lib",
+      "target": "lib/create2.ts"
+    }
+  ]
+}

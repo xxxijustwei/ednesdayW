@@ -461,7 +461,11 @@ export const Index: Record<string, any> = {
     name: "input-form-demo",
     description: "A demo of the input form",
     type: "registry:component",
-    registryDependencies: ["https://ui.ednesdayw.com/r/input.json"],
+    registryDependencies: [
+      "card",
+      "form",
+      "https://ui.ednesdayw.com/r/input.json",
+    ],
     files: [
       {
         path: "src/registry/example/input/form.tsx",
@@ -1383,6 +1387,36 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "create2-predict-address-demo": {
+    name: "create2-predict-address-demo",
+    description: "A demo of the create2 predict address",
+    type: "registry:component",
+    registryDependencies: [
+      "card",
+      "form",
+      "https://ui.ednesdayw.com/r/create2.json",
+      "https://ui.ednesdayw.com/r/input.json",
+    ],
+    files: [
+      {
+        path: "src/registry/example/create2/predict-address.tsx",
+        type: "registry:component",
+        target: "components/demo/create2-predict-address-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/example/create2/predict-address.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   utils: {
     name: "utils",
     description: "",
@@ -1466,6 +1500,29 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(async () => {
       const mod = await import("@/registry/lib/wallet-address.ts");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  create2: {
+    name: "create2",
+    description: "",
+    type: "registry:lib",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "src/registry/lib/create2.ts",
+        type: "registry:lib",
+        target: "lib/create2.ts",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/lib/create2.ts");
       const exportName =
         Object.keys(mod).find(
           (key) =>
