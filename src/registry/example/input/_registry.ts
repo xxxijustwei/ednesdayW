@@ -91,7 +91,12 @@ export const inputExamples: Registry["items"] = [
     type: "registry:component",
     title: "Input Form Demo",
     description: "A demo of the input form",
-    registryDependencies: [`${siteConfig.registryUrl}/input.json`],
+    registryDependencies: [
+      "card",
+      "form",
+      `${siteConfig.registryUrl}/input.json`,
+    ],
+    dependencies: ["react-hook-form", "zod", "sonner"],
     files: [
       {
         path: "src/registry/example/input/form.tsx",
