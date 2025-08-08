@@ -3,66 +3,19 @@ import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
 import { ActiveThemeProvider } from "@/components/active-theme";
+import {
+  BreadcrumbStructuredData,
+  StructuredData,
+} from "@/components/seo/structured-data";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
-import type { Metadata, Viewport } from "next";
+import type { Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import { LayoutClient } from "./client";
+import { metadata } from "./metadata";
 
-export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  metadataBase: new URL(siteConfig.url),
-  description: siteConfig.description,
-  keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Server Components",
-    "Radix UI",
-    "Headless UI",
-    "Web3 Component",
-  ],
-  authors: [
-    {
-      name: "xxxijustwei",
-      url: "https://github.com/xxxijustwei",
-    },
-  ],
-  creator: "xxxijustwei",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: "@justwei6",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-  manifest: `${siteConfig.url}/site.webmanifest`,
-};
+export { metadata };
 
 export const viewport: Viewport = {
   themeColor: META_THEME_COLORS.light,
@@ -70,7 +23,7 @@ export const viewport: Viewport = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={siteConfig.language} suppressHydrationWarning>
       <head>
         <meta name="google-adsense-account" content="ca-pub-8346899919126115" />
         <script
@@ -86,6 +39,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                           gtag('config', 'G-WRGZQXNEWV');
                         `,
           }}
+        />
+        <StructuredData type="WebSite" />
+        <StructuredData type="SoftwareApplication" />
+        <StructuredData type="Organization" />
+        <BreadcrumbStructuredData
+          items={[
+            { name: "Components", url: `${siteConfig.url}/docs/components` },
+          ]}
         />
       </head>
       <body

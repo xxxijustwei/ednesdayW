@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "bun run format && bun run lint && next build",
     "start": "next start",
     "format": "biome format --write --no-errors-on-unmatched ./src",

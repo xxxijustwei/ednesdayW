@@ -1,7 +1,6 @@
 import path from "node:path";
 import { withContentCollections } from "@content-collections/next";
 import type { NextConfig } from "next";
-import withRspack from "next-rspack";
 
 /** @type {import('next').NextConfig} */
 const config: NextConfig = {
@@ -26,4 +25,4 @@ const config: NextConfig = {
   },
 };
 
-export default withRspack(withContentCollections(config));
+export default withContentCollections(config);
