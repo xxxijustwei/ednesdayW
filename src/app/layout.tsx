@@ -45,7 +45,19 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <StructuredData type="Organization" />
         <BreadcrumbStructuredData
           items={[
-            { name: "Components", url: `${siteConfig.url}/docs/components` },
+            { name: "Docs", url: `${siteConfig.url}/docs/intro` },
+            {
+              name: "Autocomplete",
+              url: `${siteConfig.url}/docs/components/autocomplete`,
+            },
+            {
+              name: "Use Ripple",
+              url: `${siteConfig.url}/docs/hooks/use-ripple`,
+            },
+            {
+              name: "Create2",
+              url: `${siteConfig.url}/docs/lib/create2`,
+            },
           ]}
         />
       </head>

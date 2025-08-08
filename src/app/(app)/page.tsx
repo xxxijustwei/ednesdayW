@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="relative grid h-full flex-1 place-items-center overflow-hidden">
       <div className="w-full z-10 flex flex-col items-center space-y-6">
-        <Link href="/docs/components/input" className={cn(buttonVariants())}>
+        <Link href="/docs/intro" className={cn(buttonVariants())}>
           Explore the docs
         </Link>
       </div>

@@ -12,6 +12,15 @@ const config: NextConfig = {
       },
     ],
   },
+  redirects: async () => {
+    return [
+      {
+        source: "/docs",
+        destination: "/docs/intro",
+        permanent: true,
+      },
+    ];
+  },
   webpack: (config, _context) => {
     config.resolve.alias.jotai = path.resolve(__dirname, "node_modules/jotai");
 

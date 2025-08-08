@@ -18,6 +18,16 @@ export const docsConfig: DocsConfig = {
   ],
   sidebarNav: [
     {
+      title: "Get Started",
+      items: [
+        {
+          title: "Introduction",
+          href: "/docs/intro",
+          items: [],
+        },
+      ],
+    },
+    {
       title: "Components",
       items: [
         {
