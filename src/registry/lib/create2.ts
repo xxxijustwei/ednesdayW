@@ -8,8 +8,8 @@ const MIN_PROXY_BYTECODE_PREFIX = "3d602d80600a3d3981f3363d3d373d3d3d363d73";
 const MIN_PROXY_BYTECODE_SUFFIX = "5af43d82803e903d91602b57fd5bf3ff";
 
 interface Create2PredictAddressParams {
-  implementation: `0x${string}`;
-  deployer: `0x${string}`;
+  implementation: string;
+  deployer: string;
   salt: string;
 }
 
@@ -34,7 +34,7 @@ function stringToHex(str: string, size: number): string {
   return padded.toString("hex");
 }
 
-function getChecksumAddress(address: string): string {
+function getChecksumAddress(address: string) {
   const addr = address.toLowerCase().replace("0x", "");
   const hash = keccak256(Buffer.from(addr, "utf8"));
 
@@ -61,7 +61,7 @@ export const predictDeterministicAddress = ({
   implementation,
   deployer,
   salt,
-}: Create2PredictAddressParams): string => {
+}: Create2PredictAddressParams) => {
   if (!isValidAddress(implementation)) {
     throw new Error(`Invalid implementation address: ${implementation}`);
   }

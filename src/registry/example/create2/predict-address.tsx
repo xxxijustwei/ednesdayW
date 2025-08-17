@@ -68,7 +68,7 @@ export const PredictAddressDemo = () => {
       salt: values.salt,
     });
 
-    setPredictAddress(address);
+    setPredictAddress(address as `0x${string}`);
   };
 
   return (
