@@ -50,7 +50,7 @@ export const lib: Registry["items"] = [
   {
     name: "create2",
     type: "registry:lib",
-    dependencies: ["viem"],
+    dependencies: ["js-sha3"],
     files: [
       {
         path: "src/registry/lib/create2.ts",
