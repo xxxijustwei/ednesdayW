@@ -1,6 +1,7 @@
+import { createHash } from "node:crypto";
 import { Point } from "@noble/ed25519";
 import bs58 from "bs58";
-import { hexToBytes, isAddress as isEVMAddress, sha256 } from "viem";
+import { keccak256 } from "js-sha3";
 
 type Network = "evm" | "tron" | "solana";
 
@@ -15,10 +16,50 @@ export const isAddress = (address: string, network: Network = "evm") => {
   }
 };
 
+// ============ EVM ============
+
+const EVM_ADDRESS_REGEX = /^0x[a-fA-F0-9]{40}$/;
+
+export const isEVMAddress = (address: string, strict = true) => {
+  if (!EVM_ADDRESS_REGEX.test(address)) return false;
+  if (address.toLowerCase() === address) return true;
+  if (strict) return checksumAddress(address) === address;
+  return true;
+};
+
+const checksumAddress = (address: string, chainId?: number) => {
+  const hexAddress = chainId
+    ? `${chainId}${address.toLowerCase()}`
+    : address.substring(2).toLowerCase();
+  const hash = keccak256.array(stringToBytes(hexAddress));
+  const addr = (
+    chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress
+  ).split("");
+  for (let i = 0; i < 40; i += 2) {
+    if (hash[i >> 1] >> 4 >= 8 && addr[i]) {
+      addr[i] = addr[i].toUpperCase();
+    }
+    if ((hash[i >> 1] & 0x0f) >= 8 && addr[i + 1]) {
+      addr[i + 1] = addr[i + 1].toUpperCase();
+    }
+  }
+  return `0x${addr.join("")}`;
+};
+
+const stringToBytes = (str: string) => {
+  const bytes = new Uint8Array(str.length);
+  for (let i = 0; i < str.length; i++) {
+    bytes[i] = str.charCodeAt(i);
+  }
+  return bytes;
+};
+
+// ============ Tron ============
+
 const TRON_ADDRESS_SIZE = 34;
 const TRON_ADDRESS_PREFIX_BYTE = 0x41;
 
-const isTronAddress = (address: string) => {
+export const isTronAddress = (address: string) => {
   if (address.length !== TRON_ADDRESS_SIZE) return false;
 
   let decodeAddr = bs58.decode(address);
@@ -44,10 +85,30 @@ const isTronAddress = (address: string) => {
   return false;
 };
 
+/**
+ * SHA256 hash function
+ */
+function sha256(data: Uint8Array): string {
+  return createHash("sha256").update(data).digest("hex");
+}
+
+/**
+ * Converts hex string to Uint8Array
+ */
+function hexToBytes(hex: string): Uint8Array {
+  const bytes = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < hex.length; i += 2) {
+    bytes[i / 2] = Number.parseInt(hex.slice(i, i + 2), 16);
+  }
+  return bytes;
+}
+
+// ============ Solana ============
+
 const SOLANA_PUBKEY_BYTES = 32;
 const SOLANA_ADDRESS_REGEX = /^[1-9A-HJ-NP-Za-km-z]{43,44}$/;
 
-const isSolanaAddress = (address: string): boolean => {
+export const isSolanaAddress = (address: string): boolean => {
   if (!SOLANA_ADDRESS_REGEX.test(address)) {
     return false;
   }

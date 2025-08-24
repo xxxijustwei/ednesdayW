@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site";
 import type { Registry } from "shadcn/registry";
 
 export const lib: Registry["items"] = [
@@ -38,7 +39,7 @@ export const lib: Registry["items"] = [
   {
     name: "wallet-address",
     type: "registry:lib",
-    dependencies: ["bs58", "viem"],
+    dependencies: ["bs58"],
     files: [
       {
         path: "src/registry/lib/wallet-address.ts",
@@ -50,7 +51,8 @@ export const lib: Registry["items"] = [
   {
     name: "create2",
     type: "registry:lib",
-    dependencies: ["js-sha3"],
+    dependencies: ["js-sha3", "bs58"],
+    registryDependencies: [`${siteConfig.registryUrl}/wallet-address.json`],
     files: [
       {
         path: "src/registry/lib/create2.ts",

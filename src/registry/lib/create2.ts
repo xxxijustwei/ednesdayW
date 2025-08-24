@@ -1,6 +1,7 @@
 import { createHash } from "crypto";
 import bs58 from "bs58";
 import { keccak256 } from "js-sha3";
+import { isEVMAddress, isTronAddress } from "./wallet-address";
 
 // ============ Types ============
 interface Create2PredictAddressParams {
@@ -15,21 +16,6 @@ const MINIMAL_PROXY = {
   PREFIX: "3d602d80600a3d3981f3363d3d373d3d3d363d73",
   EVM_SUFFIX: "5af43d82803e903d91602b57fd5bf3ff",
   TRON_SUFFIX: "5af43d82803e903d91602b57fd5bf341",
-} as const;
-
-// Address Configuration
-const ADDRESS_CONFIG = {
-  EVM: {
-    SIZE: 42,
-    PREFIX: "0x",
-  },
-  TRON: {
-    SIZE: 34,
-    PREFIX: "T",
-    PREFIX_BYTE: 0x41,
-    DECODED_SIZE: 25,
-    CHECKSUM_SIZE: 4,
-  },
 } as const;
 
 // Bytecode Processing
@@ -118,48 +104,14 @@ export function predictDeterministicTronAddress({
 
 // ============ Validation Functions ============
 
-/**
- * Validates an EVM address format
- */
-export function isValidEVMAddress(address: string): boolean {
-  if (address.length !== ADDRESS_CONFIG.EVM.SIZE) return false;
-  if (!address.startsWith(ADDRESS_CONFIG.EVM.PREFIX)) return false;
-
-  const hex = address.slice(2);
-  return /^[0-9a-fA-F]{40}$/.test(hex);
-}
-
-/**
- * Validates a TRON address format
- */
-export function isValidTronAddress(address: string): boolean {
-  if (address.length !== ADDRESS_CONFIG.TRON.SIZE) return false;
-  if (!address.startsWith(ADDRESS_CONFIG.TRON.PREFIX)) return false;
-
-  try {
-    const decoded = bs58.decode(address);
-    if (decoded.length !== ADDRESS_CONFIG.TRON.DECODED_SIZE) return false;
-    if (decoded[0] !== ADDRESS_CONFIG.TRON.PREFIX_BYTE) return false;
-
-    // Verify checksum
-    const addressBytes = decoded.slice(0, 21);
-    const checksum = decoded.slice(21);
-    const calculatedChecksum = calculateTronChecksum(addressBytes);
-
-    return Buffer.compare(checksum, calculatedChecksum) === 0;
-  } catch {
-    return false;
-  }
-}
-
 function validateEVMAddress(address: string, name: string): void {
-  if (!isValidEVMAddress(address)) {
+  if (!isEVMAddress(address)) {
     throw new Error(`Invalid ${name} address: ${address}`);
   }
 }
 
 function validateTronAddress(address: string, name: string): void {
-  if (!isValidTronAddress(address)) {
+  if (!isTronAddress(address)) {
     throw new Error(`Invalid ${name} address: ${address}`);
   }
 }

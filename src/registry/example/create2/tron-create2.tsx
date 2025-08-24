@@ -14,7 +14,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { create2, isValidTronAddress } from "@/registry/lib/create2";
+import { create2 } from "@/registry/lib/create2";
+import { isTronAddress } from "@/registry/lib/wallet-address";
 import { Input } from "@/registry/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -27,7 +28,7 @@ const formSchema = z.object({
     .nonempty({
       message: "Implementation address is required",
     })
-    .refine((value) => isValidTronAddress(value), {
+    .refine((value) => isTronAddress(value), {
       message: "Invalid implementation address",
     }),
   deployer: z
@@ -35,7 +36,7 @@ const formSchema = z.object({
     .nonempty({
       message: "Deployer address is required",
     })
-    .refine((value) => isValidTronAddress(value), {
+    .refine((value) => isTronAddress(value), {
       message: "Invalid deployer address",
     }),
   salt: z
