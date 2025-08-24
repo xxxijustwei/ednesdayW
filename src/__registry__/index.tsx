@@ -1395,6 +1395,7 @@ export const Index: Record<string, any> = {
       "card",
       "form",
       "https://ui.ednesdayw.com/r/create2.json",
+      "https://ui.ednesdayw.com/r/wallet-address.json",
       "https://ui.ednesdayw.com/r/input.json",
     ],
     files: [
@@ -1423,6 +1424,7 @@ export const Index: Record<string, any> = {
       "card",
       "form",
       "https://ui.ednesdayw.com/r/create2.json",
+      "https://ui.ednesdayw.com/r/wallet-address.json",
       "https://ui.ednesdayw.com/r/input.json",
     ],
     files: [
@@ -1539,7 +1541,7 @@ export const Index: Record<string, any> = {
     name: "create2",
     description: "",
     type: "registry:lib",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/wallet-address.json"],
     files: [
       {
         path: "src/registry/lib/create2.ts",
