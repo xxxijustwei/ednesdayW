@@ -36,27 +36,55 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/create2.json"
 ### Usage
 
 ```tsx
-import { predictDeterministicAddress } from "@/lib/create2";
+import { create2, predictDeterministicEVMAddress, predictDeterministicTronAddress } from "@/lib/create2";
 
-// Predict a deterministic contract address
-const predictedAddress = predictDeterministicAddress({
+// Predict an EVM contract address (default)
+const evmAddress = create2({
   implementation: "0x47deB22A87D12c8BE5F638AFC7DE48b52968205b",
   deployer: "0x6a569215be90A55B4c615368fCB13F75d99c8A60",
   salt: "my-unique-salt",
 });
 
-console.log(predictedAddress);
-// Output: 0x... (predicted contract address)
+// Predict a TRON contract address
+const tronAddress = create2({
+  implementation: "TL2ScqgY9ckK5h1VQExuMNrweyVSSdAtHa",
+  deployer: "TFgphAx29XEwrS8feFMpPfqzypjYzNysSH",
+  salt: "my-unique-salt",
+  network: "tron",
+});
+
+console.log(evmAddress);   // Output: 0x... (predicted EVM contract address)
+console.log(tronAddress);  // Output: T... (predicted TRON contract address)
 ```
 
 ### API
 
-#### predictDeterministicAddress
+#### create2
 
-Predicts the deterministic address for a contract deployed using CREATE2 with minimal proxy pattern (EIP-1167).
+Universal function for predicting deterministic addresses for contracts using CREATE2 with minimal proxy pattern (EIP-1167).
 
 ```tsx
-predictDeterministicAddress(params: Create2PredictAddressParams): `0x${string}`
+create2(params: Create2PredictAddressParams & { network?: "evm" | "tron" }): string
+```
+
+##### Parameters
+
+- `params` - An object containing:
+  - `implementation` - The implementation contract address (EVM: `0x...`, TRON: `T...`)
+  - `deployer` - The deployer contract address (EVM: `0x...`, TRON: `T...`)
+  - `salt` - A unique string salt (max 32 characters) used for address generation
+  - `network` - (Optional) Network type: `"evm"` (default) or `"tron"`
+
+##### Returns
+
+`string` - Returns the predicted deterministic contract address.
+
+#### predictDeterministicEVMAddress
+
+Predicts the deterministic address for an EVM contract using CREATE2.
+
+```tsx
+predictDeterministicEVMAddress(params: Create2PredictAddressParams): string
 ```
 
 ##### Parameters
@@ -68,13 +96,50 @@ predictDeterministicAddress(params: Create2PredictAddressParams): `0x${string}`
 
 ##### Returns
 
-`0x${string}` - Returns the predicted deterministic contract address.
+`string` - Returns the predicted EVM contract address with checksum.
+
+#### predictDeterministicTronAddress
+
+Predicts the deterministic address for a TRON contract using CREATE2.
+
+```tsx
+predictDeterministicTronAddress(params: Create2PredictAddressParams): string
+```
+
+##### Parameters
+
+- `params` - An object containing:
+  - `implementation` - The implementation contract address (Base58 format starting with `T`)
+  - `deployer` - The deployer contract address (Base58 format starting with `T`)
+  - `salt` - A unique string salt (max 32 characters) used for address generation
+
+##### Returns
+
+`string` - Returns the predicted TRON contract address in Base58 format.
 
 ##### Errors
 
 - Throws if the implementation address is invalid
 - Throws if the deployer address is invalid
 - Throws if the salt exceeds 32 characters
+
+### Validation Functions
+
+#### isValidEVMAddress
+
+Validates an EVM address format.
+
+```tsx
+isValidEVMAddress(address: string): boolean
+```
+
+#### isValidTronAddress
+
+Validates a TRON address format.
+
+```tsx
+isValidTronAddress(address: string): boolean
+```
 
 ### How it works
 
@@ -86,6 +151,14 @@ The address is calculated by:
 3. Computing the keccak256 hash of the encoded parameters
 4. Extracting the last 20 bytes as the predicted address
 
+**Network Support:**
+- **EVM Networks**: Uses standard Ethereum address format (0x prefix, 42 characters)
+- **TRON Network**: Uses Base58 encoding with T prefix (34 characters)
+
 ### Example
 
-<ComponentPreview name="create2-predict-address-demo" />
+#### EVM
+<ComponentPreview name="evm-create2-demo" />
+
+#### TRON
+<ComponentPreview name="tron-create2-demo" />

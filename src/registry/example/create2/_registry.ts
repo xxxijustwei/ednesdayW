@@ -3,22 +3,42 @@ import type { Registry } from "shadcn/registry";
 
 export const create2Examples: Registry["items"] = [
   {
-    name: "create2-predict-address-demo",
+    name: "evm-create2-demo",
     type: "registry:component",
-    title: "Create2 Predict Address Demo",
-    description: "A demo of the create2 predict address",
+    title: "EVM Create2 Demo",
+    description: "A demo of the EVM create2",
     registryDependencies: [
       "card",
       "form",
       `${siteConfig.registryUrl}/create2.json`,
       `${siteConfig.registryUrl}/input.json`,
     ],
-    dependencies: ["lucide-react", "react-hook-form", "zod", "viem"],
+    dependencies: ["lucide-react", "react-hook-form", "zod"],
     files: [
       {
-        path: "src/registry/example/create2/predict-address.tsx",
+        path: "src/registry/example/create2/evm-create2.tsx",
         type: "registry:component",
-        target: "components/demo/create2-predict-address-demo.tsx",
+        target: "components/demo/evm-create2-demo.tsx",
+      },
+    ],
+  },
+  {
+    name: "tron-create2-demo",
+    type: "registry:component",
+    title: "TRON Create2 Demo",
+    description: "A demo of the TRON create2",
+    registryDependencies: [
+      "card",
+      "form",
+      `${siteConfig.registryUrl}/create2.json`,
+      `${siteConfig.registryUrl}/input.json`,
+    ],
+    dependencies: ["lucide-react", "react-hook-form", "zod"],
+    files: [
+      {
+        path: "src/registry/example/create2/tron-create2.tsx",
+        type: "registry:component",
+        target: "components/demo/tron-create2-demo.tsx",
       },
     ],
   },

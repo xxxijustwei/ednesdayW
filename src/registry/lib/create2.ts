@@ -296,11 +296,3 @@ function toChecksumAddress(address: string): string {
 
   return checksumAddress;
 }
-
-console.log(
-  predictDeterministicEVMAddress({
-    implementation: "0xa84c57e9966df7df79bff42f35c68aae71796f64",
-    deployer: "0xfe15afcb5b9831b8af5fd984678250e95de8e312",
-    salt: "test-salt-test",
-  }),
-);

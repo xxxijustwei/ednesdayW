@@ -14,12 +14,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { predictDeterministicAddress } from "@/registry/lib/create2";
+import { create2, isValidTronAddress } from "@/registry/lib/create2";
 import { Input } from "@/registry/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { isAddress } from "viem";
 import { z } from "zod";
 
 const formSchema = z.object({
@@ -28,7 +27,7 @@ const formSchema = z.object({
     .nonempty({
       message: "Implementation address is required",
     })
-    .refine((value) => isAddress(value), {
+    .refine((value) => isValidTronAddress(value), {
       message: "Invalid implementation address",
     }),
   deployer: z
@@ -36,7 +35,7 @@ const formSchema = z.object({
     .nonempty({
       message: "Deployer address is required",
     })
-    .refine((value) => isAddress(value), {
+    .refine((value) => isValidTronAddress(value), {
       message: "Invalid deployer address",
     }),
   salt: z
@@ -50,33 +49,34 @@ const formSchema = z.object({
 });
 
 export const PredictAddressDemo = () => {
-  const [predictAddress, setPredictAddress] = useState<`0x${string}`>();
+  const [predictAddress, setPredictAddress] = useState<string>();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      implementation: "" as `0x${string}`,
-      deployer: "" as `0x${string}`,
+      implementation: "",
+      deployer: "",
       salt: "",
     },
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    const address = predictDeterministicAddress({
+    const address = create2({
       implementation: values.implementation,
       deployer: values.deployer,
       salt: values.salt,
+      network: "tron",
     });
 
-    setPredictAddress(address as `0x${string}`);
+    setPredictAddress(address);
   };
 
   return (
     <Card className="w-full max-w-lg">
       <CardHeader>
-        <CardTitle>Create2 Address</CardTitle>
+        <CardTitle>TRON Create2 Address</CardTitle>
         <CardDescription>
-          Predict the address of the contract using the implementation,
+          Predict the address of the TRON contract using the implementation,
           deployer, and salt
         </CardDescription>
       </CardHeader>
@@ -93,7 +93,7 @@ export const PredictAddressDemo = () => {
                     <Input
                       variant="bordered"
                       maxLength={42}
-                      placeholder="0x..."
+                      placeholder="T..."
                       {...field}
                     />
                   </FormControl>
@@ -111,7 +111,7 @@ export const PredictAddressDemo = () => {
                     <Input
                       variant="bordered"
                       maxLength={42}
-                      placeholder="0x..."
+                      placeholder="T..."
                       {...field}
                     />
                   </FormControl>
