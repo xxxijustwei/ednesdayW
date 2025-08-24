@@ -876,11 +876,11 @@
       ]
     },
     {
-      "name": "create2-predict-address-demo",
+      "name": "evm-create2-demo",
       "type": "registry:component",
-      "title": "Create2 Predict Address Demo",
-      "description": "A demo of the create2 predict address",
-      "dependencies": ["lucide-react", "react-hook-form", "zod", "viem"],
+      "title": "EVM Create2 Demo",
+      "description": "A demo of the EVM create2",
+      "dependencies": ["lucide-react", "react-hook-form", "zod"],
       "registryDependencies": [
         "card",
         "form",
@@ -889,9 +889,29 @@
       ],
       "files": [
         {
-          "path": "src/registry/example/create2/predict-address.tsx",
+          "path": "src/registry/example/create2/evm-create2.tsx",
           "type": "registry:component",
-          "target": "components/demo/create2-predict-address-demo.tsx"
+          "target": "components/demo/evm-create2-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tron-create2-demo",
+      "type": "registry:component",
+      "title": "TRON Create2 Demo",
+      "description": "A demo of the TRON create2",
+      "dependencies": ["lucide-react", "react-hook-form", "zod"],
+      "registryDependencies": [
+        "card",
+        "form",
+        "https://ui.ednesdayw.com/r/create2.json",
+        "https://ui.ednesdayw.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/create2/tron-create2.tsx",
+          "type": "registry:component",
+          "target": "components/demo/tron-create2-demo.tsx"
         }
       ]
     },

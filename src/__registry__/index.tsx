@@ -1387,9 +1387,9 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
-  "create2-predict-address-demo": {
-    name: "create2-predict-address-demo",
-    description: "A demo of the create2 predict address",
+  "evm-create2-demo": {
+    name: "evm-create2-demo",
+    description: "A demo of the EVM create2",
     type: "registry:component",
     registryDependencies: [
       "card",
@@ -1399,15 +1399,41 @@ export const Index: Record<string, any> = {
     ],
     files: [
       {
-        path: "src/registry/example/create2/predict-address.tsx",
+        path: "src/registry/example/create2/evm-create2.tsx",
         type: "registry:component",
-        target: "components/demo/create2-predict-address-demo.tsx",
+        target: "components/demo/evm-create2-demo.tsx",
       },
     ],
     component: React.lazy(async () => {
-      const mod = await import(
-        "@/registry/example/create2/predict-address.tsx"
-      );
+      const mod = await import("@/registry/example/create2/evm-create2.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "tron-create2-demo": {
+    name: "tron-create2-demo",
+    description: "A demo of the TRON create2",
+    type: "registry:component",
+    registryDependencies: [
+      "card",
+      "form",
+      "https://ui.ednesdayw.com/r/create2.json",
+      "https://ui.ednesdayw.com/r/input.json",
+    ],
+    files: [
+      {
+        path: "src/registry/example/create2/tron-create2.tsx",
+        type: "registry:component",
+        target: "components/demo/tron-create2-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/create2/tron-create2.tsx");
       const exportName =
         Object.keys(mod).find(
           (key) =>
