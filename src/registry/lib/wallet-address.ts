@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { createHash } from "crypto";
 import { Point } from "@noble/ed25519";
 import bs58 from "bs58";
 import { keccak256 } from "js-sha3";
@@ -27,7 +27,7 @@ export const isEVMAddress = (address: string, strict = true) => {
   return true;
 };
 
-const checksumAddress = (address: string, chainId?: number) => {
+export const checksumAddress = (address: string, chainId?: number) => {
   const hexAddress = chainId
     ? `${chainId}${address.toLowerCase()}`
     : address.substring(2).toLowerCase();

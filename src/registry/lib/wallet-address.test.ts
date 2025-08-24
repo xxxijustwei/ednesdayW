@@ -1,4 +1,4 @@
-import { describe, expect, it, test } from "vitest";
+import { expect, test } from "vitest";
 import { isAddress } from "./wallet-address";
 
 test("check wallet address is valid", () => {
