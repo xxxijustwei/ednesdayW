@@ -53,15 +53,26 @@ const selectTriggerVariants = cva(
         underline: "border-b-2 border-input rounded-none shadow-none",
       },
       size: {
-        sm: "min-h-10 px-3 py-1.5 text-sm data-[placeholder]:text-sm",
-        md: "min-h-12 px-3.5 py-2 text-base data-[placeholder]:text-base",
-        lg: "min-h-13 px-3.5 py-2.5 text-lg data-[placeholder]:text-lg",
+        sm: "h-10 px-2.5 py-1.5 text-base data-[placeholder]:text-sm",
+        md: "h-12 px-3 py-2 text-lg data-[placeholder]:text-base",
+        lg: "h-13 px-3.5 py-2.5 text-xl data-[placeholder]:text-lg",
       },
     },
     compoundVariants: [
       {
         variant: "underline",
-        className: "px-2",
+        size: "sm",
+        className: "px-1 h-9",
+      },
+      {
+        variant: "underline",
+        size: "md",
+        className: "px-1 h-10",
+      },
+      {
+        variant: "underline",
+        size: "lg",
+        className: "px-1 h-12",
       },
     ],
     defaultVariants: {

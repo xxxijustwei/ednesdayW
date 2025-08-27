@@ -28,15 +28,26 @@ export const containerVariants = cva(
         underline: "border-b-2 border-input rounded-none shadow-none",
       },
       size: {
-        sm: "h-10 px-3 py-1.5",
-        md: "h-12 px-3.5 py-2",
-        lg: "h-13 px-3.5 py-2.5",
+        sm: "h-10 px-2.5 py-1.5",
+        md: "h-12 px-3 py-2",
+        lg: "h-13 px-3.5 py-2",
       },
     },
     compoundVariants: [
       {
         variant: "underline",
-        className: "px-2",
+        size: "sm",
+        className: "px-1 h-9",
+      },
+      {
+        variant: "underline",
+        size: "md",
+        className: "px-1 h-10",
+      },
+      {
+        variant: "underline",
+        size: "lg",
+        className: "px-1 h-12",
       },
     ],
     defaultVariants: {
@@ -61,9 +72,9 @@ const inputVariants = cva(
   {
     variants: {
       size: {
-        sm: "text-sm",
-        md: "text-base",
-        lg: "text-lg",
+        sm: "text-base",
+        md: "text-lg",
+        lg: "text-xl",
       },
     },
     defaultVariants: {
