@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { Input, type InputProps } from "@/registry/ui/input";
+import { cva } from "class-variance-authority";
 import {
   type UseComboboxGetInputPropsReturnValue,
   type UseComboboxProps,
@@ -50,6 +51,8 @@ type AutocompleteContextValue = Partial<
     | "selectItem"
     | "setInputValue"
   > & {
+    size: InputProps["size"];
+    variant: InputProps["variant"];
     filteredItems: AutocompleteItemType[];
     items: AutocompleteItemType[];
     onItemsChange: (items: AutocompleteItemType[]) => void;
@@ -67,6 +70,8 @@ const useAutocompleteContext = () => useContext(AutocompleteContext);
 type AutocompleteProps = PropsWithChildren<{
   value?: string;
   onChange?: (value: string) => void;
+  size?: InputProps["size"];
+  variant?: InputProps["variant"];
   filterItems?: (
     search: string,
     items: AutocompleteItemType[],
@@ -84,6 +89,8 @@ const defaultFilter = (inputValue: string, items: AutocompleteItemType[]) => {
 };
 
 const Autocomplete = ({
+  size,
+  variant,
   value,
   onChange,
   filterItems = defaultFilter,
@@ -188,6 +195,8 @@ const Autocomplete = ({
   return (
     <AutocompleteContext.Provider
       value={{
+        size,
+        variant,
         filteredItems,
         getInputProps,
         getToggleButtonProps,
@@ -216,11 +225,14 @@ type AutocompleteInputProps = Omit<
 >;
 
 const AutocompleteInput = (props: AutocompleteInputProps) => {
-  const { getInputProps, getToggleButtonProps } = useAutocompleteContext();
+  const { getInputProps, getToggleButtonProps, size, variant } =
+    useAutocompleteContext();
 
   return (
     <PopoverTrigger className="group outline-hidden">
       <Input
+        size={size}
+        variant={variant}
         {...props}
         {...getInputProps?.()}
         endContent={
@@ -241,6 +253,25 @@ const AutocompleteInput = (props: AutocompleteInputProps) => {
 type AutocompleteItemProps = AutocompleteItemType &
   ComponentPropsWithoutRef<"li">;
 
+const autocompleteItemVariants = cva(
+  cn(
+    "relative flex cursor-default select-none flex-col justify-center rounded-sm py-1.5 pr-8 pl-2",
+    "aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-selected:bg-accent aria-selected:text-accent-foreground",
+  ),
+  {
+    variants: {
+      size: {
+        sm: "text-base",
+        md: "text-lg",
+        lg: "text-xl",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  },
+);
+
 const AutocompleteItem = ({
   label,
   value,
@@ -249,7 +280,7 @@ const AutocompleteItem = ({
   children,
   ...props
 }: AutocompleteItemProps) => {
-  const { filteredItems, getItemProps, selectedItem } =
+  const { size, filteredItems, getItemProps, selectedItem } =
     useAutocompleteContext();
 
   const isSelected = selectedItem?.value === value;
@@ -267,7 +298,7 @@ const AutocompleteItem = ({
       {...props}
       data-index={index}
       className={cn(
-        "relative flex cursor-default select-none flex-col justify-center rounded-sm py-1.5 pr-8 pl-2 text-sm aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-selected:bg-accent aria-selected:text-accent-foreground",
+        autocompleteItemVariants({ size }),
         !children && "ps-8",
         className,
       )}

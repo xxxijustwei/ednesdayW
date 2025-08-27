@@ -56,11 +56,15 @@ const TokenAutocomplete = ({
 }) => {
   const [token, setToken] = useState("");
   return (
-    <Autocomplete key={variant} value={token} onChange={setToken}>
+    <Autocomplete
+      key={variant}
+      value={token}
+      onChange={setToken}
+      size="md"
+      variant={variant}
+    >
       <AutocompleteInput
         placeholder="Select a token"
-        size="md"
-        variant={variant}
         disabled={disabled}
         className={variant !== "underline" ? "rounded-full" : ""}
         startContent={
@@ -86,7 +90,7 @@ const TokenAutocomplete = ({
                 height={24}
                 className="rounded-full"
               />
-              <span className="font-semibold">{token}</span>
+              <span>{token}</span>
             </div>
           </AutocompleteItem>
         ))}

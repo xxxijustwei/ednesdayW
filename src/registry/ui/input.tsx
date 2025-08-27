@@ -42,7 +42,7 @@ export const containerVariants = cva(
       {
         variant: "underline",
         size: "md",
-        className: "px-1 h-10",
+        className: "px-1 h-11",
       },
       {
         variant: "underline",

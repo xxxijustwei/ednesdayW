@@ -60,7 +60,7 @@ const TokenSelect = ({
                 height={24}
                 className="rounded-full"
               />
-              <span className="font-semibold">{network}</span>
+              <span className="text-lg">{network}</span>
             </div>
           </SelectItem>
         ))}

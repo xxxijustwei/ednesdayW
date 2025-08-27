@@ -47,7 +47,7 @@ const TokenSelect = ({
   return (
     <Select value={network} onValueChange={setNetwork}>
       <SelectTrigger
-        size="lg"
+        size="md"
         variant={variant}
         className={variant !== "underline" ? "rounded-full" : undefined}
       >
@@ -81,7 +81,7 @@ const TokenSelect = ({
                 height={28}
                 className="rounded-full"
               />
-              <span className="text-lg font-semibold">{network}</span>
+              <span className="text-lg">{network}</span>
             </div>
           </SelectItem>
         ))}

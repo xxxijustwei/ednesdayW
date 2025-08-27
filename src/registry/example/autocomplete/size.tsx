@@ -41,12 +41,16 @@ export const AutocompleteSizeExample = () => {
 const TokenAutocomplete = ({ size }: { size: "sm" | "md" | "lg" }) => {
   const [token, setToken] = useState("");
   return (
-    <Autocomplete key={size} value={token} onChange={setToken}>
+    <Autocomplete
+      key={size}
+      value={token}
+      onChange={setToken}
+      size={size}
+      variant="bordered"
+    >
       <AutocompleteInput
         placeholder="Select a token"
-        size={size}
         className="rounded-full"
-        variant="bordered"
         startContent={
           token && (
             <Image
@@ -70,7 +74,7 @@ const TokenAutocomplete = ({ size }: { size: "sm" | "md" | "lg" }) => {
                 height={ICON_SIZE[size]}
                 className="rounded-full"
               />
-              <span className="font-semibold">{token}</span>
+              <span>{token}</span>
             </div>
           </AutocompleteItem>
         ))}

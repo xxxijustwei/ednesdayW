@@ -73,7 +73,11 @@ export const AutocompleteFormExample = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Autocomplete value={field.value} onChange={field.onChange}>
+                    <Autocomplete
+                      value={field.value}
+                      onChange={field.onChange}
+                      variant="bordered"
+                    >
                       <AutocompleteInput
                         variant="bordered"
                         placeholder="Select a token"
@@ -104,7 +108,7 @@ export const AutocompleteFormExample = () => {
                                 height={24}
                                 className="rounded-full"
                               />
-                              <span className="font-semibold">{token}</span>
+                              <span>{token}</span>
                             </div>
                           </AutocompleteItem>
                         ))}

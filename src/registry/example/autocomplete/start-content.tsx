@@ -25,10 +25,9 @@ export const AutocompleteStartContentExample = () => {
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
-      <Autocomplete value={token} onChange={setToken}>
+      <Autocomplete value={token} onChange={setToken} variant="bordered">
         <AutocompleteInput
           placeholder="Select a token"
-          variant="bordered"
           className="rounded-full"
           startContent={
             token && (
@@ -53,7 +52,7 @@ export const AutocompleteStartContentExample = () => {
                   height={24}
                   className="rounded-full"
                 />
-                <span className="font-semibold">{token}</span>
+                <span>{token}</span>
               </div>
             </AutocompleteItem>
           ))}
