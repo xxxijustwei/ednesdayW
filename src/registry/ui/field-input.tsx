@@ -1,0 +1,213 @@
+"use client";
+
+import { cn } from "@/lib/utils";
+import { type VariantProps, cva } from "class-variance-authority";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
+import * as React from "react";
+
+export const containerVariants = cva(
+  cn(
+    "flex w-full relative rounded-md shadow-sm",
+    "text-base cursor-text",
+    "data-[is-invalid=true]:border-destructive",
+    "data-[disabled=true]:opacity-70 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
+    "hover:border-ring focus-within:border-ring",
+    "transition-all duration-200",
+  ),
+  {
+    variants: {
+      variant: {
+        default: "bg-muted border-2 border-input",
+        faded: cn(
+          "bg-muted border-2 border-muted",
+          "hover:bg-accent hover:border-accent",
+          "focus-within:bg-accent focus-within:border-accent",
+          "data-[disabled=true]:hover:bg-muted data-[disabled=true]:hover:border-muted",
+        ),
+        bordered: "border-2 border-input",
+        underline: "border-b-2 border-input rounded-none shadow-none",
+      },
+      size: {
+        sm: "h-12 px-2.5 py-1.5",
+        md: "h-14 px-3 py-2",
+        lg: "h-16 px-3.5 py-2",
+      },
+    },
+    compoundVariants: [
+      {
+        variant: "underline",
+        size: "sm",
+        className: "px-1 h-11",
+      },
+      {
+        variant: "underline",
+        size: "md",
+        className: "px-1 h-13",
+      },
+      {
+        variant: "underline",
+        size: "lg",
+        className: "px-1 h-14",
+      },
+    ],
+    defaultVariants: {
+      variant: "default",
+      size: "md",
+    },
+  },
+);
+
+const inputVariants = cva(
+  cn(
+    "w-full h-full outline-hidden",
+    "disabled:cursor-not-allowed",
+    "bg-transparent",
+    "[&:-webkit-autofill]:bg-transparent",
+    "[&:-webkit-autofill:hover]:bg-transparent",
+    "[&:-webkit-autofill:focus]:bg-transparent",
+    "[&:-webkit-autofill:active]:bg-transparent",
+    "[&:-webkit-autofill]:[transition-delay:9999s]",
+  ),
+  {
+    variants: {
+      size: {
+        sm: "text-base pt-4",
+        md: "text-lg pt-4",
+        lg: "text-xl pt-4",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  },
+);
+
+const labelVariants = cva(
+  cn(
+    "absolute left-0 top-1/2 -translate-y-1/2 origin-top-left pointer-events-none",
+    "text-primary/60",
+    "transition-all duration-200",
+    "group-focus-within:text-primary/80 group-data-[has-value=true]:text-primary/80",
+  ),
+  {
+    variants: {
+      size: {
+        sm: "text-base group-focus-within:scale-85 group-focus-within:-translate-y-5 group-data-[has-value=true]:scale-85 group-data-[has-value=true]:-translate-y-5",
+        md: "text-lg group-focus-within:scale-80 group-focus-within:-translate-y-5 group-data-[has-value=true]:scale-80 group-data-[has-value=true]:-translate-y-5",
+        lg: "text-xl group-focus-within:scale-80 group-focus-within:-translate-y-6 group-data-[has-value=true]:scale-80 group-data-[has-value=true]:-translate-y-6",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  },
+);
+
+interface FieldInputProps
+  extends Omit<React.ComponentProps<"input">, "size">,
+    VariantProps<typeof containerVariants> {
+  id: string;
+  label: string;
+  inputClassName?: string;
+  startContent?: React.ReactNode;
+  endContent?: React.ReactNode;
+}
+
+const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
+  (
+    {
+      className,
+      inputClassName,
+      type,
+      placeholder,
+      value,
+      variant,
+      size,
+      label,
+      "aria-invalid": ariaInvalid,
+      disabled,
+      startContent,
+      endContent,
+      ...props
+    },
+    ref,
+  ) => {
+    const [showPassword, setShowPassword] = React.useState(false);
+    const [uncontrolledValue, setUncontrolledValue] = React.useState(
+      props.defaultValue || "",
+    );
+
+    const isControlled = value !== undefined;
+    const currentValue = isControlled ? value : uncontrolledValue;
+    const hasValue = Boolean(currentValue);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (!isControlled) {
+        setUncontrolledValue(e.target.value);
+      }
+      props.onChange?.(e);
+    };
+
+    const endContentRender = () => {
+      if (endContent) {
+        return endContent;
+      }
+
+      if (type === "password") {
+        return (
+          <button
+            aria-label="Change password visibility"
+            type="button"
+            className="cursor-pointer"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {!showPassword ? <EyeOffIcon size={20} /> : <EyeIcon size={20} />}
+          </button>
+        );
+      }
+
+      return null;
+    };
+
+    return (
+      <div
+        className={cn(
+          containerVariants({ variant, size }),
+          "group flex items-center justify-center gap-1.5",
+          className,
+        )}
+        data-is-invalid={ariaInvalid?.toString()}
+        data-disabled={disabled?.toString()}
+        data-has-value={hasValue.toString()}
+      >
+        {startContent && startContent}
+        <div className="inline-flex w-full items-end h-full relative">
+          <input
+            type={
+              type === "password" && endContent === undefined && showPassword
+                ? "text"
+                : type
+            }
+            ref={ref}
+            className={cn(inputVariants({ size }), inputClassName)}
+            disabled={disabled}
+            placeholder={placeholder && !label ? placeholder : " "}
+            value={currentValue}
+            {...props}
+            onChange={handleChange}
+          />
+          {label && (
+            <label htmlFor={props.id} className={cn(labelVariants({ size }))}>
+              {label}
+            </label>
+          )}
+        </div>
+        {endContentRender()}
+      </div>
+    );
+  },
+);
+
+FieldInput.displayName = "FieldInput";
+
+export { FieldInput, type FieldInputProps };

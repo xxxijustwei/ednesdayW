@@ -20,7 +20,10 @@ export function DocsNav({ config }: { config: DocsConfig }) {
             {item.title}
           </h4>
           {item?.items?.length && (
-            <DocsNavItems items={item.items} pathname={pathname} />
+            <DocsNavItems
+              items={item.items.sort((a, b) => a.title.localeCompare(b.title))}
+              pathname={pathname}
+            />
           )}
         </div>
       ))}
