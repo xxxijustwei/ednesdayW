@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-input-variant-demo",
+  "type": "registry:component",
+  "title": "Field Input Variant Demo",
+  "description": "A demo of the field input variant",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/field-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/field-input/variant.tsx",
+      "content": "import { FieldInput } from \"@/components/ui/field-input\";\n\nexport const fieldInputVariants = [\n  \"default\",\n  \"faded\",\n  \"bordered\",\n  \"underline\",\n] as const;\n\nexport const FieldInputVariantExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      {fieldInputVariants.map((variant) => (\n        <FieldInput\n          key={variant}\n          id={`field-${variant}`}\n          variant={variant}\n          label=\"Email\"\n        />\n      ))}\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/field-input-variant-demo.tsx"
+    }
+  ]
+}

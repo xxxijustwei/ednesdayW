@@ -11,14 +11,14 @@ export const FieldInputPasswordExample = () => {
     <div className="flex flex-col gap-4 w-full max-w-72">
       <FieldInput
         id="password"
-        label="密码"
+        label="Password"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <FieldInput
         id="confirm-password"
-        label="确认密码"
+        label="Confirm Password"
         type="password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}

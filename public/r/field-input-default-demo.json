@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-input-default-demo",
+  "type": "registry:component",
+  "title": "Field Input Default Demo",
+  "description": "A demo of the field input default",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/field-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/field-input/default.tsx",
+      "content": "import { FieldInput } from \"@/components/ui/field-input\";\n\nexport const FieldInputDefaultExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <FieldInput id=\"email\" label=\"邮箱\" />\n      <FieldInput id=\"username\" label=\"用户名\" defaultValue=\"示例文本\" />\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/field-input-default-demo.tsx"
+    }
+  ]
+}

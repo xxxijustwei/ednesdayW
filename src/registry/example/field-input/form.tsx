@@ -24,13 +24,10 @@ import { z } from "zod";
 
 const formSchema = z.object({
   email: z.string().email({
-    message: "邮箱格式不正确",
+    message: "Invalid email",
   }),
   password: z.string().min(6, {
-    message: "密码至少需要6个字符",
-  }),
-  username: z.string().min(3, {
-    message: "用户名至少需要3个字符",
+    message: "Password must be at least 6 characters",
   }),
 });
 
@@ -40,42 +37,25 @@ export const FieldInputFormExample = () => {
     defaultValues: {
       email: "",
       password: "",
-      username: "",
     },
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     await new Promise((resolve) => setTimeout(resolve, 300));
-    toast.success("注册成功！");
+    toast.success("Register successfully");
   };
 
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle>注册账号</CardTitle>
-        <CardDescription>创建一个新账号开始使用我们的服务</CardDescription>
+        <CardTitle>Sign Up</CardTitle>
+        <CardDescription>
+          Create a new account to start using our service
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField
-              control={form.control}
-              name="username"
-              render={({ field, fieldState }) => (
-                <FormItem>
-                  <FormControl>
-                    <FieldInput
-                      id="username"
-                      label="用户名"
-                      variant="bordered"
-                      aria-invalid={fieldState.invalid}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             <FormField
               control={form.control}
               name="email"
@@ -84,7 +64,7 @@ export const FieldInputFormExample = () => {
                   <FormControl>
                     <FieldInput
                       id="email"
-                      label="邮箱地址"
+                      label="Email"
                       variant="bordered"
                       aria-invalid={fieldState.invalid}
                       {...field}
@@ -102,7 +82,7 @@ export const FieldInputFormExample = () => {
                   <FormControl>
                     <FieldInput
                       id="password"
-                      label="密码"
+                      label="Password"
                       type="password"
                       variant="bordered"
                       aria-invalid={fieldState.invalid}
@@ -115,7 +95,7 @@ export const FieldInputFormExample = () => {
             />
             <div className="flex justify-end pt-2">
               <Button type="submit" loading={form.formState.isSubmitting}>
-                提交
+                Submit
               </Button>
             </div>
           </form>

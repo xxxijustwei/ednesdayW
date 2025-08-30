@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-input-disabled-demo",
+  "type": "registry:component",
+  "title": "Field Input Disabled Demo",
+  "description": "A demo of the field input disabled",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/field-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/field-input/disabled.tsx",
+      "content": "import { FieldInput } from \"@/components/ui/field-input\";\n\nexport const FieldInputDisabledExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <FieldInput\n        id=\"disabled-empty\"\n        label=\"Email\"\n        disabled\n      />\n      <FieldInput\n        id=\"disabled-with-value\"\n        label=\"Email\"\n        defaultValue=\"hi@ednesdayW.com\"\n        disabled\n      />\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/field-input-disabled-demo.tsx"
+    }
+  ]
+}

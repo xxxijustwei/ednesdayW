@@ -37,6 +37,29 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "field-input": {
+    name: "field-input",
+    description: "A field input component",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "src/registry/ui/field-input.tsx",
+        type: "registry:ui",
+        target: "components/wed/field-input.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/ui/field-input.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   "phone-input": {
     name: "phone-input",
     description: "A phone input component",
@@ -475,6 +498,173 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(async () => {
       const mod = await import("@/registry/example/input/form.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-input-size-demo": {
+    name: "field-input-size-demo",
+    description: "A demo of the field input size",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-input.json"],
+    files: [
+      {
+        path: "src/registry/example/field-input/size.tsx",
+        type: "registry:component",
+        target: "components/demo/field-input-size-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/field-input/size.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-input-variant-demo": {
+    name: "field-input-variant-demo",
+    description: "A demo of the field input variant",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-input.json"],
+    files: [
+      {
+        path: "src/registry/example/field-input/variant.tsx",
+        type: "registry:component",
+        target: "components/demo/field-input-variant-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/field-input/variant.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-input-disabled-demo": {
+    name: "field-input-disabled-demo",
+    description: "A demo of the field input disabled",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-input.json"],
+    files: [
+      {
+        path: "src/registry/example/field-input/disabled.tsx",
+        type: "registry:component",
+        target: "components/demo/field-input-disabled-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/field-input/disabled.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-input-invalid-demo": {
+    name: "field-input-invalid-demo",
+    description: "A demo of the field input invalid",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-input.json"],
+    files: [
+      {
+        path: "src/registry/example/field-input/invalid.tsx",
+        type: "registry:component",
+        target: "components/demo/field-input-invalid-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/field-input/invalid.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-input-start-end-content-demo": {
+    name: "field-input-start-end-content-demo",
+    description: "A demo of the field input start end content",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-input.json"],
+    files: [
+      {
+        path: "src/registry/example/field-input/start-end-content.tsx",
+        type: "registry:component",
+        target: "components/demo/field-input-start-end-content-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/example/field-input/start-end-content.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-input-password-demo": {
+    name: "field-input-password-demo",
+    description: "A demo of the field input password",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-input.json"],
+    files: [
+      {
+        path: "src/registry/example/field-input/password.tsx",
+        type: "registry:component",
+        target: "components/demo/field-input-password-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/field-input/password.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-input-form-demo": {
+    name: "field-input-form-demo",
+    description: "A demo of the field input form",
+    type: "registry:component",
+    registryDependencies: [
+      "card",
+      "form",
+      "https://ui.ednesdayw.com/r/field-input.json",
+    ],
+    files: [
+      {
+        path: "src/registry/example/field-input/form.tsx",
+        type: "registry:component",
+        target: "components/demo/field-input-form-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/field-input/form.tsx");
       const exportName =
         Object.keys(mod).find(
           (key) =>

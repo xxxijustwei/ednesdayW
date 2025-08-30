@@ -7,7 +7,7 @@ import * as React from "react";
 
 export const containerVariants = cva(
   cn(
-    "flex w-full relative rounded-md shadow-sm",
+    "flex w-full px-2.5 relative rounded-md shadow-sm",
     "text-base cursor-text",
     "data-[is-invalid=true]:border-destructive",
     "data-[disabled=true]:opacity-70 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
@@ -28,9 +28,9 @@ export const containerVariants = cva(
         underline: "border-b-2 border-input rounded-none shadow-none",
       },
       size: {
-        sm: "h-12 px-2.5 py-1.5",
-        md: "h-14 px-3 py-2",
-        lg: "h-16 px-3.5 py-2",
+        sm: "h-12 py-1.5",
+        md: "h-14 py-2",
+        lg: "h-16 py-2",
       },
     },
     compoundVariants: [
@@ -59,7 +59,7 @@ export const containerVariants = cva(
 
 const inputVariants = cva(
   cn(
-    "w-full h-full outline-hidden",
+    "w-full outline-hidden",
     "disabled:cursor-not-allowed",
     "bg-transparent",
     "[&:-webkit-autofill]:bg-transparent",
@@ -71,9 +71,9 @@ const inputVariants = cva(
   {
     variants: {
       size: {
-        sm: "text-base pt-4",
-        md: "text-lg pt-4",
-        lg: "text-xl pt-4",
+        sm: "text-sm",
+        md: "text-sm",
+        lg: "text-md",
       },
     },
     defaultVariants: {
@@ -87,14 +87,14 @@ const labelVariants = cva(
     "absolute left-0 top-1/2 -translate-y-1/2 origin-top-left pointer-events-none",
     "text-primary/60",
     "transition-all duration-200",
-    "group-focus-within:text-primary/80 group-data-[has-value=true]:text-primary/80",
+    "group-focus-within:text-primary/80 group-data-[is-invalid=true]:text-destructive",
   ),
   {
     variants: {
       size: {
-        sm: "text-base group-focus-within:scale-85 group-focus-within:-translate-y-5 group-data-[has-value=true]:scale-85 group-data-[has-value=true]:-translate-y-5",
-        md: "text-lg group-focus-within:scale-80 group-focus-within:-translate-y-5 group-data-[has-value=true]:scale-80 group-data-[has-value=true]:-translate-y-5",
-        lg: "text-xl group-focus-within:scale-80 group-focus-within:-translate-y-6 group-data-[has-value=true]:scale-80 group-data-[has-value=true]:-translate-y-6",
+        sm: "text-sm group-focus-within:scale-85 group-focus-within:-translate-y-4.5 group-data-[has-value=true]:scale-85 group-data-[has-value=true]:-translate-y-4.5",
+        md: "text-sm group-focus-within:scale-85 group-focus-within:-translate-y-5 group-data-[has-value=true]:scale-85 group-data-[has-value=true]:-translate-y-5",
+        lg: "text-md group-focus-within:scale-85 group-focus-within:-translate-y-6 group-data-[has-value=true]:scale-85 group-data-[has-value=true]:-translate-y-6",
       },
     },
     defaultVariants: {
@@ -121,6 +121,7 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
       type,
       placeholder,
       value,
+      defaultValue,
       variant,
       size,
       label,
@@ -134,7 +135,7 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
   ) => {
     const [showPassword, setShowPassword] = React.useState(false);
     const [uncontrolledValue, setUncontrolledValue] = React.useState(
-      props.defaultValue || "",
+      defaultValue || "",
     );
 
     const isControlled = value !== undefined;
@@ -192,7 +193,7 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
             className={cn(inputVariants({ size }), inputClassName)}
             disabled={disabled}
             placeholder={placeholder && !label ? placeholder : " "}
-            value={currentValue}
+            {...(isControlled ? { value: currentValue } : { defaultValue })}
             {...props}
             onChange={handleChange}
           />

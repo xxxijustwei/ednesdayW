@@ -3,20 +3,6 @@ import type { Registry } from "shadcn/registry";
 
 export const fieldInputExamples: Registry["items"] = [
   {
-    name: "field-input-default-demo",
-    type: "registry:component",
-    title: "Field Input Default Demo",
-    description: "A demo of the field input default",
-    registryDependencies: [`${siteConfig.registryUrl}/field-input.json`],
-    files: [
-      {
-        path: "src/registry/example/field-input/default.tsx",
-        type: "registry:component",
-        target: "components/demo/field-input-default-demo.tsx",
-      },
-    ],
-  },
-  {
     name: "field-input-size-demo",
     type: "registry:component",
     title: "Field Input Size Demo",

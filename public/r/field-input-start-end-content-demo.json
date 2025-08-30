@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-input-start-end-content-demo",
+  "type": "registry:component",
+  "title": "Field Input Start End Content Demo",
+  "description": "A demo of the field input start end content",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/field-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/field-input/start-end-content.tsx",
+      "content": "import { FieldInput } from \"@/components/ui/field-input\";\nimport { AtSign, DollarSign, Percent, Search, X } from \"lucide-react\";\n\nexport const FieldInputStartEndContentExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <FieldInput\n        id=\"search\"\n        label=\"Search\"\n        startContent={<Search size={20} />}\n        endContent={<X size={20} className=\"cursor-pointer\" />}\n      />\n      <FieldInput id=\"email\" label=\"Email\" startContent={<AtSign size={20} />} />\n      <FieldInput\n        id=\"price\"\n        label=\"Price\"\n        startContent={<DollarSign size={20} />}\n        endContent={<span className=\"text-sm text-muted-foreground\">USD</span>}\n      />\n      <FieldInput\n        id=\"discount\"\n        label=\"Discount\"\n        endContent={<Percent size={20} />}\n      />\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/field-input-start-end-content-demo.tsx"
+    }
+  ]
+}

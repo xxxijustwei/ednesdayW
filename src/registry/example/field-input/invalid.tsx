@@ -5,15 +5,14 @@ export const FieldInputInvalidExample = () => {
     <div className="flex flex-col gap-4 w-full max-w-72">
       <FieldInput
         id="invalid-email"
-        label="邮箱地址"
-        defaultValue="invalid-email"
+        label="Email"
+        defaultValue="hi$ednesdayW.com"
         aria-invalid={true}
       />
       <FieldInput
         id="invalid-password"
-        label="密码"
+        label="Password"
         type="password"
-        defaultValue="123"
         aria-invalid={true}
       />
     </div>

@@ -15,7 +15,7 @@ export const FieldInputVariantExample = () => {
           key={variant}
           id={`field-${variant}`}
           variant={variant}
-          label="请输入内容"
+          label="Email"
         />
       ))}
     </div>

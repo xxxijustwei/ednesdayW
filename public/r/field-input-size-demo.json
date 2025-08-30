@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-input-size-demo",
+  "type": "registry:component",
+  "title": "Field Input Size Demo",
+  "description": "A demo of the field input size",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/field-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/field-input/size.tsx",
+      "content": "import { FieldInput } from \"@/components/ui/field-input\";\n\nexport const fieldInputSizes = [\"sm\", \"md\", \"lg\"] as const;\n\nexport const FieldInputSizeExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      {fieldInputSizes.map((size) => (\n        <FieldInput\n          key={size}\n          id={`field-${size}`}\n          size={size}\n          label=\"Email\"\n        />\n      ))}\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/field-input-size-demo.tsx"
+    }
+  ]
+}

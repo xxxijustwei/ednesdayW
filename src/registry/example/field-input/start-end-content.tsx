@@ -6,20 +6,19 @@ export const FieldInputStartEndContentExample = () => {
     <div className="flex flex-col gap-4 w-full max-w-72">
       <FieldInput
         id="search"
-        label="搜索"
+        label="Search"
         startContent={<Search size={20} />}
         endContent={<X size={20} className="cursor-pointer" />}
       />
-      <FieldInput id="email" label="邮箱" startContent={<AtSign size={20} />} />
       <FieldInput
         id="price"
-        label="价格"
+        label="Price"
         startContent={<DollarSign size={20} />}
         endContent={<span className="text-sm text-muted-foreground">USD</span>}
       />
       <FieldInput
         id="discount"
-        label="折扣"
+        label="Discount"
         endContent={<Percent size={20} />}
       />
     </div>
