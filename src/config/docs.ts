@@ -41,6 +41,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Field Input",
+          href: "/docs/components/field-input",
+          items: [],
+        },
+        {
           title: "Phone Input",
           href: "/docs/components/phone-input",
           items: [],

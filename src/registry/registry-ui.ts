@@ -16,6 +16,19 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "field-input",
+    type: "registry:ui",
+    title: "Field Input",
+    description: "A field input component",
+    files: [
+      {
+        path: "src/registry/ui/field-input.tsx",
+        type: "registry:ui",
+        target: "components/wed/field-input.tsx",
+      },
+    ],
+  },
+  {
     name: "phone-input",
     type: "registry:ui",
     title: "Phone Input",
