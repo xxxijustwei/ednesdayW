@@ -1,15 +1,9 @@
 import { FieldInput } from "@/registry/ui/field-input";
-import { AtSign, DollarSign, Percent, Search, X } from "lucide-react";
+import { DollarSign, Percent } from "lucide-react";
 
 export const FieldInputStartEndContentExample = () => {
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
-      <FieldInput
-        id="search"
-        label="Search"
-        startContent={<Search size={20} />}
-        endContent={<X size={20} className="cursor-pointer" />}
-      />
       <FieldInput
         id="price"
         label="Price"

@@ -92,9 +92,9 @@ const labelVariants = cva(
   {
     variants: {
       size: {
-        sm: "text-sm group-focus-within:scale-85 group-focus-within:-translate-y-4.5 group-data-[has-value=true]:scale-85 group-data-[has-value=true]:-translate-y-4.5",
-        md: "text-sm group-focus-within:scale-85 group-focus-within:-translate-y-5 group-data-[has-value=true]:scale-85 group-data-[has-value=true]:-translate-y-5",
-        lg: "text-md group-focus-within:scale-85 group-focus-within:-translate-y-6 group-data-[has-value=true]:scale-85 group-data-[has-value=true]:-translate-y-6",
+        sm: "text-sm group-focus-within:scale-85 group-focus-within:-translate-y-4.5 group-data-[zoom-out=true]:scale-85 group-data-[zoom-out=true]:-translate-y-4.5",
+        md: "text-sm group-focus-within:scale-85 group-focus-within:-translate-y-5 group-data-[zoom-out=true]:scale-85 group-data-[zoom-out=true]:-translate-y-5",
+        lg: "text-md group-focus-within:scale-85 group-focus-within:-translate-y-6 group-data-[zoom-out=true]:scale-85 group-data-[zoom-out=true]:-translate-y-6",
       },
     },
     defaultVariants: {
@@ -154,7 +154,8 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
 
     const isControlled = value !== undefined;
     const currentValue = isControlled ? value : uncontrolledValue;
-    const hasValue = Boolean(currentValue);
+    const zoomOut =
+      Boolean(currentValue) || !!placeholder || !!startContent || !!endContent;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (!isControlled) {
@@ -193,15 +194,15 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
         )}
         data-is-invalid={ariaInvalid?.toString()}
         data-disabled={disabled?.toString()}
-        data-has-value={hasValue.toString()}
+        data-zoom-out={zoomOut.toString()}
         onClick={() => {
           if (!disabled && inputRef.current) {
             inputRef.current.focus();
           }
         }}
       >
-        {startContent && startContent}
-        <div className="inline-flex w-full items-end h-full relative">
+        <div className="inline-flex w-full items-end gap-1.5 h-full relative">
+          {startContent && startContent}
           <input
             type={
               type === "password" && endContent === undefined && showPassword
@@ -211,18 +212,18 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
             ref={setRefs}
             className={cn(inputVariants({ size }), inputClassName)}
             disabled={disabled}
-            placeholder={placeholder && !label ? placeholder : " "}
+            placeholder={placeholder}
             {...(isControlled ? { value: currentValue } : { defaultValue })}
             {...props}
             onChange={handleChange}
           />
+          {endContentRender()}
           {label && (
             <label htmlFor={props.id} className={cn(labelVariants({ size }))}>
               {label}
             </label>
           )}
         </div>
-        {endContentRender()}
       </div>
     );
   },

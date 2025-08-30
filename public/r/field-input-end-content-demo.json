@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-input-end-content-demo",
+  "type": "registry:component",
+  "title": "Field Input End Content Demo",
+  "description": "A demo of the field input end content",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/field-input.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/field-input/end-content.tsx",
+      "content": "import { FieldInput } from \"@/components/ui/field-input\";\nimport { DollarSignIcon, Percent, Search } from \"lucide-react\";\n\nexport const FieldInputEndContentExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <FieldInput\n        id=\"search\"\n        label=\"Search\"\n        endContent={<Search size={20} />}\n      />\n      <FieldInput\n        id=\"price\"\n        label=\"Price\"\n        endContent={<DollarSignIcon size={20} />}\n      />\n      <FieldInput\n        id=\"discount\"\n        label=\"Discount\"\n        endContent={<Percent size={20} />}\n      />\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/field-input-end-content-demo.tsx"
+    }
+  ]
+}

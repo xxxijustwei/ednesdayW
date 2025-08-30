@@ -1,4 +1,5 @@
 import { FieldInput } from "@/registry/ui/field-input";
+import { MailIcon } from "lucide-react";
 
 export default function Page() {
   return (
@@ -10,7 +11,11 @@ export default function Page() {
             id={`${variant}-input`}
             label="Email"
             variant={variant as "default" | "faded" | "bordered" | "underline"}
-            size={"lg"}
+            size={"md"}
+            placeholder="Enter your email"
+            endContent={
+              <MailIcon size={20} className="text-muted-foreground" />
+            }
           />
         ))}
       </div>
