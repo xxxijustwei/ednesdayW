@@ -156,7 +156,7 @@ TagInput.displayName = "TagInput";
 
 const containerVariants = cva(
   cn(
-    "flex w-full relative rounded-md shadow-sm",
+    "flex w-full px-2.5 relative rounded-md shadow-sm",
     "text-base cursor-text",
     "data-[is-invalid=true]:border-destructive",
     "data-[disabled=true]:opacity-70 data-[disabled=true]:cursor-not-allowed",
@@ -177,9 +177,9 @@ const containerVariants = cva(
         underline: "border-b-2 border-input rounded-none shadow-none",
       },
       size: {
-        sm: "h-10 px-2.5 py-1.5",
-        md: "h-12 px-3 py-2",
-        lg: "h-13 px-3.5 py-2.5",
+        sm: "min-h-10 py-1.5",
+        md: "min-h-12 py-2",
+        lg: "min-h-13 py-2",
       },
     },
     compoundVariants: [
@@ -252,7 +252,7 @@ interface TagInputBadgeProps extends React.ComponentProps<typeof Badge> {
 const badgeVariants = cva("max-w-full gap-1.5", {
   variants: {
     size: {
-      sm: "text-sm h-6 rounded-sm",
+      sm: "text-base h-6 rounded-sm",
       md: "text-base h-7 rounded-sm",
       lg: "text-lg h-7 rounded-sm",
     },
@@ -326,7 +326,7 @@ const inputVariants = cva(
   {
     variants: {
       size: {
-        sm: "text-sm",
+        sm: "text-base",
         md: "text-base",
         lg: "text-lg",
       },

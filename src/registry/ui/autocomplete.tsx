@@ -262,8 +262,8 @@ const autocompleteItemVariants = cva(
     variants: {
       size: {
         sm: "text-base",
-        md: "text-lg",
-        lg: "text-xl",
+        md: "text-base",
+        lg: "text-lg",
       },
     },
     defaultVariants: {
