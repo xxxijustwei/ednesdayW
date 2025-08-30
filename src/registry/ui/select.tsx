@@ -53,9 +53,9 @@ const selectTriggerVariants = cva(
         underline: "border-b-2 border-input rounded-none shadow-none",
       },
       size: {
-        sm: "h-10 py-1.5 text-base data-[placeholder]:text-sm",
-        md: "h-12 py-2 text-lg data-[placeholder]:text-base",
-        lg: "h-13 py-2.5 text-xl data-[placeholder]:text-lg",
+        sm: "h-10 py-1.5 text-base data-[placeholder]:text-base",
+        md: "h-12 py-2 text-base data-[placeholder]:text-base",
+        lg: "h-13 py-2 text-lg data-[placeholder]:text-lg",
       },
     },
     compoundVariants: [
@@ -104,7 +104,7 @@ function SelectTrigger({
       <SelectPrimitive.Icon asChild>
         <ChevronDownIcon
           className={cn(
-            "size-5 transition-transform duration-100",
+            "size-5 transition-transform duration-200",
             "group-data-[state=open]:rotate-180",
           )}
         />

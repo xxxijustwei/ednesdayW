@@ -137,6 +137,20 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
     const [uncontrolledValue, setUncontrolledValue] = React.useState(
       defaultValue || "",
     );
+    const inputRef = React.useRef<HTMLInputElement>(null);
+    const setRefs = React.useCallback(
+      (element: HTMLInputElement | null) => {
+        inputRef.current = element;
+        if (ref) {
+          if (typeof ref === "function") {
+            ref(element);
+          } else {
+            ref.current = element;
+          }
+        }
+      },
+      [ref],
+    );
 
     const isControlled = value !== undefined;
     const currentValue = isControlled ? value : uncontrolledValue;
@@ -180,6 +194,11 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
         data-is-invalid={ariaInvalid?.toString()}
         data-disabled={disabled?.toString()}
         data-has-value={hasValue.toString()}
+        onClick={() => {
+          if (!disabled && inputRef.current) {
+            inputRef.current.focus();
+          }
+        }}
       >
         {startContent && startContent}
         <div className="inline-flex w-full items-end h-full relative">
@@ -189,7 +208,7 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
                 ? "text"
                 : type
             }
-            ref={ref}
+            ref={setRefs}
             className={cn(inputVariants({ size }), inputClassName)}
             disabled={disabled}
             placeholder={placeholder && !label ? placeholder : " "}

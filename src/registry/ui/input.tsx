@@ -7,7 +7,7 @@ import * as React from "react";
 
 export const containerVariants = cva(
   cn(
-    "flex w-full relative rounded-md shadow-sm",
+    "flex w-full px-2.5 relative rounded-md shadow-sm",
     "text-base cursor-text",
     "data-[is-invalid=true]:border-destructive",
     "data-[disabled=true]:opacity-70 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
@@ -28,9 +28,9 @@ export const containerVariants = cva(
         underline: "border-b-2 border-input rounded-none shadow-none",
       },
       size: {
-        sm: "h-10 px-2.5 py-1.5",
-        md: "h-12 px-3 py-2",
-        lg: "h-13 px-3.5 py-2",
+        sm: "h-10 py-1.5",
+        md: "h-12 py-2",
+        lg: "h-13 py-2",
       },
     },
     compoundVariants: [
@@ -59,7 +59,7 @@ export const containerVariants = cva(
 
 const inputVariants = cva(
   cn(
-    "w-full h-full outline-hidden",
+    "w-full outline-hidden",
     "disabled:cursor-not-allowed",
     "bg-transparent",
     "placeholder:text-muted-foreground",
@@ -73,8 +73,8 @@ const inputVariants = cva(
     variants: {
       size: {
         sm: "text-base",
-        md: "text-lg",
-        lg: "text-xl",
+        md: "text-base",
+        lg: "text-lg",
       },
     },
     defaultVariants: {
@@ -110,6 +110,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref,
   ) => {
     const [showPassword, setShowPassword] = React.useState(false);
+    const inputRef = React.useRef<HTMLInputElement>(null);
+    const setRefs = React.useCallback((element: HTMLInputElement | null) => {
+      inputRef.current = element;
+      if (ref) {
+        if (typeof ref === "function") {
+          ref(element);
+        } else {
+          ref.current = element;
+        }
+      }
+    }, []);
 
     const endContentRender = () => {
       if (endContent) {
@@ -141,16 +152,21 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
         data-is-invalid={ariaInvalid?.toString()}
         data-disabled={disabled?.toString()}
+        onClick={() => {
+          if (!disabled && inputRef.current) {
+            inputRef.current.focus();
+          }
+        }}
       >
         {startContent && startContent}
-        <div className="inline-flex w-full items-end h-full relative">
+        <div className="inline-flex w-full items-center h-full relative">
           <input
             type={
               type === "password" && endContent === undefined && showPassword
                 ? "text"
                 : type
             }
-            ref={ref}
+            ref={setRefs}
             className={cn(inputVariants({ size }), inputClassName)}
             value={value}
             disabled={disabled}
