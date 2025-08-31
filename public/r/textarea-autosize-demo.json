@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-autosize-demo",
+  "type": "registry:component",
+  "title": "Textarea Autosize Demo",
+  "description": "A demo of the textarea autosize",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/textarea.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/textarea/autosize.tsx",
+      "content": "import { Textarea } from \"@/components/ui/textarea\";\n\nexport const TextareaAutosizeExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <Textarea\n        variant=\"bordered\"\n        minRows={3}\n        maxRows={8}\n        disableResize\n        placeholder=\"Min Rows 3, Max Rows 8\"\n      />\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/textarea-autosize-demo.tsx"
+    }
+  ]
+}

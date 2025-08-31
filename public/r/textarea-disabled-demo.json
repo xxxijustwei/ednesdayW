@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-disabled-demo",
+  "type": "registry:component",
+  "title": "Textarea Disabled Demo",
+  "description": "A demo of the textarea disabled",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/textarea.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/textarea/disabled.tsx",
+      "content": "import { Textarea } from \"@/components/ui/textarea\";\n\nexport const inputVariants = [\n  \"default\",\n  \"faded\",\n  \"bordered\",\n  \"underline\",\n] as const;\n\nexport const TextareaDisabledExample = () => {\n  return (\n    <div className=\"grid grid-cols-2 gap-4 w-full max-w-120\">\n      {inputVariants.map((variant) => (\n        <Textarea\n          key={variant}\n          variant={variant}\n          disabled\n          placeholder=\"Please enter something...\"\n        />\n      ))}\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/textarea-disabled-demo.tsx"
+    }
+  ]
+}

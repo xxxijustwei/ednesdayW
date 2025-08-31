@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-textarea-autosize-demo",
+  "type": "registry:component",
+  "title": "Field Textarea Autosize Demo",
+  "description": "A demo of the field textarea autosize",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/field-textarea.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/field-textarea/autosize.tsx",
+      "content": "import { FieldTextarea } from \"@/components/ui/field-textarea\";\n\nexport const FieldTextareaAutosizeExample = () => {\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <FieldTextarea\n        id=\"field-textarea-autosize\"\n        label=\"Bio\"\n        variant=\"bordered\"\n        minRows={3}\n        maxRows={8}\n        disableResize\n        placeholder=\"Min Rows 3, Max Rows 8\"\n      />\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/field-textarea-autosize-demo.tsx"
+    }
+  ]
+}

@@ -24,9 +24,9 @@ export const textareaExamples: Registry["items"] = [
     registryDependencies: [`${siteConfig.registryUrl}/textarea.json`],
     files: [
       {
-        path: "src/registry/example/textarea/invalid.tsx",
+        path: "src/registry/example/textarea/disabled.tsx",
         type: "registry:component",
-        target: "components/demo/textarea-invalid-demo.tsx",
+        target: "components/demo/textarea-disabled-demo.tsx",
       },
     ],
   },

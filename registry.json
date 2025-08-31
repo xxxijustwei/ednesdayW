@@ -178,6 +178,34 @@
       ]
     },
     {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A textarea component",
+      "dependencies": ["textarea-autosize"],
+      "files": [
+        {
+          "path": "src/registry/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/wed/textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-textarea",
+      "type": "registry:ui",
+      "title": "Field Textarea",
+      "description": "A field textarea component",
+      "dependencies": ["textarea-autosize"],
+      "files": [
+        {
+          "path": "src/registry/ui/field-textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/wed/field-textarea.tsx"
+        }
+      ]
+    },
+    {
       "name": "use-disclosure",
       "type": "registry:hook",
       "title": "Use Disclosure",
@@ -433,6 +461,156 @@
           "path": "src/registry/example/field-input/form.tsx",
           "type": "registry:component",
           "target": "components/demo/field-input-form-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea-variant-demo",
+      "type": "registry:component",
+      "title": "Textarea Variant Demo",
+      "description": "A demo of the textarea variant",
+      "registryDependencies": ["https://ui.ednesdayw.com/r/textarea.json"],
+      "files": [
+        {
+          "path": "src/registry/example/textarea/variant.tsx",
+          "type": "registry:component",
+          "target": "components/demo/textarea-variant-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea-disabled-demo",
+      "type": "registry:component",
+      "title": "Textarea Disabled Demo",
+      "description": "A demo of the textarea disabled",
+      "registryDependencies": ["https://ui.ednesdayw.com/r/textarea.json"],
+      "files": [
+        {
+          "path": "src/registry/example/textarea/disabled.tsx",
+          "type": "registry:component",
+          "target": "components/demo/textarea-disabled-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea-invalid-demo",
+      "type": "registry:component",
+      "title": "Textarea Invalid Demo",
+      "description": "A demo of the textarea invalid",
+      "registryDependencies": ["https://ui.ednesdayw.com/r/textarea.json"],
+      "files": [
+        {
+          "path": "src/registry/example/textarea/invalid.tsx",
+          "type": "registry:component",
+          "target": "components/demo/textarea-invalid-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea-autosize-demo",
+      "type": "registry:component",
+      "title": "Textarea Autosize Demo",
+      "description": "A demo of the textarea autosize",
+      "registryDependencies": ["https://ui.ednesdayw.com/r/textarea.json"],
+      "files": [
+        {
+          "path": "src/registry/example/textarea/autosize.tsx",
+          "type": "registry:component",
+          "target": "components/demo/textarea-autosize-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea-form-demo",
+      "type": "registry:component",
+      "title": "Textarea Form Demo",
+      "description": "A demo of the textarea form",
+      "registryDependencies": ["https://ui.ednesdayw.com/r/textarea.json"],
+      "files": [
+        {
+          "path": "src/registry/example/textarea/form.tsx",
+          "type": "registry:component",
+          "target": "components/demo/textarea-form-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-textarea-variant-demo",
+      "type": "registry:component",
+      "title": "Field Textarea Variant Demo",
+      "description": "A demo of the field textarea variant",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/field-textarea.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/field-textarea/variant.tsx",
+          "type": "registry:component",
+          "target": "components/demo/field-textarea-variant-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-textarea-disabled-demo",
+      "type": "registry:component",
+      "title": "Field Textarea Disabled Demo",
+      "description": "A demo of the field textarea disabled",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/field-textarea.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/field-textarea/disabled.tsx",
+          "type": "registry:component",
+          "target": "components/demo/field-textarea-disabled-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-textarea-invalid-demo",
+      "type": "registry:component",
+      "title": "Field Textarea Invalid Demo",
+      "description": "A demo of the field textarea invalid",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/field-textarea.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/field-textarea/invalid.tsx",
+          "type": "registry:component",
+          "target": "components/demo/field-textarea-invalid-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-textarea-autosize-demo",
+      "type": "registry:component",
+      "title": "Field Textarea Autosize Demo",
+      "description": "A demo of the field textarea autosize",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/field-textarea.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/field-textarea/autosize.tsx",
+          "type": "registry:component",
+          "target": "components/demo/field-textarea-autosize-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-textarea-form-demo",
+      "type": "registry:component",
+      "title": "Field Textarea Form Demo",
+      "description": "A demo of the field textarea form",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/field-textarea.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/field-textarea/form.tsx",
+          "type": "registry:component",
+          "target": "components/demo/field-textarea-form-demo.tsx"
         }
       ]
     },

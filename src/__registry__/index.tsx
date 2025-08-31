@@ -248,6 +248,52 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  textarea: {
+    name: "textarea",
+    description: "A textarea component",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "src/registry/ui/textarea.tsx",
+        type: "registry:ui",
+        target: "components/wed/textarea.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/ui/textarea.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-textarea": {
+    name: "field-textarea",
+    description: "A field textarea component",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "src/registry/ui/field-textarea.tsx",
+        type: "registry:ui",
+        target: "components/wed/field-textarea.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/ui/field-textarea.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   "use-disclosure": {
     name: "use-disclosure",
     description: "A hook for managing disclosure state",
@@ -665,6 +711,240 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(async () => {
       const mod = await import("@/registry/example/field-input/form.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "textarea-variant-demo": {
+    name: "textarea-variant-demo",
+    description: "A demo of the textarea variant",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/textarea.json"],
+    files: [
+      {
+        path: "src/registry/example/textarea/variant.tsx",
+        type: "registry:component",
+        target: "components/demo/textarea-variant-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/textarea/variant.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "textarea-disabled-demo": {
+    name: "textarea-disabled-demo",
+    description: "A demo of the textarea disabled",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/textarea.json"],
+    files: [
+      {
+        path: "src/registry/example/textarea/disabled.tsx",
+        type: "registry:component",
+        target: "components/demo/textarea-disabled-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/textarea/disabled.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "textarea-invalid-demo": {
+    name: "textarea-invalid-demo",
+    description: "A demo of the textarea invalid",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/textarea.json"],
+    files: [
+      {
+        path: "src/registry/example/textarea/invalid.tsx",
+        type: "registry:component",
+        target: "components/demo/textarea-invalid-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/textarea/invalid.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "textarea-autosize-demo": {
+    name: "textarea-autosize-demo",
+    description: "A demo of the textarea autosize",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/textarea.json"],
+    files: [
+      {
+        path: "src/registry/example/textarea/autosize.tsx",
+        type: "registry:component",
+        target: "components/demo/textarea-autosize-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/textarea/autosize.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "textarea-form-demo": {
+    name: "textarea-form-demo",
+    description: "A demo of the textarea form",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/textarea.json"],
+    files: [
+      {
+        path: "src/registry/example/textarea/form.tsx",
+        type: "registry:component",
+        target: "components/demo/textarea-form-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/textarea/form.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-textarea-variant-demo": {
+    name: "field-textarea-variant-demo",
+    description: "A demo of the field textarea variant",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-textarea.json"],
+    files: [
+      {
+        path: "src/registry/example/field-textarea/variant.tsx",
+        type: "registry:component",
+        target: "components/demo/field-textarea-variant-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/field-textarea/variant.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-textarea-disabled-demo": {
+    name: "field-textarea-disabled-demo",
+    description: "A demo of the field textarea disabled",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-textarea.json"],
+    files: [
+      {
+        path: "src/registry/example/field-textarea/disabled.tsx",
+        type: "registry:component",
+        target: "components/demo/field-textarea-disabled-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/example/field-textarea/disabled.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-textarea-invalid-demo": {
+    name: "field-textarea-invalid-demo",
+    description: "A demo of the field textarea invalid",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-textarea.json"],
+    files: [
+      {
+        path: "src/registry/example/field-textarea/invalid.tsx",
+        type: "registry:component",
+        target: "components/demo/field-textarea-invalid-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/field-textarea/invalid.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-textarea-autosize-demo": {
+    name: "field-textarea-autosize-demo",
+    description: "A demo of the field textarea autosize",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-textarea.json"],
+    files: [
+      {
+        path: "src/registry/example/field-textarea/autosize.tsx",
+        type: "registry:component",
+        target: "components/demo/field-textarea-autosize-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/example/field-textarea/autosize.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "field-textarea-form-demo": {
+    name: "field-textarea-form-demo",
+    description: "A demo of the field textarea form",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/field-textarea.json"],
+    files: [
+      {
+        path: "src/registry/example/field-textarea/form.tsx",
+        type: "registry:component",
+        target: "components/demo/field-textarea-form-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/field-textarea/form.tsx");
       const exportName =
         Object.keys(mod).find(
           (key) =>
