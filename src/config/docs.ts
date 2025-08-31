@@ -46,6 +46,16 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Textarea",
+          href: "/docs/components/textarea",
+          items: [],
+        },
+        {
+          title: "Field Textarea",
+          href: "/docs/components/field-textarea",
+          items: [],
+        },
+        {
           title: "Phone Input",
           href: "/docs/components/phone-input",
           items: [],
