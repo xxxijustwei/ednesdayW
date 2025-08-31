@@ -159,7 +159,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     title: "Textarea",
     description: "A textarea component",
-    dependencies: ["textarea-autosize"],
+    dependencies: ["react-textarea-autosize"],
     files: [
       {
         path: "src/registry/ui/textarea.tsx",
@@ -173,7 +173,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     title: "Field Textarea",
     description: "A field textarea component",
-    dependencies: ["textarea-autosize"],
+    dependencies: ["react-textarea-autosize"],
     files: [
       {
         path: "src/registry/ui/field-textarea.tsx",

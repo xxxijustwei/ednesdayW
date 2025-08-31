@@ -5,7 +5,7 @@
   "title": "Field Textarea",
   "description": "A field textarea component",
   "dependencies": [
-    "textarea-autosize"
+    "react-textarea-autosize"
   ],
   "files": [
     {

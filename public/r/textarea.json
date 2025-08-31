@@ -5,7 +5,7 @@
   "title": "Textarea",
   "description": "A textarea component",
   "dependencies": [
-    "textarea-autosize"
+    "react-textarea-autosize"
   ],
   "files": [
     {
