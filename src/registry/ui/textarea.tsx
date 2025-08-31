@@ -9,7 +9,7 @@ import TextareaAutosize, {
 
 export const containerVariants = cva(
   cn(
-    "flex w-full px-2.5 py-2 relative rounded-md shadow-sm",
+    "flex w-full h-fit px-2.5 py-2 relative rounded-md shadow-sm",
     "text-base cursor-text",
     "data-[is-invalid=true]:border-destructive",
     "data-[disabled=true]:opacity-70 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
