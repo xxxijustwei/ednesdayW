@@ -85,9 +85,9 @@ const inputVariants = cva(
 const labelVariants = cva(
   cn(
     "absolute left-0 top-1/2 -translate-y-1/2 origin-top-left pointer-events-none",
-    "text-primary/60",
+    "text-primary/80",
     "transition-all duration-200",
-    "group-focus-within:text-primary/80 group-data-[is-invalid=true]:text-destructive",
+    "group-data-[is-invalid=true]:text-destructive",
   ),
   {
     variants: {
@@ -218,11 +218,9 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
             onChange={handleChange}
           />
           {endContentRender()}
-          {label && (
-            <label htmlFor={props.id} className={cn(labelVariants({ size }))}>
-              {label}
-            </label>
-          )}
+          <label htmlFor={props.id} className={cn(labelVariants({ size }))}>
+            {label}
+          </label>
         </div>
       </div>
     );
