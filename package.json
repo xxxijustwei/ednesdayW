@@ -67,6 +67,7 @@
     "react-hook-form": "^7.54.2",
     "react-intersection-observer": "^9.16.0",
     "react-resizable-panels": "^2.1.7",
+    "react-textarea-autosize": "^8.5.9",
     "react-wrap-balancer": "^1.1.1",
     "recharts": "^2.15.1",
     "shadcn": "^2.4.0-canary.17",
