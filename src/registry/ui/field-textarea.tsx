@@ -104,7 +104,7 @@ const FieldTextarea = React.forwardRef<HTMLTextAreaElement, FieldTextareaProps>(
           <label
             htmlFor={id}
             className={cn(
-              "text-sm text-primary/80 origin-top-left",
+              "text-sm text-accent-foreground/70 origin-top-left",
               "transition-all duration-200",
               "group-data-[is-invalid=true]:text-destructive",
               labelClassName,
@@ -115,8 +115,13 @@ const FieldTextarea = React.forwardRef<HTMLTextAreaElement, FieldTextareaProps>(
           <TextareaAutosize
             ref={setRefs}
             className={cn(
-              "w-full min-h-[48px] outline-hidden bg-transparent text-sm",
+              "w-full min-h-[40px] outline-hidden bg-transparent text-sm",
               "disabled:cursor-not-allowed placeholder:text-muted-foreground",
+              "[&:-webkit-autofill]:bg-transparent",
+              "[&:-webkit-autofill:hover]:bg-transparent",
+              "[&:-webkit-autofill:focus]:bg-transparent",
+              "[&:-webkit-autofill:active]:bg-transparent",
+              "[&:-webkit-autofill]:[transition-delay:9999s]",
               disableResize ? "resize-none" : "resize-y",
               textareaClassName,
             )}

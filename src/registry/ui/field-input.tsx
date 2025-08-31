@@ -85,7 +85,7 @@ const inputVariants = cva(
 const labelVariants = cva(
   cn(
     "absolute left-0 top-1/2 -translate-y-1/2 origin-top-left pointer-events-none",
-    "text-primary/80",
+    "text-accent-foreground/70",
     "transition-all duration-200",
     "group-data-[is-invalid=true]:text-destructive",
   ),
