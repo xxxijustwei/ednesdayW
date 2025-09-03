@@ -7,8 +7,8 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 import { useRipple } from "@/registry/hooks/use-ripple";
 import { useCallbackRef } from "@radix-ui/react-use-callback-ref";
-import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import { Loader2Icon } from "lucide-react";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "motion/react";
 import { useCallback, useState } from "react";
 
 const buttonVariants = cva(

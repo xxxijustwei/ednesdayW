@@ -1,5 +1,5 @@
 import { useRipple } from "@/registry/hooks/use-ripple";
-import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "motion/react";
 
 export const UseRippleDemo = () => {
   const { ripples, onClick, onClear } = useRipple();
