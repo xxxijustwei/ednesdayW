@@ -50,10 +50,10 @@
       "type": "registry:ui",
       "title": "Phone Input",
       "description": "A phone input component",
-      "dependencies": [
+      "registryDependencies": [
+        "popover",
         "https://ui.ednesdayw.com/r/input.json",
-        "https://ui.ednesdayw.com/r/use-disclosure.json",
-        "popover"
+        "https://ui.ednesdayw.com/r/use-disclosure.json"
       ],
       "files": [
         {
@@ -84,7 +84,7 @@
       "dependencies": ["react-colorful"],
       "registryDependencies": [
         "popover",
-        "button",
+        "https://ui.ednesdayw.com/r/button.json",
         "https://ui.ednesdayw.com/r/colors.json"
       ],
       "files": [
@@ -100,9 +100,8 @@
       "type": "registry:ui",
       "title": "Color Input",
       "description": "A color input component",
-      "dependencies": [
-        "react-colorful",
-        "https://ui.ednesdayw.com/r/colors.json",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/color-picker.json",
         "https://ui.ednesdayw.com/r/input.json"
       ],
       "files": [
@@ -133,6 +132,7 @@
       "type": "registry:ui",
       "title": "Pagination",
       "description": "A pagination component",
+      "registryDependencies": ["https://ui.ednesdayw.com/r/paginate.json"],
       "files": [
         {
           "path": "src/registry/ui/pagination.tsx",
@@ -1197,7 +1197,7 @@
     {
       "name": "create2",
       "type": "registry:lib",
-      "dependencies": ["js-sha3", "bs58"],
+      "dependencies": ["js-sha3"],
       "registryDependencies": [
         "https://ui.ednesdayw.com/r/wallet-address.json"
       ],

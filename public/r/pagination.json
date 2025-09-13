@@ -4,6 +4,9 @@
   "type": "registry:ui",
   "title": "Pagination",
   "description": "A pagination component",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/paginate.json"
+  ],
   "files": [
     {
       "path": "src/registry/ui/pagination.tsx",

@@ -64,7 +64,11 @@ export const Index: Record<string, any> = {
     name: "phone-input",
     description: "A phone input component",
     type: "registry:ui",
-    registryDependencies: undefined,
+    registryDependencies: [
+      "popover",
+      "https://ui.ednesdayw.com/r/input.json",
+      "https://ui.ednesdayw.com/r/use-disclosure.json",
+    ],
     files: [
       {
         path: "src/registry/ui/phone-input.tsx",
@@ -112,7 +116,7 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     registryDependencies: [
       "popover",
-      "button",
+      "https://ui.ednesdayw.com/r/button.json",
       "https://ui.ednesdayw.com/r/colors.json",
     ],
     files: [
@@ -137,7 +141,10 @@ export const Index: Record<string, any> = {
     name: "color-input",
     description: "A color input component",
     type: "registry:ui",
-    registryDependencies: undefined,
+    registryDependencies: [
+      "https://ui.ednesdayw.com/r/color-picker.json",
+      "https://ui.ednesdayw.com/r/input.json",
+    ],
     files: [
       {
         path: "src/registry/ui/color-input.tsx",
@@ -183,7 +190,7 @@ export const Index: Record<string, any> = {
     name: "pagination",
     description: "A pagination component",
     type: "registry:ui",
-    registryDependencies: undefined,
+    registryDependencies: ["https://ui.ednesdayw.com/r/paginate.json"],
     files: [
       {
         path: "src/registry/ui/pagination.tsx",

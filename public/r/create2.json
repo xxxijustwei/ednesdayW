@@ -3,8 +3,7 @@
   "name": "create2",
   "type": "registry:lib",
   "dependencies": [
-    "js-sha3",
-    "bs58"
+    "js-sha3"
   ],
   "registryDependencies": [
     "https://ui.ednesdayw.com/r/wallet-address.json"
