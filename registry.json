@@ -535,6 +535,23 @@
       ]
     },
     {
+      "name": "textarea-actions-demo",
+      "type": "registry:component",
+      "title": "Textarea Actions Demo",
+      "description": "A demo of the textarea actions",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/textarea.json",
+        "https://ui.ednesdayw.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/textarea/actions.tsx",
+          "type": "registry:component",
+          "target": "components/demo/textarea-actions-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "field-textarea-variant-demo",
       "type": "registry:component",
       "title": "Field Textarea Variant Demo",

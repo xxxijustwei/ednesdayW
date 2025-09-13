@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-actions-demo",
+  "type": "registry:component",
+  "title": "Textarea Actions Demo",
+  "description": "A demo of the textarea actions",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/textarea.json",
+    "https://ui.ednesdayw.com/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/textarea/actions.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Textarea, TextareaContainer } from \"@/components/ui/textarea\";\nimport { PencilIcon } from \"lucide-react\";\nimport { useState } from \"react\";\n\nexport const TextareaActionsExample = () => {\n  const [message, setMessage] = useState(\"Hello, world!\");\n  const [input, setInput] = useState(message);\n  const [edit, setEdit] = useState(true);\n\n  return (\n    <div\n      className=\"w-full max-w-xl group border p-6 rounded-4xl\"\n      data-edit={edit.toString()}\n    >\n      <div className=\"w-full flex flex-col gap-0.5 items-end group-data-[edit=true]:hidden\">\n        <div className=\"bg-secondary rounded-2xl px-3 py-2 ml-auto\">\n          <span className=\"whitespace-pre-line\">{message}</span>\n        </div>\n        <Button\n          variant=\"ghost\"\n          size=\"icon\"\n          className=\"size-7\"\n          onClick={() => {\n            setEdit(true);\n          }}\n        >\n          <PencilIcon className=\"size-4! text-secondary-foreground\" />\n        </Button>\n      </div>\n      <TextareaContainer\n        variant=\"faded\"\n        className=\"px-4 py-3 rounded-3xl shadow-none border-transparent group-data-[edit=false]:hidden\"\n      >\n        <Textarea\n          minRows={3}\n          maxRows={8}\n          disableResize\n          value={input}\n          className=\"no-scrollbar\"\n          onChange={(e) => setInput(e.target.value)}\n        />\n        <div className=\"flex justify-end gap-2\">\n          <Button\n            variant=\"outline\"\n            size=\"sm\"\n            className=\"rounded-full\"\n            onClick={() => {\n              setInput(message);\n              setEdit(false);\n            }}\n          >\n            Cancel\n          </Button>\n          <Button\n            variant=\"primary\"\n            size=\"sm\"\n            className=\"rounded-full\"\n            onClick={() => {\n              setMessage(input);\n              setEdit(false);\n            }}\n          >\n            Save\n          </Button>\n        </div>\n      </TextareaContainer>\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/textarea-actions-demo.tsx"
+    }
+  ]
+}

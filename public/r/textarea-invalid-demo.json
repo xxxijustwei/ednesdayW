@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/registry/example/textarea/invalid.tsx",
-      "content": "import { Textarea } from \"@/components/ui/textarea\";\n\nexport const inputVariants = [\n  \"default\",\n  \"faded\",\n  \"bordered\",\n  \"underline\",\n] as const;\n\nexport const TextareaInvalidExample = () => {\n  return (\n    <div className=\"grid grid-cols-2 gap-4 w-full max-w-120\">\n      {inputVariants.map((variant) => (\n        <Textarea\n          key={variant}\n          variant={variant}\n          aria-invalid\n          placeholder=\"Please enter something...\"\n        />\n      ))}\n    </div>\n  );\n};\n",
+      "content": "import { Textarea, TextareaContainer } from \"@/components/ui/textarea\";\n\nexport const inputVariants = [\n  \"default\",\n  \"faded\",\n  \"bordered\",\n  \"underline\",\n] as const;\n\nexport const TextareaInvalidExample = () => {\n  return (\n    <div className=\"grid grid-cols-2 gap-4 w-full max-w-120\">\n      {inputVariants.map((variant) => (\n        <TextareaContainer key={variant} variant={variant} aria-invalid>\n          <Textarea placeholder=\"Please enter something...\" />\n        </TextareaContainer>\n      ))}\n    </div>\n  );\n};\n",
       "type": "registry:component",
       "target": "components/demo/textarea-invalid-demo.tsx"
     }

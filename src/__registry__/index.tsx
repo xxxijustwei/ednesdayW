@@ -835,6 +835,32 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "textarea-actions-demo": {
+    name: "textarea-actions-demo",
+    description: "A demo of the textarea actions",
+    type: "registry:component",
+    registryDependencies: [
+      "https://ui.ednesdayw.com/r/textarea.json",
+      "https://ui.ednesdayw.com/r/button.json",
+    ],
+    files: [
+      {
+        path: "src/registry/example/textarea/actions.tsx",
+        type: "registry:component",
+        target: "components/demo/textarea-actions-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/textarea/actions.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   "field-textarea-variant-demo": {
     name: "field-textarea-variant-demo",
     description: "A demo of the field textarea variant",
