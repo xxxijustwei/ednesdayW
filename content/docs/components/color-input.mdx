@@ -4,6 +4,7 @@ description: A color input component
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,16 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/color-input.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Install the color picker component.</Step>
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/color-picker.json"
+```
+
+<Step>
+  Copy and paste the following code into your project's
+  `components/ui/color-input.tsx` file
+</Step>
 
 <ComponentSource name="color-input" />
 
@@ -38,14 +48,11 @@ import { useState } from "react";
 import { ColorInput } from "@/components/ui/color-input";
 
 const Page = () => {
-    const [color, setColor] = useState("#4ec4b8");
-    return (
-        <ColorInput value={color} onChange={(value) => setColor(value)} />
-    );
-}
+  const [color, setColor] = useState("#4ec4b8");
+  return <ColorInput value={color} onChange={(value) => setColor(value)} />;
+};
 ```
 
 ### Example
 
 <ComponentPreview name="color-input-variant-demo" />
-

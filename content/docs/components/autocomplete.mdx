@@ -4,6 +4,7 @@ description: Autocomplete input and command palette with a list of suggestions.
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,25 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/autocomplete.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Install the dependencies.</Step>
+
+```bash
+npm install downshift
+```
+
+<Step>Install the `popover` component.</Step>
+
+```bash
+npx shadcn@latest add popover
+```
+
+<Step>Install the `input` component.</Step>
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/input.json"
+```
+
+<Step>Copy and paste the following code into your project's `components/ui/autocomplete.tsx` file</Step>
 
 <ComponentSource name="autocomplete" />
 
@@ -36,48 +55,55 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/autocomplete.json"
 ### Usage
 
 ```tsx
-import { 
-    Autocomplete, 
-    AutocompleteContent, 
-    AutocompleteEmpty, 
-    AutocompleteInput, 
-    AutocompleteItem 
+import {
+  Autocomplete,
+  AutocompleteContent,
+  AutocompleteEmpty,
+  AutocompleteInput,
+  AutocompleteItem,
 } from "@/registry/ui/autocomplete";
 
-export const AutocompleteExample = () => {
-    return (
-        <Autocomplete>
-            <AutocompleteInput placeholder="Select a item" />
-            <AutocompleteContent>
-                <AutocompleteItem value="item-1" label="Item 1" />
-                <AutocompleteItem value="item-2" label="Item 2" />
-                <AutocompleteItem value="item-3" label="Item 3" />
-                <AutocompleteEmpty>No results.</AutocompleteEmpty>
-            </AutocompleteContent>
-        </Autocomplete>
-    );
+const Page = () => {
+  return (
+    <Autocomplete>
+      <AutocompleteInput placeholder="Select a item" />
+      <AutocompleteContent>
+        <AutocompleteItem value="item-1" label="Item 1" />
+        <AutocompleteItem value="item-2" label="Item 2" />
+        <AutocompleteItem value="item-3" label="Item 3" />
+        <AutocompleteEmpty>No results.</AutocompleteEmpty>
+      </AutocompleteContent>
+    </Autocomplete>
+  );
 };
 ```
 
 ### Example
 
 #### Size
+
 <ComponentPreview name="autocomplete-size-demo" />
 
 #### Variant
+
 <ComponentPreview name="autocomplete-variant-demo" />
 
 #### Start Content
+
 <ComponentPreview name="autocomplete-start-content-demo" />
 
 #### Disabled
+
 <ComponentPreview name="autocomplete-disabled-demo" />
 
 #### Disabled Item
+
 <ComponentPreview name="autocomplete-disabled-item-demo" />
 
 #### Invalid
+
 <ComponentPreview name="autocomplete-invalid-demo" />
 
 #### Form
+
 <ComponentPreview name="autocomplete-form-demo" />

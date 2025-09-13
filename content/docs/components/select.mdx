@@ -4,6 +4,7 @@ description: Displays a list of options for the user to pick from—triggered by
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,7 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/select.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Copy and paste the following code into your project's `components/ui/select.tsx` file</Step>
 
 <ComponentSource name="select" />
 
@@ -36,27 +37,52 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/select.json"
 ### Usage
 
 ```tsx
-import { Select } from "@/components/ui/select"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-<Select />
+const Page = () => {
+  return (
+    <Select>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Theme" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="light">Light</SelectItem>
+        <SelectItem value="dark">Dark</SelectItem>
+        <SelectItem value="system">System</SelectItem>
+      </SelectContent>
+    </Select>
+  );
+};
 ```
 
 ### Example
 
 #### Size
+
 <ComponentPreview name="select-size-demo" />
 
 #### Variant
+
 <ComponentPreview name="select-variant-demo" />
 
 #### Disabled
+
 <ComponentPreview name="select-disabled-demo" />
 
 #### Invalid
+
 <ComponentPreview name="select-invalid-demo" />
 
 #### Start Content
+
 <ComponentPreview name="select-start-content-demo" />
 
 #### Clearable
+
 <ComponentPreview name="select-clearable-demo" />

@@ -24,7 +24,13 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/pagination.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Install the `paginate` library.</Step>
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/paginate.json"
+```
+
+<Step>Copy and paste the following code into your project's `components/ui/pagination.tsx` file</Step>
 
 <ComponentSource name="pagination" />
 
@@ -37,12 +43,15 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/pagination.json"
 ### Usage
 
 ```tsx
-import { Pagination } from "@/components/ui/pagination"
+import { Pagination } from "@/components/ui/pagination";
 
-<Pagination currentPage={1} totalPages={10} onChange={setCurrentPage} />
+const Page = () => {
+  return (
+    <Pagination currentPage={1} totalPages={10} onChange={setCurrentPage} />
+  );
+};
 ```
 
 ### Example
 
 <ComponentPreview name="pagination-demo" />
-

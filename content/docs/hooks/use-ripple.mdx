@@ -4,6 +4,7 @@ description: A hook that allows you to create ripples on an element.
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,10 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/use-ripple.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>
+  Copy and paste the following code into your project's `hooks/use-ripple.ts`
+  file
+</Step>
 
 <ComponentSource name="use-ripple" />
 
@@ -38,12 +42,11 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/use-ripple.json"
 ```tsx
 import { useRipple } from "@/hooks/use-ripple";
 
-const Component = () => {
-    const { ripples, onClick, onClear } = useRipple();
-}
+const { ripples, onClick, onClear } = useRipple();
 ```
 
 ### Example
 
 #### Demo
+
 <ComponentPreview name="use-ripple-demo" />

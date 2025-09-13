@@ -4,6 +4,7 @@ description: Displays a multi-line text input field or a component that looks li
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,13 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/textarea.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Install the dependencies.</Step>
+
+```bash
+npm install react-textarea-autosize
+```
+
+<Step>Copy and paste the following code into your project's `components/ui/textarea.tsx` file</Step>
 
 <ComponentSource name="textarea" />
 
@@ -36,7 +43,7 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/textarea.json"
 ### Usage
 
 ```tsx
-import { TextareaContainer, Textarea } from "@/components/ui/textarea"
+import { TextareaContainer, Textarea } from "@/components/ui/textarea";
 
 const Page = () => {
   return (
@@ -52,22 +59,29 @@ export default Page;
 ### Example
 
 #### Variants
+
 <ComponentPreview name="textarea-variant-demo" />
 
 #### Disabled
+
 <ComponentPreview name="textarea-disabled-demo" />
 
 #### Invalid
+
 <ComponentPreview name="textarea-invalid-demo" />
 
 #### Autosize
+
 <ComponentPreview name="textarea-autosize-demo" />
 
 #### Actions
+
 <ComponentPreview name="textarea-actions-demo" />
 
 #### Label
+
 <ComponentPreview name="textarea-label-demo" />
 
 #### Form
+
 <ComponentPreview name="textarea-form-demo" />

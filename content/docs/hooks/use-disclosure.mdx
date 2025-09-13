@@ -4,6 +4,7 @@ description: A hook that allows you to manage the open state of a component.
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,10 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/use-disclosure.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>
+  Copy and paste the following code into your project's
+  `hooks/use-disclosure.ts` file
+</Step>
 
 <ComponentSource name="use-disclosure" />
 
@@ -36,7 +40,7 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/use-disclosure.json"
 ### Usage
 
 ```tsx
-import { useDisclosure } from "@/hooks/use-disclosure"
+import { useDisclosure } from "@/hooks/use-disclosure";
 
 const { open, onOpen, onClose, onOpenChange } = useDisclosure();
 ```
@@ -44,4 +48,5 @@ const { open, onOpen, onClose, onOpenChange } = useDisclosure();
 ### Example
 
 #### Dialog
+
 <ComponentPreview name="use-disclosure-dialog-demo" />

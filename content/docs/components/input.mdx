@@ -4,6 +4,7 @@ description: Displays a form input field or a component that looks like an input
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,7 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/input.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Copy and paste the following code into your project's `components/ui/input.tsx` file</Step>
 
 <ComponentSource name="input" />
 
@@ -36,30 +37,39 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/input.json"
 ### Usage
 
 ```tsx
-import { Input } from "@/components/ui/input"
+import { Input } from "@/components/ui/input";
 
-<Input />
+const Page = () => {
+  return <Input />;
+};
 ```
 
 ### Example
 
 #### Size
+
 <ComponentPreview name="input-size-demo" />
 
 #### Variant
+
 <ComponentPreview name="input-variant-demo" />
 
 #### Disabled
+
 <ComponentPreview name="input-disabled-demo" />
 
 #### Invalid
+
 <ComponentPreview name="input-invalid-demo" />
 
 #### Start & End Content
+
 <ComponentPreview name="input-start-end-content-demo" />
 
 #### Password
+
 <ComponentPreview name="input-password-demo" />
 
 #### Form
+
 <ComponentPreview name="input-form-demo" />

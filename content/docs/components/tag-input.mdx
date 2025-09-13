@@ -24,7 +24,25 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/tag-input.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Install the dependencies.</Step>
+
+```bash
+npm install @radix-ui/react-use-callback-ref
+```
+
+<Step>Install the `badge` component.</Step>
+
+```bash
+npx shadcn@latest add badge
+```
+
+<Step>Install the `button` component.</Step>
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/button.json"
+```
+
+<Step>Copy and paste the following code into your project's `components/ui/tag-input.tsx` file</Step>
 
 <ComponentSource name="tag-input" />
 
@@ -45,7 +63,7 @@ import {
 } from "@/registry/ui/tag-input";
 import { useState } from "react";
 
-const Component = () => {
+const Page = () => {
   const [values, setValues] = useState<string[]>([]);
   return (
     <TagInput
@@ -73,25 +91,33 @@ const Component = () => {
 ### Example
 
 #### Size
+
 <ComponentPreview name="tag-input-size-demo" />
 
 #### Variant
+
 <ComponentPreview name="tag-input-variant-demo" />
 
 #### Invalid
+
 <ComponentPreview name="tag-input-invalid-demo" />
 
 #### Disabled
+
 <ComponentPreview name="tag-input-disabled-demo" />
 
 #### Confirm Key
+
 <ComponentPreview name="tag-input-confirm-key-demo" />
 
 #### Outside Tags
+
 <ComponentPreview name="tag-input-outside-tags-demo" />
 
 #### Max Tags
+
 <ComponentPreview name="tag-input-max-tags-demo" />
 
 #### Paste Tags
+
 <ComponentPreview name="tag-input-paste-tags-demo" />

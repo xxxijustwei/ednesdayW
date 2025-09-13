@@ -4,6 +4,7 @@ description: An input field with floating label animation that moves when the fi
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,7 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/field-input.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Copy and paste the following code into your project's `components/ui/field-input.tsx` file</Step>
 
 <ComponentSource name="field-input" />
 
@@ -36,30 +37,39 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/field-input.json"
 ### Usage
 
 ```tsx
-import { FieldInput } from "@/components/ui/field-input"
+import { FieldInput } from "@/components/ui/field-input";
 
-<FieldInput id="email" label="Email" />
+const Page = () => {
+  return <FieldInput id="email" label="Email" />;
+};
 ```
 
 ### Example
 
 #### Size
+
 <ComponentPreview name="field-input-size-demo" />
 
 #### Variant
+
 <ComponentPreview name="field-input-variant-demo" />
 
 #### Disabled
+
 <ComponentPreview name="field-input-disabled-demo" />
 
 #### Invalid
+
 <ComponentPreview name="field-input-invalid-demo" />
 
 #### Start & End Content
+
 <ComponentPreview name="field-input-start-end-content-demo" />
 
 #### Password
+
 <ComponentPreview name="field-input-password-demo" />
 
 #### Form
+
 <ComponentPreview name="field-input-form-demo" />

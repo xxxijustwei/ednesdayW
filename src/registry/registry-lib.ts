@@ -51,7 +51,7 @@ export const lib: Registry["items"] = [
   {
     name: "create2",
     type: "registry:lib",
-    dependencies: ["js-sha3", "bs58"],
+    dependencies: ["js-sha3"],
     registryDependencies: [`${siteConfig.registryUrl}/wallet-address.json`],
     files: [
       {

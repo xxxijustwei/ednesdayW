@@ -4,6 +4,7 @@ description: A JavaScript utility for deterministic smart contract address predi
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,21 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/create2.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Install the dependencies.</Step>
+
+```bash
+npm install js-sha3
+```
+
+<Step>Install the `wallet-address` library.</Step>
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/wallet-address.json"
+```
+
+<Step>
+  Copy and paste the following code into your project's `lib/create2.ts` file
+</Step>
 
 <ComponentSource name="create2" />
 
@@ -36,7 +51,11 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/create2.json"
 ### Usage
 
 ```tsx
-import { create2, predictDeterministicEVMAddress, predictDeterministicTronAddress } from "@/lib/create2";
+import {
+  create2,
+  predictDeterministicEVMAddress,
+  predictDeterministicTronAddress,
+} from "@/lib/create2";
 
 // Predict an EVM contract address (default)
 const evmAddress = create2({
@@ -53,8 +72,8 @@ const tronAddress = create2({
   network: "tron",
 });
 
-console.log(evmAddress);   // Output: 0x... (predicted EVM contract address)
-console.log(tronAddress);  // Output: T... (predicted TRON contract address)
+console.log(evmAddress); // Output: 0x... (predicted EVM contract address)
+console.log(tronAddress); // Output: T... (predicted TRON contract address)
 ```
 
 ### API
@@ -146,19 +165,23 @@ isValidTronAddress(address: string): boolean
 This utility implements the CREATE2 address prediction algorithm using the minimal proxy pattern (EIP-1167). The minimal proxy is a standardized bytecode pattern that delegates all calls to an implementation contract, allowing for gas-efficient contract deployments.
 
 The address is calculated by:
+
 1. Constructing the minimal proxy bytecode with the implementation address
 2. Combining it with the deployer address and salt
 3. Computing the keccak256 hash of the encoded parameters
 4. Extracting the last 20 bytes as the predicted address
 
 **Network Support:**
+
 - **EVM Networks**: Uses standard Ethereum address format (0x prefix, 42 characters)
 - **TRON Network**: Uses Base58 encoding with T prefix (34 characters)
 
 ### Example
 
 #### EVM
+
 <ComponentPreview name="evm-create2-demo" />
 
 #### TRON
+
 <ComponentPreview name="tron-create2-demo" />

@@ -33,10 +33,10 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     title: "Phone Input",
     description: "A phone input component",
-    dependencies: [
+    registryDependencies: [
+      "popover",
       `${siteConfig.registryUrl}/input.json`,
       `${siteConfig.registryUrl}/use-disclosure.json`,
-      "popover",
     ],
     files: [
       {
@@ -67,7 +67,7 @@ export const ui: Registry["items"] = [
     dependencies: ["react-colorful"],
     registryDependencies: [
       "popover",
-      "button",
+      `${siteConfig.registryUrl}/button.json`,
       `${siteConfig.registryUrl}/colors.json`,
     ],
     files: [
@@ -83,9 +83,8 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     title: "Color Input",
     description: "A color input component",
-    dependencies: [
-      "react-colorful",
-      `${siteConfig.registryUrl}/colors.json`,
+    registryDependencies: [
+      `${siteConfig.registryUrl}/color-picker.json`,
       `${siteConfig.registryUrl}/input.json`,
     ],
     files: [
@@ -101,8 +100,8 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     title: "Button",
     description: "A button component",
-    registryDependencies: [`${siteConfig.registryUrl}/use-ripple.json`],
     dependencies: ["motion", "@radix-ui/react-use-callback-ref"],
+    registryDependencies: [`${siteConfig.registryUrl}/use-ripple.json`],
     files: [
       {
         path: "src/registry/ui/button.tsx",
@@ -116,6 +115,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     title: "Pagination",
     description: "A pagination component",
+    registryDependencies: [`${siteConfig.registryUrl}/paginate.json`],
     files: [
       {
         path: "src/registry/ui/pagination.tsx",

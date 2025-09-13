@@ -4,6 +4,7 @@ description: A utility for validating cryptocurrency wallet addresses across dif
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,16 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/wallet-address.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Install the dependencies.</Step>
+
+```bash
+npm install bs58
+```
+
+<Step>
+  Copy and paste the following code into your project's `lib/wallet-address.ts`
+  file
+</Step>
 
 <ComponentSource name="wallet-address" />
 
@@ -45,7 +55,10 @@ const isValidEVM = isAddress("0x888777d851872Cd075D88C61BE8793Ff302C1FAd");
 const isValidTron = isAddress("TWJ88TmUTG3ZcvPqR8WrPxA33esoXFFFFF", "tron");
 
 // Validate Solana address
-const isValidSolana = isAddress("FQh8Vkasb6h173nJ7mXmHwmbV7DX81N6jXBaNQNaP5RA", "solana");
+const isValidSolana = isAddress(
+  "FQh8Vkasb6h173nJ7mXmHwmbV7DX81N6jXBaNQNaP5RA",
+  "solana"
+);
 ```
 
 ### API

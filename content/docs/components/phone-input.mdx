@@ -4,6 +4,7 @@ description: A phone input component
 ---
 
 ### Installation
+
 <Tabs defaultValue="cli">
 
 <TabsList>
@@ -23,7 +24,28 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/phone-input.json"
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>Install the `popover` component.</Step>
+
+```bash
+npx shadcn@latest add popover
+```
+
+<Step>Install the `input` component.</Step>
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/input.json"
+```
+
+<Step>Install the `use-disclosure` hook.</Step>
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/use-disclosure.json"
+```
+
+<Step>
+  Copy and paste the following code into your project's
+  `components/ui/phone-input.tsx` file
+</Step>
 
 <ComponentSource name="phone-input" />
 
@@ -39,35 +61,41 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/phone-input.json"
 import { PhoneInput } from "@/components/ui/phone-input";
 
 export const items = [
-    {
-        name: "United States",
-        flag: "🇺🇸",
-        code: "US",
-        mask: "(999) 999-9999",
-        dialCode: 1,
-    },
-    {
-        name: "Hong Kong",
-        flag: "🇭🇰",
-        code: "HK",
-        mask: "9999 9999",
-        dialCode: 852,
-    },
+  {
+    name: "United States",
+    flag: "🇺🇸",
+    code: "US",
+    mask: "(999) 999-9999",
+    dialCode: 1,
+  },
+  {
+    name: "Hong Kong",
+    flag: "🇭🇰",
+    code: "HK",
+    mask: "9999 9999",
+    dialCode: 852,
+  },
 ];
 
-<PhoneInput items={items} />
+const Page = () => {
+  return <PhoneInput items={items} />;
+};
 ```
 
 ### Example
 
 #### Size
+
 <ComponentPreview name="phone-input-size-demo" />
 
 #### Variant
+
 <ComponentPreview name="phone-input-variant-demo" />
 
 #### Disabled
+
 <ComponentPreview name="phone-input-disabled-demo" />
 
 #### Invalid
+
 <ComponentPreview name="phone-input-invalid-demo" />
