@@ -7,9 +7,26 @@ import TextareaAutosize, {
   TextareaAutosizeProps,
 } from "react-textarea-autosize";
 
+interface TextareaContext {
+  ref?: React.RefObject<HTMLTextAreaElement | null>;
+  disabled?: boolean;
+}
+
+const TextareaContext = React.createContext<TextareaContext>(
+  {} as TextareaContext,
+);
+
+const useTextareaContext = () => {
+  const context = React.useContext(TextareaContext);
+  if (!context) {
+    throw new Error("Textarea must be used within TextareaContainer");
+  }
+  return context;
+};
+
 export const containerVariants = cva(
   cn(
-    "flex w-full h-fit px-2.5 py-2 relative rounded-md shadow-sm",
+    "flex flex-col gap-1 w-full h-fit px-2.5 py-2 relative rounded-md shadow-sm",
     "text-base cursor-text",
     "data-[is-invalid=true]:border-destructive",
     "data-[disabled=true]:opacity-70 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
@@ -42,80 +59,83 @@ export const containerVariants = cva(
   },
 );
 
-interface TextareaProps
-  extends Omit<React.ComponentProps<"textarea">, "size" | "style">,
-    TextareaAutosizeProps,
+interface TextareaContainerProps
+  extends React.ComponentProps<"div">,
     VariantProps<typeof containerVariants> {
-  textareaClassName?: string;
-  disableResize?: boolean;
+  disabled?: boolean;
 }
 
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+const TextareaContainer = React.forwardRef<
+  HTMLTextAreaElement,
+  TextareaContainerProps
+>(
   (
-    {
-      className,
-      textareaClassName,
-      placeholder,
-      value,
-      variant,
-      "aria-invalid": ariaInvalid,
-      disabled,
-      minRows,
-      maxRows,
-      disableResize,
-      ...props
-    },
+    { className, "aria-invalid": ariaInvalid, disabled, variant, ...props },
     ref,
   ) => {
     const textareaRef = React.useRef<HTMLTextAreaElement>(null);
-    const setRefs = React.useCallback((element: HTMLTextAreaElement | null) => {
-      textareaRef.current = element;
-      if (ref) {
-        if (typeof ref === "function") {
-          ref(element);
-        } else {
-          ref.current = element;
-        }
-      }
-    }, []);
-
+    React.useImperativeHandle(ref, () => textareaRef.current!);
     return (
-      <div
-        className={cn(
-          containerVariants({ variant }),
-          "group flex items-start justify-center gap-1.5",
-          className,
-        )}
-        data-is-invalid={ariaInvalid?.toString()}
-        data-disabled={disabled?.toString()}
-        onClick={() => {
-          if (!disabled && textareaRef.current) {
-            textareaRef.current.focus();
-          }
-        }}
-      >
-        <div className="inline-flex w-full items-start relative">
-          <TextareaAutosize
-            ref={setRefs}
-            className={cn(
-              "w-full min-h-[48px] outline-hidden bg-transparent",
-              "disabled:cursor-not-allowed placeholder:text-muted-foreground",
-              disableResize ? "resize-none" : "resize-y",
-              textareaClassName,
-            )}
-            value={value}
-            disabled={disabled}
-            placeholder={placeholder}
-            minRows={minRows || 2}
-            maxRows={maxRows || 4}
-            {...props}
-          />
-        </div>
-      </div>
+      <TextareaContext.Provider value={{ ref: textareaRef, disabled }}>
+        <div
+          className={cn(containerVariants({ variant }), className)}
+          data-is-invalid={ariaInvalid?.toString()}
+          data-disabled={disabled?.toString()}
+          onClick={() => {
+            if (!disabled && textareaRef.current) {
+              textareaRef.current.focus();
+            }
+          }}
+          {...props}
+        />
+      </TextareaContext.Provider>
     );
   },
 );
 
+TextareaContainer.displayName = "TextareaContainer";
+
+interface TextareaProps
+  extends Omit<TextareaAutosizeProps, "disabled" | "aria-invalid"> {
+  disableResize?: boolean;
+}
+
+const Textarea = ({
+  className,
+  placeholder,
+  minRows,
+  maxRows,
+  disableResize,
+  ...props
+}: TextareaProps) => {
+  const { ref, disabled } = useTextareaContext();
+
+  return (
+    <div className="inline-flex w-full items-start relative">
+      <TextareaAutosize
+        ref={ref}
+        className={cn(
+          "w-full min-h-[48px] outline-hidden bg-transparent",
+          "disabled:cursor-not-allowed placeholder:text-muted-foreground",
+          disableResize ? "resize-none" : "resize-y",
+          className,
+        )}
+        disabled={disabled}
+        placeholder={placeholder}
+        minRows={minRows || 2}
+        maxRows={maxRows || 4}
+        {...props}
+      />
+    </div>
+  );
+};
+
 Textarea.displayName = "Textarea";
 
-export { Textarea, type TextareaProps };
+export {
+  Textarea,
+  TextareaContainer,
+  type TextareaProps,
+  type TextareaContainerProps,
+  useTextareaContext,
+};

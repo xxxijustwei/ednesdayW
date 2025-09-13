@@ -72,4 +72,21 @@ export const textareaExamples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "textarea-actions-demo",
+    type: "registry:component",
+    title: "Textarea Actions Demo",
+    description: "A demo of the textarea actions",
+    registryDependencies: [
+      `${siteConfig.registryUrl}/textarea.json`,
+      `${siteConfig.registryUrl}/button.json`,
+    ],
+    files: [
+      {
+        path: "src/registry/example/textarea/actions.tsx",
+        type: "registry:component",
+        target: "components/demo/textarea-actions-demo.tsx",
+      },
+    ],
+  },
 ];

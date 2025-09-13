@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/registry/ui/button";
-import { Textarea } from "@/registry/ui/textarea";
+import { Textarea, TextareaContainer } from "@/registry/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -37,7 +37,7 @@ export const TextareaFormExample = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     await new Promise((resolve) => setTimeout(resolve, 300));
-    toast.success("Submit Successfully");
+    toast.success(`Boi: ${values.bio}`);
   };
 
   return (
@@ -55,13 +55,15 @@ export const TextareaFormExample = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Textarea
-                      variant="bordered"
-                      placeholder="Please enter your Bio..."
-                      minRows={3}
-                      maxRows={5}
-                      {...field}
-                    />
+                    <TextareaContainer variant="bordered" {...field}>
+                      <Textarea
+                        placeholder="Please enter your Bio..."
+                        minRows={3}
+                        maxRows={5}
+                        value={field.value}
+                        onChange={field.onChange}
+                      />
+                    </TextareaContainer>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

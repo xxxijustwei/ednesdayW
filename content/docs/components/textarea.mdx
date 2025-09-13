@@ -36,9 +36,17 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/textarea.json"
 ### Usage
 
 ```tsx
-import { Textarea } from "@/components/ui/textarea"
+import { TextareaContainer, Textarea } from "@/components/ui/textarea"
 
-<Textarea />
+const Page = () => {
+  return (
+    <TextareaContainer>
+      <Textarea />
+    </TextareaContainer>
+  );
+};
+
+export default Page;
 ```
 
 ### Example
@@ -54,6 +62,9 @@ import { Textarea } from "@/components/ui/textarea"
 
 #### Autosize
 <ComponentPreview name="textarea-autosize-demo" />
+
+#### Actions
+<ComponentPreview name="textarea-actions-demo" />
 
 #### Form
 <ComponentPreview name="textarea-form-demo" />
