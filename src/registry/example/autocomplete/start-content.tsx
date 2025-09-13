@@ -28,7 +28,7 @@ export const AutocompleteStartContentExample = () => {
       <Autocomplete value={token} onChange={setToken} variant="bordered">
         <AutocompleteInput
           placeholder="Select a token"
-          className="rounded-full"
+          className="rounded-2xl"
           startContent={
             token && (
               <Image

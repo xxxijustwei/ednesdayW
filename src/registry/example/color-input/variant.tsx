@@ -16,6 +16,7 @@ export const ColorInputVariantExample = () => {
       {inputVariants.map((variant, idx) => (
         <ColorInput
           key={variant}
+          className="rounded-xl"
           type={idx % 2 === 0 ? "hex" : "hex-alpha"}
           variant={variant}
           value={idx % 2 === 0 ? hex : hexAlpha}

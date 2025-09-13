@@ -59,7 +59,7 @@ export const AutocompleteFormExample = () => {
   };
 
   return (
-    <Card className="w-full max-w-sm">
+    <Card className="w-full max-w-sm rounded-3xl">
       <CardHeader>
         <CardTitle>Withdraw Asset</CardTitle>
         <CardDescription>Select the asset you want to withdraw</CardDescription>
@@ -81,6 +81,7 @@ export const AutocompleteFormExample = () => {
                       <AutocompleteInput
                         variant="bordered"
                         placeholder="Select a token"
+                        className="rounded-2xl"
                         startContent={
                           field.value && (
                             <Image

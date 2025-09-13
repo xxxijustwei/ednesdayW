@@ -13,6 +13,7 @@ interface ColorInputProps
 
 const ColorInput = ({
   variant,
+  className,
   value = "#4ec4b8",
   type = "hex",
   onChange,
@@ -22,7 +23,7 @@ const ColorInput = ({
     <Input
       {...props}
       variant={variant}
-      className={cn("p-2", variant !== "underline" && "rounded-lg")}
+      className={cn("p-2", variant !== "underline" && "rounded-lg", className)}
       value={value}
       onChange={(e) => {
         const value = e.target.value;

@@ -49,7 +49,7 @@ const TokenAutocomplete = ({
       <AutocompleteInput
         placeholder="Select a token"
         aria-invalid
-        className={variant !== "underline" ? "rounded-full" : ""}
+        className={variant !== "underline" ? "rounded-2xl" : ""}
         startContent={
           token && (
             <Image

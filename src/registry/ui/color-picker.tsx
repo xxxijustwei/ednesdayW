@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
@@ -8,6 +7,7 @@ import {
 } from "@/components/ui/popover";
 import { sanitizeHex } from "@/registry/lib/colors";
 import { cn } from "@/registry/lib/utils";
+import { Button } from "@/registry/ui/button";
 import type * as PopoverPrimitive from "@radix-ui/react-popover";
 import type React from "react";
 import { useMemo } from "react";

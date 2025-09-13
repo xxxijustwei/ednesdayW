@@ -49,7 +49,7 @@ const TokenSelect = ({
       <SelectTrigger
         size="md"
         variant={variant}
-        className={variant !== "underline" ? "rounded-full" : undefined}
+        className={variant !== "underline" ? "rounded-2xl" : undefined}
       >
         <div className="w-full flex items-center justify-between gap-1 overflow-hidden">
           <SelectValue placeholder="Select a network" />

@@ -66,7 +66,7 @@ const TokenAutocomplete = ({
       <AutocompleteInput
         placeholder="Select a token"
         disabled={disabled}
-        className={variant !== "underline" ? "rounded-full" : ""}
+        className={variant !== "underline" ? "rounded-2xl" : ""}
         startContent={
           token && (
             <Image

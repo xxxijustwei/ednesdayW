@@ -50,7 +50,7 @@ const TokenAutocomplete = ({ size }: { size: "sm" | "md" | "lg" }) => {
     >
       <AutocompleteInput
         placeholder="Select a token"
-        className="rounded-full"
+        className="rounded-2xl"
         startContent={
           token && (
             <Image

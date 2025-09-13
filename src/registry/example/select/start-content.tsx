@@ -28,7 +28,7 @@ export const SelectTokensExample = () => {
   return (
     <div className="flex flex-col gap-4 w-full max-w-72">
       <Select value={network} onValueChange={setNetwork}>
-        <SelectTrigger size="md" variant="bordered" className="rounded-full">
+        <SelectTrigger size="md" variant="bordered" className="rounded-2xl">
           <SelectValue placeholder="Select a network" />
         </SelectTrigger>
         <SelectContent>
