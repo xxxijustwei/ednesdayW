@@ -271,29 +271,6 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
-  "field-textarea": {
-    name: "field-textarea",
-    description: "A field textarea component",
-    type: "registry:ui",
-    registryDependencies: undefined,
-    files: [
-      {
-        path: "src/registry/ui/field-textarea.tsx",
-        type: "registry:ui",
-        target: "components/wed/field-textarea.tsx",
-      },
-    ],
-    component: React.lazy(async () => {
-      const mod = await import("@/registry/ui/field-textarea.tsx");
-      const exportName =
-        Object.keys(mod).find(
-          (key) =>
-            typeof mod[key] === "function" || typeof mod[key] === "object",
-        ) || item.name;
-      return { default: mod.default || mod[exportName] };
-    }),
-    meta: undefined,
-  },
   "use-disclosure": {
     name: "use-disclosure",
     description: "A hook for managing disclosure state",
@@ -861,116 +838,20 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
-  "field-textarea-variant-demo": {
-    name: "field-textarea-variant-demo",
-    description: "A demo of the field textarea variant",
+  "textarea-label-demo": {
+    name: "textarea-label-demo",
+    description: "A demo of the textarea label",
     type: "registry:component",
-    registryDependencies: ["https://ui.ednesdayw.com/r/field-textarea.json"],
+    registryDependencies: ["https://ui.ednesdayw.com/r/textarea.json"],
     files: [
       {
-        path: "src/registry/example/field-textarea/variant.tsx",
+        path: "src/registry/example/textarea/label.tsx",
         type: "registry:component",
-        target: "components/demo/field-textarea-variant-demo.tsx",
+        target: "components/demo/textarea-label-demo.tsx",
       },
     ],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/example/field-textarea/variant.tsx");
-      const exportName =
-        Object.keys(mod).find(
-          (key) =>
-            typeof mod[key] === "function" || typeof mod[key] === "object",
-        ) || item.name;
-      return { default: mod.default || mod[exportName] };
-    }),
-    meta: undefined,
-  },
-  "field-textarea-disabled-demo": {
-    name: "field-textarea-disabled-demo",
-    description: "A demo of the field textarea disabled",
-    type: "registry:component",
-    registryDependencies: ["https://ui.ednesdayw.com/r/field-textarea.json"],
-    files: [
-      {
-        path: "src/registry/example/field-textarea/disabled.tsx",
-        type: "registry:component",
-        target: "components/demo/field-textarea-disabled-demo.tsx",
-      },
-    ],
-    component: React.lazy(async () => {
-      const mod = await import(
-        "@/registry/example/field-textarea/disabled.tsx"
-      );
-      const exportName =
-        Object.keys(mod).find(
-          (key) =>
-            typeof mod[key] === "function" || typeof mod[key] === "object",
-        ) || item.name;
-      return { default: mod.default || mod[exportName] };
-    }),
-    meta: undefined,
-  },
-  "field-textarea-invalid-demo": {
-    name: "field-textarea-invalid-demo",
-    description: "A demo of the field textarea invalid",
-    type: "registry:component",
-    registryDependencies: ["https://ui.ednesdayw.com/r/field-textarea.json"],
-    files: [
-      {
-        path: "src/registry/example/field-textarea/invalid.tsx",
-        type: "registry:component",
-        target: "components/demo/field-textarea-invalid-demo.tsx",
-      },
-    ],
-    component: React.lazy(async () => {
-      const mod = await import("@/registry/example/field-textarea/invalid.tsx");
-      const exportName =
-        Object.keys(mod).find(
-          (key) =>
-            typeof mod[key] === "function" || typeof mod[key] === "object",
-        ) || item.name;
-      return { default: mod.default || mod[exportName] };
-    }),
-    meta: undefined,
-  },
-  "field-textarea-autosize-demo": {
-    name: "field-textarea-autosize-demo",
-    description: "A demo of the field textarea autosize",
-    type: "registry:component",
-    registryDependencies: ["https://ui.ednesdayw.com/r/field-textarea.json"],
-    files: [
-      {
-        path: "src/registry/example/field-textarea/autosize.tsx",
-        type: "registry:component",
-        target: "components/demo/field-textarea-autosize-demo.tsx",
-      },
-    ],
-    component: React.lazy(async () => {
-      const mod = await import(
-        "@/registry/example/field-textarea/autosize.tsx"
-      );
-      const exportName =
-        Object.keys(mod).find(
-          (key) =>
-            typeof mod[key] === "function" || typeof mod[key] === "object",
-        ) || item.name;
-      return { default: mod.default || mod[exportName] };
-    }),
-    meta: undefined,
-  },
-  "field-textarea-form-demo": {
-    name: "field-textarea-form-demo",
-    description: "A demo of the field textarea form",
-    type: "registry:component",
-    registryDependencies: ["https://ui.ednesdayw.com/r/field-textarea.json"],
-    files: [
-      {
-        path: "src/registry/example/field-textarea/form.tsx",
-        type: "registry:component",
-        target: "components/demo/field-textarea-form-demo.tsx",
-      },
-    ],
-    component: React.lazy(async () => {
-      const mod = await import("@/registry/example/field-textarea/form.tsx");
+      const mod = await import("@/registry/example/textarea/label.tsx");
       const exportName =
         Object.keys(mod).find(
           (key) =>
