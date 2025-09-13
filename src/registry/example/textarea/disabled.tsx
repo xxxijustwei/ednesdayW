@@ -12,7 +12,7 @@ export const TextareaDisabledExample = () => {
     <div className="grid grid-cols-2 gap-4 w-full max-w-120">
       {inputVariants.map((variant) => (
         <TextareaContainer key={variant} variant={variant} disabled>
-          <Textarea key={variant} placeholder="Please enter something..." />
+          <Textarea placeholder="Please enter something..." />
         </TextareaContainer>
       ))}
     </div>

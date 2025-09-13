@@ -26,7 +26,7 @@ const useTextareaContext = () => {
 
 export const containerVariants = cva(
   cn(
-    "flex flex-col gap-1 w-full h-fit px-2.5 py-2 relative rounded-md shadow-sm",
+    "group flex flex-col gap-1 w-full h-fit px-2.5 py-2 relative rounded-md shadow-sm",
     "text-base cursor-text",
     "data-[is-invalid=true]:border-destructive",
     "data-[disabled=true]:opacity-70 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
@@ -95,6 +95,28 @@ const TextareaContainer = React.forwardRef<
 
 TextareaContainer.displayName = "TextareaContainer";
 
+const TextareaLabel = ({
+  htmlFor,
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"label">) => {
+  return (
+    <label
+      htmlFor={htmlFor}
+      className={cn(
+        "text-sm text-accent-foreground/70 origin-top-left",
+        "transition-all duration-200",
+        "group-data-[is-invalid=true]:text-destructive",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </label>
+  );
+};
+
 interface TextareaProps
   extends Omit<TextareaAutosizeProps, "disabled" | "aria-invalid"> {
   disableResize?: boolean;
@@ -135,6 +157,7 @@ Textarea.displayName = "Textarea";
 export {
   Textarea,
   TextareaContainer,
+  TextareaLabel,
   type TextareaProps,
   type TextareaContainerProps,
   useTextareaContext,

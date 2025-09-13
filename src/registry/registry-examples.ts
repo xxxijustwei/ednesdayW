@@ -5,7 +5,6 @@ import { colorInputExamples } from "./example/color-input/_registry";
 import { colorPickerExamples } from "./example/color-picker/_registry";
 import { create2Examples } from "./example/create2/_registry";
 import { fieldInputExamples } from "./example/field-input/_registry";
-import { fieldTextareaExamples } from "./example/field-textarea/_registry";
 import { inputExamples } from "./example/input/_registry";
 import { paginationExamples } from "./example/pagination/_registry";
 import { phoneInputExamples } from "./example/phone-input/_registry";
@@ -22,7 +21,6 @@ export const examples: Registry["items"] = [
   ...inputExamples,
   ...fieldInputExamples,
   ...textareaExamples,
-  ...fieldTextareaExamples,
   ...phoneInputExamples,
   ...selectExamples,
   ...colorPickerExamples,

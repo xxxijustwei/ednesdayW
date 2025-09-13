@@ -168,18 +168,4 @@ export const ui: Registry["items"] = [
       },
     ],
   },
-  {
-    name: "field-textarea",
-    type: "registry:ui",
-    title: "Field Textarea",
-    description: "A field textarea component",
-    dependencies: ["react-textarea-autosize"],
-    files: [
-      {
-        path: "src/registry/ui/field-textarea.tsx",
-        type: "registry:ui",
-        target: "components/wed/field-textarea.tsx",
-      },
-    ],
-  },
 ];

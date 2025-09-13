@@ -89,4 +89,18 @@ export const textareaExamples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "textarea-label-demo",
+    type: "registry:component",
+    title: "Textarea Label Demo",
+    description: "A demo of the textarea label",
+    registryDependencies: [`${siteConfig.registryUrl}/textarea.json`],
+    files: [
+      {
+        path: "src/registry/example/textarea/label.tsx",
+        type: "registry:component",
+        target: "components/demo/textarea-label-demo.tsx",
+      },
+    ],
+  },
 ];
