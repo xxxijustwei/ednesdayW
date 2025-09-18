@@ -278,6 +278,29 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "cap-widget": {
+    name: "cap-widget",
+    description: "A cap widget component",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "src/registry/ui/cap-widget.tsx",
+        type: "registry:ui",
+        target: "components/wed/cap-widget.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/ui/cap-widget.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   "use-disclosure": {
     name: "use-disclosure",
     description: "A hook for managing disclosure state",
@@ -1820,6 +1843,52 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(async () => {
       const mod = await import("@/registry/example/create2/tron-create2.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "cap-widget-demo": {
+    name: "cap-widget-demo",
+    description: "A demo of the cap widget",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/cap-widget.json"],
+    files: [
+      {
+        path: "src/registry/example/cap-widget/demo.tsx",
+        type: "registry:component",
+        target: "components/cap-widget-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/cap-widget/demo.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "cap-widget-locale-demo": {
+    name: "cap-widget-locale-demo",
+    description: "A demo of the cap widget locale",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/cap-widget.json"],
+    files: [
+      {
+        path: "src/registry/example/cap-widget/locale.tsx",
+        type: "registry:component",
+        target: "components/cap-widget-locale-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/cap-widget/locale.tsx");
       const exportName =
         Object.keys(mod).find(
           (key) =>

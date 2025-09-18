@@ -192,6 +192,20 @@
       ]
     },
     {
+      "name": "cap-widget",
+      "type": "registry:ui",
+      "title": "Cap Widget",
+      "description": "A cap widget component",
+      "dependencies": ["@cap.js/widget"],
+      "files": [
+        {
+          "path": "src/registry/ui/cap-widget.tsx",
+          "type": "registry:ui",
+          "target": "components/wed/cap-widget.tsx"
+        }
+      ]
+    },
+    {
       "name": "use-disclosure",
       "type": "registry:hook",
       "title": "Use Disclosure",
@@ -1145,6 +1159,34 @@
           "path": "src/registry/example/create2/tron-create2.tsx",
           "type": "registry:component",
           "target": "components/demo/tron-create2-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cap-widget-demo",
+      "type": "registry:component",
+      "title": "Cap Widget Demo",
+      "description": "A demo of the cap widget",
+      "registryDependencies": ["https://ui.ednesdayw.com/r/cap-widget.json"],
+      "files": [
+        {
+          "path": "src/registry/example/cap-widget/demo.tsx",
+          "type": "registry:component",
+          "target": "components/cap-widget-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cap-widget-locale-demo",
+      "type": "registry:component",
+      "title": "Cap Widget Locale Demo",
+      "description": "A demo of the cap widget locale",
+      "registryDependencies": ["https://ui.ednesdayw.com/r/cap-widget.json"],
+      "files": [
+        {
+          "path": "src/registry/example/cap-widget/locale.tsx",
+          "type": "registry:component",
+          "target": "components/cap-widget-locale-demo.tsx"
         }
       ]
     },

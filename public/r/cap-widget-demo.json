@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cap-widget-demo",
+  "type": "registry:component",
+  "title": "Cap Widget Demo",
+  "description": "A demo of the cap widget",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/cap-widget.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/cap-widget/demo.tsx",
+      "content": "\"use client\";\n\nimport { CapWidget } from \"@/components/ui/cap-widget\";\nimport { useState } from \"react\";\n\nexport const CapWidgetDemo = () => {\n  const [token, setToken] = useState<string | null>(null);\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <CapWidget\n        endpoint=\"https://captcha.gurl.eu.org/api/\"\n        onSolve={setToken}\n      />\n      <span>{token}</span>\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/cap-widget-demo.tsx"
+    }
+  ]
+}

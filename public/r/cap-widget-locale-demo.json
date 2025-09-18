@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cap-widget-locale-demo",
+  "type": "registry:component",
+  "title": "Cap Widget Locale Demo",
+  "description": "A demo of the cap widget locale",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/cap-widget.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/cap-widget/locale.tsx",
+      "content": "\"use client\";\n\nimport { CapWidget } from \"@/components/ui/cap-widget\";\nimport { useState } from \"react\";\n\nexport const CapWidgetLocaleExample = () => {\n  const [token, setToken] = useState<string | null>(null);\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <CapWidget\n        endpoint=\"https://captcha.gurl.eu.org/api/\"\n        onSolve={setToken}\n        locale={{\n          initial: \"我不是机器人\",\n          verifying: \"验证中...\",\n          solved: \"典型的安卓思维\",\n          error: \"验证失败\",\n        }}\n      />\n      <span>{token}</span>\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/cap-widget-locale-demo.tsx"
+    }
+  ]
+}
