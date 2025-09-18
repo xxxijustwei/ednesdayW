@@ -167,7 +167,7 @@ const CapWidget = forwardRef<HTMLDivElement, CapWidgetProps>(
           {
             "--cap-background": "var(--background)",
             "--cap-border-color": "var(--border)",
-            "--cap-border-radius": "var(--radius)",
+            "--cap-border-radius": "14px",
             "--cap-color": "var(--foreground)",
             "--cap-checkbox-border": "1px solid var(--ring)",
             "--cap-checkbox-background": "var(--secondary)",

@@ -85,6 +85,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/components/pagination",
           items: [],
         },
+        {
+          title: "Cap Widget",
+          href: "/docs/components/cap-widget",
+          items: [],
+        },
       ],
     },
     {
