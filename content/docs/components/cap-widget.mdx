@@ -1,0 +1,292 @@
+---
+title: Cap Widget
+description: A React component for CAP (Captcha-Alternative Protocol) integration, providing privacy-focused, invisible CAPTCHA verification.
+---
+
+### Overview
+
+The Cap Widget is a React component that integrates [CAP (Captcha-Alternative Protocol)](https://capjs.js.org/), a modern, privacy-focused alternative to traditional CAPTCHAs. CAP provides invisible verification through proof-of-work challenges that run in the background, requiring no user interaction while maintaining strong bot protection.
+
+### Key Features
+
+- 🛡️ **Privacy-First**: No tracking, no cookies, no personal data collection
+- 👤 **Invisible Verification**: Proof-of-work runs silently in background
+- ⚡ **Performance Optimized**: WebAssembly-powered with Web Workers support
+- 🌐 **i18n Support**: Built-in internationalization with customizable locale
+- 🎨 **Theme Integration**: Automatically adapts to your design system
+- 📱 **Responsive**: Works seamlessly across all devices
+- ♿ **Accessible**: Full ARIA support with customizable labels
+
+### Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/cap-widget.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the CAP widget dependency.</Step>
+
+```bash
+npm install @cap.js/widget
+```
+
+<Step>Copy and paste the following code into your project's `components/ui/cap-widget.tsx` file</Step>
+
+<ComponentSource name="cap-widget" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+```tsx
+import { CapWidget } from "@/components/ui/cap-widget"
+
+const Page = () => {
+  const [token, setToken] = useState<string | null>(null);
+
+  return (
+    <CapWidget
+      endpoint="https://captcha.gurl.eu.org/api/"
+      onSolve={(token) => {
+        console.log("Verification successful:", token);
+        setToken(token);
+      }}
+      onError={(message) => {
+        console.error("Verification failed:", message);
+      }}
+    />
+  );
+};
+```
+
+### Examples
+
+#### Basic Implementation
+<ComponentPreview name="cap-widget-demo" />
+
+#### Custom Locale
+<ComponentPreview name="cap-widget-locale" />
+
+### API Reference
+
+#### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `endpoint` | `string` | *Required* | The CAP API endpoint URL for verification |
+| `workerCount` | `number` | `undefined` | Number of Web Workers to use for parallel processing |
+| `onSolve` | `(token: string) => void` | `undefined` | Callback when verification succeeds |
+| `onError` | `(message: string) => void` | `undefined` | Callback when verification fails |
+| `onReset` | `() => void` | `undefined` | Callback when widget is reset |
+| `onProgress` | `(progress: number) => void` | `undefined` | Callback for verification progress (0-100) |
+| `override` | `object` | `undefined` | Override default CAP configuration |
+| `locale` | `object` | `undefined` | Custom localization strings |
+
+#### Override Configuration
+
+The `override` prop allows customization of CAP's internal behavior:
+
+```tsx
+<CapWidget
+  endpoint="https://captcha.gurl.eu.org/api/"
+  override={{
+    wasmUrl: "https://custom-cdn.com/cap.wasm",
+    customFetch: async (url, options) => {
+      // Custom fetch implementation
+      return fetch(url, {
+        ...options,
+        headers: {
+          ...options?.headers,
+          'X-Custom-Header': 'value'
+        }
+      });
+    }
+  }}
+/>
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `wasmUrl` | `string` | Custom URL for the CAP WebAssembly module |
+| `customFetch` | `function` | Custom fetch function for API requests |
+
+#### Locale Configuration
+
+Customize all text displayed by the widget:
+
+```tsx
+<CapWidget
+  endpoint="https://captcha.gurl.eu.org/api/"
+  locale={{
+    initial: "I'm not a robot",
+    verifying: "Verifying...",
+    solved: "Verified ✓",
+    error: "Verification failed",
+    wasmDisabled: "WebAssembly is disabled",
+    verifyingAria: "Verifying that you are human",
+    solvedAria: "Verification successful",
+    errorAria: "Verification failed, please try again"
+  }}
+/>
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `initial` | `string` | Initial state text |
+| `verifying` | `string` | Text shown during verification |
+| `solved` | `string` | Text shown when verified |
+| `error` | `string` | Text shown on error |
+| `wasmDisabled` | `string` | Message when WebAssembly is unavailable |
+| `verifyingAria` | `string` | ARIA label during verification |
+| `solvedAria` | `string` | ARIA label when solved |
+| `errorAria` | `string` | ARIA label on error |
+
+### Styling
+
+The component automatically adapts to your application's theme using CSS variables:
+
+```css
+/* Automatically mapped from your theme */
+--cap-background: var(--background)
+--cap-border-color: var(--border)
+--cap-border-radius: var(--radius)
+--cap-color: var(--foreground)
+--cap-checkbox-border: 1px solid var(--ring)
+--cap-checkbox-background: var(--secondary)
+--cap-spinner-color: var(--primary)
+--cap-spinner-background-color: var(--primary-foreground)
+```
+
+You can override these styles using the `style` prop:
+
+```tsx
+<CapWidget
+  endpoint="https://captcha.gurl.eu.org/api/"
+  style={{
+    "--cap-border-radius": "12px",
+    "--cap-spinner-color": "#10b981"
+  }}
+/>
+```
+
+### Events and Callbacks
+
+The component provides comprehensive event handling:
+
+```tsx
+const MyForm = () => {
+  const [isVerified, setIsVerified] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  return (
+    <form>
+      <CapWidget
+        endpoint="https://captcha.gurl.eu.org/api/"
+        onSolve={(token) => {
+          setIsVerified(true);
+          // Submit form with token
+          submitForm(token);
+        }}
+        onError={(message) => {
+          console.error("CAP Error:", message);
+          setIsVerified(false);
+        }}
+        onReset={() => {
+          setIsVerified(false);
+          setProgress(0);
+        }}
+        onProgress={(value) => {
+          setProgress(value);
+        }}
+      />
+
+      {progress > 0 && !isVerified && (
+        <div>Verification progress: {progress}%</div>
+      )}
+
+      <button type="submit" disabled={!isVerified}>
+        Submit
+      </button>
+    </form>
+  );
+};
+```
+
+### Server-Side Verification
+
+> **Community Worker Available**: If you don't want to deploy your own CAP verification service, you can use the community-hosted worker at `https://captcha.gurl.eu.org/` for testing and production use. This is a free service maintained by the community.
+
+After receiving the token from the client, verify it on your backend:
+
+```javascript
+// Node.js example
+async function verifyToken(token) {
+  const response = await fetch('https://captcha.gurl.eu.org/api/verify', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ token })
+  });
+
+  const result = await response.json();
+  return result.success;
+}
+
+// Usage in API route
+app.post('/submit-form', async (req, res) => {
+  const { token, ...formData } = req.body;
+
+  const isValid = await verifyToken(token);
+  if (!isValid) {
+    return res.status(400).json({ error: 'Invalid verification token' });
+  }
+
+  // Process validated form submission
+  // ...
+});
+```
+
+### Performance Optimization
+
+#### Web Workers
+
+Control the number of Web Workers for optimal performance:
+
+```tsx
+<CapWidget
+  endpoint="https://captcha.gurl.eu.org/api/"
+  workerCount={navigator.hardwareConcurrency || 4}
+/>
+```
+
+#### Custom WASM
+
+Use a custom WASM module to reduce latency:
+
+```tsx
+<CapWidget
+  endpoint="https://captcha.gurl.eu.org/api/"
+  override={{
+    wasmUrl: "https://your-cdn.com/cap/cap.wasm"
+  }}
+/>
+```

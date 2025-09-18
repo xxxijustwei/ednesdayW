@@ -168,4 +168,18 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "cap-widget",
+    type: "registry:ui",
+    title: "Cap Widget",
+    description: "A cap widget component",
+    dependencies: ["@cap.js/widget"],
+    files: [
+      {
+        path: "src/registry/ui/cap-widget.tsx",
+        type: "registry:ui",
+        target: "components/wed/cap-widget.tsx",
+      },
+    ],
+  },
 ];

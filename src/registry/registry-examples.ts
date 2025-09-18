@@ -1,6 +1,7 @@
 import type { Registry } from "shadcn/registry";
 import { autocompleteExamples } from "./example/autocomplete/_registry";
 import { buttonExamples } from "./example/button/_registry";
+import { capWidgetExamples } from "./example/cap-widget/_registry";
 import { colorInputExamples } from "./example/color-input/_registry";
 import { colorPickerExamples } from "./example/color-picker/_registry";
 import { create2Examples } from "./example/create2/_registry";
@@ -35,4 +36,5 @@ export const examples: Registry["items"] = [
   ...tagInputExamples,
   ...walletAddressExamples,
   ...create2Examples,
+  ...capWidgetExamples,
 ];
