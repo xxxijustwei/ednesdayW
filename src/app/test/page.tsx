@@ -1,3 +1,4 @@
+import { CapWidget } from "@/registry/ui/cap-widget";
 import { FieldInput } from "@/registry/ui/field-input";
 import { MailIcon } from "lucide-react";
 
@@ -19,6 +20,7 @@ export default function Page() {
           />
         ))}
       </div>
+      <CapWidget endpoint="https://captcha.gurl.eu.org/api/" />
     </div>
   );
 }
