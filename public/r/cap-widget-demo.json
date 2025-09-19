@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/registry/example/cap-widget/demo.tsx",
-      "content": "\"use client\";\n\nimport { CapWidget } from \"@/components/ui/cap-widget\";\nimport { useState } from \"react\";\n\nexport const CapWidgetDemo = () => {\n  const [token, setToken] = useState<string | null>(null);\n  return (\n    <div className=\"flex flex-col gap-4 w-full max-w-72\">\n      <CapWidget\n        endpoint=\"https://captcha.gurl.eu.org/api/\"\n        onSolve={setToken}\n      />\n      <span>{token}</span>\n    </div>\n  );\n};\n",
+      "content": "\"use client\";\n\nimport { CapWidget } from \"@/components/ui/cap-widget\";\n\nexport const CapWidgetDemo = () => {\n  return (\n    <div className=\"flex flex-col items-center gap-4 w-full max-w-72\">\n      <CapWidget endpoint=\"https://captcha.gurl.eu.org/api/\" />\n    </div>\n  );\n};\n",
       "type": "registry:component",
       "target": "components/cap-widget-demo.tsx"
     }
