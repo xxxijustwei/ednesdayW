@@ -180,7 +180,6 @@ const CapWidget = forwardRef<HTMLDivElement, CapWidgetProps>(
             "--cap-checkbox-background": "var(--secondary)",
             "--cap-spinner-color": "var(--primary)",
             "--cap-spinner-background-color": "var(--primary-foreground)",
-            "--cap-widget-width": "100%",
             ...style,
           } as React.CSSProperties
         }
