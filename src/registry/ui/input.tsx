@@ -111,16 +111,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ) => {
     const [showPassword, setShowPassword] = React.useState(false);
     const inputRef = React.useRef<HTMLInputElement>(null);
-    const setRefs = React.useCallback((element: HTMLInputElement | null) => {
-      inputRef.current = element;
-      if (ref) {
-        if (typeof ref === "function") {
-          ref(element);
-        } else {
-          ref.current = element;
-        }
-      }
-    }, []);
+    React.useImperativeHandle<HTMLInputElement | null, HTMLInputElement | null>(
+      ref,
+      () => inputRef.current,
+    );
 
     const endContentRender = () => {
       if (endContent) {
@@ -166,7 +160,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 ? "text"
                 : type
             }
-            ref={setRefs}
+            ref={inputRef}
             className={cn(inputVariants({ size }), inputClassName)}
             value={value}
             disabled={disabled}

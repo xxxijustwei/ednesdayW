@@ -74,7 +74,10 @@ const TextareaContainer = React.forwardRef<
     ref,
   ) => {
     const textareaRef = React.useRef<HTMLTextAreaElement>(null);
-    React.useImperativeHandle(ref, () => textareaRef.current!);
+    React.useImperativeHandle<
+      HTMLTextAreaElement | null,
+      HTMLTextAreaElement | null
+    >(ref, () => textareaRef.current);
     return (
       <TextareaContext.Provider value={{ ref: textareaRef, disabled }}>
         <div

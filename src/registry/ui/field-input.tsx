@@ -138,18 +138,9 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
       defaultValue || "",
     );
     const inputRef = React.useRef<HTMLInputElement>(null);
-    const setRefs = React.useCallback(
-      (element: HTMLInputElement | null) => {
-        inputRef.current = element;
-        if (ref) {
-          if (typeof ref === "function") {
-            ref(element);
-          } else {
-            ref.current = element;
-          }
-        }
-      },
-      [ref],
+    React.useImperativeHandle<HTMLInputElement | null, HTMLInputElement | null>(
+      ref,
+      () => inputRef.current,
     );
 
     const isControlled = value !== undefined;
@@ -209,7 +200,7 @@ const FieldInput = React.forwardRef<HTMLInputElement, FieldInputProps>(
                 ? "text"
                 : type
             }
-            ref={setRefs}
+            ref={inputRef}
             className={cn(inputVariants({ size }), inputClassName)}
             disabled={disabled}
             placeholder={placeholder}
