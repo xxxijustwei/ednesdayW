@@ -80,6 +80,7 @@ const CapWidget = forwardRef<HTMLDivElement, CapWidgetProps>(
 
     const handleSolve = useCallback(
       (e: Event) => {
+        console.log("handleSolve", e);
         const customEvent = e as CustomEvent<{ token?: string }>;
         const token = customEvent.detail?.token;
         if (!token) return;
@@ -137,20 +138,26 @@ const CapWidget = forwardRef<HTMLDivElement, CapWidgetProps>(
       if (loading) return;
       window.CAP_CUSTOM_FETCH = customFetch;
       window.CAP_CUSTOM_WASM_URL = wasmUrl;
-      widgetRef.current?.addEventListener("solve", handleSolve);
-      widgetRef.current?.addEventListener("error", handleError);
-      widgetRef.current?.addEventListener("progress", handleProgress);
-      widgetRef.current?.addEventListener("reset", handleReset);
+      const widget = widgetRef.current;
+      if (widget) {
+        widget.addEventListener("solve", handleSolve);
+        widget.addEventListener("error", handleError);
+        widget.addEventListener("progress", handleProgress);
+        widget.addEventListener("reset", handleReset);
+      }
       return () => {
         window.CAP_CUSTOM_FETCH = undefined;
         window.CAP_CUSTOM_WASM_URL = undefined;
-        widgetRef.current?.removeEventListener("solve", handleSolve);
-        widgetRef.current?.removeEventListener("error", handleError);
-        widgetRef.current?.removeEventListener("progress", handleProgress);
-        widgetRef.current?.removeEventListener("reset", handleReset);
+        if (widget) {
+          widget.removeEventListener("solve", handleSolve);
+          widget.removeEventListener("error", handleError);
+          widget.removeEventListener("progress", handleProgress);
+          widget.removeEventListener("reset", handleReset);
+        }
       };
     }, [
       loading,
+      widgetRef,
       wasmUrl,
       customFetch,
       handleReset,
@@ -173,13 +180,14 @@ const CapWidget = forwardRef<HTMLDivElement, CapWidgetProps>(
             "--cap-checkbox-background": "var(--secondary)",
             "--cap-spinner-color": "var(--primary)",
             "--cap-spinner-background-color": "var(--primary-foreground)",
+            "--cap-widget-width": "100%",
             ...style,
           } as React.CSSProperties
         }
         {...props}
       >
         <cap-widget
-          ref={ref}
+          ref={widgetRef}
           data-cap-api-endpoint={endpoint}
           data-cap-worker-count={workerCount}
           data-cap-i18n-verifying-label={locale?.verifying}
