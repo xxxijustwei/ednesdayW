@@ -1,23 +1,16 @@
 ---
 title: Cap Widget
-description: A headless, shadcn-compatible React component for CAP (Captcha-Alternative Protocol) integration, providing privacy-focused, invisible CAPTCHA verification with full customization.
+description: A headless, shadcn-compatible React component for CAP.
 ---
 
 ### Overview
+[Cap](https://capjs.js.org/) is a modern, lightweight, open-source CAPTCHA alternative using SHA-256 proof-of-work.
 
-The Cap Widget is a headless React component built for shadcn/ui that integrates [CAP (Captcha-Alternative Protocol)](https://capjs.js.org/), a modern, privacy-focused alternative to traditional CAPTCHAs. This component provides complete styling flexibility while delivering invisible verification through proof-of-work challenges that run in the background, requiring no user interaction while maintaining strong bot protection.
-
-### Key Features
-
-- 🎨 **Headless Design**: Fully customizable with complete control over styling and behavior
-- 🔧 **shadcn Compatible**: Seamlessly integrates with shadcn/ui design system and conventions
-- 🛡️ **Privacy-First**: No tracking, no cookies, no personal data collection
-- 👤 **Invisible Verification**: Proof-of-work runs silently in background
-- ⚡ **Performance Optimized**: WebAssembly-powered with Web Workers support
-- 🌐 **i18n Support**: Built-in internationalization with customizable locale
-- 🎯 **Theme Integration**: Automatically adapts to your design system variables
-- 📱 **Responsive**: Works seamlessly across all devices
-- ♿ **Accessible**: Full ARIA support with customizable labels
+Unlike traditional CAPTCHAs, Cap:
+- Is fast and unobtrusive
+- Uses no tracking or cookies
+- Uses proof-of-work instead of annoying visual puzzles
+- Is fully accessible and self-hostable
 
 ### Installation
 
@@ -291,7 +284,7 @@ Control the number of Web Workers for optimal performance:
 ```tsx
 <CapWidget
   endpoint="https://captcha.gurl.eu.org/api/"
-  workerCount={navigator.hardwareConcurrency || 4}
+  workerCount={navigator.hardwareConcurrency || 8}
 />
 ```
 
