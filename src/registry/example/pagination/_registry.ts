@@ -7,10 +7,7 @@ export const paginationExamples: Registry["items"] = [
     type: "registry:component",
     title: "Pagination Demo",
     description: "A demo of the pagination component",
-    registryDependencies: [
-      `${siteConfig.registryUrl}/pagination.json`,
-      `${siteConfig.registryUrl}/use-device-detection.json`,
-    ],
+    registryDependencies: [`${siteConfig.registryUrl}/pagination.json`],
     files: [
       {
         path: "src/registry/example/pagination/demo.tsx",

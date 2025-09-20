@@ -370,29 +370,6 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
-  "use-device-detection": {
-    name: "use-device-detection",
-    description: "A hook for detecting the device type",
-    type: "registry:hook",
-    registryDependencies: undefined,
-    files: [
-      {
-        path: "src/registry/hooks/use-device-detection.ts",
-        type: "registry:hook",
-        target: "hooks/use-device-detection.ts",
-      },
-    ],
-    component: React.lazy(async () => {
-      const mod = await import("@/registry/hooks/use-device-detection.ts");
-      const exportName =
-        Object.keys(mod).find(
-          (key) =>
-            typeof mod[key] === "function" || typeof mod[key] === "object",
-        ) || item.name;
-      return { default: mod.default || mod[exportName] };
-    }),
-    meta: undefined,
-  },
   "input-size-demo": {
     name: "input-size-demo",
     description: "A demo of the input size",
@@ -1339,10 +1316,7 @@ export const Index: Record<string, any> = {
     name: "pagination-demo",
     description: "A demo of the pagination component",
     type: "registry:component",
-    registryDependencies: [
-      "https://ui.ednesdayw.com/r/pagination.json",
-      "https://ui.ednesdayw.com/r/use-device-detection.json",
-    ],
+    registryDependencies: ["https://ui.ednesdayw.com/r/pagination.json"],
     files: [
       {
         path: "src/registry/example/pagination/demo.tsx",
@@ -1378,33 +1352,6 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(async () => {
       const mod = await import("@/registry/example/use-countdown/demo.tsx");
-      const exportName =
-        Object.keys(mod).find(
-          (key) =>
-            typeof mod[key] === "function" || typeof mod[key] === "object",
-        ) || item.name;
-      return { default: mod.default || mod[exportName] };
-    }),
-    meta: undefined,
-  },
-  "use-device-detection-demo": {
-    name: "use-device-detection-demo",
-    description: "A demo of the use device detection",
-    type: "registry:component",
-    registryDependencies: [
-      "https://ui.ednesdayw.com/r/use-device-detection.json",
-    ],
-    files: [
-      {
-        path: "src/registry/example/use-device-detection/demo.tsx",
-        type: "registry:component",
-        target: "components/demo/use-device-detection-demo.tsx",
-      },
-    ],
-    component: React.lazy(async () => {
-      const mod = await import(
-        "@/registry/example/use-device-detection/demo.tsx"
-      );
       const exportName =
         Object.keys(mod).find(
           (key) =>

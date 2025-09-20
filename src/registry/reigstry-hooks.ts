@@ -41,17 +41,4 @@ export const hooks: Registry["items"] = [
       },
     ],
   },
-  {
-    name: "use-device-detection",
-    type: "registry:hook",
-    title: "Use Device Detection",
-    description: "A hook for detecting the device type",
-    files: [
-      {
-        path: "src/registry/hooks/use-device-detection.ts",
-        type: "registry:hook",
-        target: "hooks/use-device-detection.ts",
-      },
-    ],
-  },
 ];

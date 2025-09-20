@@ -13,7 +13,6 @@ import { selectExamples } from "./example/select/_registry";
 import { tagInputExamples } from "./example/tag-input/_registry";
 import { textareaExamples } from "./example/textarea/_registry";
 import { useCountdownExamples } from "./example/use-countdown/_registry";
-import { useDeviceDetectionExamples } from "./example/use-device-detection/_registry";
 import { useDisclosureExamples } from "./example/use-disclosure/_registry";
 import { useRippleExamples } from "./example/use-ripple/_registry";
 import { walletAddressExamples } from "./example/wallet-address/_registry";
@@ -31,7 +30,6 @@ export const examples: Registry["items"] = [
   ...useRippleExamples,
   ...paginationExamples,
   ...useCountdownExamples,
-  ...useDeviceDetectionExamples,
   ...autocompleteExamples,
   ...tagInputExamples,
   ...walletAddressExamples,
