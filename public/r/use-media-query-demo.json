@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/registry/example/use-media-query/demo.tsx",
-      "content": "import { useMediaQuery } from \"@/hooks/use-media-query\";\n\nexport const UseMediaQueryDemo = () => {\n  const isMobile = useMediaQuery(\"(max-width: 640px)\");\n\n  return (\n    <div className=\"w-full max-w-48 flex flex-col items-center justify-center\">\n      <span>Is Mobile: {isMobile}</span>\n    </div>\n  );\n};\n",
+      "content": "import { useMediaQuery } from \"@/hooks/use-media-query\";\n\nexport const UseMediaQueryDemo = () => {\n  const isMobile = useMediaQuery(\"(max-width: 640px)\");\n\n  return (\n    <div className=\"w-full max-w-48 flex flex-col items-center justify-center\">\n      <span>Is Mobile: {isMobile.toString()}</span>\n    </div>\n  );\n};\n",
       "type": "registry:component",
       "target": "components/demo/use-media-query-demo.tsx"
     }
