@@ -14,6 +14,7 @@ import { tagInputExamples } from "./example/tag-input/_registry";
 import { textareaExamples } from "./example/textarea/_registry";
 import { useCountdownExamples } from "./example/use-countdown/_registry";
 import { useDisclosureExamples } from "./example/use-disclosure/_registry";
+import { useMediaQueryExamples } from "./example/use-media-query/_registry";
 import { useRippleExamples } from "./example/use-ripple/_registry";
 import { walletAddressExamples } from "./example/wallet-address/_registry";
 
@@ -35,4 +36,5 @@ export const examples: Registry["items"] = [
   ...walletAddressExamples,
   ...create2Examples,
   ...capWidgetExamples,
+  ...useMediaQueryExamples,
 ];

@@ -41,4 +41,17 @@ export const hooks: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "use-media-query",
+    type: "registry:hook",
+    title: "Use Media Query",
+    description: "A hook for checking media queries",
+    files: [
+      {
+        path: "src/registry/hooks/use-media-query.ts",
+        type: "registry:hook",
+        target: "hooks/use-media-query.ts",
+      },
+    ],
+  },
 ];

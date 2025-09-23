@@ -1,0 +1,85 @@
+---
+title: Use Media Query
+description: A hook that helps you detect media queries and responsive breakpoints.
+---
+
+### Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/use-media-query.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>
+  Copy and paste the following code into your project's `hooks/use-media-query.ts`
+  file
+</Step>
+
+<ComponentSource name="use-media-query" />
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+```tsx
+import { useMediaQuery } from "@/hooks/use-media-query";
+
+const isMobile = useMediaQuery("(max-width: 640px)");
+const isDesktop = useMediaQuery("(min-width: 1024px)");
+```
+
+### Example
+
+#### Demo
+
+<ComponentPreview name="use-media-query-demo" />
+
+### API
+
+#### Parameters
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `query` | `string` or `MediaSize` | - | Media query string |
+| `options` | `UseMediaQueryOptions` | `{}` | Configuration options |
+
+#### Options
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultValue` | `boolean` | `false` | Default value before media query is evaluated |
+| `initializeWithValue` | `boolean` | `true` | Whether to initialize with the actual media query result |
+
+#### Returns
+
+| Type | Description |
+| --- | --- |
+| `boolean` | Whether the media query matches |
+
+### MediaSize
+
+The hook includes TypeScript support for Tailwind CSS breakpoints:
+
+- `(max-width: 640px)` - sm
+- `(max-width: 768px)` - md
+- `(max-width: 1024px)` - lg
+- `(max-width: 1280px)` - xl
+- `(max-width: 1536px)` - 2xl
