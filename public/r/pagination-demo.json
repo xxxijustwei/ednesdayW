@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/registry/example/pagination/demo.tsx",
-      "content": "\"use client\";\n\nimport { Pagination } from \"@/components/ui/pagination\";\nimport { useState } from \"react\";\n\nexport const PaginationDemo = () => {\n  const [currentPage, setCurrentPage] = useState(1);\n\n  return (\n    <Pagination\n      currentPage={currentPage}\n      totalPages={100}\n      onChange={setCurrentPage}\n      siblings={2}\n    />\n  );\n};\n",
+      "content": "\"use client\";\n\nimport { useMediaQuery } from \"@/hooks/use-media-query\";\nimport { Pagination } from \"@/components/ui/pagination\";\nimport { useState } from \"react\";\n\nexport const PaginationDemo = () => {\n  const [currentPage, setCurrentPage] = useState(1);\n  const isSM = useMediaQuery(\"(max-width: 640px)\");\n\n  return (\n    <Pagination\n      currentPage={currentPage}\n      totalPages={100}\n      onChange={setCurrentPage}\n      siblings={isSM ? 1 : 2}\n    />\n  );\n};\n",
       "type": "registry:component",
       "target": "components/demo/pagination-demo.tsx"
     }

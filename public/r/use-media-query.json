@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-media-query",
+  "type": "registry:hook",
+  "title": "Use Media Query",
+  "description": "A hook for checking media queries",
+  "files": [
+    {
+      "path": "src/registry/hooks/use-media-query.ts",
+      "content": "\"use client\";\n\nimport { useEffect, useLayoutEffect, useState } from \"react\";\n\ntype UseMediaQueryOptions = {\n  defaultValue?: boolean;\n  initializeWithValue?: boolean;\n};\n\ntype MediaSize =\n  | \"(max-width: 640px)\" // sm\n  | \"(max-width: 768px)\" // md\n  | \"(max-width: 1024px)\" // lg\n  | \"(max-width: 1280px)\" // xl\n  | \"(max-width: 1536px)\"; // 2xl\n\nconst IS_SERVER = typeof window === \"undefined\";\n\nconst useIsomorphicLayoutEffect =\n  typeof window !== \"undefined\" ? useLayoutEffect : useEffect;\n\nexport function useMediaQuery(\n  query: MediaSize,\n  options?: UseMediaQueryOptions,\n): boolean;\n\nexport function useMediaQuery(\n  query: string,\n  options?: UseMediaQueryOptions,\n): boolean;\n\nexport function useMediaQuery(\n  query: string,\n  {\n    defaultValue = false,\n    initializeWithValue = true,\n  }: UseMediaQueryOptions = {},\n) {\n  const getMatches = (query: string) => {\n    if (IS_SERVER) {\n      return defaultValue;\n    }\n    return window.matchMedia(query).matches;\n  };\n\n  const [matches, setMatches] = useState(() => {\n    if (initializeWithValue) {\n      return getMatches(query);\n    }\n    return defaultValue;\n  });\n\n  const handleChange = () => {\n    setMatches(getMatches(query));\n  };\n\n  useIsomorphicLayoutEffect(() => {\n    const matchMedia = window.matchMedia(query);\n\n    handleChange();\n\n    if (matchMedia.addListener) {\n      matchMedia.addListener(handleChange);\n    } else {\n      matchMedia.addEventListener(\"change\", handleChange);\n    }\n\n    return () => {\n      if (matchMedia.removeListener) {\n        matchMedia.removeListener(handleChange);\n      } else {\n        matchMedia.removeEventListener(\"change\", handleChange);\n      }\n    };\n  }, [query]);\n\n  return matches;\n}\n\nexport type UseMediaQueryReturn = ReturnType<typeof useMediaQuery>;\n",
+      "type": "registry:hook",
+      "target": "hooks/use-media-query.ts"
+    }
+  ]
+}

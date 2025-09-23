@@ -246,6 +246,19 @@
       ]
     },
     {
+      "name": "use-media-query",
+      "type": "registry:hook",
+      "title": "Use Media Query",
+      "description": "A hook for checking media queries",
+      "files": [
+        {
+          "path": "src/registry/hooks/use-media-query.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-media-query.ts"
+        }
+      ]
+    },
+    {
       "name": "input-size-demo",
       "type": "registry:component",
       "title": "Input Size Demo",
@@ -1155,6 +1168,22 @@
           "path": "src/registry/example/cap-widget/locale.tsx",
           "type": "registry:component",
           "target": "components/cap-widget-locale-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "use-media-query-demo",
+      "type": "registry:component",
+      "title": "Use Media Query Demo",
+      "description": "A demo of the use media query",
+      "registryDependencies": [
+        "https://ui.ednesdayw.com/r/use-media-query.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/example/use-media-query/demo.tsx",
+          "type": "registry:component",
+          "target": "components/demo/use-media-query-demo.tsx"
         }
       ]
     },

@@ -370,6 +370,29 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "use-media-query": {
+    name: "use-media-query",
+    description: "A hook for checking media queries",
+    type: "registry:hook",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "src/registry/hooks/use-media-query.ts",
+        type: "registry:hook",
+        target: "hooks/use-media-query.ts",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/hooks/use-media-query.ts");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   "input-size-demo": {
     name: "input-size-demo",
     description: "A demo of the input size",
@@ -1836,6 +1859,29 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(async () => {
       const mod = await import("@/registry/example/cap-widget/locale.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "use-media-query-demo": {
+    name: "use-media-query-demo",
+    description: "A demo of the use media query",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/use-media-query.json"],
+    files: [
+      {
+        path: "src/registry/example/use-media-query/demo.tsx",
+        type: "registry:component",
+        target: "components/demo/use-media-query-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/use-media-query/demo.tsx");
       const exportName =
         Object.keys(mod).find(
           (key) =>
