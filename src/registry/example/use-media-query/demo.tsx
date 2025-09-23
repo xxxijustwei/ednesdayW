@@ -5,7 +5,7 @@ export const UseMediaQueryDemo = () => {
 
   return (
     <div className="w-full max-w-48 flex flex-col items-center justify-center">
-      <span>Is Mobile: {isMobile}</span>
+      <span>Is Mobile: {isMobile.toString()}</span>
     </div>
   );
 };

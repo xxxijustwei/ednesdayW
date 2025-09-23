@@ -110,6 +110,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/hooks/use-countdown",
           items: [],
         },
+        {
+          title: "useMediaQuery",
+          href: "/docs/hooks/use-media-query",
+          items: [],
+        },
       ],
     },
     {
