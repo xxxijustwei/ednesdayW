@@ -34,7 +34,7 @@ export const SelectSizeExample = () => {
     <div className="flex flex-col gap-4 w-full max-w-72">
       {size.map((size) => (
         <Select key={size}>
-          <SelectTrigger size={size} variant="bordered" className="rounded-2xl">
+          <SelectTrigger size={size} variant="bordered">
             <SelectValue placeholder="Select a network" />
           </SelectTrigger>
           <SelectContent>

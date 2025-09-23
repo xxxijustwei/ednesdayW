@@ -41,7 +41,7 @@ const ColorPicker = ({
       <PopoverTrigger asChild disabled={disabled} onBlur={onBlur}>
         <Button
           type="button"
-          className={cn("size-8 rounded-lg", className)}
+          className={cn("size-8", className)}
           style={{
             backgroundColor: parsedValue,
             backgroundImage: !parsedValue

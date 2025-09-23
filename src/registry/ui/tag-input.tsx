@@ -156,7 +156,7 @@ TagInput.displayName = "TagInput";
 
 const containerVariants = cva(
   cn(
-    "flex w-full px-2.5 relative rounded-md shadow-sm",
+    "flex w-full px-2.5 relative rounded-lg",
     "text-base cursor-text",
     "data-[is-invalid=true]:border-destructive",
     "data-[disabled=true]:opacity-70 data-[disabled=true]:cursor-not-allowed",
@@ -174,7 +174,7 @@ const containerVariants = cva(
           "data-[disabled=true]:hover:bg-muted data-[disabled=true]:hover:border-muted",
         ),
         bordered: "border-2 border-input",
-        underline: "border-b-2 border-input rounded-none shadow-none",
+        underline: "border-b-2 border-input rounded-none",
       },
       size: {
         sm: "min-h-10 py-1.5",

@@ -46,11 +46,7 @@ const TokenSelect = ({
 
   return (
     <Select value={network} onValueChange={setNetwork}>
-      <SelectTrigger
-        size="md"
-        variant={variant}
-        className={variant !== "underline" ? "rounded-2xl" : undefined}
-      >
+      <SelectTrigger size="md" variant={variant}>
         <div className="w-full flex items-center justify-between gap-1 overflow-hidden">
           <SelectValue placeholder="Select a network" />
           {network && (

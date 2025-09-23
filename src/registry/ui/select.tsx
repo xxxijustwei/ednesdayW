@@ -27,7 +27,7 @@ function SelectValue({
 const selectTriggerVariants = cva(
   cn(
     "w-full px-2.5 flex items-center justify-between gap-2",
-    "rounded-md bg-transparent text-sm whitespace-nowrap shadow-sm",
+    "rounded-lg bg-transparent text-sm whitespace-nowrap",
     "hover:border-ring",
     "data-[state=open]:border-ring",
     "focus-visible:border-ring focus-visible:ring-ring/50",
@@ -50,7 +50,7 @@ const selectTriggerVariants = cva(
           "disabled:hover:bg-muted disabled:hover:border-muted",
         ),
         bordered: "border-2 border-input",
-        underline: "border-b-2 border-input rounded-none shadow-none",
+        underline: "border-b-2 border-input rounded-none",
       },
       size: {
         sm: "h-10 py-1.5 text-base data-[placeholder]:text-base",

@@ -26,7 +26,7 @@ const useTextareaContext = () => {
 
 export const containerVariants = cva(
   cn(
-    "group flex flex-col gap-1 w-full h-fit px-2.5 py-2 relative rounded-md shadow-sm",
+    "group flex flex-col gap-1 w-full h-fit px-2.5 py-2 relative rounded-lg",
     "text-base cursor-text",
     "data-[is-invalid=true]:border-destructive",
     "data-[disabled=true]:opacity-70 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:hover:border-input",
@@ -44,7 +44,7 @@ export const containerVariants = cva(
           "data-[disabled=true]:hover:bg-muted data-[disabled=true]:hover:border-muted",
         ),
         bordered: "border-2 border-input",
-        underline: "border-b-2 border-input rounded-none shadow-none",
+        underline: "border-b-2 border-input rounded-none",
       },
     },
     compoundVariants: [

@@ -54,12 +54,7 @@ const TokenSelect = ({
 
   return (
     <Select value={network} onValueChange={setNetwork}>
-      <SelectTrigger
-        size="md"
-        disabled={disabled}
-        variant={variant}
-        className={variant !== "underline" ? "rounded-2xl" : undefined}
-      >
+      <SelectTrigger size="md" disabled={disabled} variant={variant}>
         <SelectValue placeholder="Select a network" />
       </SelectTrigger>
       <SelectContent>

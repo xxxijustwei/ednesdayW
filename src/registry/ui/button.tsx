@@ -14,7 +14,7 @@ import { useCallback, useState } from "react";
 const buttonVariants = cva(
   cn(
     "inline-flex items-center justify-center gap-2 shrink-0 outline-none relative overflow-hidden",
-    "text-sm font-medium whitespace-nowrap rounded-md transition-all cursor-pointer",
+    "text-sm font-medium whitespace-nowrap rounded-lg transition-all cursor-pointer",
     "active:scale-98 transition-all duration-100",
     "disabled:pointer-events-none disabled:opacity-70",
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4",
@@ -24,16 +24,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+        primary: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive: cn(
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90",
+          "bg-destructive text-white hover:bg-destructive/90",
           "focus-visible:ring-destructive/20 focus-visible:dark:ring-destructive/40 dark:bg-destructive/60",
         ),
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
+          "border bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground ",
         link: "text-primary underline-offset-4 hover:underline",
       },

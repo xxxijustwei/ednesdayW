@@ -23,7 +23,7 @@ const ColorInput = ({
     <Input
       {...props}
       variant={variant}
-      className={cn("p-2", variant !== "underline" && "rounded-lg", className)}
+      className={cn("p-2", className)}
       value={value}
       onChange={(e) => {
         const value = e.target.value;
