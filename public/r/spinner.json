@@ -4,6 +4,9 @@
   "type": "registry:ui",
   "title": "Spinner",
   "description": "A spinner component",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/spinner-css.json"
+  ],
   "files": [
     {
       "path": "src/registry/ui/spinner.tsx",
