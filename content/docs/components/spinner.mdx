@@ -39,9 +39,15 @@ npx shadcn@latest add "https://ui.ednesdayw.com/r/spinner.json"
 
 <ComponentSource name="spinner" />
 
-<Step>Add the SpinKit CSS styles to your global stylesheet</Step>
+<Step>Copy and paste the following code into your project's `styles/spinkit.css` file</Step>
 
-Import the SpinKit styles from [SpinKit CSS](https://github.com/tobiasahlin/SpinKit/tree/master/css) or include them in your global CSS file.
+<ComponentSource name="spinner-css" />
+
+<Step>Edit your `globals.css` file to import the `spinkit.css` file</Step>
+
+```css
+@import "@/styles/spinkit.css";
+```
 
 </Steps>
 
@@ -124,7 +130,7 @@ The spinner uses CSS variables for customization. You can override the default c
 ```tsx
 <Spinner
   variant="plane"
-  style={{ "--sk-color": "#10b981" } as React.CSSProperties}
+  style={{ "--sk-color": "#10b981", "--sk-size": "40px" } as React.CSSProperties}
 />
 ```
 

@@ -12,6 +12,7 @@ import { examples } from "../src/registry/registry-examples";
 import { lib } from "../src/registry/registry-lib";
 import { ui } from "../src/registry/registry-ui";
 import { hooks } from "../src/registry/reigstry-hooks";
+import { css } from "../src/registry/registry-css";
 
 const registry = {
   name: "Wednesday UI",
@@ -34,6 +35,7 @@ const registry = {
       cssVars: {},
       files: [],
     },
+    ...css,
     ...ui,
     ...hooks,
     ...examples,

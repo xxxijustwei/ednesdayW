@@ -187,27 +187,12 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     title: "Spinner",
     description: "A spinner component",
+    registryDependencies: [`${siteConfig.registryUrl}/spinner-css.json`],
     files: [
       {
         path: "src/registry/ui/spinner.tsx",
         type: "registry:ui",
         target: "components/wed/spinner.tsx",
-      },
-    ],
-    css: {
-      '@import "@/styles/spinkit.css";': {},
-    },
-  },
-  {
-    name: "spinner-css",
-    type: "registry:ui",
-    title: "Spinner CSS",
-    description: "A spinner css file",
-    files: [
-      {
-        path: "src/registry/css/spinkit.css",
-        type: "registry:ui",
-        target: "styles/spinkit.css",
       },
     ],
     css: {
