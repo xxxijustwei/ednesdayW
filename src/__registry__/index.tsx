@@ -301,6 +301,29 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  spinner: {
+    name: "spinner",
+    description: "A spinner component",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "src/registry/ui/spinner.tsx",
+        type: "registry:ui",
+        target: "components/wed/spinner.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/ui/spinner.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   "use-disclosure": {
     name: "use-disclosure",
     description: "A hook for managing disclosure state",
@@ -1882,6 +1905,282 @@ export const Index: Record<string, any> = {
     ],
     component: React.lazy(async () => {
       const mod = await import("@/registry/example/use-media-query/demo.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "plane-spinner-demo": {
+    name: "plane-spinner-demo",
+    description: "A demo of the plane spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/plane.tsx",
+        type: "registry:component",
+        target: "components/demo/plane-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/plane.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "chase-spinner-demo": {
+    name: "chase-spinner-demo",
+    description: "A demo of the chase spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/chase.tsx",
+        type: "registry:component",
+        target: "components/demo/chase-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/chase.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "bounce-spinner-demo": {
+    name: "bounce-spinner-demo",
+    description: "A demo of the bounce spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/bounce.tsx",
+        type: "registry:component",
+        target: "components/demo/bounce-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/bounce.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "wave-spinner-demo": {
+    name: "wave-spinner-demo",
+    description: "A demo of the wave spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/wave.tsx",
+        type: "registry:component",
+        target: "components/demo/wave-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/wave.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "pulse-spinner-demo": {
+    name: "pulse-spinner-demo",
+    description: "A demo of the pulse spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/pulse.tsx",
+        type: "registry:component",
+        target: "components/demo/pulse-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/pulse.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "flow-spinner-demo": {
+    name: "flow-spinner-demo",
+    description: "A demo of the flow spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/flow.tsx",
+        type: "registry:component",
+        target: "components/demo/flow-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/flow.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "swing-spinner-demo": {
+    name: "swing-spinner-demo",
+    description: "A demo of the swing spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/swing.tsx",
+        type: "registry:component",
+        target: "components/demo/swing-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/swing.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "circle-spinner-demo": {
+    name: "circle-spinner-demo",
+    description: "A demo of the circle spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/circle.tsx",
+        type: "registry:component",
+        target: "components/demo/circle-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/circle.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "circle-fade-spinner-demo": {
+    name: "circle-fade-spinner-demo",
+    description: "A demo of the circle fade spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/circle-fade.tsx",
+        type: "registry:component",
+        target: "components/demo/circle-fade-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/circle-fade.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "grid-spinner-demo": {
+    name: "grid-spinner-demo",
+    description: "A demo of the grid spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/grid.tsx",
+        type: "registry:component",
+        target: "components/demo/grid-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/grid.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "fold-spinner-demo": {
+    name: "fold-spinner-demo",
+    description: "A demo of the fold spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/fold.tsx",
+        type: "registry:component",
+        target: "components/demo/fold-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/fold.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
+  "wander-spinner-demo": {
+    name: "wander-spinner-demo",
+    description: "A demo of the wander spinner",
+    type: "registry:component",
+    registryDependencies: ["https://ui.ednesdayw.com/r/spinner.json"],
+    files: [
+      {
+        path: "src/registry/example/spinner/wander.tsx",
+        type: "registry:component",
+        target: "components/demo/wander-spinner-demo.tsx",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/example/spinner/wander.tsx");
       const exportName =
         Object.keys(mod).find(
           (key) =>

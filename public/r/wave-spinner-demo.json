@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wave-spinner-demo",
+  "type": "registry:component",
+  "title": "Wave Spinner Demo",
+  "description": "A demo of the wave spinner",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/spinner.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/spinner/wave.tsx",
+      "content": "import { Spinner } from \"@/components/ui/spinner\";\n\nconst sizes = [\"sm\", \"md\", \"lg\"] as const;\n\nexport const WaveSpinnerExample = () => {\n  return (\n    <div className=\"flex items-center justify-center gap-4 w-full max-w-xs\">\n      {sizes.map((size) => (\n        <Spinner key={size} size={size} variant=\"wave\" />\n      ))}\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/wave-spinner-demo.tsx"
+    }
+  ]
+}

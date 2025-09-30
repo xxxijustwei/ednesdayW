@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "swing-spinner-demo",
+  "type": "registry:component",
+  "title": "Swing Spinner Demo",
+  "description": "A demo of the swing spinner",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/spinner.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/spinner/swing.tsx",
+      "content": "import { Spinner } from \"@/components/ui/spinner\";\n\nconst sizes = [\"sm\", \"md\", \"lg\"] as const;\n\nexport const SwingSpinnerExample = () => {\n  return (\n    <div className=\"flex items-center justify-center gap-4 w-full max-w-xs\">\n      {sizes.map((size) => (\n        <Spinner key={size} size={size} variant=\"swing\" />\n      ))}\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/swing-spinner-demo.tsx"
+    }
+  ]
+}

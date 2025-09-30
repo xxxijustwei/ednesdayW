@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pulse-spinner-demo",
+  "type": "registry:component",
+  "title": "Pulse Spinner Demo",
+  "description": "A demo of the pulse spinner",
+  "registryDependencies": [
+    "https://ui.ednesdayw.com/r/spinner.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/example/spinner/pulse.tsx",
+      "content": "import { Spinner } from \"@/components/ui/spinner\";\n\nconst sizes = [\"sm\", \"md\", \"lg\"] as const;\n\nexport const PulseSpinnerExample = () => {\n  return (\n    <div className=\"flex items-center justify-center gap-4 w-full max-w-xs\">\n      {sizes.map((size) => (\n        <Spinner key={size} size={size} variant=\"pulse\" />\n      ))}\n    </div>\n  );\n};\n",
+      "type": "registry:component",
+      "target": "components/demo/pulse-spinner-demo.tsx"
+    }
+  ]
+}
