@@ -18,6 +18,56 @@ export interface SpinnerProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof spinnerVariants> {}
 
+export const Spinner = ({
+  size,
+  className,
+  variant,
+  ...props
+}: SpinnerProps & {
+  variant:
+    | "plane"
+    | "chase"
+    | "bounce"
+    | "wave"
+    | "pulse"
+    | "flow"
+    | "swing"
+    | "circle"
+    | "circle-fade"
+    | "grid"
+    | "fold"
+    | "wander";
+}) => {
+  switch (variant) {
+    case "plane":
+      return <PlaneSpinner size={size} className={className} {...props} />;
+    case "chase":
+      return <ChaseSpinner size={size} className={className} {...props} />;
+    case "bounce":
+      return <BounceSpinner size={size} className={className} {...props} />;
+    case "wave":
+      return <WaveSpinner size={size} className={className} {...props} />;
+    case "pulse":
+      return <PulseSpinner size={size} className={className} {...props} />;
+    case "flow":
+      return <FlowSpinner size={size} className={className} {...props} />;
+    case "swing":
+      return <SwingSpinner size={size} className={className} {...props} />;
+    case "circle":
+      return <CircleSpinner size={size} className={className} {...props} />;
+    case "circle-fade":
+      return <CircleFadeSpinner size={size} className={className} {...props} />;
+    case "grid":
+      return <GridSpinner size={size} className={className} {...props} />;
+    case "fold":
+      return <FoldSpinner size={size} className={className} {...props} />;
+    case "wander":
+      return <WanderSpinner size={size} className={className} {...props} />;
+    default:
+      return <PlaneSpinner size={size} className={className} {...props} />;
+  }
+};
+
 export const PlaneSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div

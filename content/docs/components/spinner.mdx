@@ -1,0 +1,222 @@
+---
+title: Spinner
+description: A collection of elegant loading spinners with multiple animation variants.
+---
+
+### Overview
+A collection of elegant loading spinners for React, based on the CSS animations from [SpinKit](https://github.com/tobiasahlin/SpinKit). This component provides a shadcn-compatible React wrapper around SpinKit's beautiful CSS spinner animations.
+
+Features:
+- 12 different spinner animation variants
+- Lightweight CSS animations using only `transform` and `opacity`
+- Three size variants (sm, md, lg)
+- Fully typed with TypeScript
+- Customizable via CSS variables
+- Works seamlessly with shadcn/ui design system
+
+### Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://ui.ednesdayw.com/r/spinner.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project's `components/ui/spinner.tsx` file</Step>
+
+<ComponentSource name="spinner" />
+
+<Step>Add the SpinKit CSS styles to your global stylesheet</Step>
+
+Import the SpinKit styles from [SpinKit CSS](https://github.com/tobiasahlin/SpinKit/tree/master/css) or include them in your global CSS file.
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### Usage
+
+```tsx
+import { Spinner } from "@/components/ui/spinner"
+
+const Page = () => {
+  return (
+    <Spinner variant="plane" size="md" />
+  );
+};
+```
+
+### Examples
+
+#### Plane
+<ComponentPreview name="plane-spinner-demo" />
+
+#### Chase
+<ComponentPreview name="chase-spinner-demo" />
+
+#### Bounce
+<ComponentPreview name="bounce-spinner-demo" />
+
+#### Wave
+<ComponentPreview name="wave-spinner-demo" />
+
+#### Pulse
+<ComponentPreview name="pulse-spinner-demo" />
+
+#### Flow
+<ComponentPreview name="flow-spinner-demo" />
+
+#### Swing
+<ComponentPreview name="swing-spinner-demo" />
+
+#### Circle
+<ComponentPreview name="circle-spinner-demo" />
+
+#### Circle Fade
+<ComponentPreview name="circle-fade-spinner-demo" />
+
+#### Grid
+<ComponentPreview name="grid-spinner-demo" />
+
+#### Fold
+<ComponentPreview name="fold-spinner-demo" />
+
+#### Wander
+<ComponentPreview name="wander-spinner-demo" />
+
+### API Reference
+
+#### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"plane" \| "chase" \| "bounce" \| "wave" \| "pulse" \| "flow" \| "swing" \| "circle" \| "circle-fade" \| "grid" \| "fold" \| "wander"` | `"plane"` | The animation variant to display |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | The size of the spinner |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+#### Size Reference
+
+| Size | Dimensions |
+|------|------------|
+| `sm` | 28px |
+| `md` | 34px |
+| `lg` | 40px |
+
+### Styling
+
+The spinner uses CSS variables for customization. You can override the default color using the `--sk-color` variable:
+
+```tsx
+<Spinner
+  variant="plane"
+  style={{ "--sk-color": "#10b981" } as React.CSSProperties}
+/>
+```
+
+By default, the spinner inherits the primary color from your theme:
+
+```css
+--sk-color: var(--color-primary)
+```
+
+### Common Use Cases
+
+#### Loading Button
+
+```tsx
+import { Button } from "@/components/ui/button"
+import { Spinner } from "@/components/ui/spinner"
+
+const LoadingButton = ({ isLoading, children, ...props }) => {
+  return (
+    <Button disabled={isLoading} {...props}>
+      {isLoading ? (
+        <Spinner variant="pulse" size="sm" />
+      ) : (
+        children
+      )}
+    </Button>
+  );
+};
+```
+
+#### Full Page Loading
+
+```tsx
+import { Spinner } from "@/components/ui/spinner"
+
+const LoadingPage = () => {
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <Spinner variant="circle-fade" size="lg" />
+    </div>
+  );
+};
+```
+
+#### Inline Loading
+
+```tsx
+import { Spinner } from "@/components/ui/spinner"
+
+const InlineLoading = () => {
+  return (
+    <div className="flex items-center gap-2">
+      <Spinner variant="flow" size="sm" />
+      <span>Loading data...</span>
+    </div>
+  );
+};
+```
+
+### Accessibility
+
+All spinner components include proper ARIA attributes for screen readers:
+
+- The spinner container has `role="status"` for live region announcements
+- An accessible label is provided via `aria-label="Loading"`
+
+For better accessibility, consider adding descriptive text:
+
+```tsx
+<div className="flex items-center gap-2">
+  <Spinner variant="pulse" size="sm" />
+  <span className="sr-only">Loading your content</span>
+</div>
+```
+
+### Animation Variants
+
+Each variant has its own unique animation style:
+
+- **Plane**: A single rotating square
+- **Chase**: Multiple dots chasing each other in a circle
+- **Bounce**: Two dots bouncing
+- **Wave**: Vertical bars creating a wave effect
+- **Pulse**: A pulsing circle
+- **Flow**: Three dots flowing in sequence
+- **Swing**: Two dots swinging
+- **Circle**: 12 dots arranged in a circle
+- **Circle Fade**: 12 dots with fading effect
+- **Grid**: 9 cubes in a grid with scale animation
+- **Fold**: 4 cubes folding
+- **Wander**: 2 cubes wandering around
+
+### Credits
+
+This component is a React implementation for shadcn/ui, using the CSS animations from [SpinKit](https://github.com/tobiasahlin/SpinKit) by Tobias Ahlin.

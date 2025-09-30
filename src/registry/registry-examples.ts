@@ -10,6 +10,7 @@ import { inputExamples } from "./example/input/_registry";
 import { paginationExamples } from "./example/pagination/_registry";
 import { phoneInputExamples } from "./example/phone-input/_registry";
 import { selectExamples } from "./example/select/_registry";
+import { spinnerExamples } from "./example/spinner/_registry";
 import { tagInputExamples } from "./example/tag-input/_registry";
 import { textareaExamples } from "./example/textarea/_registry";
 import { useCountdownExamples } from "./example/use-countdown/_registry";
@@ -37,4 +38,5 @@ export const examples: Registry["items"] = [
   ...create2Examples,
   ...capWidgetExamples,
   ...useMediaQueryExamples,
+  ...spinnerExamples,
 ];
