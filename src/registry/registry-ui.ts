@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/site";
-import type { Registry } from "shadcn/registry";
+import { Registry } from "shadcn/schema";
 
 export const ui: Registry["items"] = [
   {
@@ -181,5 +181,21 @@ export const ui: Registry["items"] = [
         target: "components/wed/cap-widget.tsx",
       },
     ],
+  },
+  {
+    name: "spinner",
+    type: "registry:ui",
+    title: "Spinner",
+    description: "A spinner component",
+    files: [
+      {
+        path: "src/registry/ui/spinner.tsx",
+        type: "registry:ui",
+        target: "components/wed/spinner.tsx",
+      },
+    ],
+    css: {
+      '@import "@/styles/spinkit.css";': {},
+    },
   },
 ];

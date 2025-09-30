@@ -1,13 +1,10 @@
 @import "tailwindcss";
-
 @import "tw-animate-css";
+@import "./themes.css";
+@import "./mdx.css";
+@import "./spinkit.css";
 
 @custom-variant dark (&:is(.dark *));
-
-/* biome-ignore lint/correctness/noInvalidPositionAtImportRule: <explanation> */
-@import "./themes.css";
-/* biome-ignore lint/correctness/noInvalidPositionAtImportRule: <explanation> */
-@import "./mdx.css";
 
 :root {
   --background: oklch(1 0 0);

@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/site";
-import type { Registry } from "shadcn/registry";
+import { Registry } from "shadcn/schema";
 
 export const useDisclosureExamples: Registry["items"] = [
   {

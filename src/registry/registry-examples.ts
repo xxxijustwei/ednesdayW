@@ -1,4 +1,4 @@
-import type { Registry } from "shadcn/registry";
+import { Registry } from "shadcn/schema";
 import { autocompleteExamples } from "./example/autocomplete/_registry";
 import { buttonExamples } from "./example/button/_registry";
 import { capWidgetExamples } from "./example/cap-widget/_registry";

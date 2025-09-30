@@ -4,7 +4,8 @@ import { exec } from "node:child_process";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { rimraf } from "rimraf";
-import { type Registry, registryItemSchema } from "shadcn/registry";
+import type { Registry } from "shadcn/schema";
+import { registryItemSchema } from "shadcn/schema";
 import { z } from "zod";
 
 import { examples } from "../src/registry/registry-examples";
@@ -12,38 +13,32 @@ import { lib } from "../src/registry/registry-lib";
 import { ui } from "../src/registry/registry-ui";
 import { hooks } from "../src/registry/reigstry-hooks";
 
-const DEPRECATED_ITEMS = ["toast"];
-
 const registry = {
   name: "Wednesday UI",
   homepage: "https://ui.ednesdayw.com",
-  items: z.array(registryItemSchema).parse(
-    [
-      {
-        name: "index",
-        type: "registry:style",
-        dependencies: [
-          "tailwindcss-animate",
-          "class-variance-authority",
-          "lucide-react",
-        ],
-        registryDependencies: ["utils"],
-        tailwind: {
-          config: {
-            plugins: [`require("tailwindcss-animate")`],
-          },
+  items: z.array(registryItemSchema).parse([
+    {
+      name: "index",
+      type: "registry:style",
+      dependencies: [
+        "tailwindcss-animate",
+        "class-variance-authority",
+        "lucide-react",
+      ],
+      registryDependencies: ["utils"],
+      tailwind: {
+        config: {
+          plugins: [`require("tailwindcss-animate")`],
         },
-        cssVars: {},
-        files: [],
       },
-      ...ui,
-      ...hooks,
-      ...examples,
-      ...lib,
-    ].filter((item) => {
-      return !DEPRECATED_ITEMS.includes(item.name);
-    }),
-  ),
+      cssVars: {},
+      files: [],
+    },
+    ...ui,
+    ...hooks,
+    ...examples,
+    ...lib,
+  ]),
 } satisfies Registry;
 
 async function buildRegistryIndex() {

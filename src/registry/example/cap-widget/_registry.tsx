@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/site";
-import { Registry } from "shadcn/registry";
+import { Registry } from "shadcn/schema";
 
 export const capWidgetExamples: Registry["items"] = [
   {
