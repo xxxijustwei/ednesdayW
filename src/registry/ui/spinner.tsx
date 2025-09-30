@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
 
-const spinnerVariants = cva("[--sk-color:var(--color-primary)]", {
+const spinnerVariants = cva("[--sk-color:var(--primary)]", {
   variants: {
     size: {
       sm: "[--sk-size:28px]",
