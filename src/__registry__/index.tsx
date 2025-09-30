@@ -324,6 +324,29 @@ export const Index: Record<string, any> = {
     }),
     meta: undefined,
   },
+  "spinner-css": {
+    name: "spinner-css",
+    description: "A spinner css file",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [
+      {
+        path: "src/registry/css/spinkit.css",
+        type: "registry:ui",
+        target: "styles/spinkit.css",
+      },
+    ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/css/spinkit.css");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    meta: undefined,
+  },
   "use-disclosure": {
     name: "use-disclosure",
     description: "A hook for managing disclosure state",

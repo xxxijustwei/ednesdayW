@@ -71,6 +71,8 @@ export const Spinner = ({
 export const PlaneSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-plane", spinnerVariants({ size }), className)}
       {...props}
     />
@@ -80,6 +82,8 @@ export const PlaneSpinner = ({ size, className, ...props }: SpinnerProps) => {
 export const ChaseSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-chase", spinnerVariants({ size }), className)}
       {...props}
     >
@@ -96,6 +100,8 @@ export const ChaseSpinner = ({ size, className, ...props }: SpinnerProps) => {
 export const BounceSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-bounce", spinnerVariants({ size }), className)}
       {...props}
     >
@@ -108,6 +114,8 @@ export const BounceSpinner = ({ size, className, ...props }: SpinnerProps) => {
 export const WaveSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-wave", spinnerVariants({ size }), className)}
       {...props}
     >
@@ -122,6 +130,8 @@ export const WaveSpinner = ({ size, className, ...props }: SpinnerProps) => {
 export const PulseSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-pulse", spinnerVariants({ size }), className)}
       {...props}
     />
@@ -131,6 +141,8 @@ export const PulseSpinner = ({ size, className, ...props }: SpinnerProps) => {
 export const FlowSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-flow", spinnerVariants({ size }), className)}
       {...props}
     >
@@ -144,6 +156,8 @@ export const FlowSpinner = ({ size, className, ...props }: SpinnerProps) => {
 export const SwingSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-swing", spinnerVariants({ size }), className)}
       {...props}
     >
@@ -156,6 +170,8 @@ export const SwingSpinner = ({ size, className, ...props }: SpinnerProps) => {
 export const CircleSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-circle", spinnerVariants({ size }), className)}
       {...props}
     >
@@ -182,6 +198,8 @@ export const CircleFadeSpinner = ({
 }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-circle-fade", spinnerVariants({ size }), className)}
       {...props}
     >
@@ -204,6 +222,8 @@ export const CircleFadeSpinner = ({
 export const GridSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-grid", spinnerVariants({ size }), className)}
       {...props}
     >
@@ -223,6 +243,8 @@ export const GridSpinner = ({ size, className, ...props }: SpinnerProps) => {
 export const FoldSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-fold", spinnerVariants({ size }), className)}
       {...props}
     >
@@ -237,6 +259,8 @@ export const FoldSpinner = ({ size, className, ...props }: SpinnerProps) => {
 export const WanderSpinner = ({ size, className, ...props }: SpinnerProps) => {
   return (
     <div
+      role="status"
+      aria-label="Loading"
       className={cn("sk-wander", spinnerVariants({ size }), className)}
       {...props}
     >
