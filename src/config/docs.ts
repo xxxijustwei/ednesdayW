@@ -90,6 +90,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/components/cap-widget",
           items: [],
         },
+        {
+          title: "Spinner",
+          href: "/docs/components/spinner",
+          items: [],
+        },
       ],
     },
     {
