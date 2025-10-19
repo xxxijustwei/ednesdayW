@@ -125,14 +125,6 @@
     "vitest": "^3.1.2"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx,json,jsonc}": [
-      "biome check --fix --unsafe ./src",
-      "biome check --files-ignore-unknown=true ./src",
-      "biome check --write --no-errors-on-unmatched ./src",
-      "biome check --write --organize-imports-enabled=false --no-errors-on-unmatched ./src",
-      "biome check --write --unsafe --no-errors-on-unmatched ./src",
-      "biome format --write --no-errors-on-unmatched ./src",
-      "biome lint --write --no-errors-on-unmatched ./src"
-    ]
+    "*.{js,ts,jsx,tsx,json,jsonc}": "biome check --write --no-errors-on-unmatched"
   }
 }
