@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "src/registry/example/textarea/label.tsx",
-      "content": "import {\n  Textarea,\n  TextareaContainer,\n  TextareaLabel,\n} from \"@/components/ui/textarea\";\n\nexport const inputVariants = [\n  \"default\",\n  \"faded\",\n  \"bordered\",\n  \"underline\",\n] as const;\n\nexport const TextareaLabelExample = () => {\n  return (\n    <div className=\"grid grid-cols-2 gap-4 w-full max-w-120\">\n      {inputVariants.map((variant) => (\n        <TextareaContainer key={variant} variant={variant} className=\"gap-0\">\n          <TextareaLabel htmlFor={variant}>Bio</TextareaLabel>\n          <Textarea id={variant} placeholder=\"Please enter your Bio...\" />\n        </TextareaContainer>\n      ))}\n    </div>\n  );\n};\n",
+      "content": "import { Textarea, TextareaInput, TextareaLabel } from \"@/components/ui/textarea\";\n\nexport const inputVariants = [\n  \"default\",\n  \"faded\",\n  \"bordered\",\n  \"underline\",\n] as const;\n\nexport const TextareaLabelExample = () => {\n  return (\n    <div className=\"grid grid-cols-2 gap-4 w-full max-w-120\">\n      {inputVariants.map((variant) => (\n        <Textarea key={variant} variant={variant} className=\"gap-0\">\n          <TextareaLabel htmlFor={variant}>Bio</TextareaLabel>\n          <TextareaInput id={variant} placeholder=\"Please enter your Bio...\" />\n        </Textarea>\n      ))}\n    </div>\n  );\n};\n",
       "type": "registry:component",
       "target": "components/demo/textarea-label-demo.tsx"
     }
