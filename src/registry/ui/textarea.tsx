@@ -59,16 +59,13 @@ export const containerVariants = cva(
   },
 );
 
-interface TextareaContainerProps
+interface TextareaProps
   extends React.ComponentProps<"div">,
     VariantProps<typeof containerVariants> {
   disabled?: boolean;
 }
 
-const TextareaContainer = React.forwardRef<
-  HTMLTextAreaElement,
-  TextareaContainerProps
->(
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     { className, "aria-invalid": ariaInvalid, disabled, variant, ...props },
     ref,
@@ -96,7 +93,7 @@ const TextareaContainer = React.forwardRef<
   },
 );
 
-TextareaContainer.displayName = "TextareaContainer";
+Textarea.displayName = "Textarea";
 
 const TextareaLabel = ({
   htmlFor,
@@ -120,19 +117,19 @@ const TextareaLabel = ({
   );
 };
 
-interface TextareaProps
+interface TextareaInputProps
   extends Omit<TextareaAutosizeProps, "disabled" | "aria-invalid"> {
   disableResize?: boolean;
 }
 
-const Textarea = ({
+const TextareaInput = ({
   className,
   placeholder,
   minRows,
   maxRows,
   disableResize,
   ...props
-}: TextareaProps) => {
+}: TextareaInputProps) => {
   const { ref, disabled } = useTextareaContext();
 
   return (
@@ -159,9 +156,9 @@ Textarea.displayName = "Textarea";
 
 export {
   Textarea,
-  TextareaContainer,
+  TextareaInput,
   TextareaLabel,
   type TextareaProps,
-  type TextareaContainerProps,
+  type TextareaInputProps,
   useTextareaContext,
 };

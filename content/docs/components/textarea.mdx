@@ -43,13 +43,14 @@ npm install react-textarea-autosize
 ### Usage
 
 ```tsx
-import { TextareaContainer, Textarea } from "@/components/ui/textarea";
+import { TextareaContainer, Textarea, TextareaLabel } from "@/components/ui/textarea";
 
 const Page = () => {
   return (
-    <TextareaContainer>
-      <Textarea />
-    </TextareaContainer>
+    <Textarea>
+      <TextareaLabel>Name</TextareaLabel>
+      <TextareaInput />
+    </Textarea>
   );
 };
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/registry/ui/button";
-import { Textarea, TextareaContainer } from "@/registry/ui/textarea";
+import { Textarea, TextareaInput } from "@/registry/ui/textarea";
 import { PencilIcon } from "lucide-react";
 import { useState } from "react";
 
@@ -30,11 +30,11 @@ export const TextareaActionsExample = () => {
           <PencilIcon className="size-4! text-secondary-foreground" />
         </Button>
       </div>
-      <TextareaContainer
+      <Textarea
         variant="faded"
         className="px-4 py-3 rounded-3xl shadow-none border-transparent group-data-[edit=false]:hidden"
       >
-        <Textarea
+        <TextareaInput
           minRows={3}
           maxRows={8}
           disableResize
@@ -66,7 +66,7 @@ export const TextareaActionsExample = () => {
             Save
           </Button>
         </div>
-      </TextareaContainer>
+      </Textarea>
     </div>
   );
 };

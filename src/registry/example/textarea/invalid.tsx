@@ -1,4 +1,4 @@
-import { Textarea, TextareaContainer } from "@/registry/ui/textarea";
+import { Textarea, TextareaInput } from "@/registry/ui/textarea";
 
 export const inputVariants = [
   "default",
@@ -11,9 +11,9 @@ export const TextareaInvalidExample = () => {
   return (
     <div className="grid grid-cols-2 gap-4 w-full max-w-120">
       {inputVariants.map((variant) => (
-        <TextareaContainer key={variant} variant={variant} aria-invalid>
-          <Textarea placeholder="Please enter something..." />
-        </TextareaContainer>
+        <Textarea key={variant} variant={variant} aria-invalid>
+          <TextareaInput placeholder="Please enter something..." />
+        </Textarea>
       ))}
     </div>
   );

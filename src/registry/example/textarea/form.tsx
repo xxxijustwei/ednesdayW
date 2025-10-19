@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/registry/ui/button";
-import { Textarea, TextareaContainer } from "@/registry/ui/textarea";
+import { Textarea, TextareaInput } from "@/registry/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -52,18 +52,17 @@ export const TextareaFormExample = () => {
             <FormField
               control={form.control}
               name="bio"
-              render={({ field }) => (
+              render={({ field: { ref, disabled, ...rest } }) => (
                 <FormItem>
                   <FormControl>
-                    <TextareaContainer variant="bordered" {...field}>
-                      <Textarea
+                    <Textarea variant="bordered" ref={ref} disabled={disabled}>
+                      <TextareaInput
                         placeholder="Please enter your Bio..."
                         minRows={3}
                         maxRows={5}
-                        value={field.value}
-                        onChange={field.onChange}
+                        {...rest}
                       />
-                    </TextareaContainer>
+                    </Textarea>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
