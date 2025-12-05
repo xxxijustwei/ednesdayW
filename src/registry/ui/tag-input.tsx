@@ -414,6 +414,7 @@ const TagInputBox = ({ className, onKeyDown, ...props }: TagInputBoxProps) => {
       {...props}
       aria-label="Add new chip"
       name="chip-input"
+      autoComplete="off"
       className={cn(inputVariants({ size }), className)}
       value={inputValue}
       onChange={(e) => setInputValue(e.target.value)}
