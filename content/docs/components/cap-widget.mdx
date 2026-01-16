@@ -249,7 +249,7 @@ After receiving the token from the client, verify it on your backend:
 ```javascript
 // Node.js example
 async function verifyToken(token) {
-  const response = await fetch('https://captcha.gurl.eu.org/api/verify', {
+  const response = await fetch('https://captcha.gurl.eu.org/api/validate', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
